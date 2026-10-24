@@ -64,6 +64,17 @@ for i in rep:
         removed[i["number"]] = days(created, min(t(e["createdAt"]) for e in un))
         removers.update(who(e, "actor") for e in un)
 
+dup = sum(1 for i in rep if i["stateReason"] == "DUPLICATE"
+          or any(e["__typename"] == "MarkedAsDuplicateEvent" for e in i["timelineItems"]["nodes"]))
+svc_had, svc_hit, svc_removed = 0, 0, 0
+for i in rep:
+    ev = i["timelineItems"]["nodes"]
+    if any(e["__typename"] == "LabeledEvent" and e["label"]["name"].startswith("service/") for e in ev):
+        svc_had += 1
+        n = sum(1 for e in ev if e["__typename"] == "UnlabeledEvent" and e["label"]["name"].startswith("service/")
+                and not is_bot(who(e, "actor")) and who(e, "actor") != who(i, "author"))
+        svc_hit, svc_removed = svc_hit + bool(n), svc_removed + n
+
 split = collections.defaultdict(list)
 for i in rep:
     if i["number"] in removed:
@@ -92,7 +103,11 @@ w(f"- Days to the first one, where it happened: median {statistics.median(fc):.2
   f"{q(fc, .75):.1f}, 90th percentile {q(fc, .9):.1f}.")
 silent = sum(1 for n in removed if not (n in first_comment and first_comment[n] <= 7))
 w(f"- Triaged (`needs-triage` removed) with no maintainer comment within 7 days: {silent}/{len(removed)}.\n")
-w("## 4. Limits\n")
+w("## 4. Figures results.md also reports, recomputed with separate code\n")
+w(f"- Closed as duplicate or marked duplicate: {dup}/{len(rep)} ({100 * dup / len(rep):.0f}%).")
+w(f"- Issues that ever had a `service/*` label: {svc_had}. A person other than the author removed {svc_removed} of "
+  f"those labels, on {svc_hit}/{svc_had} ({100 * svc_hit / svc_had:.0f}%) of them.\n")
+w("## 5. Limits\n")
 w("- Association depends on what the API shows the fetching account. Eight accounts commented as MEMBER or "
   "COLLABORATOR, including every person who removed `needs-triage`, but a maintainer shown as CONTRIBUTOR is missed.")
 w("- The weekend cut is in UTC; the maintainers' own time zones are not known.")

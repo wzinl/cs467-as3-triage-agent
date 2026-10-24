@@ -17,8 +17,10 @@ Two scripts measure the same snapshot with different definitions of "maintainer"
 | `compute_metrics.py` | a comment author with a maintainer association, or anyone who labelled, unlabelled or closed someone else's issue | `results.md` |
 | `crosscheck_metrics.py` | a comment author with association OWNER, MEMBER or COLLABORATOR, nothing else | `crosscheck.md` |
 
-They agree on what both measure: a median of 0.8 days until `needs-triage` is removed, 44 duplicates, and
-114 wrong `service/*` labels removed. Regenerate both with:
+Where both report the same figure (a median of 0.83 days until `needs-triage` is removed, 44 duplicates,
+114 wrong `service/*` labels removed), the separately written code gives the same answer, which rules out a
+coding slip in either. The weekend split, who removes `needs-triage` and the written-reply share come only
+from the cross-check. Regenerate both with:
 
 ```sh
 python3 evals/metrics/compute_metrics.py

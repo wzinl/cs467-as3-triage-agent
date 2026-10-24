@@ -23,7 +23,12 @@ Snapshot fetched 2026-10-24 03:13 UTC; 609 reporter issues of 761 opened 2026-06
 - Days to the first one, where it happened: median 1.06, 75th percentile 3.7, 90th percentile 8.3.
 - Triaged (`needs-triage` removed) with no maintainer comment within 7 days: 506/584.
 
-## 4. Limits
+## 4. Figures results.md also reports, recomputed with separate code
+
+- Closed as duplicate or marked duplicate: 44/609 (7%).
+- Issues that ever had a `service/*` label: 580. A person other than the author removed 114 of those labels, on 67/580 (12%) of them.
+
+## 5. Limits
 
 - Association depends on what the API shows the fetching account. Eight accounts commented as MEMBER or COLLABORATOR, including every person who removed `needs-triage`, but a maintainer shown as CONTRIBUTOR is missed.
 - The weekend cut is in UTC; the maintainers' own time zones are not known.
