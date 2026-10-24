@@ -1,0 +1,11 @@
+{
+  "repo": "hashicorp/terraform-provider-aws",
+  "started_at": "2026-10-24T03:13:13.500799+00:00",
+  "finished_at": "2026-10-24T03:20:33.302968+00:00",
+  "window": [
+    "2026-06-01",
+    "2026-10-20"
+  ],
+  "corpus_from": "2022-01-01",
+  "gh_version": "gh version 2.88.1 (2026-03-12)"
+}
