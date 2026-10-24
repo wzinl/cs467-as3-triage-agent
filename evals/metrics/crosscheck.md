@@ -2,6 +2,8 @@
 
 Snapshot fetched 2026-10-24 03:13 UTC; 609 reporter issues of 761 opened 2026-06-01 to 2026-10-20. Regenerate with `python3 evals/metrics/crosscheck_metrics.py`.
 
+Author association of all issues in the window: NONE 479, CONTRIBUTOR 130, MEMBER 78, COLLABORATOR 74.
+
 ## 1. Time until `needs-triage` is removed, by when the issue was opened (UTC)
 
 | opened | issues | median days | 90th percentile days |
@@ -17,6 +19,8 @@ Snapshot fetched 2026-10-24 03:13 UTC; 609 reporter issues of 761 opened 2026-06
 - `github-actions`: 64/585 (11%)
 - `jar-b`: 8/585 (1%)
 
+4 accounts removed `needs-triage`, 1 of them a bot.
+
 ## 3. Written replies from a maintainer
 
 - Reporter issues with at least one maintainer comment: 103/609 (17%).
@@ -27,9 +31,11 @@ Snapshot fetched 2026-10-24 03:13 UTC; 609 reporter issues of 761 opened 2026-06
 
 - Closed as duplicate or marked duplicate: 44/609 (7%).
 - Issues that ever had a `service/*` label: 580. A person other than the author removed 114 of those labels, on 67/580 (12%) of them.
+- Who had added the removed labels: `github-actions` 113, `justinretzolk` 1. `github-actions` is the account upstream's regex labeler (`triage.yml`) runs as.
 
 ## 5. Limits
 
-- Association depends on what the API shows the fetching account. Eight accounts commented as MEMBER or COLLABORATOR, including every person who removed `needs-triage`, but a maintainer shown as CONTRIBUTOR is missed.
+- 8 accounts commented as OWNER, MEMBER or COLLABORATOR. 3 of the 3 people who removed `needs-triage` are among them. A maintainer the API reports with another association would be missed here.
 - The weekend cut is in UTC; the maintainers' own time zones are not known.
-- Comments beyond the first 30 per issue were not fetched (2 issues had more).
+- Only the first 30 comments per issue were fetched; 2 issues had more.
+- The newest issue was opened 3.2 days before the fetch, so the last issues had little time to be triaged.

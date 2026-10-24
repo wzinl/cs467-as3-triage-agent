@@ -1,0 +1,26 @@
+name: Checks
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  claims:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Regenerate the metric outputs
+        run: |
+          python3 evals/metrics/compute_metrics.py > /dev/null
+          python3 evals/metrics/crosscheck_metrics.py > /dev/null
+
+      - name: Committed outputs match what the scripts produce
+        run: git diff --exit-code -- evals/metrics
+
+      - name: Every number in the docs is backed by an output
+        run: python3 verification/check_claims.py
