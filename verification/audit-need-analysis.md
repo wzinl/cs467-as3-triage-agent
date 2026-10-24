@@ -22,7 +22,7 @@ records the claims a substring cannot check, and what the audit changed.
 | 11 | Plan doc | "PR code runs under `pull_request_target`" | That trigger runs base-branch code with a write token; the risk is an agent reading untrusted PR code with it | Reworded |
 | 12 | Plan doc | The agent "looks at" new issues and "skips maintainers" | Not built yet | Planned, future tense |
 | 13 | Plan doc | "Only 7% of issues are duplicates" | 7% of reporter issues | Fixed |
-| 14 | Reply, 06:01 UTC | "Pushes already go through your connected GitHub account" | `get_me` returns `wzinl`, and GitHub links all commits to `wzinl`; neither shows who performed the push | Reply corrected |
+| 14 | Reply, 06:01 UTC | "Pushes already go through your connected GitHub account" | Unchecked when sent. Later, `get_me` returned `wzinl`, and every CI run names `wzinl` as the actor of its push | Left as sent, now backed |
 
 ## Checked and held
 
@@ -37,6 +37,7 @@ records the claims a substring cannot check, and what the audit changed.
 | This session cannot read upstream issues through the API | `gh auth status`: the token in `GH_TOKEN` is invalid |
 | `results.md` regenerates byte for byte | CI regenerates it on every push and fails on any difference |
 | All commits are authored and committed as `wzinl` | `git log`; GitHub `list_commits` |
+| `results.md` and `crosscheck.md` regenerate unchanged and every README number is backed | CI passes on every push: https://github.com/wzinl/cs467-as3-triage-agent/actions/workflows/checks.yml |
 | `pack.py` drops labels from the corpus | Corpus keys: number, url, title, body, created_at, closed_at, state_reason |
 | Data counts: 761 issues, 105 backlog of 2,667 open, 11,875 corpus issues, 2,698 resource docs, 16 fields per issue | Commands run on `evals/data` in this session |
 
