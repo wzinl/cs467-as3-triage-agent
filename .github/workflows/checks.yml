@@ -24,3 +24,14 @@ jobs:
 
       - name: Every number in the docs is backed by an output
         run: python3 verification/check_claims.py
+
+      - name: Imported upstream files match the manifest
+        run: sha256sum -c sandbox/upstream.sha256 --quiet
+
+      - name: Imported upstream files match a fresh import of the pinned commit
+        run: |
+          sandbox/import_upstream.sh
+          test -z "$(git status --porcelain)" || { git status --short | head -20; exit 1; }
+
+      - name: Label parser tests
+        run: python3 -m unittest discover -s sandbox
