@@ -49,8 +49,9 @@ max-daily-ai-credits: 2000
 
 network: {}
 
-# The agent reads only the skill, the issue forms and labeler configs, the label taxonomy, the resource docs
-# and the root files (CHANGELOG.md). evals/ (the issue snapshot and expected outcomes) is never checked out.
+# The checkout holds only the skill, the issue forms and labeler configs, the label taxonomy, the resource docs
+# and the root files (CHANGELOG.md). evals/ is never checked out: the agent sees only the label-free copy of
+# the earlier issues that the prepare step writes.
 checkout:
   sparse-checkout: |
     .claude/skills/issue-triage
@@ -80,6 +81,8 @@ steps:
         --issue "$RUNNER_TEMP/issue.json" --corpus "$RUNNER_TEMP/corpus.json.gz" --out /tmp/gh-aw/agent
 
 safe-outputs:
+  # Writes always use this run's own token (this repository, issues only), never a personal access token.
+  github-token: ${{ secrets.GITHUB_TOKEN }}
   add-comment:
     max: 1
     max-links: 5
@@ -95,11 +98,19 @@ safe-outputs:
   noop:
     max: 1
     report-as-issue: false
-  # The agent may say it could not finish, but that never opens an issue.
+  # The agent may say it could not finish, or lacks a tool or data, but that never opens an issue.
   report-incomplete:
     create-issue: false
+  report-missing-tool:
+    create-issue: false
+  report-missing-data:
+    create-issue: false
+  # A second model screens the outputs before anything is posted.
+  # If it flags them, or cannot reach a verdict, nothing is posted, and no tracking issue is opened.
   threat-detection:
     max-ai-credits: 100
+    continue-on-error: false
+    report-as-issue: false
   mentions:
     allowed-collaborators: false
     max: 1

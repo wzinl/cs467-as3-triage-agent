@@ -49,6 +49,12 @@ jobs:
         with:
           version: v0.93.4
 
+      - name: gh-aw's runtime actions are pinned to the commit of its release tag
+        run: |
+          pinned=$(grep -o '"sha": "[0-9a-f]\{40\}"' .github/aw/actions-lock.json | cut -d'"' -f4)
+          tagged=$(git ls-remote https://github.com/github/gh-aw-actions 'refs/tags/v0.93.4^{}' | cut -f1)
+          test -n "$pinned" && test "$pinned" = "$tagged" || { echo "pinned $pinned, tag v0.93.4 is $tagged"; exit 1; }
+
       - name: The agent's lock file matches a fresh compile of its workflow
         run: |
           gh aw compile issue-triage

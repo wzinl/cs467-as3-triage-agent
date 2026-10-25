@@ -1,9 +1,9 @@
 # Issue-triage agent for the Terraform AWS Provider (CS467 AS3)
 
-This repository will configure an existing AI agent, Claude Code run by GitHub Agentic Workflows, to give
+This repository configures an existing AI agent, Claude Code run by GitHub Agentic Workflows, to give
 new issues on [hashicorp/terraform-provider-aws](https://github.com/hashicorp/terraform-provider-aws) a
-first-pass triage. It is a sandbox: the agent is never deployed to the upstream repository. So far it holds
-the need analysis and the sandbox base; the agent's configuration comes later. Start with
+first-pass triage. It is a sandbox: the agent is never deployed to the upstream repository. It holds the
+need analysis, the sandbox base and the agent; the agent's evaluation is not done yet. Start with
 [`AGENTS.md`](AGENTS.md) for the layout, the commands and the rules.
 
 ## Why issue triage
@@ -24,6 +24,8 @@ median of 2.84 days for that removal, against 0.66 days otherwise. Only 17% got 
 |---|---|
 | 2026-10-24 | Workflow choice, need analysis (`evals/data`, `evals/metrics`), claim checks (`verification`) |
 | 2026-10-25 | Pinned copy of the upstream files a triage agent reads (`sandbox/`), upstream's labels, `AGENTS.md` |
+| 2026-10-25 | The agent (`.github/workflows/issue-triage.md`, `.claude/skills/issue-triage/`), `CONTRIBUTING.md`, `.github/CODEOWNERS` |
 
-Every number in this file, `AGENTS.md` and `evals/metrics/README.md` is checked against the generated outputs by
-`python3 verification/check_claims.py`, which CI runs on every push.
+Every number in this file, `AGENTS.md`, `CONTRIBUTING.md` and `evals/metrics/README.md` is checked against
+the generated outputs, the data or the code by `python3 verification/check_claims.py`, which CI runs on
+every push. So are the agent's limits stated in these files, against its compiled lock file.

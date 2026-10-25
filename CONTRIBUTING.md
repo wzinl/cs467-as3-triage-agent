@@ -34,9 +34,10 @@ The rules below add what applies here, both to people who use AI tools and to th
 
 **The triage agent**
 
-- It is a bot and says so: every comment ends with a fixed disclosure line.
-- It only suggests. It may add at most three allow-listed labels and post one comment on the issue it was run
-  for. It cannot close, lock, edit, assign, remove labels, open issues, merge or push. The workflow's permissions
+- It is a bot and says so: it posts as `github-actions[bot]`, its comment ends with a fixed line saying a
+  maintainer makes every decision, and gh-aw adds a footer that links the workflow run.
+- It only suggests. It may add at most three allow-listed labels and post at most one comment on the issue it was
+  run for. It cannot close, lock, edit, assign, remove labels, open issues, merge or push. The workflow's permissions
   and safe outputs enforce these limits; its instructions only repeat them.
 - Maintainers make every decision: `needs-triage`, priority, duplicates, closing. Treat a wrong label or comment
   from the agent like any triage mistake: fix it, then open an issue that links it so it can become a test case.

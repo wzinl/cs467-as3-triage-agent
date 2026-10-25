@@ -41,7 +41,7 @@ from the Actions tab with its number.
 | `evals/metrics/` | Need analysis: two scripts and the outputs they write | outputs: running the scripts |
 | `verification/` | `check_claims.py` and the claim audits (`verification/audit-*.md`) | hand |
 | `.github/workflows/` | `checks.yml` (CI), `labels.yml`, and the agent: `issue-triage.md` and its compiled `issue-triage.lock.yml` | hand; the lock file only by `gh aw compile` |
-| `.github/aw/actions-lock.json` | The commit that gh-aw's runtime actions are pinned to | hand, checked against the gh-aw release tag |
+| `.github/aw/actions-lock.json` | The commit that gh-aw's runtime actions are pinned to | hand; CI checks it against the gh-aw release tag |
 | `.claude/skills/issue-triage/` | The agent's skill: procedure, comment format, the scripts it runs and their tests | hand |
 | `CONTRIBUTING.md`, `.github/CODEOWNERS` | How to change the agent, the AI-contribution policy, review owners | hand |
 
@@ -83,5 +83,5 @@ Each is taken from the imported files, which are the reference when this list an
 | The agent's comments mention only the issue author, link only allow-listed domains, and never reference an issue in another repository (which would show up in that issue's timeline) | `validate_plan.py`, then the workflow's safe outputs (`mentions`, `allowed-github-references`, `allowed-domains`) |
 | Do not add a number to a checked doc without registering what backs it | CI: `verification/check_claims.py` |
 | Do not run anything that writes to a hashicorp repository | `sandbox/sync_labels.py` refuses one; Actions' token can only write to this repository |
-| Do not commit credentials; the API key will live in Actions secrets | CI: a search for Anthropic and GitHub token formats |
+| Do not commit credentials; the API key lives in the repository's Actions secrets | CI: a search for Anthropic and GitHub token formats |
 | Do not delete labels, issues or history | `sandbox/sync_labels.py` has no delete call; not otherwise enforced yet |
