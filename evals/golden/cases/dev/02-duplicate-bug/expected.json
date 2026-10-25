@@ -1,0 +1,23 @@
+{
+  "id": "02-duplicate-bug",
+  "decision": [
+    "comment"
+  ],
+  "labels": {
+    "required": [
+      "bug"
+    ]
+  },
+  "comment": {
+    "required": true,
+    "must_include_any": [
+      "49203"
+    ],
+    "must_not_include": [
+      "(?i)\\b(I|we)( have|'ve| will|'ll)? (closed|close|locked|removed|assigned|prioriti[sz]ed)\\b",
+      "(?i)maintainers? (has|have) approved"
+    ]
+  },
+  "rationale": "Open #49203 reports the same empty SMSMessage in invite_message_template. No form label, so the bug type label is missing.",
+  "maintainer_history": "Closed as a duplicate of #49203; bug label added by a maintainer."
+}

@@ -1,0 +1,29 @@
+{
+  "id": "quiet-50108",
+  "set": "held-out",
+  "kind": "real",
+  "source": "upstream #50108",
+  "as_of": "2026-09-22T09:49:29Z",
+  "upstream_commit": "fbbaf1768d3e6c0a47b5a9d3c23121f40a48ac06",
+  "upstream_commit_date": "2026-09-21T13:29:45Z",
+  "issue": {
+    "number": 50108,
+    "title": "[Enhancement]: Support environment_role_permission_boundary in aws_datazone_environment_blueprint_configuration",
+    "body": "### Description\n\naws_datazone_environment_blueprint_configuration does not expose the environment role permission boundary. The DataZone PutEnvironmentBlueprintConfiguration API accepts environmentRolePermissionBoundary, and the equivalent CloudFormation-backed resource awscc_datazone_environment_blueprint_configuration exposes it as environment_role_permission_boundary, but there is no corresponding argument in the aws provider.\n\nThe resource currently accepts only domain_id, environment_blueprint_id, enabled_regions, global_parameters, manage_access_role_arn, provisioning_role_arn and regional_parameters.\n\n### Affected Resource(s) or Data Source(s)\n\naws_datazone_environment_blueprint_configuration\n\n\n### Potential Terraform Configuration\n\nresource \"aws_datazone_environment_blueprint_configuration\" \"tooling\" {\n  domain_id                = aws_datazone_domain.example.id\n  environment_blueprint_id = data.aws_datazone_environment_blueprint.tooling.id\n  enabled_regions          = [data.aws_region.current.name]\n\n  provisioning_role_arn  = aws_iam_role.provisioning.arn\n  manage_access_role_arn = aws_iam_role.manage_access.arn\n\n  # Requested addition\n  environment_role_permission_boundary = aws_iam_policy.environment_boundary.arn\n\n  regional_parameters = {\n    (data.aws_region.current.name) = {\n      S3Location = \"s3://${aws_s3_bucket.example.id}\"\n      VpcId      = aws_vpc.example.id\n      Subnets    = join(\",\", aws_subnet.example[*].id)\n    }\n  }\n}\n\n\n### References\n\nAPI — PutEnvironmentBlueprintConfiguration, environmentRolePermissionBoundary https://docs.aws.amazon.com/datazone/latest/APIReference/API_PutEnvironmentBlueprintConfiguration.html\nCloudFormation — AWS::DataZone::EnvironmentBlueprintConfiguration, EnvironmentRolePermissionBoundary https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-environmentblueprintconfiguration.html\nPrior art — awscc_datazone_environment_blueprint_configuration exposes environment_role_permission_boundary https://registry.terraform.io/providers/hashicorp/awscc/latest/docs/resources/datazone_environment_blueprint_configuration\nCurrent aws provider resource documentation, showing the argument is absent [https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/datazone_environment_bluepr](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/datazone_environment_blueprint_configuration)\n\n### Would you like to implement the enhancement?\n\nNo",
+    "author": "vijayalakshmi-c",
+    "author_association": "NONE",
+    "form_labels": [
+      "enhancement"
+    ],
+    "labeler_labels": [
+      "service/datazone"
+    ],
+    "created_at": "2026-09-22T09:49:29Z"
+  },
+  "posted": {
+    "title": "[Enhancement]: Support environment_role_permission_boundary in aws_datazone_environment_blueprint_configuration",
+    "body": "### Description\n\naws_datazone_environment_blueprint_configuration does not expose the environment role permission boundary. The DataZone PutEnvironmentBlueprintConfiguration API accepts environmentRolePermissionBoundary, and the equivalent CloudFormation-backed resource awscc_datazone_environment_blueprint_configuration exposes it as environment_role_permission_boundary, but there is no corresponding argument in the aws provider.\n\nThe resource currently accepts only domain_id, environment_blueprint_id, enabled_regions, global_parameters, manage_access_role_arn, provisioning_role_arn and regional_parameters.\n\n### Affected Resource(s) or Data Source(s)\n\naws_datazone_environment_blueprint_configuration\n\n\n### Potential Terraform Configuration\n\nresource \"aws_datazone_environment_blueprint_configuration\" \"tooling\" {\n  domain_id                = aws_datazone_domain.example.id\n  environment_blueprint_id = data.aws_datazone_environment_blueprint.tooling.id\n  enabled_regions          = [data.aws_region.current.name]\n\n  provisioning_role_arn  = aws_iam_role.provisioning.arn\n  manage_access_role_arn = aws_iam_role.manage_access.arn\n\n  # Requested addition\n  environment_role_permission_boundary = aws_iam_policy.environment_boundary.arn\n\n  regional_parameters = {\n    (data.aws_region.current.name) = {\n      S3Location = \"s3://${aws_s3_bucket.example.id}\"\n      VpcId      = aws_vpc.example.id\n      Subnets    = join(\",\", aws_subnet.example[*].id)\n    }\n  }\n}\n\n\n### References\n\nAPI — PutEnvironmentBlueprintConfiguration, environmentRolePermissionBoundary https://docs.aws.amazon.com/datazone/latest/APIReference/API_PutEnvironmentBlueprintConfiguration.html\nCloudFormation — AWS::DataZone::EnvironmentBlueprintConfiguration, EnvironmentRolePermissionBoundary https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-environmentblueprintconfiguration.html\nPrior art — awscc_datazone_environment_blueprint_configuration exposes environment_role_permission_boundary https://registry.terraform.io/providers/hashicorp/awscc/latest/docs/resources/datazone_environment_blueprint_configuration\nCurrent aws provider resource documentation, showing the argument is absent [https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/datazone_environment_bluepr](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/datazone_environment_blueprint_configuration)\n\n### Would you like to implement the enhancement?\n\nNo",
+    "neutralized": []
+  },
+  "corpus_extra": []
+}

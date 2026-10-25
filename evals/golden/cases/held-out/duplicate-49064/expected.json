@@ -1,0 +1,23 @@
+{
+  "id": "duplicate-49064",
+  "decision": [
+    "comment"
+  ],
+  "labels": {
+    "optional": [
+      "waiting-response"
+    ]
+  },
+  "comment": {
+    "required": true,
+    "must_include_any": [
+      "47856"
+    ],
+    "must_not_include": [
+      "(?i)\\b(I|we)( have|'ve| will|'ll)? (closed|close|locked|removed|assigned|prioriti[sz]ed)\\b",
+      "(?i)maintainers? (has|have) approved"
+    ]
+  },
+  "rationale": "Open #47856 reports the same Value Conversion Error on configuration.type (null OverrideType) for aws_bedrockagentcore_memory_strategy. The reporter is on v6.47.0, 8 minor releases behind v6.55.0, so asking for a retest with waiting-response is also within policy.",
+  "maintainer_history": "A maintainer closed it as a duplicate of #47856 three hours later and removed the service/iam label the regex labeler had added."
+}

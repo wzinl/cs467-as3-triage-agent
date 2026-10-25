@@ -1,0 +1,27 @@
+{
+  "id": "04-tutorial-question",
+  "decision": [
+    "comment"
+  ],
+  "labels": {
+    "any_of": [
+      [
+        "question",
+        "upstream-terraform"
+      ]
+    ]
+  },
+  "comment": {
+    "required": true,
+    "must_include_any": [
+      "discuss\\.hashicorp\\.com",
+      "github\\.com/hashicorp/terraform"
+    ],
+    "must_not_include": [
+      "(?i)\\b(I|we)( have|'ve| will|'ll)? (closed|close|locked|removed|assigned|prioriti[sz]ed)\\b",
+      "(?i)maintainers? (has|have) approved"
+    ]
+  },
+  "rationale": "A newcomer hit an error in a Terraform CLI tutorial; nothing points at the AWS provider. Redirect to the forum (or Terraform core).",
+  "maintainer_history": "Closed as not planned without a comment."
+}

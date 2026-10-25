@@ -1,0 +1,26 @@
+{
+  "id": "redirect-48505",
+  "decision": [
+    "comment",
+    "noop"
+  ],
+  "labels": {
+    "optional": [
+      "upstream-terraform",
+      "waiting-response"
+    ]
+  },
+  "comment": {
+    "required": false,
+    "must_include_any": [
+      "github\\.com/hashicorp/terraform",
+      "(?i)\\bversion"
+    ],
+    "must_not_include": [
+      "(?i)\\b(I|we)( have|'ve| will|'ll)? (closed|close|locked|removed|assigned|prioriti[sz]ed)\\b",
+      "(?i)maintainers? (has|have) approved"
+    ]
+  },
+  "rationale": "Drift reported for the computed platform_version of aws_eks_cluster. The maintainer took it to Terraform core behaviour, which a first pass cannot settle, and the version field says 'Any / Latest'. Doing nothing, pointing to Terraform core, or asking for the exact versions are all acceptable; a diagnosis is not.",
+  "maintainer_history": "A maintainer explained that Terraform core, not the provider, decides what the plan shows; after checking with the core team, added upstream-terraform and closed it ten days later."
+}

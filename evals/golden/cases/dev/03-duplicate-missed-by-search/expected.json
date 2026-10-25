@@ -1,0 +1,23 @@
+{
+  "id": "03-duplicate-missed-by-search",
+  "decision": [
+    "comment"
+  ],
+  "labels": {
+    "optional": [
+      "waiting-response"
+    ]
+  },
+  "comment": {
+    "required": true,
+    "must_include_any": [
+      "46265"
+    ],
+    "must_not_include": [
+      "(?i)\\b(I|we)( have|'ve| will|'ll)? (closed|close|locked|removed|assigned|prioriti[sz]ed)\\b",
+      "(?i)maintainers? (has|have) approved"
+    ]
+  },
+  "rationale": "The maintainers' canonical is #46265, whose title misspells the resource (savingsplan), so the TF-IDF search is unlikely to return it. Predicted to fail; it is here to measure that limit. Version 6.42.0 is 8 minor releases old, so a retest request is also acceptable.",
+  "maintainer_history": "Closed as a duplicate of #46265."
+}

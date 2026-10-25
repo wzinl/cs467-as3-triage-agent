@@ -1,0 +1,21 @@
+{
+  "id": "new-50107",
+  "decision": [
+    "labels"
+  ],
+  "labels": {
+    "required": [
+      "new-resource"
+    ]
+  },
+  "comment": {
+    "required": false,
+    "must_include_any": [],
+    "must_not_include": [
+      "(?i)\\b(I|we)( have|'ve| will|'ll)? (closed|close|locked|removed|assigned|prioriti[sz]ed)\\b",
+      "(?i)maintainers? (has|have) approved"
+    ]
+  },
+  "rationale": "Asks for aws_datazone_project_profile, which does not exist at the case's commit. The new-functionality form adds no label.",
+  "maintainer_history": "A maintainer added new-resource and removed the service/sts label the regex labeler had added."
+}

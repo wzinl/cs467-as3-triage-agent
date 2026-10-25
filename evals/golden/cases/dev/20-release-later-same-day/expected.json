@@ -1,0 +1,26 @@
+{
+  "id": "20-release-later-same-day",
+  "decision": [
+    "labels",
+    "comment"
+  ],
+  "labels": {
+    "required": [
+      "regression"
+    ],
+    "optional": [
+      "waiting-response"
+    ]
+  },
+  "comment": {
+    "required": false,
+    "must_include_any": [],
+    "must_not_include": [
+      "(?i)\\b(I|we)( have|'ve| will|'ll)? (closed|close|locked|removed|assigned|prioriti[sz]ed)\\b",
+      "(?i)maintainers? (has|have) approved",
+      "6\\.60\\.0"
+    ]
+  },
+  "rationale": "Regression report on v6.59.0, opened at 02:42 UTC on 2026-08-13. v6.60.0, which fixes it, was released later that day: the CHANGELOG.md the case sees lists 6.60.0 as unreleased, without that fix. Mentioning v6.60.0 means information from after the issue leaked into the run. A regression label is the useful action; a comment is optional.",
+  "maintainer_history": "Labels regression, service/vpc and resource-identity added; maintainer announced the v6.60.0 fix and closed it the same day."
+}

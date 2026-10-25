@@ -1,0 +1,29 @@
+{
+  "id": "waiting-48513",
+  "set": "held-out",
+  "kind": "real",
+  "source": "upstream #48513",
+  "as_of": "2026-06-22T19:14:55Z",
+  "upstream_commit": "abf60f0922787592643592f19423c5b890a63d68",
+  "upstream_commit_date": "2026-06-22T18:57:35Z",
+  "issue": {
+    "number": 48513,
+    "title": "[Enhancement] Allow searching for aws_secretsmanager_secret via tag values",
+    "body": "### Description\n\nThe current aws_secretsmanager_secret data source requires specifying a name or ARN of the secret.\n\nPlease add the ability to use tags to find the secret instead like other data sources do (e.x. `aws_lb`, `aws_subnet`, and `aws_instance`)\n\nI see some sources use the `tags` configuration for lookup while others use `filter` blocks. I would prefer the `tags` method but I'm not sure the standard being used going forward.\n\n### Affected Resource(s) or Data Source(s)\n\n* `data.aws_secretsmanager_secret`\n\n### Potential Terraform Configuration\n\n```hcl\ndata \"aws_secretsmanager_secret\" \"ExampleLogin\" {\n  tags = {\n    CredentialsFor = \"auth.example.com\"\n  }\n}\n```\n\n\n### References\n\nhttps://docs.aws.amazon.com/secretsmanager/latest/apireference/API_ListSecrets.html#API_ListSecrets_RequestParameters\n\nAPI uses `filters` for tags\n\n### Would you like to implement the enhancement?\n\nNo",
+    "author": "grochoge",
+    "author_association": "NONE",
+    "form_labels": [
+      "enhancement"
+    ],
+    "labeler_labels": [
+      "service/secretsmanager"
+    ],
+    "created_at": "2026-06-22T19:14:55Z"
+  },
+  "posted": {
+    "title": "[Enhancement] Allow searching for aws_secretsmanager_secret via tag values",
+    "body": "### Description\n\nThe current aws_secretsmanager_secret data source requires specifying a name or ARN of the secret.\n\nPlease add the ability to use tags to find the secret instead like other data sources do (e.x. `aws_lb`, `aws_subnet`, and `aws_instance`)\n\nI see some sources use the `tags` configuration for lookup while others use `filter` blocks. I would prefer the `tags` method but I'm not sure the standard being used going forward.\n\n### Affected Resource(s) or Data Source(s)\n\n* `data.aws_secretsmanager_secret`\n\n### Potential Terraform Configuration\n\n```hcl\ndata \"aws_secretsmanager_secret\" \"ExampleLogin\" {\n  tags = {\n    CredentialsFor = \"auth.example.com\"\n  }\n}\n```\n\n\n### References\n\nhttps://docs.aws.amazon.com/secretsmanager/latest/apireference/API_ListSecrets.html#API_ListSecrets_RequestParameters\n\nAPI uses `filters` for tags\n\n### Would you like to implement the enhancement?\n\nNo",
+    "neutralized": []
+  },
+  "corpus_extra": []
+}

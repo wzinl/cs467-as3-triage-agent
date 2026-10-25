@@ -1,0 +1,27 @@
+{
+  "id": "09-enhancement-needs-type-label",
+  "set": "dev",
+  "kind": "real",
+  "source": "upstream #50093",
+  "as_of": "2026-09-21T08:53:55Z",
+  "upstream_commit": "3f43e0fc7fa03b99738af953e560f5005341d77f",
+  "upstream_commit_date": "2026-09-21T07:32:35Z",
+  "issue": {
+    "number": 50093,
+    "title": "[Enhancement]: aws_ecs_service: support deployment_configuration.early_success_criteria",
+    "body": "### Description\n\nAmazon ECS added early success criteria for rolling deployments. The `DeploymentConfiguration` API type now carries an `earlySuccessCriteria` member with `enable`, `healthyPercent` and `sourceServiceRevisionCleanup` (`BLOCKING` or `DEFERRED`). When enabled, ECS marks a rolling deployment successful once the configured percentage of new tasks is healthy, and with `DEFERRED` cleanup it drains the source service revision after the deployment completes instead of blocking on it. CloudFormation exposes this as `AWS::ECS::Service DeploymentEarlySuccessCriteria`.\n\n`aws_ecs_service` has no way to set this today. The `deployment_configuration` block supports `strategy`, `bake_time_in_minutes` and `lifecycle_hook`, but not `early_success_criteria`, so the setting cannot be managed by Terraform and any value set outside Terraform is not represented in state.\n\nUse case: services whose tasks use task scale-in protection and legitimately keep running for a long time after a deployment starts (queue workers draining multi-hour jobs). The AWS documentation for early success criteria recommends `DEFERRED` cleanup for exactly this case, so that CI/CD tooling with time limits is not blocked while the old revision drains.\n\n### Affected Resource(s) or Data Source(s)\n\n- resource/aws_ecs_service\n- data-source/aws_ecs_service\n\n### Potential Terraform Configuration\n\n```hcl\nresource \"aws_ecs_service\" \"example\" {\n  # ...\n\n  deployment_configuration {\n    strategy = \"ROLLING\"\n\n    early_success_criteria {\n      enable                          = true\n      healthy_percent                 = 100\n      source_service_revision_cleanup = \"DEFERRED\"\n    }\n  }\n}\n```\n\n### References\n\n- https://docs.aws.amazon.com/AmazonECS/latest/developerguide/early-success-criteria.html\n- https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DeploymentConfiguration.html\n- https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentearlysuccesscriteria.html\n- botocore `ecs/2014-11-13/service-2.json` shape `DeploymentEarlySuccessCriteria`\n\n### Would you like to implement the enhancement?\n\nNo",
+    "author": "paddy-pareto",
+    "author_association": "NONE",
+    "form_labels": [],
+    "labeler_labels": [
+      "service/ecs"
+    ],
+    "created_at": "2026-09-21T08:53:55Z"
+  },
+  "posted": {
+    "title": "[Enhancement]: aws_ecs_service: support deployment_configuration.early_success_criteria",
+    "body": "### Description\n\nAmazon ECS added early success criteria for rolling deployments. The `DeploymentConfiguration` API type now carries an `earlySuccessCriteria` member with `enable`, `healthyPercent` and `sourceServiceRevisionCleanup` (`BLOCKING` or `DEFERRED`). When enabled, ECS marks a rolling deployment successful once the configured percentage of new tasks is healthy, and with `DEFERRED` cleanup it drains the source service revision after the deployment completes instead of blocking on it. CloudFormation exposes this as `AWS::ECS::Service DeploymentEarlySuccessCriteria`.\n\n`aws_ecs_service` has no way to set this today. The `deployment_configuration` block supports `strategy`, `bake_time_in_minutes` and `lifecycle_hook`, but not `early_success_criteria`, so the setting cannot be managed by Terraform and any value set outside Terraform is not represented in state.\n\nUse case: services whose tasks use task scale-in protection and legitimately keep running for a long time after a deployment starts (queue workers draining multi-hour jobs). The AWS documentation for early success criteria recommends `DEFERRED` cleanup for exactly this case, so that CI/CD tooling with time limits is not blocked while the old revision drains.\n\n### Affected Resource(s) or Data Source(s)\n\n- resource/aws_ecs_service\n- data-source/aws_ecs_service\n\n### Potential Terraform Configuration\n\n```hcl\nresource \"aws_ecs_service\" \"example\" {\n  # ...\n\n  deployment_configuration {\n    strategy = \"ROLLING\"\n\n    early_success_criteria {\n      enable                          = true\n      healthy_percent                 = 100\n      source_service_revision_cleanup = \"DEFERRED\"\n    }\n  }\n}\n```\n\n### References\n\n- https://docs.aws.amazon.com/AmazonECS/latest/developerguide/early-success-criteria.html\n- https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DeploymentConfiguration.html\n- https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentearlysuccesscriteria.html\n- botocore `ecs/2014-11-13/service-2.json` shape `DeploymentEarlySuccessCriteria`\n\n### Would you like to implement the enhancement?\n\nNo",
+    "neutralized": []
+  },
+  "corpus_extra": []
+}

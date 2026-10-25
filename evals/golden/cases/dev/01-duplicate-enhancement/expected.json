@@ -1,0 +1,23 @@
+{
+  "id": "01-duplicate-enhancement",
+  "decision": [
+    "comment"
+  ],
+  "labels": {
+    "required": [
+      "enhancement"
+    ]
+  },
+  "comment": {
+    "required": true,
+    "must_include_any": [
+      "50078"
+    ],
+    "must_not_include": [
+      "(?i)\\b(I|we)( have|'ve| will|'ll)? (closed|close|locked|removed|assigned|prioriti[sz]ed)\\b",
+      "(?i)maintainers? (has|have) approved"
+    ]
+  },
+  "rationale": "Open #50078 asks for the same platform_version argument on the same resource. The issue has no type label: it was not filed through the form.",
+  "maintainer_history": "Closed as a duplicate of #50078 the next day; enhancement label added by a maintainer."
+}

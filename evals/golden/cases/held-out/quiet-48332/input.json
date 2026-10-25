@@ -1,0 +1,29 @@
+{
+  "id": "quiet-48332",
+  "set": "held-out",
+  "kind": "real",
+  "source": "upstream #48332",
+  "as_of": "2026-06-10T15:49:38Z",
+  "upstream_commit": "b12ec1861353825c011db525e1c06fbdd3000185",
+  "upstream_commit_date": "2026-06-10T14:30:57Z",
+  "issue": {
+    "number": 48332,
+    "title": "aws_athena_capacity_reservation target_dpus validation minimum should be 4, not 24",
+    "body": "### Terraform and AWS Provider Version\n\n```console\nTerraform v1.5.7\non darwin_arm64\n+ provider registry.terraform.io/hashicorp/aws v6.49.0\n\nYour version of Terraform is out of date! The latest version\nis 1.15.5. You can update by downloading from https://www.terraform.io/downloads.html\n```\n\n### Affected Resource(s) or Data Source(s)\n\naws_athena_capacity_reservation\n\n### Expected Behavior\n\nThe resource should accept target_dpus = 4, as AWS updated the minimum capacity for Athena Capacity Reservations to 4 DPUs on February 10, 2026.\n\n\n### Actual Behavior\n\nThe provider validation rejects target_dpus = 4 with the error:\n\nError: Invalid Attribute Value\n  Attribute target_dpus value must be at least 24, got: 4\n\nThe validation is hardcoded to >= 24, which no longer matches the AWS API.\n\n### Relevant Error/Panic Output\n\n```console\n│ Error: Invalid Attribute Value\n│\n│   with aws_athena_capacity_reservation.AthenaCapacityReservation,\n│   on main.tf line 17, in resource \"aws_athena_capacity_reservation\" \"AthenaCapacityReservation\":\n│   17:   target_dpus = 4\n│\n│ Attribute target_dpus value must be at least 24, got: 4\n```\n\n\n### Sample Terraform Configuration\n\n<details open>\n<summary>Click to expand configuration</summary>\n\n```hcl\nresource \"aws_athena_capacity_reservation\" \"example\" {\n  name        = \"example\"\n  target_dpus = 4\n}\n```\n</details>\n\n\n### Steps to Reproduce\n\n1. Define an aws_athena_capacity_reservation resource with target_dpus = 4\n2. Run terraform plan\n3. Provider validation fails before any API call is made\n\n### Debug Logging\n\n<details open>\n<summary>Click to expand log output</summary>\n\n```console\nn/a — the error is a provider-side validation failure, no API call is made\n```\n</details>\n\n\n### GenAI / LLM Assisted Development\n\nn/a\n\n### Important Facts and References\n\nAWS announced 4 DPU minimum support on February 10, 2026:\nhttps://aws.amazon.com/about-aws/whats-new/2026/02/amazon-athena-one-minute-capacity-reservations\n\nThe AWS console (Create capacity reservation page) also shows \"Minimum: 4 DPU\".\n<img width=\"806\" height=\"569\" alt=\"Image\" src=\"https://github.com/user-attachments/assets/ed28abfe-133f-437a-9dce-992f8096a6e1\" />\n\nThe fix is to update the target_dpus validation in the provider from >= 24 to >= 4.\n\n### Would you like to implement a fix?\n\nNo",
+    "author": "Aya-Schechner",
+    "author_association": "NONE",
+    "form_labels": [
+      "bug"
+    ],
+    "labeler_labels": [
+      "service/athena"
+    ],
+    "created_at": "2026-06-10T15:49:38Z"
+  },
+  "posted": {
+    "title": "aws_athena_capacity_reservation target_dpus validation minimum should be 4, not 24",
+    "body": "### Terraform and AWS Provider Version\n\n```console\nTerraform v1.5.7\non darwin_arm64\n+ provider registry.terraform.io/hashicorp/aws v6.49.0\n\nYour version of Terraform is out of date! The latest version\nis 1.15.5. You can update by downloading from https://www.terraform.io/downloads.html\n```\n\n### Affected Resource(s) or Data Source(s)\n\naws_athena_capacity_reservation\n\n### Expected Behavior\n\nThe resource should accept target_dpus = 4, as AWS updated the minimum capacity for Athena Capacity Reservations to 4 DPUs on February 10, 2026.\n\n\n### Actual Behavior\n\nThe provider validation rejects target_dpus = 4 with the error:\n\nError: Invalid Attribute Value\n  Attribute target_dpus value must be at least 24, got: 4\n\nThe validation is hardcoded to >= 24, which no longer matches the AWS API.\n\n### Relevant Error/Panic Output\n\n```console\n│ Error: Invalid Attribute Value\n│\n│   with aws_athena_capacity_reservation.AthenaCapacityReservation,\n│   on main.tf line 17, in resource \"aws_athena_capacity_reservation\" \"AthenaCapacityReservation\":\n│   17:   target_dpus = 4\n│\n│ Attribute target_dpus value must be at least 24, got: 4\n```\n\n\n### Sample Terraform Configuration\n\n<details open>\n<summary>Click to expand configuration</summary>\n\n```hcl\nresource \"aws_athena_capacity_reservation\" \"example\" {\n  name        = \"example\"\n  target_dpus = 4\n}\n```\n</details>\n\n\n### Steps to Reproduce\n\n1. Define an aws_athena_capacity_reservation resource with target_dpus = 4\n2. Run terraform plan\n3. Provider validation fails before any API call is made\n\n### Debug Logging\n\n<details open>\n<summary>Click to expand log output</summary>\n\n```console\nn/a — the error is a provider-side validation failure, no API call is made\n```\n</details>\n\n\n### GenAI / LLM Assisted Development\n\nn/a\n\n### Important Facts and References\n\nAWS announced 4 DPU minimum support on February 10, 2026:\nhttps://aws.amazon.com/about-aws/whats-new/2026/02/amazon-athena-one-minute-capacity-reservations\n\nThe AWS console (Create capacity reservation page) also shows \"Minimum: 4 DPU\".\n<img width=\"806\" height=\"569\" alt=\"Image\" src=\"https://github.com/user-attachments/assets/ed28abfe-133f-437a-9dce-992f8096a6e1\" />\n\nThe fix is to update the target_dpus validation in the provider from >= 24 to >= 4.\n\n### Would you like to implement a fix?\n\nNo",
+    "neutralized": []
+  },
+  "corpus_extra": []
+}

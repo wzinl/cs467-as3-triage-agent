@@ -1,0 +1,27 @@
+{
+  "id": "12-missing-configuration",
+  "set": "dev",
+  "kind": "real",
+  "source": "upstream #49720",
+  "as_of": "2026-08-27T17:26:08Z",
+  "upstream_commit": "411274a0ea4143f52f3edb5df2cb5bc2dd9e46b8",
+  "upstream_commit_date": "2026-08-27T17:14:11Z",
+  "issue": {
+    "number": 49720,
+    "title": "UpdateDomainConfig ValidationException: serverless_vector_acceleration sent for unsupported OpenSearch versions (< 3.1) during aiml_options update",
+    "body": "### Terraform and AWS Provider Version\n\n```console\nTerraform v1.14.4\nhashicorp/aws v6.62.0\n```\n\n### Affected Resource(s) or Data Source(s)\n\naws_opensearch_domain.aiml_options\n\n### Expected Behavior\n\nThe s3_vectors_engine update is applied successfully. serverless_vector_acceleration is not sent to AWS because the module's dynamic block guards it behind a version check.\n\n### Actual Behavior\n\nThe AWS provider's expandAimlOptions function appears to include ServerlessVectorAcceleration: { Enabled: false } in the UpdateDomainConfig API request whenever aiml_options is present in the resource, regardless of whether the serverless_vector_acceleration block is rendered in the Terraform configuration. The dynamic block guard in the module controls what Terraform plans but does not prevent the provider from including the field in the underlying API call.\n\nCreateDomain is not affected — the issue only manifests on UpdateDomainConfig.\n\n### Relevant Error/Panic Output\n\n```console\n\n```\n\n\n### Sample Terraform Configuration\n\n<details open>\n<summary>Click to expand configuration</summary>\n\n```hcl\n\n```\n</details>\n\n\n### Steps to Reproduce\n\n1. Create an OpenSearch domain with \nopensearch_version = \"OpenSearch_2.19\"\naiml_s3_vectors_engine_enabled = false\naiml_serverless_vector_acceleration = false\n\n2. Run terraform apply — succeeds\n\n3. Change aiml_s3_vectors_engine_enabled to true (no other changes)\n4. Run terraform apply\n\n### Debug Logging\n\n<details open>\n<summary>Click to expand log output</summary>\n\n```console\n\n```\n</details>\n\n\n### GenAI / LLM Assisted Development\n\nClaude\n\n### Important Facts and References\n\nI tried this to avoid passing serverless_vector_acceleration on 2.* engine versions, but it is sent anyways when \nnatural_language_query_generation_options.desired_state or s3_vectors_engine.enabled is updated.\n\ndynamic \"serverless_vector_acceleration\" {\n      for_each = contains([\"OpenSearch_3.5\"], var.engine_version) ? [1] : []\n      content {\n        enabled = var.aiml_serverless_vector_acceleration\n      }\n    }\n\n### Would you like to implement a fix?\n\nNo",
+    "author": "Vuelos",
+    "author_association": "NONE",
+    "form_labels": [
+      "bug"
+    ],
+    "labeler_labels": [],
+    "created_at": "2026-08-27T17:26:08Z"
+  },
+  "posted": {
+    "title": "UpdateDomainConfig ValidationException: serverless_vector_acceleration sent for unsupported OpenSearch versions (< 3.1) during aiml_options update",
+    "body": "### Terraform and AWS Provider Version\n\n```console\nTerraform v1.14.4\nhashicorp/aws v6.62.0\n```\n\n### Affected Resource(s) or Data Source(s)\n\naws_opensearch_domain.aiml_options\n\n### Expected Behavior\n\nThe s3_vectors_engine update is applied successfully. serverless_vector_acceleration is not sent to AWS because the module's dynamic block guards it behind a version check.\n\n### Actual Behavior\n\nThe AWS provider's expandAimlOptions function appears to include ServerlessVectorAcceleration: { Enabled: false } in the UpdateDomainConfig API request whenever aiml_options is present in the resource, regardless of whether the serverless_vector_acceleration block is rendered in the Terraform configuration. The dynamic block guard in the module controls what Terraform plans but does not prevent the provider from including the field in the underlying API call.\n\nCreateDomain is not affected — the issue only manifests on UpdateDomainConfig.\n\n### Relevant Error/Panic Output\n\n```console\n\n```\n\n\n### Sample Terraform Configuration\n\n<details open>\n<summary>Click to expand configuration</summary>\n\n```hcl\n\n```\n</details>\n\n\n### Steps to Reproduce\n\n1. Create an OpenSearch domain with \nopensearch_version = \"OpenSearch_2.19\"\naiml_s3_vectors_engine_enabled = false\naiml_serverless_vector_acceleration = false\n\n2. Run terraform apply — succeeds\n\n3. Change aiml_s3_vectors_engine_enabled to true (no other changes)\n4. Run terraform apply\n\n### Debug Logging\n\n<details open>\n<summary>Click to expand log output</summary>\n\n```console\n\n```\n</details>\n\n\n### GenAI / LLM Assisted Development\n\nClaude\n\n### Important Facts and References\n\nI tried this to avoid passing serverless_vector_acceleration on 2.* engine versions, but it is sent anyways when \nnatural_language_query_generation_options.desired_state or s3_vectors_engine.enabled is updated.\n\ndynamic \"serverless_vector_acceleration\" {\n      for_each = contains([\"OpenSearch_3.5\"], var.engine_version) ? [1] : []\n      content {\n        enabled = var.aiml_serverless_vector_acceleration\n      }\n    }\n\n### Would you like to implement a fix?\n\nNo",
+    "neutralized": []
+  },
+  "corpus_extra": []
+}

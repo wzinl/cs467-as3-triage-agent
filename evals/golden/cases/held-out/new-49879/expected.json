@@ -1,0 +1,24 @@
+{
+  "id": "new-49879",
+  "decision": [
+    "labels"
+  ],
+  "labels": {
+    "required": [
+      "new-resource"
+    ],
+    "optional": [
+      "enhancement"
+    ]
+  },
+  "comment": {
+    "required": false,
+    "must_include_any": [],
+    "must_not_include": [
+      "(?i)\\b(I|we)( have|'ve| will|'ll)? (closed|close|locked|removed|assigned|prioriti[sz]ed)\\b",
+      "(?i)maintainers? (has|have) approved"
+    ]
+  },
+  "rationale": "Asks for a new aws_sesv2_email_identity_certificate resource and a new argument on the existing aws_sesv2_configuration_set. The new-functionality form adds no label.",
+  "maintainer_history": "A maintainer added enhancement and new-resource three days later."
+}

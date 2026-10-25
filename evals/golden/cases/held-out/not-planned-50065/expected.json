@@ -1,0 +1,17 @@
+{
+  "id": "not-planned-50065",
+  "decision": [
+    "noop"
+  ],
+  "labels": {},
+  "comment": {
+    "required": false,
+    "must_include_any": [],
+    "must_not_include": [
+      "(?i)\\b(I|we)( have|'ve| will|'ll)? (closed|close|locked|removed|assigned|prioriti[sz]ed)\\b",
+      "(?i)maintainers? (has|have) approved"
+    ]
+  },
+  "rationale": "Complete bug report on v6.64.0, one minor release behind v6.65.0, whose note for this resource is about a different argument. The labeler workflow added bug and service/bedrockagent.",
+  "maintainer_history": "A maintainer removed needs-triage five days later; another closed it as not planned after three weeks, without a comment."
+}

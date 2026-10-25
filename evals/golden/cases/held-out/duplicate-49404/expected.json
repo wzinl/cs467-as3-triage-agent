@@ -1,0 +1,19 @@
+{
+  "id": "duplicate-49404",
+  "decision": [
+    "comment"
+  ],
+  "labels": {},
+  "comment": {
+    "required": true,
+    "must_include_any": [
+      "48159"
+    ],
+    "must_not_include": [
+      "(?i)\\b(I|we)( have|'ve| will|'ll)? (closed|close|locked|removed|assigned|prioriti[sz]ed)\\b",
+      "(?i)maintainers? (has|have) approved"
+    ]
+  },
+  "rationale": "Open #48159 reports the same inconsistent result after apply on aws_bedrockagentcore_harness (environment.agentcore_runtime_environment computed fields). The reporter is on v6.58.0, the latest release.",
+  "maintainer_history": "A maintainer closed it as a duplicate of #48159 the same day."
+}

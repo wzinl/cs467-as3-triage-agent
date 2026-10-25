@@ -1,0 +1,23 @@
+{
+  "id": "06-fix-in-newer-release",
+  "decision": [
+    "comment"
+  ],
+  "labels": {
+    "required": [
+      "waiting-response"
+    ]
+  },
+  "comment": {
+    "required": true,
+    "must_include_any": [
+      "6\\.61\\.0"
+    ],
+    "must_not_include": [
+      "(?i)\\b(I|we)( have|'ve| will|'ll)? (closed|close|locked|removed|assigned|prioriti[sz]ed)\\b",
+      "(?i)maintainers? (has|have) approved"
+    ]
+  },
+  "rationale": "Reported on v6.60.0; v6.61.0 (released the day before) has a fix for 'inconsistent result after apply' in this resource.",
+  "maintainer_history": "Maintainer asked the reporter to check with v6.61.0 and added waiting-response."
+}

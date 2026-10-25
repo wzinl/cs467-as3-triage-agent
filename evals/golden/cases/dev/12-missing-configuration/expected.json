@@ -1,0 +1,24 @@
+{
+  "id": "12-missing-configuration",
+  "decision": [
+    "comment"
+  ],
+  "labels": {
+    "required": [
+      "waiting-response",
+      "service/opensearch"
+    ]
+  },
+  "comment": {
+    "required": true,
+    "must_include_any": [
+      "(?i)configuration"
+    ],
+    "must_not_include": [
+      "(?i)\\b(I|we)( have|'ve| will|'ll)? (closed|close|locked|removed|assigned|prioriti[sz]ed)\\b",
+      "(?i)maintainers? (has|have) approved"
+    ]
+  },
+  "rationale": "The required Sample Terraform Configuration is empty. The resource is not written as a list item, so the regex labeler misses service/opensearch.",
+  "maintainer_history": "Maintainer asked for a complete configuration or debug logs, added waiting-response and service/opensearch."
+}

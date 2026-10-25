@@ -1,0 +1,25 @@
+{
+  "id": "13-older-major-version",
+  "decision": [
+    "comment"
+  ],
+  "labels": {
+    "required": [
+      "bug",
+      "service/lambda",
+      "waiting-response"
+    ]
+  },
+  "comment": {
+    "required": true,
+    "must_include_any": [
+      "6\\.58\\.0"
+    ],
+    "must_not_include": [
+      "(?i)\\b(I|we)( have|'ve| will|'ll)? (closed|close|locked|removed|assigned|prioriti[sz]ed)\\b",
+      "(?i)maintainers? (has|have) approved"
+    ]
+  },
+  "rationale": "Reported on v5.100.0 while v6.58.0 is current. Filed without the form (no type label), and the labeler misses service/lambda.",
+  "maintainer_history": "Maintainer added bug and service/lambda without a comment."
+}

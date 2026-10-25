@@ -1,0 +1,27 @@
+{
+  "id": "duplicate-48397",
+  "set": "held-out",
+  "kind": "real",
+  "source": "upstream #48397",
+  "as_of": "2026-06-13T10:28:22Z",
+  "upstream_commit": "0031f353d137fe4b1c175bf1b27ab64521555e5b",
+  "upstream_commit_date": "2026-06-12T19:57:40Z",
+  "issue": {
+    "number": 48397,
+    "title": "Add 'aws_ssoadmin_region' resource",
+    "body": "### What new functionality are you requesting?\n\n* `aws_ssoadmin_region`\n\n### Description\n\nAdd a new `aws_ssoadmin_region` resource to manage additional AWS Regions for an IAM Identity Center instance.\n\nThis resource would allow Terraform to add, read, import, and remove IAM Identity Center Regions using the SSO Admin Region management APIs. It would manage the upstream IAM Identity Center Region association identified by an `instance_arn` and `region_name`.\n\n### Potential Terraform Configuration\n\n```hcl\ndata \"aws_ssoadmin_instances\" \"example\" {}\n\nresource \"aws_ssoadmin_region\" \"example\" {\n  instance_arn = one(data.aws_ssoadmin_instances.example.arns)\n  region_name  = \"us-west-2\"\n}\n```\n\n\n### References\n\nAWS SDK for Go v2 SSO Admin supports the Region management APIs needed for this resource:\n\n* `AddRegion`: https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/ssoadmin#Client.AddRegion\n* `DescribeRegion`: https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/ssoadmin#Client.DescribeRegion\n* `RemoveRegion`: https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/ssoadmin#Client.RemoveRegion\n* `ListRegions`: https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/ssoadmin#Client.ListRegions\n\nThe SDK package index lists these operations under the SSO Admin client. See the SSO Admin package documentation: https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/ssoadmin\n\n### Would you like to implement the enhancement?\n\nYes",
+    "author": "pooriaghaedi",
+    "author_association": "CONTRIBUTOR",
+    "form_labels": [],
+    "labeler_labels": [
+      "service/ssoadmin"
+    ],
+    "created_at": "2026-06-13T10:28:22Z"
+  },
+  "posted": {
+    "title": "Add 'aws_ssoadmin_region' resource",
+    "body": "### What new functionality are you requesting?\n\n* `aws_ssoadmin_region`\n\n### Description\n\nAdd a new `aws_ssoadmin_region` resource to manage additional AWS Regions for an IAM Identity Center instance.\n\nThis resource would allow Terraform to add, read, import, and remove IAM Identity Center Regions using the SSO Admin Region management APIs. It would manage the upstream IAM Identity Center Region association identified by an `instance_arn` and `region_name`.\n\n### Potential Terraform Configuration\n\n```hcl\ndata \"aws_ssoadmin_instances\" \"example\" {}\n\nresource \"aws_ssoadmin_region\" \"example\" {\n  instance_arn = one(data.aws_ssoadmin_instances.example.arns)\n  region_name  = \"us-west-2\"\n}\n```\n\n\n### References\n\nAWS SDK for Go v2 SSO Admin supports the Region management APIs needed for this resource:\n\n* `AddRegion`: https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/ssoadmin#Client.AddRegion\n* `DescribeRegion`: https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/ssoadmin#Client.DescribeRegion\n* `RemoveRegion`: https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/ssoadmin#Client.RemoveRegion\n* `ListRegions`: https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/ssoadmin#Client.ListRegions\n\nThe SDK package index lists these operations under the SSO Admin client. See the SSO Admin package documentation: https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/ssoadmin\n\n### Would you like to implement the enhancement?\n\nYes",
+    "neutralized": []
+  },
+  "corpus_extra": []
+}

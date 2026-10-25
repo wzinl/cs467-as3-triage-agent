@@ -1,0 +1,17 @@
+{
+  "id": "waiting-48513",
+  "decision": [
+    "noop"
+  ],
+  "labels": {},
+  "comment": {
+    "required": false,
+    "must_include_any": [],
+    "must_not_include": [
+      "(?i)\\b(I|we)( have|'ve| will|'ll)? (closed|close|locked|removed|assigned|prioriti[sz]ed)\\b",
+      "(?i)maintainers? (has|have) approved"
+    ]
+  },
+  "rationale": "Complete enhancement request from the form for tag lookup on data.aws_secretsmanager_secret. The maintainer's answer rests on what the Secrets Manager API can do, which the agent cannot check and must not guess.",
+  "maintainer_history": "The next day a maintainer explained the API difference and added waiting-response and upstream."
+}

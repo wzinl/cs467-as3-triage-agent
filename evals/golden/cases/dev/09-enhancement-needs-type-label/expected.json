@@ -1,0 +1,20 @@
+{
+  "id": "09-enhancement-needs-type-label",
+  "decision": [
+    "labels"
+  ],
+  "labels": {
+    "required": [
+      "enhancement"
+    ]
+  },
+  "comment": {
+    "required": false,
+    "must_not_include": [
+      "(?i)\\b(I|we)( have|'ve| will|'ll)? (closed|close|locked|removed|assigned|prioriti[sz]ed)\\b",
+      "(?i)maintainers? (has|have) approved"
+    ]
+  },
+  "rationale": "Complete enhancement request filed without the form, so it has no type label. The labeler adds service/ecs.",
+  "maintainer_history": "enhancement added by a maintainer."
+}

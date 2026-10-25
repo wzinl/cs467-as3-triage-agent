@@ -1,0 +1,23 @@
+{
+  "id": "07-new-resource-request",
+  "decision": [
+    "labels"
+  ],
+  "labels": {
+    "any_of": [
+      [
+        "new-resource",
+        "new-service"
+      ]
+    ]
+  },
+  "comment": {
+    "required": false,
+    "must_not_include": [
+      "(?i)\\b(I|we)( have|'ve| will|'ll)? (closed|close|locked|removed|assigned|prioriti[sz]ed)\\b",
+      "(?i)maintainers? (has|have) approved"
+    ]
+  },
+  "rationale": "aws_marketplaceagreement_agreement does not exist and the service has no client yet. The request is complete, so labels only.",
+  "maintainer_history": "new-resource added by a maintainer; the regex labeler had wrongly added service/eks."
+}

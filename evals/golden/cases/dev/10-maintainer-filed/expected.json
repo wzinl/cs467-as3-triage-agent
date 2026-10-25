@@ -1,0 +1,16 @@
+{
+  "id": "10-maintainer-filed",
+  "decision": [
+    "skipped"
+  ],
+  "labels": {},
+  "comment": {
+    "required": false,
+    "must_not_include": [
+      "(?i)\\b(I|we)( have|'ve| will|'ll)? (closed|close|locked|removed|assigned|prioriti[sz]ed)\\b",
+      "(?i)maintainers? (has|have) approved"
+    ]
+  },
+  "rationale": "Filed by a maintainer. The workflow skips issues opened by owners, members and collaborators before the agent starts.",
+  "maintainer_history": "Maintainer's own tracking issue."
+}

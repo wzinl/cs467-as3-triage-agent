@@ -1,0 +1,20 @@
+{
+  "id": "11-regression",
+  "decision": [
+    "labels"
+  ],
+  "labels": {
+    "required": [
+      "regression"
+    ]
+  },
+  "comment": {
+    "required": false,
+    "must_not_include": [
+      "(?i)\\b(I|we)( have|'ve| will|'ll)? (closed|close|locked|removed|assigned|prioriti[sz]ed)\\b",
+      "(?i)maintainers? (has|have) approved"
+    ]
+  },
+  "rationale": "The reporter says v6.56.0 works and v6.57.0 fails. Form set bug; the labeler adds service/iam.",
+  "maintainer_history": "regression added by a maintainer; it became the canonical issue for the v6.57.0 incident."
+}

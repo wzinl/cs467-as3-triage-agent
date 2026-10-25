@@ -1,0 +1,16 @@
+{
+  "id": "08-complete-bug-no-action",
+  "decision": [
+    "noop"
+  ],
+  "labels": {},
+  "comment": {
+    "required": false,
+    "must_not_include": [
+      "(?i)\\b(I|we)( have|'ve| will|'ll)? (closed|close|locked|removed|assigned|prioriti[sz]ed)\\b",
+      "(?i)maintainers? (has|have) approved"
+    ]
+  },
+  "rationale": "Complete bug report. The form set bug and the regex labeler adds service/elbv2. Nothing to add.",
+  "maintainer_history": "needs-triage removed; no comment."
+}

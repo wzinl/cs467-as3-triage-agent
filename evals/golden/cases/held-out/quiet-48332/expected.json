@@ -1,0 +1,17 @@
+{
+  "id": "quiet-48332",
+  "decision": [
+    "noop"
+  ],
+  "labels": {},
+  "comment": {
+    "required": false,
+    "must_include_any": [],
+    "must_not_include": [
+      "(?i)\\b(I|we)( have|'ve| will|'ll)? (closed|close|locked|removed|assigned|prioriti[sz]ed)\\b",
+      "(?i)maintainers? (has|have) approved"
+    ]
+  },
+  "rationale": "Complete bug report on the latest release, v6.49.0: a validation minimum that no longer matches the AWS API.",
+  "maintainer_history": "A maintainer removed needs-triage the same day; no maintainer comment."
+}

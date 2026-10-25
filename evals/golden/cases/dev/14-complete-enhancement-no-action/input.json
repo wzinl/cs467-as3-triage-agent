@@ -1,0 +1,29 @@
+{
+  "id": "14-complete-enhancement-no-action",
+  "set": "dev",
+  "kind": "real",
+  "source": "upstream #50112",
+  "as_of": "2026-09-22T15:28:17Z",
+  "upstream_commit": "fbbaf1768d3e6c0a47b5a9d3c23121f40a48ac06",
+  "upstream_commit_date": "2026-09-21T13:29:45Z",
+  "issue": {
+    "number": 50112,
+    "title": "`aws_imagebuilder_image_pipeline` missing `imageTags` property",
+    "body": "### Description\n\nThe `aws_imagebuilder_image_pipeline` is missing the ability to configure the `imageTags` property which will allow the propagation of tags on generated resources.\n\nThe missing tags are triggering some of my internal tooling to find untagged resources. I'm requesting the provider allows the configuration of those tags to be propagated, thanks!\n\n### Affected Resource(s) or Data Source(s)\n\n* `aws_imagebuilder_image_pipeline`\n\n### Potential Terraform Configuration\n\n```hcl\nresource \"aws_imagebuilder_image_pipeline\" \"default\" {\n  distribution_configuration_arn   =aws_imagebuilder_distribution_configuration.default.arn\n  image_recipe_arn                 = aws_imagebuilder_image_recipe.default.arn\n  infrastructure_configuration_arn = aws_imagebuilder_infrastructure_configuration.default.arn\n  name                             = \"default\"\n  tags                             = var.tags\n  image_tags                       = var.tags # << NEW!\n}\n```\n\n\n### References\n\nPlease see the `imageTags` part of the RequestSyntax sections of:\n\n* https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_CreateImagePipeline.html#API_CreateImagePipeline_RequestSyntax\n* https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_UpdateImagePipeline.html#API_UpdateImagePipeline_RequestSyntax\n\n\n### Would you like to implement the enhancement?\n\nNo",
+    "author": "jessefarinacci",
+    "author_association": "NONE",
+    "form_labels": [
+      "enhancement"
+    ],
+    "labeler_labels": [
+      "service/imagebuilder"
+    ],
+    "created_at": "2026-09-22T15:28:17Z"
+  },
+  "posted": {
+    "title": "`aws_imagebuilder_image_pipeline` missing `imageTags` property",
+    "body": "### Description\n\nThe `aws_imagebuilder_image_pipeline` is missing the ability to configure the `imageTags` property which will allow the propagation of tags on generated resources.\n\nThe missing tags are triggering some of my internal tooling to find untagged resources. I'm requesting the provider allows the configuration of those tags to be propagated, thanks!\n\n### Affected Resource(s) or Data Source(s)\n\n* `aws_imagebuilder_image_pipeline`\n\n### Potential Terraform Configuration\n\n```hcl\nresource \"aws_imagebuilder_image_pipeline\" \"default\" {\n  distribution_configuration_arn   =aws_imagebuilder_distribution_configuration.default.arn\n  image_recipe_arn                 = aws_imagebuilder_image_recipe.default.arn\n  infrastructure_configuration_arn = aws_imagebuilder_infrastructure_configuration.default.arn\n  name                             = \"default\"\n  tags                             = var.tags\n  image_tags                       = var.tags # << NEW!\n}\n```\n\n\n### References\n\nPlease see the `imageTags` part of the RequestSyntax sections of:\n\n* https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_CreateImagePipeline.html#API_CreateImagePipeline_RequestSyntax\n* https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_UpdateImagePipeline.html#API_UpdateImagePipeline_RequestSyntax\n\n\n### Would you like to implement the enhancement?\n\nNo",
+    "neutralized": []
+  },
+  "corpus_extra": []
+}

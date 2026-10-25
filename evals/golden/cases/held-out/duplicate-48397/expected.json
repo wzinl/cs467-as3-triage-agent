@@ -1,0 +1,23 @@
+{
+  "id": "duplicate-48397",
+  "decision": [
+    "comment"
+  ],
+  "labels": {
+    "required": [
+      "new-resource"
+    ]
+  },
+  "comment": {
+    "required": true,
+    "must_include_any": [
+      "48099"
+    ],
+    "must_not_include": [
+      "(?i)\\b(I|we)( have|'ve| will|'ll)? (closed|close|locked|removed|assigned|prioriti[sz]ed)\\b",
+      "(?i)maintainers? (has|have) approved"
+    ]
+  },
+  "rationale": "Open #48099 asks for the same aws_ssoadmin_region resource. The new-functionality form adds no label, and the resource does not exist at the case's commit, so new-resource is missing.",
+  "maintainer_history": "Another AI bot added new-resource two minutes after it was opened; a maintainer closed it as a duplicate of #48099 three days later."
+}

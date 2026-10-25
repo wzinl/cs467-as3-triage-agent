@@ -3,7 +3,7 @@
 This repository configures an existing AI agent, Claude Code run by GitHub Agentic Workflows, to give
 new issues on [hashicorp/terraform-provider-aws](https://github.com/hashicorp/terraform-provider-aws) a
 first-pass triage. It is a sandbox: the agent is never deployed to the upstream repository. It holds the
-need analysis, the sandbox base and the agent; the agent's evaluation is not done yet. Start with
+need analysis, the sandbox base, the agent and its golden cases; no golden case has been run yet. Start with
 [`AGENTS.md`](AGENTS.md) for the layout, the commands and the rules.
 
 ## Why issue triage
@@ -25,7 +25,9 @@ median of 2.84 days for that removal, against 0.66 days otherwise. Only 17% got 
 | 2026-10-24 | Workflow choice, need analysis (`evals/data`, `evals/metrics`), claim checks (`verification`) |
 | 2026-10-25 | Pinned copy of the upstream files a triage agent reads (`sandbox/`), upstream's labels, `AGENTS.md` |
 | 2026-10-25 | The agent (`.github/workflows/issue-triage.md`, `.claude/skills/issue-triage/`), `CONTRIBUTING.md`, `.github/CODEOWNERS` |
+| 2026-10-25 | Golden cases (`evals/golden/`): 18 held-out and 20 development cases, each with its expected outcome |
 
-Every number in this file, `AGENTS.md`, `CONTRIBUTING.md` and `evals/metrics/README.md` is checked against
-the generated outputs, the data or the code by `python3 verification/check_claims.py`, which CI runs on
-every push. So are the agent's limits stated in these files, against its compiled lock file.
+Every number in this file, `AGENTS.md`, `CONTRIBUTING.md`, `evals/metrics/README.md` and
+`evals/golden/README.md` is checked against the generated outputs, the data or the code by
+`python3 verification/check_claims.py`, which CI runs on every push. So are the agent's limits stated in
+these files, against its compiled lock file.

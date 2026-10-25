@@ -1,0 +1,19 @@
+{
+  "id": "15-duplicate-of-case-06",
+  "decision": [
+    "comment"
+  ],
+  "labels": {},
+  "comment": {
+    "required": true,
+    "must_include_any": [
+      "49594"
+    ],
+    "must_not_include": [
+      "(?i)\\b(I|we)( have|'ve| will|'ll)? (closed|close|locked|removed|assigned|prioriti[sz]ed)\\b",
+      "(?i)maintainers? (has|have) approved"
+    ]
+  },
+  "rationale": "Same retrieval_config symptom as open #49594 (case 06). The labeler adds bug and service/bedrockagentcore.",
+  "maintainer_history": "Closed as a duplicate of #49594."
+}

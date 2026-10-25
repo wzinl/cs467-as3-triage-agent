@@ -1,0 +1,27 @@
+{
+  "id": "05-terraform-core-panic",
+  "decision": [
+    "comment"
+  ],
+  "labels": {
+    "required": [
+      "upstream-terraform"
+    ],
+    "optional": [
+      "service/organizations",
+      "waiting-response"
+    ]
+  },
+  "comment": {
+    "required": true,
+    "must_include_any": [
+      "github\\.com/hashicorp/terraform"
+    ],
+    "must_not_include": [
+      "(?i)\\b(I|we)( have|'ve| will|'ll)? (closed|close|locked|removed|assigned|prioriti[sz]ed)\\b",
+      "(?i)maintainers? (has|have) approved"
+    ]
+  },
+  "rationale": "The stack trace is in github.com/hashicorp/terraform/internal (core), not the provider. The regex labeler already adds bug and crash.",
+  "maintainer_history": "Maintainer asked for a full configuration, labelled upstream-terraform and closed it as a Terraform core crash."
+}

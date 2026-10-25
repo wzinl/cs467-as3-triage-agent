@@ -1,0 +1,28 @@
+{
+  "id": "10-maintainer-filed",
+  "set": "dev",
+  "kind": "real",
+  "source": "upstream #50129",
+  "as_of": "2026-09-23T20:24:03Z",
+  "upstream_commit": "83cf818516bf914b198f394e16224dc00ddb2985",
+  "upstream_commit_date": "2026-09-23T20:23:13Z",
+  "issue": {
+    "number": 50129,
+    "title": "New Resource: aws_directory_service_ip_routes",
+    "body": "### What new functionality are you requesting?\n\n* `aws_directory_service_ip_routes`\n\n### Description\n\nAWS Directory Service supports adding IP routes to a Microsoft AD / AD Connector directory so the directory can route traffic to CIDR blocks (e.g. on-premises networks reachable over VPN/Direct Connect, or peered VPCs). This is exposed in the AWS console under the directory's **Networking & security → IP routes** section, and via the `AddIpRoutes`, `RemoveIpRoutes`, and `ListIpRoutes` APIs.\n\nThe provider currently has no way to manage IP routes. `aws_directory_service_directory` exposes no argument for it, and there is no standalone resource. This issue requests a new resource to manage the set of IP routes for a given directory.\n\nProposed shape: a resource that manages the complete set of IP routes for one `directory_id` (create via `AddIpRoutes`, read via `ListIpRoutes`, delete via `RemoveIpRoutes`, update = add/remove diff). `update_security_group_for_directory_controllers` maps to the API flag of the same name.\n\n### Potential Terraform Configuration\n\n```hcl\nresource \"aws_directory_service_ip_routes\" \"example\" {\n  directory_id = aws_directory_service_directory.example.id\n\n  update_security_group_for_directory_controllers = true\n\n  ip_route {\n    cidr_ip     = \"10.0.0.0/24\"\n    description = \"On-prem network\"\n  }\n\n  ip_route {\n    cidr_ip     = \"192.168.100.0/24\"\n    description = \"Peered VPC\"\n  }\n}\n```\n\n### References\n\n* AWS API `AddIpRoutes`: https://docs.aws.amazon.com/directoryservice/latest/devguide/API_AddIpRoutes.html\n* AWS API `RemoveIpRoutes`: https://docs.aws.amazon.com/directoryservice/latest/devguide/API_RemoveIpRoutes.html\n* AWS API `ListIpRoutes`: https://docs.aws.amazon.com/directoryservice/latest/devguide/API_ListIpRoutes.html\n* AWS SDK for Go v2: https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/directoryservice#Client.AddIpRoutes\n\n### Would you like to implement the enhancement?\n\nYes\n",
+    "author": "YakDriver",
+    "author_association": "MEMBER",
+    "form_labels": [
+      "new-resource",
+      "service/ds"
+    ],
+    "labeler_labels": [],
+    "created_at": "2026-09-23T20:24:03Z"
+  },
+  "posted": {
+    "title": "New Resource: aws_directory_service_ip_routes",
+    "body": "### What new functionality are you requesting?\n\n* `aws_directory_service_ip_routes`\n\n### Description\n\nAWS Directory Service supports adding IP routes to a Microsoft AD / AD Connector directory so the directory can route traffic to CIDR blocks (e.g. on-premises networks reachable over VPN/Direct Connect, or peered VPCs). This is exposed in the AWS console under the directory's **Networking & security → IP routes** section, and via the `AddIpRoutes`, `RemoveIpRoutes`, and `ListIpRoutes` APIs.\n\nThe provider currently has no way to manage IP routes. `aws_directory_service_directory` exposes no argument for it, and there is no standalone resource. This issue requests a new resource to manage the set of IP routes for a given directory.\n\nProposed shape: a resource that manages the complete set of IP routes for one `directory_id` (create via `AddIpRoutes`, read via `ListIpRoutes`, delete via `RemoveIpRoutes`, update = add/remove diff). `update_security_group_for_directory_controllers` maps to the API flag of the same name.\n\n### Potential Terraform Configuration\n\n```hcl\nresource \"aws_directory_service_ip_routes\" \"example\" {\n  directory_id = aws_directory_service_directory.example.id\n\n  update_security_group_for_directory_controllers = true\n\n  ip_route {\n    cidr_ip     = \"10.0.0.0/24\"\n    description = \"On-prem network\"\n  }\n\n  ip_route {\n    cidr_ip     = \"192.168.100.0/24\"\n    description = \"Peered VPC\"\n  }\n}\n```\n\n### References\n\n* AWS API `AddIpRoutes`: https://docs.aws.amazon.com/directoryservice/latest/devguide/API_AddIpRoutes.html\n* AWS API `RemoveIpRoutes`: https://docs.aws.amazon.com/directoryservice/latest/devguide/API_RemoveIpRoutes.html\n* AWS API `ListIpRoutes`: https://docs.aws.amazon.com/directoryservice/latest/devguide/API_ListIpRoutes.html\n* AWS SDK for Go v2: https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/directoryservice#Client.AddIpRoutes\n\n### Would you like to implement the enhancement?\n\nYes\n",
+    "neutralized": []
+  },
+  "corpus_extra": []
+}

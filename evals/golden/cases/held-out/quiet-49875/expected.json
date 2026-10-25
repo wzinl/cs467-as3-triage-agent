@@ -1,0 +1,24 @@
+{
+  "id": "quiet-49875",
+  "decision": [
+    "noop",
+    "comment"
+  ],
+  "labels": {
+    "optional": [
+      "waiting-response"
+    ]
+  },
+  "comment": {
+    "required": false,
+    "must_include_any": [
+      "6\\.63\\.0"
+    ],
+    "must_not_include": [
+      "(?i)\\b(I|we)( have|'ve| will|'ll)? (closed|close|locked|removed|assigned|prioriti[sz]ed)\\b",
+      "(?i)maintainers? (has|have) approved"
+    ]
+  },
+  "rationale": "Complete bug report with configuration and steps. v6.58.0 is 5 minor releases behind v6.63.0, so the skill allows a retest request; the reporter also says the code on main has the same logic, so no comment is needed.",
+  "maintainer_history": "A maintainer removed needs-triage three days later; no maintainer comment."
+}

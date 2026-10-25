@@ -44,6 +44,16 @@ jobs:
       - name: Triage script tests
         run: python3 -m unittest discover -s .claude/skills/issue-triage/tests
 
+      - name: Golden-case and scorer tests
+        run: python3 -m unittest discover -s evals/golden
+
+      - name: The held-out draw and every case input regenerate unchanged from the data and upstream's history
+        run: |
+          git init -q ../upstream && git -C ../upstream fetch -q --filter=tree:0 https://github.com/hashicorp/terraform-provider-aws main
+          python3 evals/golden/select_cases.py > /dev/null
+          python3 evals/golden/build_cases.py ../upstream > /dev/null
+          test -z "$(git status --porcelain)" || { git status --short | head -20; exit 1; }
+
       - name: Install gh-aw
         uses: github/gh-aw-actions/setup-cli@40fb427c047bb9f77324054adeb574e04c9481aa # v0.93.4
         with:

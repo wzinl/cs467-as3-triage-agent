@@ -1,0 +1,17 @@
+{
+  "id": "waiting-49029",
+  "decision": [
+    "noop"
+  ],
+  "labels": {},
+  "comment": {
+    "required": false,
+    "must_include_any": [],
+    "must_not_include": [
+      "(?i)\\b(I|we)( have|'ve| will|'ll)? (closed|close|locked|removed|assigned|prioriti[sz]ed)\\b",
+      "(?i)maintainers? (has|have) approved"
+    ]
+  },
+  "rationale": "Complete enhancement request from the form for more metrics_config values on aws_lambda_event_source_mapping. Whether the SDK already supports them came out in a later discussion, not from the issue.",
+  "maintainer_history": "A contributor found the SDK already had the values; a maintainer then added waiting-response. Closed as completed; the release bot's comment names v6.58.0."
+}

@@ -1,0 +1,17 @@
+{
+  "id": "quiet-48376",
+  "decision": [
+    "noop"
+  ],
+  "labels": {},
+  "comment": {
+    "required": false,
+    "must_include_any": [],
+    "must_not_include": [
+      "(?i)\\b(I|we)( have|'ve| will|'ll)? (closed|close|locked|removed|assigned|prioriti[sz]ed)\\b",
+      "(?i)maintainers? (has|have) approved"
+    ]
+  },
+  "rationale": "Complete enhancement request from the form for the region argument on aws_rolesanywhere_profile.",
+  "maintainer_history": "A maintainer removed needs-triage the same day; no maintainer comment."
+}

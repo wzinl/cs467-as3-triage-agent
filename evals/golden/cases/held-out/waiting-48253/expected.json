@@ -1,0 +1,23 @@
+{
+  "id": "waiting-48253",
+  "decision": [
+    "comment"
+  ],
+  "labels": {
+    "required": [
+      "waiting-response"
+    ]
+  },
+  "comment": {
+    "required": true,
+    "must_include_any": [
+      "(?i)configuration"
+    ],
+    "must_not_include": [
+      "(?i)\\b(I|we)( have|'ve| will|'ll)? (closed|close|locked|removed|assigned|prioriti[sz]ed)\\b",
+      "(?i)maintainers? (has|have) approved"
+    ]
+  },
+  "rationale": "Bug report whose Sample Terraform Configuration, error output and debug log are all empty.",
+  "maintainer_history": "Another AI bot answered first; a maintainer added waiting-response, the reporter posted a configuration, and the maintainer explained why the provider behaves correctly and added waiting-response again."
+}

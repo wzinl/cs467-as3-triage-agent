@@ -1,0 +1,29 @@
+{
+  "id": "waiting-49839",
+  "set": "held-out",
+  "kind": "real",
+  "source": "upstream #49839",
+  "as_of": "2026-09-03T16:10:30Z",
+  "upstream_commit": "64f51d37413c037bd44b39d3a7e432462f83b3a1",
+  "upstream_commit_date": "2026-09-03T15:52:13Z",
+  "issue": {
+    "number": 49839,
+    "title": "resource/aws_secretsmanager_secret_version: `secret_string_wo_version` documented as Optional but enforced as required when `secret_string_wo` is set",
+    "body": "## Description\n\nThe documentation for [`aws_secretsmanager_secret_version`](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/secretsmanager_secret_version#secret_string_wo_version-2) lists `secret_string_wo_version` as **Optional**:\n\n> `secret_string_wo_version` - (Optional) Attribute used to trigger updates when rotating `secret_string_wo`.\n\nHowever, in practice, whenever `secret_string_wo` is set, the provider **requires** `secret_string_wo_version` to also be present. Omitting it causes a plan-time error:\n\n```\nError: Missing required argument\n\n  with aws_secretsmanager_secret_version.example,\n  on main.tf line N, in resource \"aws_secretsmanager_secret_version\" \"example\":\n\n\"secret_string_wo\": all of secret_string_wo,secret_string_wo_version must be specified\n```\n\nThis is because the provider schema internally has `RequiredWith: []string{\"secret_string_wo\"}` on `secret_string_wo_version`, making it conditionally required — not truly optional.\n\n## Steps to Reproduce\n\n1. Configure `aws_secretsmanager_secret_version` with `secret_string_wo` set but **without** `secret_string_wo_version`:\n\n```hcl\nresource \"aws_secretsmanager_secret_version\" \"example\" {\n  secret_id        = aws_secretsmanager_secret.example.id\n  secret_string_wo = \"my-secret-value\"\n}\n```\n\n2. Run `tofu plan` (or `terraform plan`)\n\n**Expected:** Plan succeeds (since docs say Optional)\n**Actual:** Plan fails with `all of secret_string_wo,secret_string_wo_version must be specified`\n\n## Expected Behavior\n\nThe documentation should clearly state that `secret_string_wo_version` is **required when `secret_string_wo` is set**, not simply \"Optional\". The current wording misleads users into omitting it.\n\n## Suggested Fix\n\nUpdate the registry documentation at the `secret_string_wo_version` anchor to read:\n\n> `secret_string_wo_version` - (Required when `secret_string_wo` is set) Attribute used to trigger updates when rotating `secret_string_wo`. Must always be specified alongside `secret_string_wo`.\n\n## Additional Context\n\n- Provider version: `hashicorp/aws ~> 6.43`\n- Related issue: #44590 (`secret_string_wo_version` also cannot accept ephemeral values — a separate but related problem)\n- This is a documentation-only clarification request; the `RequiredWith` constraint makes the \"Optional\" label incorrect.",
+    "author": "ujala-singh",
+    "author_association": "NONE",
+    "form_labels": [],
+    "labeler_labels": [
+      "service/secretsmanager"
+    ],
+    "created_at": "2026-09-03T16:10:30Z"
+  },
+  "posted": {
+    "title": "resource/aws_secretsmanager_secret_version: `secret_string_wo_version` documented as Optional but enforced as required when `secret_string_wo` is set",
+    "body": "## Description\n\nThe documentation for [`aws_secretsmanager_secret_version`](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/secretsmanager_secret_version#secret_string_wo_version-2) lists `secret_string_wo_version` as **Optional**:\n\n> `secret_string_wo_version` - (Optional) Attribute used to trigger updates when rotating `secret_string_wo`.\n\nHowever, in practice, whenever `secret_string_wo` is set, the provider **requires** `secret_string_wo_version` to also be present. Omitting it causes a plan-time error:\n\n```\nError: Missing required argument\n\n  with aws_secretsmanager_secret_version.example,\n  on main.tf line N, in resource \"aws_secretsmanager_secret_version\" \"example\":\n\n\"secret_string_wo\": all of secret_string_wo,secret_string_wo_version must be specified\n```\n\nThis is because the provider schema internally has `RequiredWith: []string{\"secret_string_wo\"}` on `secret_string_wo_version`, making it conditionally required — not truly optional.\n\n## Steps to Reproduce\n\n1. Configure `aws_secretsmanager_secret_version` with `secret_string_wo` set but **without** `secret_string_wo_version`:\n\n```hcl\nresource \"aws_secretsmanager_secret_version\" \"example\" {\n  secret_id        = aws_secretsmanager_secret.example.id\n  secret_string_wo = \"my-secret-value\"\n}\n```\n\n2. Run `tofu plan` (or `terraform plan`)\n\n**Expected:** Plan succeeds (since docs say Optional)\n**Actual:** Plan fails with `all of secret_string_wo,secret_string_wo_version must be specified`\n\n## Expected Behavior\n\nThe documentation should clearly state that `secret_string_wo_version` is **required when `secret_string_wo` is set**, not simply \"Optional\". The current wording misleads users into omitting it.\n\n## Suggested Fix\n\nUpdate the registry documentation at the `secret_string_wo_version` anchor to read:\n\n> `secret_string_wo_version` - (Required when `secret_string_wo` is set) Attribute used to trigger updates when rotating `secret_string_wo`. Must always be specified alongside `secret_string_wo`.\n\n## Additional Context\n\n- Provider version: `hashicorp/aws ~> 6.43`\n- Related issue: `#44590` (`secret_string_wo_version` also cannot accept ephemeral values — a separate but related problem)\n- This is a documentation-only clarification request; the `RequiredWith` constraint makes the \"Optional\" label incorrect.",
+    "neutralized": [
+      "#44590"
+    ]
+  },
+  "corpus_extra": []
+}

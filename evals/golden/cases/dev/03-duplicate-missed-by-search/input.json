@@ -1,0 +1,29 @@
+{
+  "id": "03-duplicate-missed-by-search",
+  "set": "dev",
+  "kind": "real",
+  "source": "upstream #48394",
+  "as_of": "2026-06-12T20:06:03Z",
+  "upstream_commit": "0031f353d137fe4b1c175bf1b27ab64521555e5b",
+  "upstream_commit_date": "2026-06-12T19:57:40Z",
+  "issue": {
+    "number": 48394,
+    "title": "aws_savingsplans_savings_plan fails after creating No Upfront plan because upfront_payment_amount changes from null to \"0.00000000\"",
+    "body": "### Terraform and AWS Provider Version\n\n```console\n`hashicorp/aws v6.42.0`\n```\n\n### Affected Resource(s) or Data Source(s)\n\n`aws_savingsplans_savings_plan`\n\n\n### Expected Behavior\n\nIf the user creates a no-upfront savings plan, it should successfully apply and produce a consistent result.\n\n### Actual Behavior\n\nCreating a no-upfront savings plan produces an output of \"upfront_payment_amount  = 0.00000000\" after create, which causes Terraform to treat the resource as tainted.\n\n\n### Relevant Error/Panic Output\n\n```console\n\n```\n\n\n### Sample Terraform Configuration\n\n<details open>\n<summary>Click to expand configuration</summary>\n\n```hcl\nvariable \"target_region\" {\n  type    = string\n  default = \"us-west-2\"\n}\n\ndata \"aws_savingsplans_offerings\" \"repro\" {\n  product_type    = \"EC2\"\n  plan_types      = [\"EC2Instance\"]\n  payment_options = [\"No Upfront\"]\n  durations       = [31536000]\n  currencies      = [\"USD\"]\n\n  filter {\n    name   = \"region\"\n    values = [var.target_region]\n  }\n\n  filter {\n    name   = \"instanceFamily\"\n    values = [\"g4dn\"]\n  }\n}\n\nresource \"aws_savingsplans_savings_plan\" \"repro\" {\n  savings_plan_offering_id = one(data.aws_savingsplans_offerings.repro.offerings[*].offering_id)\n\n  # Already padded, so this isolates the upfront_payment_amount issue.\n  commitment = \"0.92900000\"\n\n  lifecycle {\n    prevent_destroy = true\n  }\n}\n```\n</details>\n\n\n### Steps to Reproduce\n\n```\nterraform init\nterraform plan\nterraform apply\n```\n\n### Debug Logging\n\n<details open>\n<summary>Click to expand log output</summary>\n\n```console\nProvider produced inconsistent result after apply\n\n.upfront_payment_amount: was null, but now cty.StringVal(\"0.00000000\")\n```\n</details>\n\n\n### GenAI / LLM Assisted Development\n\nOpenAI Codex\n\n### Important Facts and References\n\n_No response_\n\n### Would you like to implement a fix?\n\nNo",
+    "author": "DerekTBrown",
+    "author_association": "CONTRIBUTOR",
+    "form_labels": [
+      "bug"
+    ],
+    "labeler_labels": [
+      "service/savingsplans"
+    ],
+    "created_at": "2026-06-12T20:06:03Z"
+  },
+  "posted": {
+    "title": "aws_savingsplans_savings_plan fails after creating No Upfront plan because upfront_payment_amount changes from null to \"0.00000000\"",
+    "body": "### Terraform and AWS Provider Version\n\n```console\n`hashicorp/aws v6.42.0`\n```\n\n### Affected Resource(s) or Data Source(s)\n\n`aws_savingsplans_savings_plan`\n\n\n### Expected Behavior\n\nIf the user creates a no-upfront savings plan, it should successfully apply and produce a consistent result.\n\n### Actual Behavior\n\nCreating a no-upfront savings plan produces an output of \"upfront_payment_amount  = 0.00000000\" after create, which causes Terraform to treat the resource as tainted.\n\n\n### Relevant Error/Panic Output\n\n```console\n\n```\n\n\n### Sample Terraform Configuration\n\n<details open>\n<summary>Click to expand configuration</summary>\n\n```hcl\nvariable \"target_region\" {\n  type    = string\n  default = \"us-west-2\"\n}\n\ndata \"aws_savingsplans_offerings\" \"repro\" {\n  product_type    = \"EC2\"\n  plan_types      = [\"EC2Instance\"]\n  payment_options = [\"No Upfront\"]\n  durations       = [31536000]\n  currencies      = [\"USD\"]\n\n  filter {\n    name   = \"region\"\n    values = [var.target_region]\n  }\n\n  filter {\n    name   = \"instanceFamily\"\n    values = [\"g4dn\"]\n  }\n}\n\nresource \"aws_savingsplans_savings_plan\" \"repro\" {\n  savings_plan_offering_id = one(data.aws_savingsplans_offerings.repro.offerings[*].offering_id)\n\n  # Already padded, so this isolates the upfront_payment_amount issue.\n  commitment = \"0.92900000\"\n\n  lifecycle {\n    prevent_destroy = true\n  }\n}\n```\n</details>\n\n\n### Steps to Reproduce\n\n```\nterraform init\nterraform plan\nterraform apply\n```\n\n### Debug Logging\n\n<details open>\n<summary>Click to expand log output</summary>\n\n```console\nProvider produced inconsistent result after apply\n\n.upfront_payment_amount: was null, but now cty.StringVal(\"0.00000000\")\n```\n</details>\n\n\n### GenAI / LLM Assisted Development\n\nOpenAI Codex\n\n### Important Facts and References\n\n_No response_\n\n### Would you like to implement a fix?\n\nNo",
+    "neutralized": []
+  },
+  "corpus_extra": []
+}

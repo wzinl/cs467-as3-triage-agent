@@ -1,0 +1,27 @@
+{
+  "id": "19-fix-released-day-before",
+  "decision": [
+    "comment"
+  ],
+  "labels": {
+    "required": [
+      "waiting-response"
+    ],
+    "optional": [
+      "crash",
+      "service/bedrockagentcore"
+    ]
+  },
+  "comment": {
+    "required": true,
+    "must_include_any": [
+      "6\\.49\\.0"
+    ],
+    "must_not_include": [
+      "(?i)\\b(I|we)( have|'ve| will|'ll)? (closed|close|locked|removed|assigned|prioriti[sz]ed)\\b",
+      "(?i)maintainers? (has|have) approved"
+    ]
+  },
+  "rationale": "Crash on v6.48.0 in AgentCore gateway/target code. v6.49.0, released the day before the issue, fixes a gateway_target panic that was a v6.48.0 regression. The issue names no aws_* resource, only 'Gateway (MCP) + 1 Target', so triage_checks.py will not match the release note to it. Predicted to fail.",
+  "maintainer_history": "Maintainer replied that it was fixed in v6.49.0 via #48215 and closed it 17 minutes after it was opened."
+}

@@ -1,0 +1,29 @@
+{
+  "id": "01-duplicate-enhancement",
+  "set": "dev",
+  "kind": "real",
+  "source": "upstream #50244",
+  "as_of": "2026-10-01T23:12:23Z",
+  "upstream_commit": "34167e0962cbf4431615e9c32ff1fe7f3cf74c3e",
+  "upstream_commit_date": "2026-09-30T21:04:27Z",
+  "issue": {
+    "number": 50244,
+    "title": "[Enhancement]: Support platform_version on aws_bedrockagentcore_agent_runtime",
+    "body": "### Description\n\nThe Amazon Bedrock AgentCore Runtime API supports a `platformVersion` (`V1` / `V2`) on `CreateAgentRuntime` and `UpdateAgentRuntime`, and returns it from `GetAgentRuntime`. `V2` (\"the new AgentCore Runtime\") provides elastic memory and consistent, snapshot-based fast cold starts. The `aws_bedrockagentcore_agent_runtime` resource does not currently expose this field, so Terraform users can't select or change the runtime's platform version. This enhancement adds an optional `platform_version` argument.\n\n### Affected Resource(s) and/or Data Source(s)\n\n* `aws_bedrockagentcore_agent_runtime`\n\n### Potential Terraform Configuration\n\n```hcl\nresource \"aws_bedrockagentcore_agent_runtime\" \"example\" {\n  agent_runtime_name = \"example\"\n  role_arn           = aws_iam_role.example.arn\n  platform_version   = \"V2\"\n\n  agent_runtime_artifact {\n    container_configuration {\n      container_uri = \"123456789012.dkr.ecr.us-east-1.amazonaws.com/example:latest\"\n    }\n  }\n\n  network_configuration {\n    network_mode = \"PUBLIC\"\n  }\n}\n```\n\n### References\n\n* CreateAgentRuntime: https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_CreateAgentRuntime.html\n* UpdateAgentRuntime: https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_UpdateAgentRuntime.html\n* Platform versions (devguide): https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-how-it-works.html#platform-versions\n* The new AgentCore Runtime (what's new): https://aws.amazon.com/about-aws/whats-new/2026/09/new-agentcore-runtime-generally-available/\n\n### Would you like to implement a fix?\n\nYes — implemented in [#50236](https://github.com/hashicorp/terraform-provider-aws/pull/50236).\n",
+    "author": "naviret",
+    "author_association": "NONE",
+    "form_labels": [],
+    "labeler_labels": [
+      "service/bedrockagentcore"
+    ],
+    "created_at": "2026-10-01T23:12:23Z"
+  },
+  "posted": {
+    "title": "[Enhancement]: Support platform_version on aws_bedrockagentcore_agent_runtime",
+    "body": "### Description\n\nThe Amazon Bedrock AgentCore Runtime API supports a `platformVersion` (`V1` / `V2`) on `CreateAgentRuntime` and `UpdateAgentRuntime`, and returns it from `GetAgentRuntime`. `V2` (\"the new AgentCore Runtime\") provides elastic memory and consistent, snapshot-based fast cold starts. The `aws_bedrockagentcore_agent_runtime` resource does not currently expose this field, so Terraform users can't select or change the runtime's platform version. This enhancement adds an optional `platform_version` argument.\n\n### Affected Resource(s) and/or Data Source(s)\n\n* `aws_bedrockagentcore_agent_runtime`\n\n### Potential Terraform Configuration\n\n```hcl\nresource \"aws_bedrockagentcore_agent_runtime\" \"example\" {\n  agent_runtime_name = \"example\"\n  role_arn           = aws_iam_role.example.arn\n  platform_version   = \"V2\"\n\n  agent_runtime_artifact {\n    container_configuration {\n      container_uri = \"123456789012.dkr.ecr.us-east-1.amazonaws.com/example:latest\"\n    }\n  }\n\n  network_configuration {\n    network_mode = \"PUBLIC\"\n  }\n}\n```\n\n### References\n\n* CreateAgentRuntime: https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_CreateAgentRuntime.html\n* UpdateAgentRuntime: https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_UpdateAgentRuntime.html\n* Platform versions (devguide): https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-how-it-works.html#platform-versions\n* The new AgentCore Runtime (what's new): https://aws.amazon.com/about-aws/whats-new/2026/09/new-agentcore-runtime-generally-available/\n\n### Would you like to implement a fix?\n\nYes — implemented in `[#50236](https://github.com/hashicorp/terraform-provider-aws/pull/50236)`.\n",
+    "neutralized": [
+      "[#50236](https://github.com/hashicorp/terraform-provider-aws/pull/50236)"
+    ]
+  },
+  "corpus_extra": []
+}
