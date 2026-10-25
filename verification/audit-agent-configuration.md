@@ -58,6 +58,11 @@ runtime actions are pinned to the commit of the `v0.93.4` tag, and runs the 17 s
    it. It also said "post one comment" where the limit is at most one. Both reworded.
 9. `AGENTS.md` said the action pin was "checked against the gh-aw release tag" before anything checked
    it; CI now does.
+10. Two commit messages overstate. The one that adds the agent says mentions are limited to the author
+   (gh-aw also lets through assignees and the dispatcher; see Mentions above) and that failures never
+   open issues (the detection tracking issue could, see 2). The one that closes those paths says a
+   missing-tool report could open an issue (the lock said so; the runtime would not have). The history
+   is not rewritten for this; this ledger is the correction.
 
 ## Not enforced yet
 
