@@ -25,6 +25,9 @@ jobs:
       - name: Every number in the docs is backed by an output
         run: python3 verification/check_claims.py
 
+      - name: The issue snapshot matches its manifest
+        run: sha256sum -c evals/data/snapshot.sha256 --quiet
+
       - name: Imported upstream files match the manifest
         run: sha256sum -c sandbox/upstream.sha256 --quiet
 
@@ -34,4 +37,9 @@ jobs:
           test -z "$(git status --porcelain)" || { git status --short | head -20; exit 1; }
 
       - name: Label parser tests
-        run: python3 -m unittest discover -s sandbox
+        run: |
+          python3 -m unittest discover -s sandbox
+          python3 sandbox/sync_labels.py --list > /dev/null
+
+      - name: No credentials are committed
+        run: "! git grep -nIE 'sk-ant-[A-Za-z0-9_-]{20,}|gh[pousr]_[A-Za-z0-9]{36}|github_pat_[A-Za-z0-9_]{22,}'"

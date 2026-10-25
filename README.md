@@ -3,7 +3,8 @@
 This repository will configure an existing AI agent, Claude Code run by GitHub Agentic Workflows, to give
 new issues on [hashicorp/terraform-provider-aws](https://github.com/hashicorp/terraform-provider-aws) a
 first-pass triage. It is a sandbox: the agent is never deployed to the upstream repository. So far it holds
-the need analysis; the agent's configuration comes later.
+the need analysis and the sandbox base; the agent's configuration comes later. Start with
+[`AGENTS.md`](AGENTS.md) for the layout, the commands and the rules.
 
 ## Why issue triage
 
@@ -22,6 +23,7 @@ median of 2.84 days for that removal, against 0.66 days otherwise. Only 17% got 
 | Date | Contents |
 |---|---|
 | 2026-10-24 | Workflow choice, need analysis (`evals/data`, `evals/metrics`), claim checks (`verification`) |
+| 2026-10-25 | Pinned copy of the upstream files a triage agent reads (`sandbox/`), upstream's labels, `AGENTS.md` |
 
-Every number in this file and in `evals/metrics/README.md` is checked against the generated outputs by
+Every number in this file, `AGENTS.md` and `evals/metrics/README.md` is checked against the generated outputs by
 `python3 verification/check_claims.py`, which CI runs on every push.
