@@ -72,8 +72,10 @@ steps:
       ISSUE_NUMBER: ${{ github.event.issue.number || inputs.issue_number }}
     run: |
       gh api "repos/$GITHUB_REPOSITORY/issues/$ISSUE_NUMBER" > "$RUNNER_TEMP/issue.json"
-      gh api -H "Accept: application/vnd.github.raw+json" \
-        "repos/$GITHUB_REPOSITORY/contents/evals/data/corpus.json.gz?ref=$GITHUB_SHA" > "$RUNNER_TEMP/corpus.json.gz"
+      # curl, not gh api: gh fails on a binary response ("transform: short source buffer").
+      curl -fsSL -H "Authorization: Bearer $GH_TOKEN" -H "Accept: application/vnd.github.raw+json" \
+        "$GITHUB_API_URL/repos/$GITHUB_REPOSITORY/contents/evals/data/corpus.json.gz?ref=$GITHUB_SHA" \
+        -o "$RUNNER_TEMP/corpus.json.gz"
       python3 .claude/skills/issue-triage/scripts/prepare_context.py \
         --issue "$RUNNER_TEMP/issue.json" --corpus "$RUNNER_TEMP/corpus.json.gz" --out /tmp/gh-aw/agent
 

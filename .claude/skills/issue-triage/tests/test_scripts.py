@@ -210,6 +210,14 @@ class Prepare(unittest.TestCase):
         self.assertIn("data.aws_s3_bucket", names)
         self.assertIsNone(plan["decision"])
 
+    def test_a_pull_request_is_refused(self):
+        with tempfile.TemporaryDirectory() as d:
+            (Path(d) / "issue.json").write_text(json.dumps({"number": 7, "pull_request": {}}))
+            r = subprocess.run([sys.executable, str(SCRIPTS / "prepare_context.py"), "--issue", str(Path(d) / "issue.json"),
+                                "--corpus", "unused", "--out", str(Path(d) / "out")], cwd=ROOT, capture_output=True, text=True)
+        self.assertNotEqual(r.returncode, 0)
+        self.assertIn("pull request", r.stderr)
+
 
 class Config(unittest.TestCase):
     def test_taxonomy_matches_the_label_sync(self):

@@ -59,6 +59,8 @@ def main():
 
     with open(args.issue, encoding="utf-8") as f:
         raw = json.load(f)
+    if "pull_request" in raw:  # the issues API also returns pull requests, and a dispatch can name one
+        sys.exit(f"#{raw['number']} is a pull request; the agent triages issues only")
     # The issue text is untrusted. It is stored verbatim for the scripts; the skill tells the agent to
     # treat it as data. Only NUL bytes are removed, because they break some JSON consumers.
     issue = {"number": raw["number"], "url": raw["html_url"],
