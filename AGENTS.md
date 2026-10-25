@@ -2,8 +2,9 @@
 
 This repository is a sandbox for a first-pass issue-triage agent for
 [hashicorp/terraform-provider-aws](https://github.com/hashicorp/terraform-provider-aws). It holds a pinned
-copy of the upstream files a triage agent reads, the need analysis, and the checks behind every claim. The
-agent's own workflow, skill and evaluation are added later. Nothing here acts on the upstream repository.
+copy of the upstream files a triage agent reads, the need analysis, the agent (a GitHub Agentic Workflows
+workflow that runs Claude Code with a skill), and the checks behind every claim. The agent's evaluation is
+added later. Nothing here acts on the upstream repository.
 
 ## Commands
 
@@ -17,12 +18,18 @@ python3 verification/check_claims.py                      # every number in the 
 sha256sum -c evals/data/snapshot.sha256 --quiet           # the issue snapshot is unchanged
 sha256sum -c sandbox/upstream.sha256 --quiet              # the upstream copy is unchanged
 python3 -m unittest discover -s sandbox                   # label parser tests
+python3 -m unittest discover -s .claude/skills/issue-triage/tests   # triage script tests
 python3 sandbox/sync_labels.py --list                     # print upstream's labels, change nothing
 sandbox/import_upstream.sh                                # re-import the pinned commit (needs network)
 ```
 
 After a re-import, `git status` must be clean unless the pinned commit changed. To create or update the
 repository's labels, run the Labels workflow (`.github/workflows/labels.yml`) from the Actions tab.
+
+The agent's limits live in the frontmatter of `.github/workflows/issue-triage.md`. After editing it, run
+`gh aw compile issue-triage` with gh-aw v0.93.4 and commit the regenerated `.github/workflows/issue-triage.lock.yml`
+with it; CI recompiles and fails on any difference. To triage an issue by hand, run the Issue triage workflow
+from the Actions tab with its number.
 
 ## Structure
 
@@ -33,7 +40,10 @@ repository's labels, run the Labels workflow (`.github/workflows/labels.yml`) fr
 | `evals/data/` | Read-only snapshot of upstream issues, fetched once | `evals/data/fetch_upstream.py`, then `evals/data/pack.py` |
 | `evals/metrics/` | Need analysis: two scripts and the outputs they write | outputs: running the scripts |
 | `verification/` | `check_claims.py` and the claim audits (`verification/audit-*.md`) | hand |
-| `.github/workflows/` | `checks.yml` (CI) and `labels.yml` | hand |
+| `.github/workflows/` | `checks.yml` (CI), `labels.yml`, and the agent: `issue-triage.md` and its compiled `issue-triage.lock.yml` | hand; the lock file only by `gh aw compile` |
+| `.github/aw/actions-lock.json` | The commit that gh-aw's runtime actions are pinned to | hand, checked against the gh-aw release tag |
+| `.claude/skills/issue-triage/` | The agent's skill: procedure, comment format, the scripts it runs and their tests | hand |
+| `CONTRIBUTING.md`, `.github/CODEOWNERS` | How to change the agent, the AI-contribution policy, review owners | hand |
 
 ## Upstream conventions a triage agent follows
 
@@ -59,9 +69,9 @@ Each is taken from the imported files, which are the reference when this list an
   [AGENTS.md](https://github.com/hashicorp/terraform-provider-aws/blob/1e015f77bf1464d7ca816f19a506ee55d3f92a7f/AGENTS.md)
   and the personas in [`.agents/`](https://github.com/hashicorp/terraform-provider-aws/tree/1e015f77bf1464d7ca816f19a506ee55d3f92a7f/.agents).
   Its [`tcm` persona](https://github.com/hashicorp/terraform-provider-aws/blob/1e015f77bf1464d7ca816f19a506ee55d3f92a7f/.agents/tcm.md)
-  triages issues and also suggests workarounds. The agent built here is planned to add labels and post at
-  most one comment, which asks for missing information or points to a likely duplicate or the right place,
-  with no workarounds or other technical advice. So it does not adopt that persona.
+  triages issues and also suggests workarounds. The agent built here adds labels and posts at most one
+  comment, which asks for missing information or points to a likely duplicate or the right place, with no
+  workarounds or other technical advice. So it does not adopt that persona.
 
 ## Forbidden changes
 
@@ -69,6 +79,8 @@ Each is taken from the imported files, which are the reference when this list an
 |---|---|
 | Do not edit the upstream copy by hand; change the commit in `sandbox/import_upstream.sh` and re-run it | CI: the manifest check, and a fresh import must leave `git status` clean |
 | Do not edit the issue snapshot; a re-fetch replaces it whole and rewrites `evals/data/snapshot.sha256` | CI: the snapshot manifest, and the regenerated metric outputs must match the committed ones |
+| Do not edit `.github/workflows/issue-triage.lock.yml` by hand; edit the `.md` and recompile | CI: recompiles with gh-aw v0.93.4 and fails on any difference |
+| The agent's comments mention only the issue author, link only allow-listed domains, and never reference an issue in another repository (which would show up in that issue's timeline) | `validate_plan.py`, then the workflow's safe outputs (`mentions`, `allowed-github-references`, `allowed-domains`) |
 | Do not add a number to a checked doc without registering what backs it | CI: `verification/check_claims.py` |
 | Do not run anything that writes to a hashicorp repository | `sandbox/sync_labels.py` refuses one; Actions' token can only write to this repository |
 | Do not commit credentials; the API key will live in Actions secrets | CI: a search for Anthropic and GitHub token formats |

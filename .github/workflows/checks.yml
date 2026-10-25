@@ -10,7 +10,7 @@ permissions:
 jobs:
   claims:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
@@ -40,6 +40,19 @@ jobs:
         run: |
           python3 -m unittest discover -s sandbox
           python3 sandbox/sync_labels.py --list > /dev/null
+
+      - name: Triage script tests
+        run: python3 -m unittest discover -s .claude/skills/issue-triage/tests
+
+      - name: Install gh-aw
+        uses: github/gh-aw-actions/setup-cli@40fb427c047bb9f77324054adeb574e04c9481aa # v0.93.4
+        with:
+          version: v0.93.4
+
+      - name: The agent's lock file matches a fresh compile of its workflow
+        run: |
+          gh aw compile issue-triage
+          test -z "$(git status --porcelain)" || { git status --short; git diff | head -40; exit 1; }
 
       - name: No credentials are committed
         run: "! git grep -nIE 'sk-ant-[A-Za-z0-9_-]{20,}|gh[pousr]_[A-Za-z0-9]{36}|github_pat_[A-Za-z0-9_]{22,}'"
