@@ -1,0 +1,175 @@
+---
+subcategory: "VPC IPAM (IP Address Manager)"
+layout: "aws"
+page_title: "AWS: aws_vpc_ipam_pool"
+description: |-
+  Provides a IP address pool resource for IPAM.
+---
+
+# Resource: aws_vpc_ipam_pool
+
+Provides an IP address pool resource for IPAM.
+
+~> **NOTE:** When provisioning resource planning IPAM pools, it can take upto 30 minutes for the CIDR to be managed by IPAM.
+
+## Example Usage
+
+Basic usage:
+
+```terraform
+data "aws_region" "current" {}
+
+resource "aws_vpc_ipam" "example" {
+  operating_regions {
+    region_name = data.aws_region.current.region
+  }
+}
+
+resource "aws_vpc_ipam_pool" "example" {
+  address_family = "ipv4"
+  ipam_scope_id  = aws_vpc_ipam.example.private_default_scope_id
+  locale         = data.aws_region.current.region
+}
+```
+
+Nested Pools:
+
+```terraform
+data "aws_region" "current" {}
+
+resource "aws_vpc_ipam" "example" {
+  operating_regions {
+    region_name = data.aws_region.current.region
+  }
+}
+
+resource "aws_vpc_ipam_pool" "parent" {
+  address_family = "ipv4"
+  ipam_scope_id  = aws_vpc_ipam.example.private_default_scope_id
+}
+
+resource "aws_vpc_ipam_pool_cidr" "parent_test" {
+  ipam_pool_id = aws_vpc_ipam_pool.parent.id
+  cidr         = "172.20.0.0/16"
+}
+
+resource "aws_vpc_ipam_pool" "child" {
+  address_family      = "ipv4"
+  ipam_scope_id       = aws_vpc_ipam.example.private_default_scope_id
+  locale              = data.aws_region.current.region
+  source_ipam_pool_id = aws_vpc_ipam_pool.parent.id
+}
+
+resource "aws_vpc_ipam_pool_cidr" "child_test" {
+  ipam_pool_id = aws_vpc_ipam_pool.child.id
+  cidr         = "172.20.0.0/24"
+}
+```
+
+Resource Planning Pools:
+
+```terraform
+data "aws_region" "current" {}
+
+resource "aws_vpc_ipam" "example" {
+  operating_regions {
+    region_name = data.aws_region.current.region
+  }
+}
+
+resource "aws_vpc_ipam_pool" "test" {
+  address_family = "ipv4"
+  ipam_scope_id  = aws_vpc_ipam.example.private_default_scope_id
+}
+
+resource "aws_vpc_ipam_pool_cidr" "test" {
+  ipam_pool_id = aws_vpc_ipam_pool.parent.id
+  cidr         = "10.0.0.0/16"
+}
+
+resource "aws_vpc" "test" {
+  ipv4_ipam_pool_id   = aws_vpc_ipam_pool.test.id
+  ipv4_netmask_length = 24
+
+  depends_on = [aws_vpc_ipam_pool_cidr.test]
+}
+
+resource "aws_vpc_ipam_pool" "vpc" {
+  address_family      = "ipv4"
+  ipam_scope_id       = aws_vpc_ipam.test.private_default_scope_id
+  locale              = data.aws_region.current.region
+  source_ipam_pool_id = aws_vpc_ipam_pool.test.id
+
+  source_resource {
+    resource_id     = aws_vpc.test.id
+    resource_owner  = data.aws_caller_identity.current.account_id
+    resource_region = data.aws_region.current.region
+    resource_type   = "vpc"
+  }
+}
+```
+
+## Argument Reference
+
+This resource supports the following arguments:
+
+* `address_family` - (Required) IP protocol assigned to this pool. You must choose either IPv4 or IPv6 protocol for a pool.
+* `allocation_default_netmask_length` - (Optional) Default netmask length for allocations added to this pool. If, for example, the CIDR assigned to this pool is 10.0.0.0/8 and you enter 16 here, new allocations will default to 10.0.0.0/16 (unless you provide a different netmask value when you create the new allocation).
+* `allocation_max_netmask_length` - (Optional) Maximum netmask length that will be required for CIDR allocations in this pool.
+* `allocation_min_netmask_length` - (Optional) Minimum netmask length that will be required for CIDR allocations in this pool.
+* `allocation_resource_tags` - (Optional) Tags that are required for resources that use CIDRs from this IPAM pool. Resources that do not have these tags will not be allowed to allocate space from the pool. If the resources have their tags changed after they have allocated space or if the allocation tagging requirements are changed on the pool, the resource may be marked as noncompliant.
+* `auto_import` - (Optional) Whether to automatically import any VPCs you have in your scope that fall within the CIDR range in the pool.
+* `aws_service` - (Optional) Limits which AWS service the pool can be used in. Only useable on public scopes. Valid Values: `ec2`.
+* `cascade` - (Optional) Whether to quickly delete an IPAM pool and all resources within that pool, including provisioned CIDRs, allocations, and other pools.
+* `description` - (Optional) Description for the IPAM pool.
+* `ipam_scope_id` - (Required) ID of the scope in which you would like to create the IPAM pool.
+* `locale` - (Optional) Locale in which you would like to create the IPAM pool. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region. Possible values: Any AWS region, such as `us-east-1`.
+* `public_ip_source` - (Optional) IP address source for pools in the public scope. Only used for provisioning IP address CIDRs to pools in the public scope. Valid values are `byoip` or `amazon`. Default is `byoip`.
+* `publicly_advertisable` - (Optional) Whether IPv6 pool space is publicly advertisable over the internet. This argument is required if `address_family = "ipv6"` and `public_ip_source = "byoip"`, default is `false`. This option is not available for IPv4 pool space or if `public_ip_source = "amazon"`. Setting this argument to `true` when it is not available may result in erroneous differences being reported.
+* `region` - (Optional) Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+* `source_ipam_pool_id` - (Optional) ID of the source IPAM pool. Use this argument to create a child pool within an existing pool.
+* `source_resource` - (Optional) Resource to use to use to configure a resource planning IPAM Pool. If configured, the `locale` of the parent pool must match the region that the VPC resides in.
+* `tags` - (Optional) Map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+
+### `source_resource` Block
+
+* `resource_id` - (Required) ID of the resource.
+* `resource_owner` - (Required) Owner of the resource.
+* `resource_region` - (Required) Region where the resource exists. Must match the `locale` of the parent IPAM Pool.
+* `resource_type` - (Required) Type of the resource. (`vpc`)
+
+## Attribute Reference
+
+This resource exports the following attributes in addition to the arguments above:
+
+* `arn` - ARN of IPAM
+* `id` - ID of the IPAM
+* `ipam_scope_type` - Type of the scope the pool belongs to.
+* `pool_depth` - Depth of pools in your IPAM pool.
+* `state` - State of the IPAM pool.
+* `tags_all` - Map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#default_tags-configuration-block).
+
+## Timeouts
+
+[Configuration options](https://developer.hashicorp.com/terraform/language/resources/syntax#operation-timeouts):
+
+* `create` - (Default `35m`)
+* `update` - (Default `3m`)
+* `delete` - (Default `3m`)
+
+## Import
+
+In Terraform v1.5.0 and later, use an [`import` block](https://developer.hashicorp.com/terraform/language/import) to import IPAMs using the IPAM pool `id`. For example:
+
+```terraform
+import {
+  to = aws_vpc_ipam_pool.example
+  id = "ipam-pool-0958f95207d978e1e"
+}
+```
+
+Using `terraform import`, import IPAMs using the IPAM pool `id`. For example:
+
+```console
+% terraform import aws_vpc_ipam_pool.example ipam-pool-0958f95207d978e1e
+```

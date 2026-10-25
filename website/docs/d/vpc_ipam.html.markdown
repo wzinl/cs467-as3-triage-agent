@@ -1,0 +1,55 @@
+---
+subcategory: "VPC IPAM (IP Address Manager)"
+layout: "aws"
+page_title: "AWS: aws_vpc_ipam"
+description: |-
+  Terraform data source for managing a VPC IPAM.
+---
+
+# Data Source: aws_vpc_ipam
+
+Terraform data source for managing a VPC IPAM.
+
+## Example Usage
+
+### Basic Usage
+
+```terraform
+data "aws_vpc_ipam" "example" {
+  id = "ipam-abcd1234"
+}
+```
+
+## Argument Reference
+
+This data source supports the following arguments:
+
+* `id` - (Required) ID of the IPAM.
+* `region` - (Optional) Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+
+## Attribute Reference
+
+This data source exports the following attributes in addition to the arguments above:
+
+* `arn` - ARN of the IPAM.
+* `default_resource_discovery_association_id` - Default resource discovery association ID.
+* `default_resource_discovery_id` - Default resource discovery ID.
+* `description` - Description for the IPAM.
+* `enable_private_gua` - If private GUA is enabled.
+* `id` - ID of the IPAM resource.
+* `ipam_region` - Region that the IPAM exists in.
+* `metered_account` - AWS account that is charged for active IP addresses managed in IPAM.
+* `operating_regions` - Regions that the IPAM is configured to operate in.
+* `owner_id` - ID of the account that owns this IPAM.
+* `private_default_scope_id` - ID of the default private scope.
+* `public_default_scope_id` - ID of the default public scope.
+* `resource_discovery_association_count` - Number of resource discovery associations.
+* `scope_count` - Number of scopes on this IPAM.
+* `state` - Current state of the IPAM.
+* `state_message` - State message of the IPAM.
+* `tags` - Tags of the IPAM resource.
+* `tier` - IPAM Tier.
+
+### `operating_regions` Block
+
+* `region_name` - Name of the Region.
