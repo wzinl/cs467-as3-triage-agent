@@ -57,7 +57,7 @@ This resource supports the following arguments:
 This resource exports the following attributes in addition to the arguments above:
 
 * `id` - ID of the WAF Size Constraint Set.
-* `arn` - ARN.
+* `arn` - Amazon Resource Name (ARN).
 
 ## Import
 
