@@ -83,7 +83,7 @@ The `parameter` configuration block supports configuring any number of the follo
 
 * `description` - (Optional) Information about the parameter.
 * `name` - (Required) Parameter name.
-* `required` - (Optional) Whether a parameter value must be specified in the extension association.
+* `required` - (Required) Whether a parameter value must be specified in the extension association.
 
 ## Attribute Reference
 

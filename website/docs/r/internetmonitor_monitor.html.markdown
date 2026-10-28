@@ -14,7 +14,7 @@ Provides a Internet Monitor Monitor resource.
 
 ```terraform
 resource "aws_internetmonitor_monitor" "example" {
-  monitor_name = "example"
+  monitor_name = "exmple"
 }
 ```
 

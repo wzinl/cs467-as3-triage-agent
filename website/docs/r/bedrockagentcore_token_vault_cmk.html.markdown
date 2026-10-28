@@ -10,7 +10,7 @@ description: |-
 
 Manages the AWS KMS customer master key (CMK) for a token vault.
 
-~> **Note:** Deletion of this resource will not modify the CMK, only remove the resource from state.
+~> Deletion of this resource will not modify the CMK, only remove the resource from state.
 
 ## Example Usage
 
