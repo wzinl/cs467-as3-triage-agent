@@ -20,11 +20,8 @@ resource "aws_workspacesweb_portal" "example" {
 }
 
 resource "aws_kinesis_stream" "example" {
-  name = "amazon-workspaces-web-example"
-
-  stream_mode_details {
-    stream_mode = "ON_DEMAND"
-  }
+  name        = "amazon-workspaces-web-example"
+  shard_count = 1
 }
 
 resource "aws_workspacesweb_user_access_logging_settings" "example" {
