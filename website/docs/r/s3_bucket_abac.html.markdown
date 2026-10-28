@@ -33,8 +33,8 @@ resource "aws_s3_bucket_abac" "example" {
 
 The following arguments are required:
 
-* `abac_status` - (Required) ABAC status configuration. See [`abac_status` Block](#abac_status-block) for details.
 * `bucket` - (Required) General purpose bucket that you want to create the metadata configuration for.
+* `abac_status` - (Required) ABAC status configuration. See [`abac_status` Block](#abac_status-block) for details.
 
 The following arguments are optional:
 
@@ -45,7 +45,9 @@ The following arguments are optional:
 
 The `abac_status` configuration block supports the following arguments:
 
-* `status` - (Required) ABAC status of the general purpose bucket. Valid values are `Enabled` and `Disabled`. By default, ABAC is disabled for all Amazon S3 general purpose buckets.
+* `status` - (Required) ABAC status of the general purpose bucket.
+Valid values are `Enabled` and `Disabled`.
+By default, ABAC is disabled for all Amazon S3 general purpose buckets.
 
 ## Attribute Reference
 
