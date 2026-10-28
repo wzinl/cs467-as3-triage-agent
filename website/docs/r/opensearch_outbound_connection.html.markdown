@@ -71,7 +71,7 @@ This resource supports the following arguments:
 
 This resource exports the following attributes in addition to the arguments above:
 
-* `id` - The ID of the connection.
+* `id` - The Id of the connection.
 * `connection_status` - Status of the connection request.
 
 `connection_properties` block exports the following:

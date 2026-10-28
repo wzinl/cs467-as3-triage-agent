@@ -214,7 +214,7 @@ This configuration block supports the following:
 
 This resource exports the following attributes in addition to the arguments above:
 
-* `arn` - ARN specifying the role.
+* `arn` - Amazon Resource Name (ARN) specifying the role.
 * `create_date` - Creation date of the IAM role.
 * `id` - Name of the role.
 * `name` - Name of the role.
