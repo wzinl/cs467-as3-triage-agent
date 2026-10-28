@@ -3,7 +3,7 @@
 
 terraform {
   backend "remote" {
-    organization = "hashicorp-terraform-aws-provider"
+    organization = "hashicorp-v2"
 
     workspaces {
       name = "terraform-provider-aws-repository"
@@ -13,11 +13,11 @@ terraform {
   required_providers {
     github = {
       source  = "integrations/github"
-      version = "~> 6"
+      version = "6.12.1"
     }
   }
 
-  required_version = "~> 1.15"
+  required_version = ">= 0.13.5"
 }
 
 provider "github" {
