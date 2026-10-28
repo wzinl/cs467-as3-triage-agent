@@ -67,34 +67,34 @@ resource "aws_s3_bucket" "example" {
 
 This resource supports the following arguments:
 
-* `bucket` - (Required) Name of the bucket this analytics configuration is associated with.
-* `filter` - (Optional) Object filtering that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
-* `name` - (Required) Unique identifier of the analytics configuration for the bucket.
 * `region` - (Optional) Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+* `bucket` - (Required) Name of the bucket this analytics configuration is associated with.
+* `name` - (Required) Unique identifier of the analytics configuration for the bucket.
+* `filter` - (Optional) Object filtering that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
 * `storage_class_analysis` - (Optional) Configuration for the analytics data export (documented below).
 
-### `filter` Block
+The `filter` configuration supports the following:
 
 * `prefix` - (Optional) Object prefix for filtering.
 * `tags` - (Optional) Set of object tags for filtering.
 
-### `storage_class_analysis` Block
+The `storage_class_analysis` configuration supports the following:
 
 * `data_export` - (Required) Data export configuration (documented below).
 
-### `data_export` Block
+The `data_export` configuration supports the following:
 
-* `destination` - (Required) Destination for the exported analytics data (documented below).
 * `output_schema_version` - (Optional) Schema version of exported analytics data. Allowed values: `V_1`. Default value: `V_1`.
+* `destination` - (Required) Specifies the destination for the exported analytics data (documented below).
 
-### `destination` Block
+The `destination` configuration supports the following:
 
 * `s3_bucket_destination` - (Required) Analytics data export currently only supports an S3 bucket destination (documented below).
 
-### `s3_bucket_destination` Block
+The `s3_bucket_destination` configuration supports the following:
 
-* `bucket_account_id` - (Optional) Account ID that owns the destination bucket.
 * `bucket_arn` - (Required) ARN of the destination bucket.
+* `bucket_account_id` - (Optional) Account ID that owns the destination bucket.
 * `format` - (Optional) Output format of exported analytics data. Allowed values: `CSV`. Default value: `CSV`.
 * `prefix` - (Optional) Prefix to append to exported analytics data.
 
