@@ -3,25 +3,25 @@ subcategory: "Bedrock"
 layout: "aws"
 page_title: "AWS: aws_bedrock_inference_profiles"
 description: |-
-  Provides details about AWS Bedrock Inference Profiles.
+  Terraform data source for managing AWS Bedrock Inference Profiles.
 ---
 
 # Data Source: aws_bedrock_inference_profiles
 
-Provides details about AWS Bedrock Inference Profiles.
+Terraform data source for managing AWS Bedrock Inference Profiles.
 
 ## Example Usage
 
 ### Basic Usage
 
 ```terraform
-data "aws_bedrock_inference_profiles" "example" {}
+data "aws_bedrock_inference_profiles" "test" {}
 ```
 
 ### Filter by Type
 
 ```terraform
-data "aws_bedrock_inference_profiles" "example" {
+data "aws_bedrock_inference_profiles" "test" {
   type = "APPLICATION"
 }
 ```
