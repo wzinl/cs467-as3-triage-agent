@@ -41,7 +41,7 @@ This resource supports the following arguments:
 This resource exports the following attributes in addition to the arguments above:
 
 * `arn` - ARN of the Redshift Serverless Usage Limit.
-* `id` - The Redshift Usage Limit ID.
+* `id` - The Redshift Usage Limit id.
 
 ## Import
 
