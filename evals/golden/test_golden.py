@@ -156,11 +156,11 @@ class Collect(unittest.TestCase):
             line({"total_cost_usd": 0.25, "num_turns": 6, "permission_denials": []})])
         issue = {"author": "reporter", "labels": ["new-resource", "service/datazone"],
                  "comments": [{"author": "wzinl", "body": "hi"}]}
-        actual = collect(HERE / "cases/held-out/new-50107", log, line({"total_cost_usd": 0.17}), issue)
+        actual = collect(HERE / "cases/held-out/new-50107", log, "2026-10-29T10:01:00.0000000Z AI Credits: 17.5", issue)
         self.assertEqual(actual["raw_outputs"], [{"type": "add_labels", "labels": ["new-resource", "prioritized"]}])
         self.assertEqual(actual["trace"]["validated_plan"]["labels"], ["new-resource"])
         self.assertEqual((actual["applied"]["comment"], actual["applied"]["rejected"], actual["detection_cost_usd"]),
-                         (None, [{"type": "add_labels", "labels": ["prioritized"]}], 0.17))
+                         (None, [{"type": "add_labels", "labels": ["prioritized"]}], 0.175))
         self.assertTrue(actual["trace"]["skill_loaded"])
         self.assertEqual(score(HERE / "cases/held-out/new-50107", actual)["decision"], "labels")
 

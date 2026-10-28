@@ -86,8 +86,9 @@ def trace_of(log):
 
 
 def detection_cost(log):
-    costs = [o["total_cost_usd"] for o in stream(log) if "total_cost_usd" in o]
-    return costs[-1] if costs else 0
+    # the detection run prints no result object; gh-aw's token-usage step prints its total (1 AI credit = USD 0.01)
+    credits = re.findall(r"AI Credits: ([\d.]+)", log)
+    return float(credits[-1]) / 100 if credits else 0
 
 
 def collect(case_dir, agent_log, detection_log, issue):
