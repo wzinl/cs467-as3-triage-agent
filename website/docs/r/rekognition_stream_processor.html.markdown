@@ -121,11 +121,8 @@ resource "aws_kinesis_video_stream" "example" {
 }
 
 resource "aws_kinesis_stream" "example" {
-  name = "terraform-kinesis-example"
-
-  stream_mode_details {
-    stream_mode = "ON_DEMAND"
-  }
+  name        = "terraform-kinesis-example"
+  shard_count = 1
 }
 
 resource "aws_iam_role" "example" {
@@ -220,33 +217,33 @@ resource "aws_rekognition_stream_processor" "example" {
 
 The following arguments are required:
 
-* `input` - (Required) Input video stream. See [`input`](#input-block).
+* `input` - (Required) Input video stream. See [`input`](#input).
 * `name` - (Required) Name of the Stream Processor.
-* `output` - (Required) Kinesis data stream stream or Amazon S3 bucket location to which Amazon Rekognition Video puts the analysis results. See [`output`](#output-block).
+* `output` - (Required) Kinesis data stream stream or Amazon S3 bucket location to which Amazon Rekognition Video puts the analysis results. See [`output`](#output).
 * `role_arn` - (Required) Amazon Resource Number (ARN) of the IAM role that allows access to the stream processor. The IAM role provides Rekognition read permissions for a Kinesis stream. It also provides write permissions to an Amazon S3 bucket and Amazon Simple Notification Service topic for a label detection stream processor. This is required for both face search and label detection stream processors.
-* `settings` - (Required) Input parameters used in a streaming video analyzed by a stream processor. See [`settings`](#settings-block).
+* `settings` - (Required) Input parameters used in a streaming video analyzed by a stream processor. See [`settings`](#settings).
 
 The following arguments are optional:
 
-* `data_sharing_preference` - (Optional) See [`data_sharing_preference`](#data_sharing_preference-block).
+* `data_sharing_preference` - (Optional) See [`data_sharing_preference`](#data_sharing_preference).
 * `kms_key_id` - (Optional) Optional parameter for label detection stream processors.
-* `notification_channel` - (Optional) Amazon Simple Notification Service topic to which Amazon Rekognition publishes the completion status. See [`notification_channel`](#notification_channel-block).
+* `notification_channel` - (Optional) Amazon Simple Notification Service topic to which Amazon Rekognition publishes the completion status. See [`notification_channel`](#notification_channel).
 * `region` - (Optional) Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
-* `regions_of_interest` - (Optional) Locations in the frames where Amazon Rekognition checks for objects or people. See [`regions_of_interest`](#regions_of_interest-block).
+* `regions_of_interest` - (Optional) Locations in the frames where Amazon Rekognition checks for objects or people. See [`regions_of_interest`](#regions_of_interest).
 * `tags` - (Optional) Map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 
 ### `input` Block
 
-* `kinesis_video_stream` - (Optional) Kinesis input stream. See [`kinesis_video_stream`](#kinesis_video_stream-block).
+* `kinesis_video_stream` - (Optional) Kinesis input stream. See [`kinesis_video_stream`](#kinesis_video_stream).
 
 ### `kinesis_video_stream` Block
 
-* `arn` - (Required) ARN of the Kinesis video stream stream that streams the source video.
+* `arn` - (Optional) ARN of the Kinesis video stream stream that streams the source video.
 
 ### `output` Block
 
-* `kinesis_data_stream` - (Optional) Amazon Kinesis Data Streams stream to which the Amazon Rekognition stream processor streams the analysis results. See [`kinesis_data_stream`](#kinesis_data_stream-block).
-* `s3_destination` - (Optional) Amazon S3 bucket location to which Amazon Rekognition publishes the detailed inference results of a video analysis operation. See [`s3_destination`](#s3_destination-block).
+* `kinesis_data_stream` - (Optional) Amazon Kinesis Data Streams stream to which the Amazon Rekognition stream processor streams the analysis results. See [`kinesis_data_stream`](#kinesis_data_stream).
+* `s3_destination` - (Optional) Amazon S3 bucket location to which Amazon Rekognition publishes the detailed inference results of a video analysis operation. See [`s3_destination`](#s3_destination).
 
 ### `kinesis_data_stream` Block
 
@@ -259,46 +256,46 @@ The following arguments are optional:
 
 ### `data_sharing_preference` Block
 
-* `opt_in` - (Required) Whether you are sharing data with Rekognition to improve model performance.
+* `opt_in` - (Optional) Whether you are sharing data with Rekognition to improve model performance.
 
 ### `regions_of_interest` Block
 
-* `bounding_box` - (Optional) Box representing a region of interest on screen. Only 1 per region is allowed. See [`bounding_box`](#bounding_box-block).
-* `polygon` - (Optional) Shape made up of up to 10 Point objects to define a region of interest. See [`polygon`](#polygon-block).
+* `bounding_box` - (Optional) Box representing a region of interest on screen. Only 1 per region is allowed. See [`bounding_box`](#bounding_box).
+* `polygon` - (Optional) Shape made up of up to 10 Point objects to define a region of interest. See [`polygon`](#polygon).
 
 ### `bounding_box` Block
 
 A region can only have a single `bounding_box`
 
-* `height` - (Optional) Height of the bounding box as a ratio of the overall image height.
-* `left` - (Optional) Left coordinate of the bounding box as a ratio of overall image width.
-* `top` - (Optional) Top coordinate of the bounding box as a ratio of overall image height.
-* `width` - (Optional) Width of the bounding box as a ratio of the overall image width.
+* `height` - (Required) Height of the bounding box as a ratio of the overall image height.
+* `left` - (Required) Left coordinate of the bounding box as a ratio of overall image width.
+* `top` - (Required) Top coordinate of the bounding box as a ratio of overall image height.
+* `width` - (Required) Width of the bounding box as a ratio of the overall image width.
 
 ### `polygon` Block
 
 If using `polygon`, a minimum of 3 per region is required, with a maximum of 10.
 
-* `x` - (Optional) Value of the X coordinate for a point on a Polygon.
-* `y` - (Optional) Value of the Y coordinate for a point on a Polygon.
+* `x` - (Required) Value of the X coordinate for a point on a Polygon.
+* `y` - (Required) Value of the Y coordinate for a point on a Polygon.
 
 ### `notification_channel` Block
 
-* `sns_topic_arn` - (Optional) Amazon Resource Number (ARN) of the Amazon Amazon Simple Notification Service topic to which Amazon Rekognition posts the completion status.
+* `sns_topic_arn` - (Required) Amazon Resource Number (ARN) of the Amazon Amazon Simple Notification Service topic to which Amazon Rekognition posts the completion status.
 
 ### `settings` Block
 
-* `connected_home` - (Optional) Label detection settings to use on a streaming video. See [`connected_home`](#connected_home-block).
-* `face_search` - (Optional) Input face recognition parameters for an Amazon Rekognition stream processor. See [`face_search`](#face_search-block).
+* `connected_home` - (Optional) Label detection settings to use on a streaming video. See [`connected_home`](#connected_home).
+* `face_search` - (Optional) Input face recognition parameters for an Amazon Rekognition stream processor. See [`face_search`](#face_search).
 
 ### `connected_home` Block
 
-* `labels` - (Optional) What you want to detect in the video, such as people, packages, or pets. The current valid labels you can include in this list are: `PERSON`, `PET`, `PACKAGE`, and `ALL`.
+* `labels` - (Required) What you want to detect in the video, such as people, packages, or pets. The current valid labels you can include in this list are: `PERSON`, `PET`, `PACKAGE`, and `ALL`.
 * `min_confidence` - (Optional) Minimum confidence required to label an object in the video.
 
 ### `face_search` Block
 
-* `collection_id` - (Required) ID of a collection that contains faces that you want to search for.
+* `collection_id` - (Optional) ID of a collection that contains faces that you want to search for.
 * `face_match_threshold` - (Optional) Minimum face match confidence score that must be met to return a result for a recognized face.
 
 ## Attribute Reference
