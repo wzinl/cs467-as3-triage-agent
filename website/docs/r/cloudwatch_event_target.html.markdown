@@ -58,11 +58,8 @@ resource "aws_cloudwatch_event_rule" "console" {
 }
 
 resource "aws_kinesis_stream" "test_stream" {
-  name = "terraform-kinesis-test"
-
-  stream_mode_details {
-    stream_mode = "ON_DEMAND"
-  }
+  name        = "terraform-kinesis-test"
+  shard_count = 1
 }
 ```
 
@@ -248,7 +245,7 @@ resource "aws_cloudwatch_event_target" "ecs_scheduled_task" {
 ```terraform
 resource "aws_cloudwatch_event_target" "example" {
   arn  = "${aws_api_gateway_stage.example.execution_arn}/GET"
-  rule = aws_cloudwatch_event_rule.example.name
+  rule = aws_cloudwatch_event_rule.example.id
 
   http_target {
     query_string_parameters = {
@@ -334,7 +331,7 @@ resource "aws_cloudwatch_event_target" "stop_instances" {
 ```terraform
 resource "aws_cloudwatch_event_target" "example" {
   arn  = aws_lambda_function.example.arn
-  rule = aws_cloudwatch_event_rule.example.name
+  rule = aws_cloudwatch_event_rule.example.id
 
   input_transformer {
     input_paths = {
@@ -360,7 +357,7 @@ resource "aws_cloudwatch_event_rule" "example" {
 ```terraform
 resource "aws_cloudwatch_event_target" "example" {
   arn  = aws_lambda_function.example.arn
-  rule = aws_cloudwatch_event_rule.example.name
+  rule = aws_cloudwatch_event_rule.example.id
 
   input_transformer {
     input_paths = {
@@ -376,7 +373,7 @@ resource "aws_cloudwatch_event_rule" "example" {
 }
 ```
 
-### CloudWatch Log Group Usage
+### Cloudwatch Log Group Usage
 
 ```terraform
 resource "aws_cloudwatch_log_group" "example" {
@@ -468,7 +465,7 @@ resource "aws_cloudwatch_event_rule" "invoke_appsync_mutation" {
 
 resource "aws_cloudwatch_event_target" "invoke_appsync_mutation" {
   arn      = replace(aws_appsync_graphql_api.graphql-api.arn, "apis", "endpoints/graphql-api")
-  rule     = aws_cloudwatch_event_rule.invoke_appsync_mutation.name
+  rule     = aws_cloudwatch_event_rule.invoke_appsync_mutation.id
   role_arn = aws_iam_role.appsync_mutation_role.arn
 
   input_transformer {
@@ -580,7 +577,7 @@ The following arguments are optional:
 * `retry_policy` - (Optional)  Parameters used when you are providing retry policies. Documented below. A maximum of 1 are allowed.
 * `sagemaker_pipeline_target` - (Optional) Parameters used when you are using the rule to invoke an Amazon SageMaker AI Pipeline. Documented below. A maximum of 1 are allowed.
 * `sqs_target` - (Optional) Parameters used when you are using the rule to invoke an Amazon SQS Queue. Documented below. A maximum of 1 are allowed.
-* `target_id` - (Optional) The unique target assignment ID. If missing, will generate a random, unique ID.
+* `target_id` - (Optional) The unique target assignment ID. If missing, will generate a random, unique id.
 
 ### batch_target
 
@@ -613,7 +610,7 @@ The following arguments are optional:
 * `platform_version` - (Optional) Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as `1.1.0`. This is used only if LaunchType is FARGATE. For more information about valid platform versions, see [AWS Fargate Platform Versions](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
 * `propagate_tags` - (Optional) Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags are not propagated. Tags can only be propagated to the task during task creation. The only valid value is: `TASK_DEFINITION`.
 * `task_count` - (Optional) The number of tasks to create based on the TaskDefinition. Defaults to `1`.
-* `tags` - (Optional) A map of tags to assign to ECS resources.
+* `tags` - (Optional) A map of tags to assign to ecs resources.
 
 ### http_target
 
