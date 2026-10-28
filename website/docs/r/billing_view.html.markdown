@@ -27,42 +27,42 @@ resource "aws_billing_view" "example" {
 The following arguments are required:
 
 * `name` - (Required) Name of the custom billing view to be created.
+* `source_views` - (Required) List of ARNs of the source data views for the custom billing view.
 
 The following arguments are optional:
 
-* `data_filter_expression` - (Optional) Filter Cost Explorer APIs using the expression. See [`data_filter_expression`](#data_filter_expression-block) below for details.
 * `description` - (Optional) Description of the custom billing view.
-* `source_views` - (Optional) List of ARNs of the source data views for the custom billing view.
-* `tags` - (Optional) Key-value map of tags associated with the billing view being created.
+* `data_filter_expression` - (Optional) Filter Cost Explorer APIs using the expression. Refer to the [data-filter-expression block](#data-filter-expression) documentation for more details.
+* `tags` - (Optional) List of key value map specifying tags associated to the billing view being created.
 
-### `data_filter_expression` Block
+### data-filter-expression
 
-The `data_filter_expression` block supports the following arguments:
+A `data-filter-expression` block supports the following:
 
-* `dimensions` - (Optional) Dimension to use for the expression. See [`dimensions`](#dimensions-block) below for details.
-* `tags` - (Optional) Tags to use for the expression. See [`tags`](#tags-block) below for details.
-* `time_range` - (Optional) Time range to use for the expression. See [`time_range`](#time_range-block) below for details.
+* `dimensions` - (Optional) Dimension to use for `expression`. Refer to [#dimensions](#dimensions) for more details.
+* `tags` - (Optional) Tags to use for `expression`. Refer to [#tags](#tags) for more details.
+* `time_range` - (Optional) Time range to use for `expression`. Refer to [#time-range](#time-range) for more details.
 
-### `dimensions` Block
+#### dimensions
 
-The `dimensions` block supports the following arguments:
+A `dimensions` block supports the following:
 
-* `key` - (Required) Key of the dimension. Valid values are `LINKED_ACCOUNT`.
+* `key` - (Required) Key of the dimension. Possible values are `LINKED_ACCOUNT`.
 * `values` - (Required) List of metadata values that you can use to filter and group your results.
 
-### `tags` Block
+#### tags
 
-The `tags` block supports the following arguments:
+A `tags` block supports the following:
 
 * `key` - (Required) Key of the tag.
 * `values` - (Required) List of values for the tag.
 
-### `time_range` Block
+#### time-range
 
-The `time_range` block supports the following arguments:
+A `time_range` block supports the following:
 
 * `begin_date_inclusive` - (Required) Inclusive start date of the time range.
-* `end_date_inclusive` - (Required) Inclusive end date of the time range.
+* `begin_date_inclusive` - (Required) Inclusive end date of the time range.
 
 ## Attribute Reference
 
