@@ -52,17 +52,17 @@ The following arguments are optional:
 
 This data source exports the following attributes in addition to the arguments above:
 
-* `broker_instance_options` - List of broker instance options. See [`broker_instance_options` Block](#broker_instance_options-block) below.
+* `broker_instance_options` - List of broker instance options. See [Broker Instance Options](#broker-instance-options) below.
 
-### `broker_instance_options` Block
+### Broker Instance Options
 
-* `availability_zones` - List of available Availability Zones. See [`availability_zones` Block](#availability_zones-block) below.
+* `availability_zones` - List of available Availability Zones. See [Availability Zones](#availability-zones) below.
 * `engine_type` - Broker's engine type.
 * `host_instance_type` - Broker's instance type.
 * `storage_type` - Broker's storage type.
 * `supported_deployment_modes` - List of supported deployment modes.
 * `supported_engine_versions` - List of supported engine versions.
 
-### `availability_zones` Block
+### Availability Zones
 
 * `name` - Name of the Availability Zone.
