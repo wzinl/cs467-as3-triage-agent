@@ -67,6 +67,9 @@ runtime actions are pinned to the commit of the `v0.93.4` tag, and runs the 17 s
    through an environment variable, never interpolated into the shell, and `prepare_context.py` stops on
    anything but an ISO 8601 time with an offset. An `issues` event leaves it empty. Recompiled with the
    v0.93.4 release build; the stop time is unchanged.
+12. (2026-10-28) The model changed from `claude-opus-5-5` to `claude-sonnet-5-5`, at the owner's choice and
+   before any golden case ran, for half the per-token price. The setting also picks the threat-detection
+   model. The earlier smoke runs used Opus 5.5, so they say nothing about Sonnet's behaviour.
 
 ## Not enforced yet
 

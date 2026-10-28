@@ -60,7 +60,8 @@ the duplicate search.
 ## Running a case
 
 A run needs the sandbox owner and a second account that is not a collaborator, so the issue is a
-reporter's. Collecting a run's artifacts into `actual/<run>/<case>.json` for `score.py` is not written yet.
+reporter's. After a run, `collect_run.py` turns its agent and detection job logs and the issue into
+`actual/<run>/<case>.json` for `score.py`.
 
 - On a clean, current main: `python3 evals/golden/case_branch.py <case>`, then `git push -u origin eval/<case>`.
 - Disable the Issue triage workflow in the Actions tab, so that opening the issue starts nothing. The

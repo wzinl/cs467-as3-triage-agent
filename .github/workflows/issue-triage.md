@@ -41,7 +41,7 @@ concurrency:
 
 engine:
   id: claude
-  model: claude-opus-5-5
+  model: claude-sonnet-5-5
 
 timeout-minutes: 10
 jobs:
