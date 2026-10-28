@@ -270,7 +270,6 @@ This will destroy and recreate the table, possibly resulting in data loss.
 To add an index to an existing table, see the [`glue_partition_index` resource](/docs/providers/aws/r/glue_partition_index.html) for configuration details.
 
 * `index_name` - (Required) Name of the partition index.
-* `index_status` - (Read-Only) Status of the partition index.
 * `keys` - (Required) Keys for the partition index.
 
 ### `partition_keys` Block
@@ -310,7 +309,7 @@ To add an index to an existing table, see the [`glue_partition_index` resource](
 * `schema_version_id` - (Optional) Unique ID assigned to a version of the schema. Either this or the `schema_id` has to be provided.
 * `schema_version_number` - (Required) Version number of the schema.
 
-#### `schema_id` Block
+##### `schema_id` Block
 
 * `registry_name` - (Optional) Name of the schema registry that contains the schema. Must be provided when `schema_name` is specified and conflicts with `schema_arn`.
 * `schema_arn` - (Optional) ARN of the schema. One of `schema_arn` or `schema_name` has to be provided.
@@ -368,6 +367,7 @@ This resource exports the following attributes in addition to the arguments abov
 
 * `arn` - ARN of the Glue Table.
 * `id` - Catalog ID, database name, and table name, separated by colons (`:`).
+* `partition_index[*].index_status` - Status of the partition index.
 
 ## Import
 
