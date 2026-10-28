@@ -1,7 +1,7 @@
 ---
 subcategory: "EKS (Elastic Kubernetes)"
 layout: "aws"
-page_title: "AWS: aws_eks_access_policy_association"
+page_title: "AWS: aws_eks_access_policy_associattion"
 description: |-
   Access Entry Policy Association for an EKS Cluster.
 ---

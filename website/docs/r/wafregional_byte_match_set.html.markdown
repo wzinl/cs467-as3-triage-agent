@@ -49,6 +49,8 @@ FieldToMatch(field_to_match) support following:
 * `data` - (Optional) When the value of Type is HEADER, enter the name of the header that you want AWS WAF to search, for example, User-Agent or Referer. If the value of Type is any other value, omit Data.
 * `type` - (Required) The part of the web request that you want AWS WAF to search for a specified string.
 
+## Remarks
+
 ## Attribute Reference
 
 This resource exports the following attributes in addition to the arguments above:
@@ -57,7 +59,7 @@ This resource exports the following attributes in addition to the arguments abov
 
 ## Import
 
-In Terraform v1.5.0 and later, use an [`import` block](https://developer.hashicorp.com/terraform/language/import) to import WAF Regional Byte Match Set using the ID. For example:
+In Terraform v1.5.0 and later, use an [`import` block](https://developer.hashicorp.com/terraform/language/import) to import WAF Regional Byte Match Set using the id. For example:
 
 ```terraform
 import {
@@ -66,7 +68,7 @@ import {
 }
 ```
 
-Using `terraform import`, import WAF Regional Byte Match Set using the ID. For example:
+Using `terraform import`, import WAF Regional Byte Match Set using the id. For example:
 
 ```console
 % terraform import aws_wafregional_byte_match_set.byte_set a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
