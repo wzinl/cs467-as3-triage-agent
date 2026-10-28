@@ -75,9 +75,9 @@ This resource supports the following arguments:
 
 This resource exports the following attributes in addition to the arguments above:
 
-* `cluster_id` - The ID of the CloudHSM cluster.
+* `cluster_id` - The id of the CloudHSM cluster.
 * `cluster_state` - The state of the CloudHSM cluster.
-* `vpc_id` - The ID of the VPC that the CloudHSM cluster resides in.
+* `vpc_id` - The id of the VPC that the CloudHSM cluster resides in.
 * `security_group_id` - The ID of the security group associated with the CloudHSM cluster.
 * `cluster_certificates` - The list of cluster certificates.
     * `cluster_certificates.0.cluster_certificate` - The cluster certificate issued (signed) by the issuing certificate authority (CA) of the cluster's owner.
@@ -86,14 +86,6 @@ This resource exports the following attributes in addition to the arguments abov
     * `cluster_certificates.0.hsm_certificate` - The HSM certificate issued (signed) by the HSM hardware.
     * `cluster_certificates.0.manufacturer_hardware_certificate` - The HSM hardware certificate issued (signed) by the hardware manufacturer.
 * `tags_all` - A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#default_tags-configuration-block).
-
-## Timeouts
-
-[Configuration options](https://developer.hashicorp.com/terraform/language/resources/syntax#operation-timeouts):
-
-* `create` - (Default `120m`)
-* `update` - (Default `120m`)
-* `delete` - (Default `120m`)
 
 ## Import
 

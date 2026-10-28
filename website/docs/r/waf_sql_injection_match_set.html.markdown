@@ -33,6 +33,8 @@ This resource supports the following arguments:
 * `name` - (Required) The name or description of the SQL Injection Match Set.
 * `sql_injection_match_tuples` - (Optional) The parts of web requests that you want AWS WAF to inspect for malicious SQL code and, if you want AWS WAF to inspect a header, the name of the header.
 
+## Nested Blocks
+
 ### `sql_injection_match_tuples`
 
 * `field_to_match` - (Required) Specifies where in a web request to look for snippets of malicious SQL code.
@@ -53,12 +55,14 @@ This resource supports the following arguments:
   See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_FieldToMatch.html)
   for all supported values.
 
+## Remarks
+
 ## Attribute Reference
 
 This resource exports the following attributes in addition to the arguments above:
 
 * `id` - The ID of the WAF SQL Injection Match Set.
-* `arn` - ARN of the SQL injection match set.
+* `arn` - Amazon Resource Name (ARN) of the SQL injection match set.
 
 ## Import
 

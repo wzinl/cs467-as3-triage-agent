@@ -32,15 +32,14 @@ This resource supports the following arguments:
 ### `minimum_throughput_billing_commitment` Block
 
 * `status` - (Required) Desired status of the minimum throughput billing commitment. Valid values: `ENABLED`, `DISABLED`.
+* `earliest_allowed_end_at` - (Computed) Earliest timestamp when the commitment can be ended.
+* `ended_at` - (Computed) Timestamp when the commitment was ended.
+* `started_at` - (Computed) Timestamp when the commitment was started.
+* `status_actual` - (Computed) Current status of the minimum throughput billing commitment. Values: `ENABLED`, `DISABLED`, `ENABLED_UNTIL_EARLIEST_ALLOWED_END`.
 
 ## Attribute Reference
 
-This resource exports the following attributes in addition to the arguments above:
-
-* `minimum_throughput_billing_commitment[0].earliest_allowed_end_at` - Earliest timestamp when the commitment can be ended.
-* `minimum_throughput_billing_commitment[0].ended_at` - Timestamp when the commitment was ended.
-* `minimum_throughput_billing_commitment[0].started_at` - Timestamp when the commitment was started.
-* `minimum_throughput_billing_commitment[0].status_actual` - Current status of the minimum throughput billing commitment. Values: `ENABLED`, `DISABLED`, `ENABLED_UNTIL_EARLIEST_ALLOWED_END`.
+This resource exports no additional attributes.
 
 ## Import
 

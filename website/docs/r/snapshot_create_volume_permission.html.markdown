@@ -41,10 +41,3 @@ This resource supports the following arguments:
 This resource exports the following attributes in addition to the arguments above:
 
 * `id` - A combination of "`snapshot_id`-`account_id`".
-
-## Timeouts
-
-[Configuration options](https://developer.hashicorp.com/terraform/language/resources/syntax#operation-timeouts):
-
-* `create` - (Default `20m`)
-* `delete` - (Default `5m`)

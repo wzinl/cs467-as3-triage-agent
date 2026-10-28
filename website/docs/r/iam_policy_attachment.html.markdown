@@ -22,7 +22,7 @@ Attaches a Managed IAM Policy to user(s), role(s), and/or group(s)
 
 ```terraform
 resource "aws_iam_user" "user" {
-  name = "example-user"
+  name = "test-user"
 }
 
 data "aws_iam_policy_document" "assume_role" {
@@ -39,12 +39,12 @@ data "aws_iam_policy_document" "assume_role" {
 }
 
 resource "aws_iam_role" "role" {
-  name               = "example-role"
+  name               = "test-role"
   assume_role_policy = data.aws_iam_policy_document.assume_role.json
 }
 
 resource "aws_iam_group" "group" {
-  name = "example-group"
+  name = "test-group"
 }
 
 data "aws_iam_policy_document" "policy" {
@@ -56,13 +56,13 @@ data "aws_iam_policy_document" "policy" {
 }
 
 resource "aws_iam_policy" "policy" {
-  name        = "example-policy"
-  description = "An example policy"
+  name        = "test-policy"
+  description = "A test policy"
   policy      = data.aws_iam_policy_document.policy.json
 }
 
-resource "aws_iam_policy_attachment" "example-attach" {
-  name       = "example-attachment"
+resource "aws_iam_policy_attachment" "test-attach" {
+  name       = "test-attachment"
   users      = [aws_iam_user.user.name]
   roles      = [aws_iam_role.role.name]
   groups     = [aws_iam_group.group.name]
@@ -82,4 +82,7 @@ This resource supports the following arguments:
 
 ## Attribute Reference
 
-This resource exports no additional attributes.
+This resource exports the following attributes in addition to the arguments above:
+
+* `id` - Policy's ID.
+* `name` - Name of the attachment.

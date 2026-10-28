@@ -220,29 +220,29 @@ output "scala_code" {
 
 This data source supports the following arguments:
 
+* `region` - (Optional) Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
 * `dag_edge` - (Required) List of the edges in the DAG. Defined below.
 * `dag_node` - (Required) List of the nodes in the DAG. Defined below.
 * `language` - (Optional) Programming language of the resulting code from the DAG. Defaults to `PYTHON`. Valid values are `PYTHON` and `SCALA`.
-* `region` - (Optional) Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
 
-### `dag_edge` Block
+### dag_edge Argument Reference
 
 * `source` - (Required) ID of the node at which the edge starts.
 * `target` - (Required) ID of the node at which the edge ends.
 * `target_parameter` - (Optional) Target of the edge.
 
-### `dag_node` Block
+### dag_node Argument Reference
 
 * `args` - (Required) Nested configuration an argument or property of a node. Defined below.
 * `id` - (Required) Node identifier that is unique within the node's graph.
-* `line_number` - (Optional) Line number of the node.
 * `node_type` - (Required) Type of node this is.
+* `line_number` - (Optional) Line number of the node.
 
-#### `args` Block
+#### args Argument Reference
 
 * `name` - (Required) Name of the argument or property.
-* `param` - (Optional) Boolean if the value is used as a parameter. Defaults to `false`.
 * `value` - (Required) Value of the argument or property.
+* `param` - (Optional) Boolean if the value is used as a parameter. Defaults to `false`.
 
 ## Attribute Reference
 
