@@ -3,12 +3,12 @@ subcategory: "Bedrock"
 layout: "aws"
 page_title: "AWS: aws_bedrock_inference_profile"
 description: |-
-  Manages an AWS Bedrock Inference Profile.
+  Terraform resource for managing an AWS Bedrock Inference Profile.
 ---
 
 # Resource: aws_bedrock_inference_profile
 
-Manages an AWS Bedrock Inference Profile.
+Terraform resource for managing an AWS Bedrock Inference Profile.
 
 ## Example Usage
 
@@ -60,7 +60,6 @@ This resource exports the following attributes in addition to the arguments abov
 - `id` - Unique identifier of the inference profile.
 - `models` - List of information about each model in the inference profile. See [`models`](#models-block).
 - `status` - Status of the inference profile. `ACTIVE` means that the inference profile is available to use.
-- `tags_all` - Map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#default_tags-configuration-block).
 - `type` - Type of the inference profile. `SYSTEM_DEFINED` means that the inference profile is defined by Amazon Bedrock. `APPLICATION` means that the inference profile is defined by the user.
 - `updated_at` - Time at which the inference profile was last updated.
 
@@ -78,7 +77,7 @@ This resource exports the following attributes in addition to the arguments abov
 
 ## Import
 
-In Terraform v1.5.0 and later, use an [`import` block](https://developer.hashicorp.com/terraform/language/import) to import Bedrock Inference Profile using the `id`. For example:
+In Terraform v1.5.0 and later, use an [`import` block](https://developer.hashicorp.com/terraform/language/import) to import Bedrock Inference Profile using the `name`. For example:
 
 ```terraform
 import {
@@ -87,7 +86,7 @@ import {
 }
 ```
 
-Using `terraform import`, import Bedrock Inference Profile using the `id`. For example:
+Using `terraform import`, import Bedrock Inference Profile using the `name`. For example:
 
 ```console
 % terraform import aws_bedrock_inference_profile.example inference_profile-id-12345678
