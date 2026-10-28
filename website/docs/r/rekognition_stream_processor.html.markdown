@@ -121,11 +121,8 @@ resource "aws_kinesis_video_stream" "example" {
 }
 
 resource "aws_kinesis_stream" "example" {
-  name = "terraform-kinesis-example"
-
-  stream_mode_details {
-    stream_mode = "ON_DEMAND"
-  }
+  name        = "terraform-kinesis-example"
+  shard_count = 1
 }
 
 resource "aws_iam_role" "example" {
