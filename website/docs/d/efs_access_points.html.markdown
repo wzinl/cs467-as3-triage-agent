@@ -29,6 +29,6 @@ This data source supports the following arguments:
 
 This data source exports the following attributes in addition to the arguments above:
 
-* `arns` - Set of ARNs.
+* `arns` - Set of Amazon Resource Names (ARNs).
 * `id` - EFS File System identifier.
 * `ids` - Set of identifiers.
