@@ -34,7 +34,7 @@ This resource exports the following attributes in addition to the arguments abov
 
 * `appsync_domain_name` - Domain name that AppSync provides.
 * `hosted_zone_id` - ID of your Amazon Route 53 hosted zone.
-* `id` - AppSync Domain Name.
+* `id` - Appsync Domain Name.
 
 ## Import
 
