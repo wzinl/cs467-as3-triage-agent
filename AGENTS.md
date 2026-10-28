@@ -9,7 +9,7 @@ claim. No golden case has been run yet. Nothing here acts on the upstream reposi
 ## Commands
 
 Run from the repository root. They need `bash`, `python3`, `git` and coreutils only; nothing to install.
-CI (`.github/workflows/checks.yml`) runs each of them on every push, so a change is done when they all pass.
+CI (`.github/workflows/checks.yml`) runs each of them on every push (except to the `eval/` branches golden cases run on), so a change is done when they all pass.
 
 ```sh
 python3 evals/metrics/compute_metrics.py > /dev/null     # regenerate evals/metrics/results.md
@@ -23,6 +23,7 @@ python3 -m unittest discover -s evals/golden              # golden-case and scor
 python3 evals/golden/select_cases.py > /dev/null          # redraw the held-out cases; must change nothing
 git init -q ../upstream && git -C ../upstream fetch -q --filter=tree:0 https://github.com/hashicorp/terraform-provider-aws main
 python3 evals/golden/build_cases.py ../upstream > /dev/null   # rebuild every case input; must change nothing
+python3 evals/golden/replay_checks.py ../upstream > /dev/null  # replay the checks on every case; must change nothing
 python3 sandbox/sync_labels.py --list                     # print upstream's labels, change nothing
 sandbox/import_upstream.sh                                # re-import the pinned commit (needs network)
 ```
@@ -33,7 +34,7 @@ repository's labels, run the Labels workflow (`.github/workflows/labels.yml`) fr
 The agent's limits live in the frontmatter of `.github/workflows/issue-triage.md`. After editing it, run
 `gh aw compile issue-triage` with gh-aw v0.93.4 and commit the regenerated `.github/workflows/issue-triage.lock.yml`
 with it; CI recompiles and fails on any difference. To triage an issue by hand, run the Issue triage workflow
-from the Actions tab with its number.
+from the Actions tab with its number and no `as_of`; that input is for golden-case runs (`evals/golden/README.md`).
 
 ## Structure
 
@@ -43,7 +44,7 @@ from the Actions tab with its number.
 | `sandbox/` | Import script, its checksum manifest, label sync and its tests | hand |
 | `evals/data/` | Read-only snapshot of upstream issues, fetched once | `evals/data/fetch_upstream.py`, then `evals/data/pack.py` |
 | `evals/metrics/` | Need analysis: two scripts and the outputs they write | outputs: running the scripts |
-| `evals/golden/` | Golden cases (`cases/held-out/`, `cases/dev/`), the held-out draw, the case builder, the scorer and their tests | `selection.json`, `cases.md` and every `input.json`: the two scripts; `expected.json`: hand, before the case's first run |
+| `evals/golden/` | Golden cases (`cases/held-out/`, `cases/dev/`), the held-out draw, the case builder, the check replay, the case-branch builder, the scorer and their tests | `selection.json`, `cases.md`, `replay.md` and every `input.json`: the scripts that write them; `expected.json`: hand, before the case's first run |
 | `verification/` | `check_claims.py` and the claim audits (`verification/audit-*.md`) | hand |
 | `.github/workflows/` | `checks.yml` (CI), `labels.yml`, and the agent: `issue-triage.md` and its compiled `issue-triage.lock.yml` | hand; the lock file only by `gh aw compile` |
 | `.github/aw/actions-lock.json` | The commit that gh-aw's runtime actions are pinned to | hand; CI checks it against the gh-aw release tag |

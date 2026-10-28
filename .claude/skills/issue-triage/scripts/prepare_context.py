@@ -4,14 +4,17 @@
 Runs as a deterministic `steps:` entry of .github/workflows/issue-triage.md, outside the agent's
 sandbox. The agent itself has no GitHub API access; everything it reads comes from the files written here:
 
-  issue.json      the issue: number, url, repo, title, body, author, labels, created_at, and as_of (= created_at)
+  issue.json      the issue: number, url, repo, title, body, author, labels, created_at, and as_of (= created_at
+                  unless --as-of is given)
   corpus.json     issues opened before as_of, for the duplicate check, each with its state at as_of
   resources.txt   `aws_<name>` for each resource and `data.aws_<name>` for each data source in website/docs/{r,d}
   plan.json       an empty plan the agent fills in (it may edit files under /tmp only)
 
-Usage: prepare_context.py --issue ISSUE.json --corpus CORPUS.json.gz --out /tmp/gh-aw/agent
+Usage: prepare_context.py --issue ISSUE.json --corpus CORPUS.json.gz --out /tmp/gh-aw/agent [--as-of TIME]
   --issue   the issue as the REST API returns it (GET /repos/{owner}/{repo}/issues/{number})
   --corpus  a gzipped JSON list like evals/data/corpus.json.gz (upstream issues, labels removed)
+  --as-of   evaluation only: the ISO 8601 time, with its offset, to treat as "now" instead of the issue's
+            creation, so a golden case replayed later sees the corpus and releases of the day it was opened
 """
 import argparse
 import glob
@@ -55,7 +58,14 @@ def main():
     ap.add_argument("--issue", required=True)
     ap.add_argument("--corpus", required=True)
     ap.add_argument("--out", required=True)
+    ap.add_argument("--as-of", default="")
     args = ap.parse_args()
+    try:
+        as_of = when(args.as_of)
+    except ValueError:
+        as_of = None
+    if args.as_of and (as_of is None or as_of.tzinfo is None):
+        sys.exit(f"--as-of {args.as_of!r} is not an ISO 8601 time with an offset")
 
     with open(args.issue, encoding="utf-8") as f:
         raw = json.load(f)
@@ -68,7 +78,7 @@ def main():
              "title": (raw.get("title") or "").replace("\x00", ""), "body": (raw.get("body") or "").replace("\x00", ""),
              "author": (raw.get("user") or {}).get("login"), "author_association": raw.get("author_association"),
              "labels": [l["name"] for l in raw.get("labels") or []],
-             "created_at": raw["created_at"], "as_of": raw["created_at"]}
+             "created_at": raw["created_at"], "as_of": args.as_of or raw["created_at"]}
     with gzip.open(args.corpus, "rt", encoding="utf-8") as f:
         corpus = corpus_as_of(json.load(f), when(issue["as_of"]))
     names = resources()

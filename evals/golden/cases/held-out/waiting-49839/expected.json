@@ -1,10 +1,11 @@
 {
   "id": "waiting-49839",
   "decision": [
-    "labels"
+    "labels",
+    "noop"
   ],
   "labels": {
-    "required": [
+    "optional": [
       "documentation"
     ]
   },
@@ -16,6 +17,6 @@
       "(?i)maintainers? (has|have) approved"
     ]
   },
-  "rationale": "Complete report that the docs call secret_string_wo_version Optional when it is required with secret_string_wo. Filed without a form, so it has no type label.",
+  "rationale": "Complete report that the docs call secret_string_wo_version Optional when it is required with secret_string_wo. Filed without a form, so it has no type label. Adding documentation, or doing nothing, are both acceptable; another type label is not.",
   "maintainer_history": "A maintainer added documentation and waiting-response, asking the reporter to review a related docs pull request. Closed as completed; the release bot's comment names v6.65.0."
 }

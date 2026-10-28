@@ -12,6 +12,6 @@
       "(?i)maintainers? (has|have) approved"
     ]
   },
-  "rationale": "Complete bug report on v6.64.0, one minor release behind v6.65.0, whose note for this resource is about a different argument. The labeler workflow added bug and service/bedrockagent.",
+  "rationale": "Complete bug report on v6.64.0, one minor release behind v6.65.0, whose note for this resource is about a different argument. The labeler workflow added bug and service/bedrockagent. The checks report Sample Terraform Configuration missing (the configuration is under Potential Terraform Configuration, a false positive) and a newer fix in 6.65.0, so the skill's rules will likely lead to a comment; noop stays expected because no maintainer asked the reporter for anything.",
   "maintainer_history": "A maintainer removed needs-triage five days later; another closed it as not planned after three weeks, without a comment."
 }

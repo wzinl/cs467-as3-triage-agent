@@ -63,6 +63,10 @@ runtime actions are pinned to the commit of the `v0.93.4` tag, and runs the 17 s
    open issues (the detection tracking issue could, see 2). The one that closes those paths says a
    missing-tool report could open an issue (the lock said so; the runtime would not have). The history
    is not rewritten for this; this ledger is the correction.
+11. (2026-10-28) The workflow gained an `as_of` dispatch input for golden-case runs. It reaches the script
+   through an environment variable, never interpolated into the shell, and `prepare_context.py` stops on
+   anything but an ISO 8601 time with an offset. An `issues` event leaves it empty. Recompiled with the
+   v0.93.4 release build; the stop time is unchanged.
 
 ## Not enforced yet
 
@@ -79,3 +83,7 @@ runtime actions are pinned to the commit of the `v0.93.4` tag, and runs the 17 s
   released since.
 - The kill switch relies on GitHub search, which can take a moment to index a new label. Not timed.
 - `CODEOWNERS` has no effect without a branch rule, and with one owner it cannot require a second person.
+- github.com is an allowed domain, so the safe outputs pass a full upstream issue URL, which would add a
+  backlink to that issue; only `owner/repo#N` references are escaped. `validate_plan.py` rejects such links,
+  and the scorer's link control reports any that get through.
+- The daily AI-credit cap counts finished runs, so runs started together can go past it.

@@ -218,6 +218,33 @@ class Prepare(unittest.TestCase):
         self.assertNotEqual(r.returncode, 0)
         self.assertIn("pull request", r.stderr)
 
+    def test_as_of_replaces_the_creation_date_and_must_have_an_offset(self):
+        up = "https://github.com/hashicorp/terraform-provider-aws/issues/"
+        corpus = [{"number": n, "url": up + str(n), "title": "t", "body": "", "created_at": f"2026-09-0{n}T00:00:00Z",
+                   "closed_at": None, "state_reason": None} for n in (1, 2)]
+        raw = {"number": 5, "html_url": "https://github.com/o/r/issues/5", "repository_url": "https://api.github.com/repos/o/r",
+               "title": "T", "body": "B", "user": {"login": "u"}, "author_association": "NONE", "labels": [],
+               "created_at": "2026-10-29T00:00:00Z"}
+        with tempfile.TemporaryDirectory() as d:
+            d = Path(d)
+            with gzip.open(d / "corpus.json.gz", "wt") as f:
+                json.dump(corpus, f)
+            (d / "issue.json").write_text(json.dumps(raw))
+
+            def prepare(as_of):
+                return subprocess.run([sys.executable, str(SCRIPTS / "prepare_context.py"), "--issue", str(d / "issue.json"),
+                                       "--corpus", str(d / "corpus.json.gz"), "--out", str(d / "out"), "--as-of", as_of],
+                                      cwd=ROOT, capture_output=True, text=True)
+            self.assertEqual(prepare("2026-09-01T12:00:00Z").returncode, 0)
+            issue = json.loads((d / "out/issue.json").read_text())
+            got = json.loads((d / "out/corpus.json").read_text())["issues"]
+            self.assertEqual((issue["created_at"], issue["as_of"], [c["number"] for c in got]),
+                             ("2026-10-29T00:00:00Z", "2026-09-01T12:00:00Z", [1]))
+            for bad in ("2026-09-01T12:00:00", "yesterday"):
+                r = prepare(bad)
+                self.assertNotEqual(r.returncode, 0, bad)
+                self.assertIn("is not an ISO 8601 time", r.stderr)
+
 
 class Config(unittest.TestCase):
     def test_taxonomy_matches_the_label_sync(self):
