@@ -40,11 +40,11 @@ This resource supports the following arguments:
 
 This resource exports the following attributes in addition to the arguments above:
 
-* `arn` - Organizations ARN for the delegate account.
-* `email` - Organizations email for the delegate account.
-* `id` - Organizations member account ID that you want to enable as the IPAM account.
-* `name` - Organizations name for the delegate account.
-* `service_principal` - AWS service principal.
+* `arn` - The Organizations ARN for the delegate account.
+* `id` - The Organizations member account ID that you want to enable as the IPAM account.
+* `email` - The Organizations email for the delegate account.
+* `name` - The Organizations name for the delegate account.
+* `service_principal` - The AWS service principal.
 
 ## Import
 
