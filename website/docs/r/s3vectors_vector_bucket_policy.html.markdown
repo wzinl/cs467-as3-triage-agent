@@ -42,7 +42,7 @@ EOF
 
 The following arguments are required:
 
-* `policy` - (Required) Policy document.
+* `policy` - (Required) The policy document.
 * `vector_bucket_arn` - (Required, Forces new resource) ARN of the vector bucket.
 
 The following arguments are optional:
