@@ -14,7 +14,7 @@ Terraform data source for reading an AWS Resilience Hub V2 Service.
 
 ### Basic Usage
 
-```terraform
+```hcl
 data "aws_resiliencehubv2_service" "example" {
   arn = "arn:aws:resiliencehub:us-west-2:123456789012:service/example-service:abc123"
 }
@@ -45,7 +45,6 @@ This data source exports the following attributes in addition to the arguments a
 The `associated_system` block supports:
 
 * `system_arn` - ARN of the associated system.
-* `user_journey_ids` - List of user journey identifiers that associate the system with the service.
 
 ### `permission_model` Block
 

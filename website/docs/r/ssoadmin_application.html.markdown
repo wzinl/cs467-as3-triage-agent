@@ -108,7 +108,7 @@ resource "aws_ssoadmin_application" "example" {
 
 #### Required
 
-- `arn` (String) ARN of the SSO application.
+- `arn` (String) Amazon Resource Name (ARN) of the SSO application.
 
 #### Optional
 

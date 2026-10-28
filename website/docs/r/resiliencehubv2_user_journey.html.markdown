@@ -16,7 +16,7 @@ A user journey describes a critical end-user path or business capability within 
 
 ### Basic Usage
 
-```terraform
+```hcl
 resource "aws_resiliencehubv2_system" "example" {
   name = "example-system"
 }
@@ -29,7 +29,7 @@ resource "aws_resiliencehubv2_user_journey" "example" {
 
 ### With Policy
 
-```terraform
+```hcl
 resource "aws_resiliencehubv2_system" "example" {
   name = "example-system"
 }
