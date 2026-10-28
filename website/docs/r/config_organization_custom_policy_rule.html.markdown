@@ -67,7 +67,7 @@ The following arguments are optional:
 
 This resource exports the following attributes in addition to the arguments above:
 
-* `arn` - ARN of the rule.
+* `arn` - Amazon Resource Name (ARN) of the rule.
 
 ## Timeouts
 

@@ -8,7 +8,7 @@ description: |-
 
 # Data Source: aws_waf_web_acl
 
-`aws_waf_web_acl` Retrieves a WAF Web ACL Resource ID.
+`aws_waf_web_acl` Retrieves a WAF Web ACL Resource Id.
 
 ## Example Usage
 

@@ -34,14 +34,10 @@ service/accessanalyzer:
   - '((\*|-)\s*`?|(data|resource)\s+"?)aws_accessanalyzer_'
 service/account:
   - '((\*|-)\s*`?|(data|resource)\s+"?)aws_account_'
-service/accountaccess:
-  - '((\*|-)\s*`?|(data|resource)\s+"?)aws_accountaccess_'
 service/acm:
   - '((\*|-)\s*`?|(data|resource)\s+"?)aws_acm_'
 service/acmpca:
   - '((\*|-)\s*`?|(data|resource)\s+"?)aws_acmpca_'
-service/agentregistry:
-  - '((\*|-)\s*`?|(data|resource)\s+"?)aws_agentregistry_'
 service/alexaforbusiness:
   - '((\*|-)\s*`?|(data|resource)\s+"?)aws_alexaforbusiness_'
 service/amp:
@@ -110,8 +106,6 @@ service/bedrockagent:
   - '((\*|-)\s*`?|(data|resource)\s+"?)aws_bedrockagent_'
 service/bedrockagentcore:
   - '((\*|-)\s*`?|(data|resource)\s+"?)aws_bedrockagentcore_'
-service/bedrockruntime:
-  - '((\*|-)\s*`?|(data|resource)\s+"?)aws_bedrockruntime_'
 service/billing:
   - '((\*|-)\s*`?|(data|resource)\s+"?)aws_billing_'
 service/billingconductor:
@@ -160,8 +154,6 @@ service/cloudtrail:
   - '((\*|-)\s*`?|(data|resource)\s+"?)aws_cloudtrail'
 service/cloudwatch:
   - '((\*|-)\s*`?|(data|resource)\s+"?)aws_cloudwatch_(?!(event_|log_|query_))'
-service/cloudwatchomni:
-  - '((\*|-)\s*`?|(data|resource)\s+"?)aws_cloudwatchomni_'
 service/codeartifact:
   - '((\*|-)\s*`?|(data|resource)\s+"?)aws_codeartifact_'
 service/codebuild:
@@ -238,8 +230,6 @@ service/devopsguru:
   - '((\*|-)\s*`?|(data|resource)\s+"?)aws_devopsguru_'
 service/directconnect:
   - '((\*|-)\s*`?|(data|resource)\s+"?)aws_dx_'
-service/directoryservicedata:
-  - '((\*|-)\s*`?|(data|resource)\s+"?)aws_directoryservicedata_'
 service/discovery:
   - '((\*|-)\s*`?|(data|resource)\s+"?)aws_discovery_'
 service/dlm:
@@ -300,8 +290,6 @@ service/emrcontainers:
   - '((\*|-)\s*`?|(data|resource)\s+"?)aws_emrcontainers_'
 service/emrserverless:
   - '((\*|-)\s*`?|(data|resource)\s+"?)aws_emrserverless_'
-service/eventbridgev2:
-  - '((\*|-)\s*`?|(data|resource)\s+"?)aws_eventbridgev2_'
 service/events:
   - '((\*|-)\s*`?|(data|resource)\s+"?)aws_cloudwatch_event_'
 service/evidently:
@@ -434,8 +422,6 @@ service/lambdacore:
   - '((\*|-)\s*`?|(data|resource)\s+"?)aws_lambdacore_'
 service/lambdamicrovms:
   - '((\*|-)\s*`?|(data|resource)\s+"?)aws_lambdamicrovms_'
-service/lambdaweb:
-  - '((\*|-)\s*`?|(data|resource)\s+"?)aws_lambdaweb_'
 service/launchwizard:
   - '((\*|-)\s*`?|(data|resource)\s+"?)aws_launchwizard_'
 service/lexmodels:
@@ -536,8 +522,6 @@ service/networkmanager:
   - '((\*|-)\s*`?|(data|resource)\s+"?)aws_networkmanager_'
 service/networkmonitor:
   - '((\*|-)\s*`?|(data|resource)\s+"?)aws_networkmonitor_'
-service/networksecuritymanager:
-  - '((\*|-)\s*`?|(data|resource)\s+"?)aws_networksecuritymanager_'
 service/nimble:
   - '((\*|-)\s*`?|(data|resource)\s+"?)aws_nimble_'
 service/notifications:
@@ -594,8 +578,6 @@ service/polly:
   - '((\*|-)\s*`?|(data|resource)\s+"?)aws_polly_'
 service/pricing:
   - '((\*|-)\s*`?|(data|resource)\s+"?)aws_pricing_'
-service/pricingplanmanager:
-  - '((\*|-)\s*`?|(data|resource)\s+"?)aws_pricingplanmanager_'
 service/proton:
   - '((\*|-)\s*`?|(data|resource)\s+"?)aws_proton_'
 service/qbusiness:
@@ -684,8 +666,6 @@ service/secretsmanager:
   - '((\*|-)\s*`?|(data|resource)\s+"?)aws_secretsmanager_'
 service/securityhub:
   - '((\*|-)\s*`?|(data|resource)\s+"?)aws_securityhub_'
-service/securityir:
-  - '((\*|-)\s*`?|(data|resource)\s+"?)aws_securityir_'
 service/securitylake:
   - '((\*|-)\s*`?|(data|resource)\s+"?)aws_securitylake_'
 service/serverlessrepo:
