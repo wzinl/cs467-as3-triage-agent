@@ -66,8 +66,8 @@ CLAIMS = [
     (GR, "the last commit on upstream's main when the issue was opened",
      [(G + "build_cases.py", "next(c for c in self.commits if c[1] <= t)"),
       (CM, "Upstream commit dated no later than the issue was opened: 38/38.")]),
-    (GR, "Held-out expected decisions: no action 8, a comment 4, a comment or no action 3, labels only 3.",
-     [(CM, "expected decision: comment 4, comment or noop 3, labels 3, noop 8.")]),
+    (GR, "Held-out expected decisions: no action 8, a comment 4, a comment or no action 3, labels only 2, labels or no "
+     "action 1.", [(CM, "expected decision: comment 4, comment or noop 3, labels 2, labels or noop 1, noop 8.")]),
     (GR, "upstream's labeler labels are neither required nor penalised",
      [(G + "score.py", 'set(issue.get("labeler_labels", []))')]),
     (GR, "Titles are as fetched on 2026-10-24", [(META, '"started_at": "2026-10-24T03:13')]),

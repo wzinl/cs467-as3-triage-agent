@@ -14,6 +14,6 @@
       "(?i)maintainers? (has|have) approved"
     ]
   },
-  "rationale": "Open #48159 reports the same inconsistent result after apply on aws_bedrockagentcore_harness (environment.agentcore_runtime_environment computed fields). The reporter is on v6.58.0, the latest release.",
+  "rationale": "Open #48159 reports the same inconsistent result after apply on aws_bedrockagentcore_harness (environment.agentcore_runtime_environment computed fields). The reporter is on v6.58.0, the latest release. Predicted to fail: in replay.md, 48159 ranks 13th (score 0.317), outside the five the agent sees, and validate_plan.py rejects a reference the search did not return. Kept to measure the search, not tuned for.",
   "maintainer_history": "A maintainer closed it as a duplicate of #48159 the same day."
 }

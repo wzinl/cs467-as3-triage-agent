@@ -12,6 +12,10 @@ on:
         description: Number of the issue to triage
         required: true
         type: number
+      as_of:
+        description: "Evaluation only: the time to treat as now (ISO 8601 with offset); empty means the issue's creation"
+        required: false
+        type: string
   roles: all
   skip-author-associations:
     issues: [owner, member, collaborator]
@@ -71,6 +75,7 @@ steps:
     env:
       GH_TOKEN: ${{ github.token }}
       ISSUE_NUMBER: ${{ github.event.issue.number || inputs.issue_number }}
+      AS_OF: ${{ inputs.as_of }}
     run: |
       gh api "repos/$GITHUB_REPOSITORY/issues/$ISSUE_NUMBER" > "$RUNNER_TEMP/issue.json"
       # curl, not gh api: gh fails on a binary response ("transform: short source buffer").
@@ -78,7 +83,7 @@ steps:
         "$GITHUB_API_URL/repos/$GITHUB_REPOSITORY/contents/evals/data/corpus.json.gz?ref=$GITHUB_SHA" \
         -o "$RUNNER_TEMP/corpus.json.gz"
       python3 .claude/skills/issue-triage/scripts/prepare_context.py \
-        --issue "$RUNNER_TEMP/issue.json" --corpus "$RUNNER_TEMP/corpus.json.gz" --out /tmp/gh-aw/agent
+        --issue "$RUNNER_TEMP/issue.json" --corpus "$RUNNER_TEMP/corpus.json.gz" --out /tmp/gh-aw/agent --as-of "$AS_OF"
 
 safe-outputs:
   # Writes always use this run's own token (this repository, issues only), never a personal access token.

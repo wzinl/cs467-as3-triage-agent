@@ -2,6 +2,8 @@ name: Checks
 
 on:
   push:
+    # eval/<case> branches carry an older upstream copy for one golden case (evals/golden/case_branch.py)
+    branches-ignore: ['eval/**']
   pull_request:
 
 permissions:
@@ -47,11 +49,12 @@ jobs:
       - name: Golden-case and scorer tests
         run: python3 -m unittest discover -s evals/golden
 
-      - name: The held-out draw and every case input regenerate unchanged from the data and upstream's history
+      - name: The held-out draw, every case input and the check replay regenerate unchanged from the data and upstream's history
         run: |
           git init -q ../upstream && git -C ../upstream fetch -q --filter=tree:0 https://github.com/hashicorp/terraform-provider-aws main
           python3 evals/golden/select_cases.py > /dev/null
           python3 evals/golden/build_cases.py ../upstream > /dev/null
+          python3 evals/golden/replay_checks.py ../upstream > /dev/null
           test -z "$(git status --porcelain)" || { git status --short | head -20; exit 1; }
 
       - name: Install gh-aw
