@@ -57,38 +57,17 @@ This resource exports the following attributes in addition to the arguments abov
 
 ## Import
 
-In Terraform v1.12.0 and later, the [`import` block](https://developer.hashicorp.com/terraform/language/import) can be used with the `identity` attribute. For example:
+In Terraform v1.5.0 and later, use an [`import` block](https://developer.hashicorp.com/terraform/language/import) to import CloudWatch Logs Anomaly Detector using the `arn`. For example:
 
 ```terraform
 import {
   to = aws_cloudwatch_log_anomaly_detector.example
-  identity = {
-    arn = "arn:aws:logs:us-east-1:123456789012:anomaly-detector:1a2b3c4d-5e6f-7890-abcd-ef1234567890"
-  }
-}
-
-resource "aws_cloudwatch_log_anomaly_detector" "example" {
-  ### Configuration omitted for brevity ###
+  id = "log_anomaly_detector-arn-12345678"
 }
 ```
 
-### Identity Schema
-
-#### Required
-
-- `arn` (String) ARN of the anomaly detector.
-
-In Terraform v1.5.0 and later, use an [`import` block](https://developer.hashicorp.com/terraform/language/import) to import Anomaly Detectors using `arn`. For example:
-
-```terraform
-import {
-  to = aws_cloudwatch_log_anomaly_detector.example
-  id = "arn:aws:logs:us-east-1:123456789012:anomaly-detector:1a2b3c4d-5e6f-7890-abcd-ef1234567890"
-}
-```
-
-Using `terraform import`, import Anomaly Detectors using `arn`. For example:
+Using `terraform import`, import CloudWatch Log Anomaly Detector using the `arn`. For example:
 
 ```console
-% terraform import aws_cloudwatch_log_anomaly_detector.example arn:aws:logs:us-east-1:123456789012:anomaly-detector:1a2b3c4d-5e6f-7890-abcd-ef1234567890
+% terraform import aws_cloudwatch_log_anomaly_detector.example log_anomaly_detector-arn-12345678
 ```
