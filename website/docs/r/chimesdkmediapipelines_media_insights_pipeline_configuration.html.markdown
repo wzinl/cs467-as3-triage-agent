@@ -40,11 +40,8 @@ resource "aws_chimesdkmediapipelines_media_insights_pipeline_configuration" "my_
 }
 
 resource "aws_kinesis_stream" "example" {
-  name = "example"
-
-  stream_mode_details {
-    stream_mode = "ON_DEMAND"
-  }
+  name        = "example"
+  shard_count = 2
 }
 
 data "aws_iam_policy_document" "media_pipelines_assume_role" {
