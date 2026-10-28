@@ -44,7 +44,7 @@ from the Actions tab with its number and no `as_of`; that input is for golden-ca
 | `sandbox/` | Import script, its checksum manifest, label sync and its tests | hand |
 | `evals/data/` | Read-only snapshot of upstream issues, fetched once | `evals/data/fetch_upstream.py`, then `evals/data/pack.py` |
 | `evals/metrics/` | Need analysis: two scripts and the outputs they write | outputs: running the scripts |
-| `evals/golden/` | Golden cases (`cases/held-out/`, `cases/dev/`), the held-out draw, the case builder, the check replay, the case-branch builder, the scorer and their tests | `selection.json`, `cases.md`, `replay.md` and every `input.json`: the scripts that write them; `expected.json`: hand, before the case's first run |
+| `evals/golden/` | Golden cases (`cases/held-out/`, `cases/dev/`), the held-out draw, the case builder, the check replay, the case-branch builder, the run collector, the scorer and their tests | `selection.json`, `cases.md`, `replay.md` and every `input.json`: the scripts that write them; `expected.json`: hand, before the case's first run |
 | `verification/` | `check_claims.py` and the claim audits (`verification/audit-*.md`) | hand |
 | `.github/workflows/` | `checks.yml` (CI), `labels.yml`, and the agent: `issue-triage.md` and its compiled `issue-triage.lock.yml` | hand; the lock file only by `gh aw compile` |
 | `.github/aw/actions-lock.json` | The commit that gh-aw's runtime actions are pinned to | hand; CI checks it against the gh-aw release tag |

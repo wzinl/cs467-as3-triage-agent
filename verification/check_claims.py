@@ -179,7 +179,7 @@ CLAIMS = [
     (C, "Its prompts, tool calls and outputs are kept as artifacts of each workflow run",
      [(LOCK, "name: Upload agent artifacts"), (LOCK, "/tmp/gh-aw/aw-prompts/prompt.txt"),
       (LOCK, "/tmp/gh-aw/agent-session.jsonl"), (LOCK, "/tmp/gh-aw/agent_output.json")]),
-    (C, "Its model is pinned in the workflow", [(LOCK, "ANTHROPIC_MODEL: claude-opus-5-5")]),
+    (C, "Its model is pinned in the workflow", [(LOCK, "ANTHROPIC_MODEL: claude-sonnet-5-5")]),
     (WF, "Maintainers' own issues are skipped below",
      [(LOCK, """!contains(fromJSON('["OWNER","MEMBER","COLLABORATOR"]'), github.event.issue.author_association)""")]),
     (WF, "Kill switch: adding this label to any issue in the repository stops every new run.",

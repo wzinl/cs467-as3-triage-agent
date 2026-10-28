@@ -87,6 +87,5 @@ A second, independent review before any case ran found these. Each is fixed or r
 
 - Nothing stops an `expected.json` from changing after its case is run; the git history shows it.
 - A single author wrote every `expected.json`; nobody else has reviewed them.
-- Posting a case and dispatching it are manual steps (`evals/golden/README.md`); collecting a run into
-  `actual/` for the scorer is not written yet.
+- Posting a case and dispatching it are manual steps (`evals/golden/README.md`).
 - Development case 10 tests the skip of maintainers' issues, so it must be opened by the owner.
