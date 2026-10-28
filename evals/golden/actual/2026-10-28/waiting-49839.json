@@ -1,0 +1,53 @@
+{
+  "skipped": false,
+  "run_id": 40737372225,
+  "issue": 23,
+  "author": "zzzinn",
+  "applied": {
+    "labels": [
+      "documentation"
+    ],
+    "comment": null,
+    "rejected": []
+  },
+  "raw_outputs": [
+    {
+      "type": "add_labels",
+      "labels": [
+        "documentation"
+      ]
+    }
+  ],
+  "detection_cost_usd": 0.051280400000000004,
+  "trace": {
+    "skill_loaded": true,
+    "bash_commands": [
+      "python3 .claude/skills/issue-triage/scripts/triage_checks.py",
+      "python3 .claude/skills/issue-triage/scripts/validate_plan.py"
+    ],
+    "tool_calls": [
+      "Skill",
+      "ToolSearch",
+      "Read",
+      "Bash",
+      "Read",
+      "Edit",
+      "Bash",
+      "mcp__safeoutputs__add_labels"
+    ],
+    "permission_denials": [],
+    "validated_plan": {
+      "decision": "labels",
+      "labels": [
+        "documentation"
+      ],
+      "comment": null,
+      "duplicate_of": [],
+      "reason": "Documentation-only report with no type label; service label is added by the regex labeler; no similar issue is a duplicate."
+    },
+    "result": {
+      "total_cost_usd": 0.0809644,
+      "num_turns": 10
+    }
+  }
+}

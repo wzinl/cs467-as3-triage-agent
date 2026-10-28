@@ -49,6 +49,11 @@ jobs:
       - name: Golden-case and scorer tests
         run: python3 -m unittest discover -s evals/golden
 
+      - name: The live run's results regenerate unchanged from its collected runs
+        run: |
+          python3 evals/golden/score.py 2026-10-28 > /dev/null
+          git diff --exit-code -- evals/golden/results-2026-10-28.md
+
       - name: The held-out draw, every case input and the check replay regenerate unchanged from the data and upstream's history
         run: |
           git init -q ../upstream && git -C ../upstream fetch -q --filter=tree:0 https://github.com/hashicorp/terraform-provider-aws main

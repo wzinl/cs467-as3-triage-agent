@@ -4,14 +4,15 @@
 Inputs, saved from the GitHub API after the run finished:
   AGENT_LOG      the log of the run's agent job (plain text, or the JSON get_job_logs returns, with logs_content)
   DETECTION_LOG  the log of its detection job, or - when detection did not run
-  ISSUE          {"author": login of who opened the issue, "labels": [names on the issue after the run],
-                  "comments": [{"author": login, "body": str}]}
+  ISSUE          {"number": issue number, "author": login of who opened the issue,
+                  "labels": [names on the issue after the run], "comments": [{"author": login, "body": str}]}
 The agent's trace comes from the Claude Code stream-json lines in the agent log: the skill, the commands, the
 denials, the safe-output calls as made, and plan.json as it stood at the last validate_plan.py run that passed
 (rebuilt from the agent's edits, starting from the empty plan prepare_context.py writes). What was applied is
 read from the issue: the labels added beyond the case's form labels, and the comment github-actions[bot] posted.
 Usage: python3 evals/golden/collect_run.py RUN CASE_ID AGENT_LOG DETECTION_LOG ISSUE
-       python3 evals/golden/collect_run.py RUN CASE_ID --skipped    (the workflow skipped the issue, as it should for dev 10)
+       python3 evals/golden/collect_run.py RUN CASE_ID --skipped RUN_ID ISSUE_NUMBER    (the workflow skipped the issue, as
+                                                                                         it should for dev 10)
 """
 import json
 import re
@@ -97,15 +98,17 @@ def collect(case_dir, agent_log, detection_log, issue):
     comments = [c["body"] for c in issue["comments"] if c["author"] == BOT]
     emitted = [lab for o in raw if o["type"] == "add_labels" for lab in o["labels"]]
     bad = [lab for lab in emitted if lab not in ALLOWED and not (lab.startswith("service/") and "service/*" in ALLOWED)]
-    return {"skipped": False, "author": issue["author"],
+    run_id = re.search(r"github\.run_id=(\d+)", agent_log)
+    return {"skipped": False, "run_id": int(run_id.group(1)) if run_id else None, "issue": issue.get("number"),
+            "author": issue["author"],
             "applied": {"labels": sorted(set(issue["labels"]) - form), "comment": comments[-1] if comments else None,
                         "rejected": [{"type": "add_labels", "labels": bad}] if bad else []},
             "raw_outputs": raw, "detection_cost_usd": detection_cost(detection_log) if detection_log else 0, "trace": trace}
 
 
 def main():
-    if len(sys.argv) == 4 and sys.argv[3] == "--skipped":
-        actual = {"skipped": True}
+    if len(sys.argv) == 6 and sys.argv[3] == "--skipped":
+        actual = {"skipped": True, "run_id": int(sys.argv[4]), "issue": int(sys.argv[5])}
     elif len(sys.argv) == 6:
         detection = None if sys.argv[4] == "-" else log_text(sys.argv[4])
         actual = collect(next((HERE / "cases").glob(f"*/{sys.argv[2]}")), log_text(sys.argv[3]), detection,

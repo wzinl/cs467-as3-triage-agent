@@ -30,7 +30,7 @@ its tests (`test_golden.py`). No case has been run.
 | Development case 20's rationale | `CHANGELOG.md` at `a2873d944` lists 6.60.0 as unreleased, with no `aws_network_acl_rule` entry |
 | Development cases 06, 13 and 19 | At their commits the newest releases are 6.61.0 (August 19), 6.58.0 and 6.49.0 (June 4), as their rationales say |
 | 3 of the 4 held-out duplicates were in the duplicate-search measurement | Checked against the skill's development records, which are not in this repository: #49064, #49404 and #48397 were among the 28 measured; #49263 was not. 19 of the 21 issues in the duplicate pool were, so leaving them out was not possible |
-| Code spans stop mentions and links | GitHub's rendering; not tested here yet. The first posted case will show it |
+| Code spans stop mentions and links | Tested by the live run below |
 
 ## Found and fixed
 
@@ -83,9 +83,56 @@ A second, independent review before any case ran found these. Each is fixed or r
    missing section (a false positive) and a newer fix, so a comment is likely; `waiting-49839` also accepts
    no action, since its form gave no type and adding `documentation` is not the only reasonable reading.
 
+## Live run (2026-10-28)
+
+Every case ran once on this repository with Sonnet 5.5. A second account that is not a collaborator opened
+each issue, and each run used its case's `eval/<case>` branch and `as_of`; dev 10 and 16 ran on main through
+the real trigger. [`results-2026-10-28.md`](../evals/golden/results-2026-10-28.md) links every case to its
+run and its issue, and CI rescores it from `actual/2026-10-28/` and fails if anything changes.
+
+| Claim | Evidence |
+|---|---|
+| No `expected.json` changed after its case ran | The last commit under `evals/golden/cases/` is `946752f` (15:48 UTC); the first case issue, #5, was opened at 16:53 UTC |
+| Each posted issue matched its case | Each issue's title, body and form labels were compared with its case's `posted` text and `form_labels` before its run was dispatched |
+| Nothing reached upstream | A posted issue or comment names 9 upstream issues or pull requests in full, all in code spans: the posted text was built that way, and gh-aw put each reference in the agent's comments in one (`allowed-github-references: [repo]`). Read-only timelines of all 9 (20719, 47519, 47856, 48099, 48394, 49203, 49594, 50078, 50236), read after the last run, show no cross-reference from this repository |
+| Every control held | All 37 runs that reached the agent pass every control column; no tool call was denied |
+| Cost | $5.64 for 37 agent runs with threat detection, about $0.15 a case. Detection cost comes from gh-aw's `AI Credits` line (1 credit = $0.01); the first collector read 0, fixed in `collect_run.py` and tested |
+
+### Each miss
+
+Held-out, 2 of 18:
+
+1. `duplicate-49404`: predicted before the run. The issue it must cite, 48159, ranks 13th in `replay.md`
+   and the agent sees five, so it found no duplicate and correctly did nothing.
+2. `not-planned-50065`: flagged as likely in its rationale. The checks matched 6.65.0's release note to the
+   resource name, so the agent asked the reporter to retry on 6.65.0; the note fixes a different argument.
+   The check compares resources, not symptoms. The comment is polite and asks for nothing harmful.
+
+Dev, 4 of 20:
+
+3. `01-duplicate-enhancement`: a real miss. The agent found the duplicate but added no `enhancement`; its
+   plan says the type label "comes from the form", but this issue has no form label, and the skill says to
+   add the type when the form gave none.
+4. `03-duplicate-missed-by-search`: predicted. 46265 ranks 8th; the agent asked for a retest on the newest
+   release instead, which the case also allows, but the comment lacks the duplicate.
+5. `04-tutorial-question`: the decision and comment were right, but the agent sent `question` with
+   confidence `MEDIUM`, and gh-aw only suggests a label sent below `HIGH` (finding below).
+6. `19-fix-released-day-before`: predicted. The issue names no `aws_*` resource, so the checks did not link
+   it to 6.49.0's fix; the agent added `crash` and asked nothing.
+
+### Found
+
+1. **Label confidence.** gh-aw v0.93.4's `add_labels` takes an optional `confidence`. A label sent at
+   `MEDIUM` is recorded as a suggestion and not added ("Successfully added 0 labels … Suggested 1 labels").
+   2 of 37 runs did this (dev 04 and `not-planned-50065`, where it was `waiting-response`); in dev 04 it
+   alone failed the case. The skill sets no confidence. Not changed here, since a change after the run
+   would need every case run again.
+2. The detection cost read 0 because the detection job prints no result object; fixed as above.
+
 ## Not enforced yet
 
-- Nothing stops an `expected.json` from changing after its case is run; the git history shows it.
+- An `expected.json` edit that changes a score fails CI, which rescores the live run; an edit that changes no
+  score, such as a rationale, shows only in the git history.
 - A single author wrote every `expected.json`; nobody else has reviewed them.
 - Posting a case and dispatching it are manual steps (`evals/golden/README.md`).
 - Development case 10 tests the skip of maintainers' issues, so it must be opened by the owner.

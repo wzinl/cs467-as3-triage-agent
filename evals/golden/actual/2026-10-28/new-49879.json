@@ -1,0 +1,53 @@
+{
+  "skipped": false,
+  "run_id": 40734857485,
+  "issue": 12,
+  "author": "zzzinn",
+  "applied": {
+    "labels": [
+      "new-resource"
+    ],
+    "comment": null,
+    "rejected": []
+  },
+  "raw_outputs": [
+    {
+      "type": "add_labels",
+      "labels": [
+        "new-resource"
+      ]
+    }
+  ],
+  "detection_cost_usd": 0.0510306,
+  "trace": {
+    "skill_loaded": true,
+    "bash_commands": [
+      "python3 .claude/skills/issue-triage/scripts/triage_checks.py",
+      "python3 .claude/skills/issue-triage/scripts/validate_plan.py"
+    ],
+    "tool_calls": [
+      "Skill",
+      "ToolSearch",
+      "Read",
+      "Bash",
+      "Read",
+      "Edit",
+      "Bash",
+      "mcp__safeoutputs__add_labels"
+    ],
+    "permission_denials": [],
+    "validated_plan": {
+      "decision": "labels",
+      "labels": [
+        "new-resource"
+      ],
+      "comment": null,
+      "duplicate_of": [],
+      "reason": "Requests aws_sesv2_email_identity_certificate, which does not exist; form complete, no duplicate, service label added by regex labeler."
+    },
+    "result": {
+      "total_cost_usd": 0.08130889999999999,
+      "num_turns": 10
+    }
+  }
+}

@@ -144,6 +144,7 @@ class Collect(unittest.TestCase):
             return line({"type": "user", "message": {"content": [{"type": "tool_result", "tool_use_id": i, "content": text, "is_error": error}]}})
         empty = json.dumps({"decision": None, "labels": [], "comment": None, "duplicate_of": [], "reason": None}, indent=2)
         log = "\n".join([
+            "2026-10-29T09:59:00.0000000Z   OTEL_RESOURCE_ATTRIBUTES: gh-aw.run.id=42,github.run_id=42,gh-aw.engine.id=claude",
             "[claude-harness] spawning: claude",
             use("1", "Skill", {"skill": "issue-triage"}), result("1", "Launching skill: issue-triage"),
             use("2", "Bash", {"command": "python3 .claude/skills/issue-triage/scripts/triage_checks.py"}), result("2", "{}"),
@@ -154,7 +155,7 @@ class Collect(unittest.TestCase):
             use("6", "mcp__safeoutputs__add_labels", {"labels": [{"name": "new-resource", "rationale": "r"}, {"name": "prioritized"}]}),
             result("6", "ok"),
             line({"total_cost_usd": 0.25, "num_turns": 6, "permission_denials": []})])
-        issue = {"author": "reporter", "labels": ["new-resource", "service/datazone"],
+        issue = {"number": 13, "author": "reporter", "labels": ["new-resource", "service/datazone"],
                  "comments": [{"author": "wzinl", "body": "hi"}]}
         actual = collect(HERE / "cases/held-out/new-50107", log, "2026-10-29T10:01:00.0000000Z AI Credits: 17.5", issue)
         self.assertEqual(actual["raw_outputs"], [{"type": "add_labels", "labels": ["new-resource", "prioritized"]}])
@@ -162,6 +163,7 @@ class Collect(unittest.TestCase):
         self.assertEqual((actual["applied"]["comment"], actual["applied"]["rejected"], actual["detection_cost_usd"]),
                          (None, [{"type": "add_labels", "labels": ["prioritized"]}], 0.175))
         self.assertTrue(actual["trace"]["skill_loaded"])
+        self.assertEqual((actual["run_id"], actual["issue"]), (42, 13))
         self.assertEqual(score(HERE / "cases/held-out/new-50107", actual)["decision"], "labels")
 
 

@@ -20,6 +20,7 @@ sha256sum -c sandbox/upstream.sha256 --quiet              # the upstream copy is
 python3 -m unittest discover -s sandbox                   # label parser tests
 python3 -m unittest discover -s .claude/skills/issue-triage/tests   # triage script tests
 python3 -m unittest discover -s evals/golden              # golden-case and scorer tests
+python3 evals/golden/score.py 2026-10-28 > /dev/null    # rescore the live run; must change nothing
 python3 evals/golden/select_cases.py > /dev/null          # redraw the held-out cases; must change nothing
 git init -q ../upstream && git -C ../upstream fetch -q --filter=tree:0 https://github.com/hashicorp/terraform-provider-aws main
 python3 evals/golden/build_cases.py ../upstream > /dev/null   # rebuild every case input; must change nothing

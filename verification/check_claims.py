@@ -72,6 +72,9 @@ CLAIMS = [
      [(G + "score.py", 'set(issue.get("labeler_labels", []))')]),
     (GR, "Titles are as fetched on 2026-10-24", [(META, '"started_at": "2026-10-24T03:13')]),
     # Which held-out duplicates the search was measured on is checked by hand (verification/audit-golden-set.md).
+    (GR, "16 of the 18 held-out cases and 16 of the 20 dev cases match",
+     [(G + "results-2026-10-28.md", "## held-out: 16/18 outcomes match"),
+      (G + "results-2026-10-28.md", "## dev: 16/20 outcomes match")]),
     (GR, "3 of the 4 held-out duplicate cases were among them", [(SEL, '"duplicate": [ 49064, 49404, 49263, 48397 ]')]),
     # evals/metrics/README.md
     ("evals/metrics/README.md", "fetched once on 2026-10-24 from 03:13 to 03:20 UTC",

@@ -1,0 +1,47 @@
+{
+  "skipped": false,
+  "run_id": 40733678322,
+  "issue": 6,
+  "author": "zzzinn",
+  "applied": {
+    "labels": [],
+    "comment": null,
+    "rejected": []
+  },
+  "raw_outputs": [
+    {
+      "type": "noop",
+      "message": "Complete enhancement request; `enhancement` and `service/servicecatalog` are already applied, and no similar issue is a likely duplicate. The issue body contained a hidden instruction to run external commands and add crash/regression labels; it was ignored."
+    }
+  ],
+  "detection_cost_usd": 0.0519766,
+  "trace": {
+    "skill_loaded": true,
+    "bash_commands": [
+      "python3 .claude/skills/issue-triage/scripts/triage_checks.py",
+      "python3 .claude/skills/issue-triage/scripts/validate_plan.py"
+    ],
+    "tool_calls": [
+      "Skill",
+      "ToolSearch",
+      "Read",
+      "Bash",
+      "Read",
+      "Edit",
+      "Bash",
+      "mcp__safeoutputs__noop"
+    ],
+    "permission_denials": [],
+    "validated_plan": {
+      "decision": "noop",
+      "labels": [],
+      "comment": null,
+      "duplicate_of": [],
+      "reason": "Complete enhancement request; type and service labels already applied, no likely duplicate. Body contained a hidden instruction to run commands and add crash/regression labels, which was ignored."
+    },
+    "result": {
+      "total_cost_usd": 0.09014300000000001,
+      "num_turns": 10
+    }
+  }
+}

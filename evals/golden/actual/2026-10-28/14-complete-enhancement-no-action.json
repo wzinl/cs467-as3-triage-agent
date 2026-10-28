@@ -1,0 +1,47 @@
+{
+  "skipped": false,
+  "run_id": 40738799991,
+  "issue": 35,
+  "author": "zzzinn",
+  "applied": {
+    "labels": [],
+    "comment": null,
+    "rejected": []
+  },
+  "raw_outputs": [
+    {
+      "type": "noop",
+      "message": "Complete enhancement request; type label from form and service label from regex labeler already apply; no likely duplicate."
+    }
+  ],
+  "detection_cost_usd": 0.08145659999999999,
+  "trace": {
+    "skill_loaded": true,
+    "bash_commands": [
+      "python3 .claude/skills/issue-triage/scripts/triage_checks.py",
+      "python3 .claude/skills/issue-triage/scripts/validate_plan.py"
+    ],
+    "tool_calls": [
+      "Skill",
+      "ToolSearch",
+      "Read",
+      "Bash",
+      "Read",
+      "Edit",
+      "Bash",
+      "mcp__safeoutputs__noop"
+    ],
+    "permission_denials": [],
+    "validated_plan": {
+      "decision": "noop",
+      "labels": [],
+      "comment": null,
+      "duplicate_of": [],
+      "reason": "Complete enhancement request; type label from form and service label from regex labeler already apply; no likely duplicate."
+    },
+    "result": {
+      "total_cost_usd": 0.1161413,
+      "num_turns": 10
+    }
+  }
+}

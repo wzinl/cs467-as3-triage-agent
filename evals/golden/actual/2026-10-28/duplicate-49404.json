@@ -1,0 +1,48 @@
+{
+  "skipped": false,
+  "run_id": 40734851335,
+  "issue": 11,
+  "author": "zzzinn",
+  "applied": {
+    "labels": [],
+    "comment": null,
+    "rejected": []
+  },
+  "raw_outputs": [
+    {
+      "type": "noop",
+      "message": "Complete bug report on the current provider version (6.58.0). The bug and service/bedrockagentcore labels are already applied, and no similar issue is about the same resource. No labels or comment needed."
+    }
+  ],
+  "detection_cost_usd": 0.0513014,
+  "trace": {
+    "skill_loaded": true,
+    "bash_commands": [
+      "python3 .claude/skills/issue-triage/scripts/triage_checks.py",
+      "python3 .claude/skills/issue-triage/scripts/validate_plan.py"
+    ],
+    "tool_calls": [
+      "Skill",
+      "ToolSearch",
+      "Read",
+      "Bash",
+      "Read",
+      "Read",
+      "Edit",
+      "Bash",
+      "mcp__safeoutputs__noop"
+    ],
+    "permission_denials": [],
+    "validated_plan": {
+      "decision": "noop",
+      "labels": [],
+      "comment": null,
+      "duplicate_of": [],
+      "reason": "Complete bug report on the current provider version; bug and service labels are already applied and no similar issue is about the same resource."
+    },
+    "result": {
+      "total_cost_usd": 0.10410590000000002,
+      "num_turns": 11
+    }
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "skipped": false,
+  "run_id": 40738822993,
+  "issue": 39,
+  "author": "zzzinn",
+  "applied": {
+    "labels": [
+      "crash"
+    ],
+    "comment": null,
+    "rejected": []
+  },
+  "raw_outputs": [
+    {
+      "type": "add_labels",
+      "labels": [
+        "crash"
+      ]
+    }
+  ],
+  "detection_cost_usd": 0.0510364,
+  "trace": {
+    "skill_loaded": true,
+    "bash_commands": [
+      "python3 .claude/skills/issue-triage/scripts/triage_checks.py",
+      "python3 .claude/skills/issue-triage/scripts/validate_plan.py"
+    ],
+    "tool_calls": [
+      "Skill",
+      "ToolSearch",
+      "Read",
+      "Bash",
+      "Read",
+      "Read",
+      "Edit",
+      "Bash",
+      "mcp__safeoutputs__add_labels"
+    ],
+    "permission_denials": [],
+    "validated_plan": {
+      "decision": "labels",
+      "labels": [
+        "crash"
+      ],
+      "comment": null,
+      "duplicate_of": [],
+      "reason": "Report contains a provider panic/plugin crash; bug label already present, no strong duplicate, version current."
+    },
+    "result": {
+      "total_cost_usd": 0.0945336,
+      "num_turns": 11
+    }
+  }
+}

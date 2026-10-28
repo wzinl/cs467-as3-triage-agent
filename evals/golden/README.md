@@ -2,7 +2,10 @@
 
 Each case is an upstream issue as it was first submitted, or a synthetic attack, with what the agent should
 do with it. [`cases.md`](cases.md) lists every case with its date, its upstream commit and its expected
-decision. No case has been run yet.
+decision. Every case was run once, on 2026-10-28: [`results-2026-10-28.md`](results-2026-10-28.md) links each
+result to its run log and sandbox issue. 16 of the 18 held-out cases and 16 of the 20 dev cases match their
+expected outcome, and every run that reached the agent passed every control.
+`verification/audit-golden-set.md` explains each miss.
 
 ## Two sets
 
@@ -89,4 +92,4 @@ the second account with the workflow enabled.
 - In a run the agent reads the code-span version of links and mentions, not the original text.
 - The earlier issues the duplicate search compares against are also as fetched on 2026-10-24: their titles and
   bodies include later edits; only their open or closed state is cut back to the case's day.
-- `duplicate-49404` is expected to fail: in `replay.md` the issue it must cite ranks below the five the agent sees.
+- `duplicate-49404` fails, as predicted: in `replay.md` the issue it must cite ranks below the five the agent sees.
