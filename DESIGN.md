@@ -119,7 +119,26 @@ against a cap of 1), and that the kill-switch label did not exist yet.
 
 - The skill sets no label confidence, so gh-aw may drop a correct label; fixing it means rerunning the set.
 - The duplicate search shows five candidates, and the release check compares resources, not symptoms.
-- One person wrote every expected outcome; no one else has reviewed them.
+- Claude Code wrote every expected outcome, and no maintainer has reviewed them.
 - The monthly rerun is not automated, because each case is opened from a second account by hand.
 - The daily cap skips manual runs, and the kill-switch label relies on GitHub search, which promises no delay.
 - With one maintainer, no rule can require a second reviewer for configuration changes.
+
+## AI-use statement
+
+**What I decided:** the target repository, the workflow to automate and the process the work followed;
+keeping Claude and running all 38 golden cases live; switching the agent to `claude-sonnet-5-5`; committing
+under my name; keeping the AI's work schedule out of the repository; and how the repeated kill-switch test
+is recorded.
+
+**What I did:** I added the API key secret, set up the second account and the rule on `main`, ran the
+kill-switch steps from my phone, and merged PRs #43 and #49 (I reviewed #43 in VS Code first).
+
+**What is AI-generated:** Claude Code wrote the code, the workflow, the skill, the docs (this file included)
+and every expected outcome. It ran every test, including opening the test issues from my accounts, and read
+every result.
+
+**How it was verified:** `verification/check_claims.py` checks every number in the docs against the data,
+the code or the compiled workflow on every push, and the `verification/audit-*.md` ledgers record the claims
+a script cannot check, with their evidence. The agent itself was checked by the live runs and the governance
+tests above. The expected outcomes were fixed before the live run, and no maintainer has reviewed them.

@@ -16,6 +16,9 @@ substring cannot check.
 | Tools | The lock's `--allowed-tools` list: read-only shell tools (`cat`, `grep`, `head`, `ls` and the like), the skill's two scripts, `Edit(//tmp/**)`, Read, Glob, Grep, Skill, Task, TodoWrite and the safe-outputs tools; `--disallowed-tools` names WebFetch, WebSearch, Write, MultiEdit and NotebookEdit |
 | Upstream runs PR workflows under `pull_request_target` | `verification/audit-need-analysis.md` |
 | 300 issues: about 43 a day, about 130 runs a day under the cap, about $45 | Arithmetic: 300 / 7 = 42.9; 2,000 credits / 15.2 credits a case ($5.64 / 37 runs) = 131; 300 × $0.15 = $45 |
+| PRs #43 and #49 were merged by `wzinl` | GitHub's pull request records, read 2026-10-29: `merged_by` is `wzinl` for both |
+| Claude Code opened the test issues from the owner's accounts | Every reply in `evals/golden/results-2026-10-28.md` thanks `@zzzinn`, the second account; PR #43's AI disclosure says Claude Code opened the case issues on the owner's machine |
+| What the owner decided and did | The owner's own account, given on 2026-10-29 for the AI-use statement |
 
 ## Found and fixed while writing it
 
@@ -30,8 +33,9 @@ substring cannot check.
 4. It named five misses; there are six.
 5. Question 2 said CI catches "every change on our side". The drift check covers the lock, the skill and
    `AGENTS.md`; the issue snapshot and upstream copy have their own manifests, which do not ask for a rerun.
+6. The open list said one person wrote every expected outcome. Claude Code wrote them, as the AI-use
+   statement says, so it now names Claude Code.
 
 ## Not enforced yet
 
-- The AI-use statement the brief asks for at the end is not written yet; the owner will add it.
 - Table rows are exempt from the 120-character check, since a Markdown table row cannot wrap.
