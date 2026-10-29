@@ -84,8 +84,8 @@ runtime actions are pinned to the commit of the `v0.93.4` tag, and runs the 17 s
   never added here.
 - "Latest release" means the newest entry in the pinned `CHANGELOG.md` (6.70.0); upstream may have
   released since.
-- The kill switch relies on GitHub search. On 2026-10-29 it saw a new label within 5 seconds, and its removal as
-  fast (`verification/audit-governance.md`), but GitHub does not promise a delay.
+- The kill switch relies on GitHub search. On 2026-10-29 it saw a new label within 4 seconds, and its removal
+  within 9 (`verification/audit-governance.md`), but GitHub does not promise a delay.
 - Since 2026-10-29 a rule on `main` blocks force-pushes and deletion, but no rule requires a review, so
   `CODEOWNERS` only requests one; with one owner it cannot require a second person.
 - github.com is an allowed domain, so the safe outputs pass a full upstream issue URL, which would add a
