@@ -48,7 +48,7 @@ jobs:
   agent:
     timeout-minutes: 20
 max-turns: 30
-max-ai-credits: 100
+max-ai-credits: 1
 max-daily-ai-credits: 2000
 
 network: {}
