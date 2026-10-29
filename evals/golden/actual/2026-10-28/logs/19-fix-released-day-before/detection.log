@@ -1,0 +1,1207 @@
+2026-10-28T17:48:37.0247605Z Current runner version: '2.338.0'
+2026-10-28T17:48:37.0272474Z ##[group]Runner Image Provisioner
+2026-10-28T17:48:37.0273674Z Hosted Compute Agent
+2026-10-28T17:48:37.0274430Z Version: 20261021.618
+2026-10-28T17:48:37.0275076Z Commit: 21505ad2541d5be6135ed84fc33697146cf75b8e
+2026-10-28T17:48:37.0275875Z Build Date: 2026-10-21T00:45:21Z
+2026-10-28T17:48:37.0276579Z Worker ID: {8e52035d-519b-4126-821a-f81898376137}
+2026-10-28T17:48:37.0277311Z Region: westus2
+2026-10-28T17:48:37.0277978Z Cloud: Azure
+2026-10-28T17:48:37.0278749Z ##[endgroup]
+2026-10-28T17:48:37.0280362Z ##[group]Operating System
+2026-10-28T17:48:37.0281035Z Ubuntu
+2026-10-28T17:48:37.0281565Z 24.04.5
+2026-10-28T17:48:37.0282214Z LTS
+2026-10-28T17:48:37.0282740Z ##[endgroup]
+2026-10-28T17:48:37.0283338Z ##[group]Runner Image
+2026-10-28T17:48:37.0283974Z Image: ubuntu-24.04
+2026-10-28T17:48:37.0284544Z Version: 20261025.353.1
+2026-10-28T17:48:37.0285868Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261025.353/images/ubuntu/Ubuntu2404-Readme.md
+2026-10-28T17:48:37.0287428Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261025.353
+2026-10-28T17:48:37.0288787Z ##[endgroup]
+2026-10-28T17:48:37.0290125Z ##[group]GITHUB_TOKEN Permissions
+2026-10-28T17:48:37.0292069Z Contents: read
+2026-10-28T17:48:37.0292689Z Metadata: read
+2026-10-28T17:48:37.0293373Z ##[endgroup]
+2026-10-28T17:48:37.0295421Z Secret source: Actions
+2026-10-28T17:48:37.0296535Z Cache mode: write
+2026-10-28T17:48:37.0297253Z Prepare workflow directory
+2026-10-28T17:48:37.1025271Z Prepare all required actions
+2026-10-28T17:48:37.1102521Z Getting action download info
+2026-10-28T17:48:37.5376585Z Download action repository 'github/gh-aw-actions@40fb427c047bb9f77324054adeb574e04c9481aa' (SHA:40fb427c047bb9f77324054adeb574e04c9481aa)
+2026-10-28T17:48:37.9857966Z Download action repository 'actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333' (SHA:9000827ccba6bdab643e8b6fd33ac0654aef8333)
+2026-10-28T17:48:38.1975319Z Download action repository 'actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1' (SHA:3d3c42e5aac5ba805825da76410c181273ba90b1)
+2026-10-28T17:48:38.2319061Z Download action repository 'actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3' (SHA:3a2844b7e9c422d3c10d287c895573f7108da1b3)
+2026-10-28T17:48:38.4358780Z Download action repository 'actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1' (SHA:949feb2413d6458794dcd2491c4babbbce0c15c1)
+2026-10-28T17:48:38.5156558Z Download action repository 'actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9' (SHA:cf430e030ddbb5b0abf93d22962f4752f3646cd9)
+2026-10-28T17:48:38.7888976Z Complete job name: detection
+2026-10-28T17:48:38.9029374Z ##[group]Run github/gh-aw-actions/setup@40fb427c047bb9f77324054adeb574e04c9481aa
+2026-10-28T17:48:38.9031429Z with:
+2026-10-28T17:48:38.9032812Z   destination: /home/runner/work/_temp/gh-aw/actions
+2026-10-28T17:48:38.9033998Z   job-name: detection
+2026-10-28T17:48:38.9034982Z   trace-id: bbc2ee63d536fbcbb99666b6b0d2e6dd
+2026-10-28T17:48:38.9036153Z   parent-span-id: 3406536232169530
+2026-10-28T17:48:38.9037219Z   safe-output-artifact-client: false
+2026-10-28T17:48:38.9038866Z env:
+2026-10-28T17:48:38.9039721Z   OTEL_EXPORTER_OTLP_ENDPOINT: 
+2026-10-28T17:48:38.9040770Z   OTEL_SERVICE_NAME: gh-aw.issue-triage
+2026-10-28T17:48:38.9043442Z   OTEL_RESOURCE_ATTRIBUTES: gh-aw.workflow.name=Issue%20triage,gh-aw.repository=wzinl/cs467-as3-triage-agent,gh-aw.run.id=40738822993,github.run_id=40738822993,gh-aw.engine.id=claude
+2026-10-28T17:48:38.9046157Z   OTEL_EXPORTER_OTLP_HEADERS: 
+2026-10-28T17:48:38.9047234Z   GH_AW_OTLP_ENDPOINTS: [{"url":"","headers":""}]
+2026-10-28T17:48:38.9048705Z   GH_AW_OTLP_IF_MISSING: ignore
+2026-10-28T17:48:38.9049724Z   GH_AW_RUNTIME_FEATURES: 
+2026-10-28T17:48:38.9050708Z   GH_AW_SETUP_WORKFLOW_NAME: Issue triage
+2026-10-28T17:48:38.9052934Z   GH_AW_CURRENT_WORKFLOW_REF: wzinl/cs467-as3-triage-agent/.github/workflows/issue-triage.lock.yml@refs/heads/eval/19-fix-released-day-before
+2026-10-28T17:48:38.9055427Z   GH_AW_INFO_VERSION: 2.1.310
+2026-10-28T17:48:38.9056431Z   GH_AW_INFO_AWF_VERSION: v0.28.70
+2026-10-28T17:48:38.9057453Z   GH_AW_INFO_ENGINE_ID: claude
+2026-10-28T17:48:38.9058568Z   GH_AW_SETUP_AW_CONTEXT: 
+2026-10-28T17:48:38.9059519Z ##[endgroup]
+2026-10-28T17:48:41.4506601Z Successfully copied 759 files to /home/runner/work/_temp/gh-aw/actions
+2026-10-28T17:48:41.4527072Z ##[group]Runtime TLS inventory (not a trust-store attestation)
+2026-10-28T17:48:41.4584585Z curl 8.5.0 (x86_64-pc-linux-gnu) libcurl/8.5.0 OpenSSL/3.0.13 zlib/1.3 brotli/1.1.0 zstd/1.5.5 libidn2/2.3.7 libpsl/0.21.2 (+libidn2/2.3.7) libssh/0.10.6/openssl/zlib nghttp2/1.59.0 librtmp/2.3 OpenLDAP/2.6.10
+2026-10-28T17:48:41.4810697Z Node v22.23.4; OpenSSL 3.5.9
+2026-10-28T17:48:44.4631340Z go1.24.13
+2026-10-28T17:48:44.4684134Z /usr/bin/gh: go1.27.3
+2026-10-28T17:48:44.4687680Z gh-aw: unavailable for build-toolchain inspection
+2026-10-28T17:48:44.4689120Z Python/certifi: not inspected by shell setup; record each client's interpreter, TLS backend and selected CA bundle separately.
+2026-10-28T17:48:44.4690022Z Container, proxy and MCP trust stores require separate image/vendor evidence.
+2026-10-28T17:48:44.4690629Z Browser updates and successful HTTPS connections do not attest CA distrust.
+2026-10-28T17:48:44.4691751Z ##[endgroup]
+2026-10-28T17:48:44.9030846Z Successfully copied 112 mcp-scripts files to /home/runner/work/_temp/gh-aw/mcp-scripts
+2026-10-28T17:48:45.1570877Z Successfully copied 170 safe-outputs files to /home/runner/work/_temp/gh-aw/safeoutputs
+2026-10-28T17:48:45.2149146Z [info] [otlp] INPUT_TRACE_ID=bbc2ee63d536fbcbb99666b6b0d2e6dd (will reuse activation trace)
+2026-10-28T17:48:45.2150598Z [info] [otlp] INPUT_PARENT_SPAN_ID=3406536232169530 (will parent setup span)
+2026-10-28T17:48:45.2157968Z [info] [otlp] no OTLP endpoints have usable credentials, skipping setup span
+2026-10-28T17:48:45.2207526Z [info] [otlp] resolved trace-id=bbc2ee63d536fbcbb99666b6b0d2e6dd
+2026-10-28T17:48:45.2209120Z [info] [otlp] trace-id=bbc2ee63d536fbcbb99666b6b0d2e6dd written to GITHUB_OUTPUT
+2026-10-28T17:48:45.2210117Z [info] [otlp] span-id=8dde1144affcb597 written to GITHUB_OUTPUT
+2026-10-28T17:48:45.2217914Z [info] [otlp] parent-span-id=3406536232169530 written to GITHUB_OUTPUT
+2026-10-28T17:48:45.2218988Z [info] [otlp] GITHUB_AW_OTEL_TRACE_ID written to GITHUB_ENV
+2026-10-28T17:48:45.2219738Z [info] [otlp] GITHUB_AW_OTEL_PARENT_SPAN_ID written to GITHUB_ENV
+2026-10-28T17:48:45.2220467Z [info] [otlp] GITHUB_AW_OTEL_JOB_START_MS written to GITHUB_ENV
+2026-10-28T17:48:45.2514409Z ##[group]Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333
+2026-10-28T17:48:45.2514876Z with:
+2026-10-28T17:48:45.2515076Z   name: activation
+2026-10-28T17:48:45.2515304Z   path: /tmp/gh-aw
+2026-10-28T17:48:45.2515538Z   merge-multiple: false
+2026-10-28T17:48:45.2515799Z   repository: wzinl/cs467-as3-triage-agent
+2026-10-28T17:48:45.2516086Z   run-id: 40738822993
+2026-10-28T17:48:45.2516312Z   skip-decompress: false
+2026-10-28T17:48:45.2516557Z   digest-mismatch: error
+2026-10-28T17:48:45.2516769Z env:
+2026-10-28T17:48:45.2516979Z   OTEL_EXPORTER_OTLP_ENDPOINT: 
+2026-10-28T17:48:45.2517299Z   OTEL_SERVICE_NAME: gh-aw.issue-triage
+2026-10-28T17:48:45.2518072Z   OTEL_RESOURCE_ATTRIBUTES: gh-aw.workflow.name=Issue%20triage,gh-aw.repository=wzinl/cs467-as3-triage-agent,gh-aw.run.id=40738822993,github.run_id=40738822993,gh-aw.engine.id=claude
+2026-10-28T17:48:45.2519074Z   OTEL_EXPORTER_OTLP_HEADERS: 
+2026-10-28T17:48:45.2519398Z   GH_AW_OTLP_ENDPOINTS: [{"url":"","headers":""}]
+2026-10-28T17:48:45.2519702Z   GH_AW_OTLP_IF_MISSING: ignore
+2026-10-28T17:48:45.2519946Z   GH_AW_RUNTIME_FEATURES: 
+2026-10-28T17:48:45.2520231Z   GITHUB_AW_OTEL_TRACE_ID: bbc2ee63d536fbcbb99666b6b0d2e6dd
+2026-10-28T17:48:45.2520582Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: 8dde1144affcb597
+2026-10-28T17:48:45.2520892Z   GITHUB_AW_OTEL_JOB_START_MS: 1793209725221
+2026-10-28T17:48:45.2521162Z ##[endgroup]
+2026-10-28T17:48:45.4016463Z Downloading single artifact
+2026-10-28T17:48:45.6666779Z Preparing to download the following artifacts:
+2026-10-28T17:48:45.6667978Z - activation (ID: 12838222552, Size: 92864, Expected Digest: sha256:110a4542e4c0ff2b18df5a69245b062c76d42ca378b6ff4236dd48fa1f0afc32)
+2026-10-28T17:48:46.1917357Z Redirecting to blob download url: https://productionresultssa31.blob.core.windows.net/actions-results/4d2f43c3-dc82-439f-847f-e65f48761cc0/workflow-job-run-be487567-30ac-54b5-8545-6df649e13ed8/artifacts/b15526c9c0e75acea3d1f8055de216c85f0330baf8604e13d8c6ce90fb90d6d7.zip
+2026-10-28T17:48:46.1919575Z Starting download of artifact to: /tmp/gh-aw
+2026-10-28T17:48:46.4798629Z (node:4606) [DEP0005] DeprecationWarning: Buffer() is deprecated due to security and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(), or Buffer.from() methods instead.
+2026-10-28T17:48:46.4800410Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-28T17:48:46.6155762Z SHA256 digest of downloaded artifact is 110a4542e4c0ff2b18df5a69245b062c76d42ca378b6ff4236dd48fa1f0afc32
+2026-10-28T17:48:46.6156610Z Artifact download completed successfully.
+2026-10-28T17:48:46.6156921Z Total of 1 artifact(s) downloaded
+2026-10-28T17:48:46.6176911Z Download artifact has finished successfully
+2026-10-28T17:48:46.6327827Z ##[group]Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333
+2026-10-28T17:48:46.6328270Z with:
+2026-10-28T17:48:46.6328838Z   pattern: {agent,agent-output-fallback}
+2026-10-28T17:48:46.6329127Z   merge-multiple: true
+2026-10-28T17:48:46.6329351Z   path: /tmp/gh-aw/
+2026-10-28T17:48:46.6329593Z   repository: wzinl/cs467-as3-triage-agent
+2026-10-28T17:48:46.6329883Z   run-id: 40738822993
+2026-10-28T17:48:46.6330108Z   skip-decompress: false
+2026-10-28T17:48:46.6330344Z   digest-mismatch: error
+2026-10-28T17:48:46.6330566Z env:
+2026-10-28T17:48:46.6330763Z   OTEL_EXPORTER_OTLP_ENDPOINT: 
+2026-10-28T17:48:46.6331028Z   OTEL_SERVICE_NAME: gh-aw.issue-triage
+2026-10-28T17:48:46.6331792Z   OTEL_RESOURCE_ATTRIBUTES: gh-aw.workflow.name=Issue%20triage,gh-aw.repository=wzinl/cs467-as3-triage-agent,gh-aw.run.id=40738822993,github.run_id=40738822993,gh-aw.engine.id=claude
+2026-10-28T17:48:46.6332551Z   OTEL_EXPORTER_OTLP_HEADERS: 
+2026-10-28T17:48:46.6332857Z   GH_AW_OTLP_ENDPOINTS: [{"url":"","headers":""}]
+2026-10-28T17:48:46.6333159Z   GH_AW_OTLP_IF_MISSING: ignore
+2026-10-28T17:48:46.6333402Z   GH_AW_RUNTIME_FEATURES: 
+2026-10-28T17:48:46.6333696Z   GITHUB_AW_OTEL_TRACE_ID: bbc2ee63d536fbcbb99666b6b0d2e6dd
+2026-10-28T17:48:46.6334049Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: 8dde1144affcb597
+2026-10-28T17:48:46.6334352Z   GITHUB_AW_OTEL_JOB_START_MS: 1793209725221
+2026-10-28T17:48:46.6334629Z ##[endgroup]
+2026-10-28T17:48:47.0309427Z Found 4 artifact(s)
+2026-10-28T17:48:47.0310655Z Filtering artifacts by pattern '{agent,agent-output-fallback}'
+2026-10-28T17:48:47.0336713Z Preparing to download the following artifacts:
+2026-10-28T17:48:47.0337739Z - agent (ID: 12838971920, Size: 106253, Expected Digest: sha256:8f3f11cf43b40e8961d2361f6571e038ef9ff74e69fd9aa460fb6b8fb84b03cd)
+2026-10-28T17:48:47.0339645Z - agent-output-fallback (ID: 12838951975, Size: 2158, Expected Digest: sha256:2bc7daf587491b49a5cca57afd795a006a6c4ce2e8bd914f432951e7df4f82dc)
+2026-10-28T17:48:47.5562130Z Redirecting to blob download url: https://productionresultssa31.blob.core.windows.net/actions-results/4d2f43c3-dc82-439f-847f-e65f48761cc0/workflow-job-run-7b9eb405-101a-5273-b4ac-498111b3978e/artifacts/d4f0bc5a29de06b510f9aa428f1eedba926012b591fef7a518e776a7c9bd1824.zip
+2026-10-28T17:48:47.5564594Z Starting download of artifact to: /tmp/gh-aw
+2026-10-28T17:48:47.5589523Z Redirecting to blob download url: https://productionresultssa31.blob.core.windows.net/actions-results/4d2f43c3-dc82-439f-847f-e65f48761cc0/workflow-job-run-7b9eb405-101a-5273-b4ac-498111b3978e/artifacts/daa0da78a4f899948f184de1c2267d4cff63de5d280692a88333f56508605a86.zip
+2026-10-28T17:48:47.5591724Z Starting download of artifact to: /tmp/gh-aw
+2026-10-28T17:48:47.8484602Z (node:4618) [DEP0005] DeprecationWarning: Buffer() is deprecated due to security and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(), or Buffer.from() methods instead.
+2026-10-28T17:48:47.8486694Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-28T17:48:47.8587851Z SHA256 digest of downloaded artifact is 2bc7daf587491b49a5cca57afd795a006a6c4ce2e8bd914f432951e7df4f82dc
+2026-10-28T17:48:47.8588801Z Artifact download completed successfully.
+2026-10-28T17:48:47.9983050Z SHA256 digest of downloaded artifact is 8f3f11cf43b40e8961d2361f6571e038ef9ff74e69fd9aa460fb6b8fb84b03cd
+2026-10-28T17:48:47.9983655Z Artifact download completed successfully.
+2026-10-28T17:48:47.9983988Z Total of 2 artifact(s) downloaded
+2026-10-28T17:48:47.9987697Z Download artifact has finished successfully
+2026-10-28T17:48:48.0138915Z ##[group]Run mkdir -p /tmp/gh-aw/
+2026-10-28T17:48:48.0139319Z [36;1mmkdir -p /tmp/gh-aw/[0m
+2026-10-28T17:48:48.0139649Z [36;1mfind "/tmp/gh-aw/" -type f -print[0m
+2026-10-28T17:48:48.0140040Z [36;1mif [ -f "/tmp/gh-aw/agent_output.json" ]; then[0m
+2026-10-28T17:48:48.0140524Z [36;1m  echo "GH_AW_AGENT_OUTPUT=/tmp/gh-aw/agent_output.json" >> "$GITHUB_OUTPUT"[0m
+2026-10-28T17:48:48.0140933Z [36;1mfi[0m
+2026-10-28T17:48:48.0164667Z shell: /usr/bin/bash -e {0}
+2026-10-28T17:48:48.0164944Z env:
+2026-10-28T17:48:48.0165163Z   OTEL_EXPORTER_OTLP_ENDPOINT: 
+2026-10-28T17:48:48.0165449Z   OTEL_SERVICE_NAME: gh-aw.issue-triage
+2026-10-28T17:48:48.0166240Z   OTEL_RESOURCE_ATTRIBUTES: gh-aw.workflow.name=Issue%20triage,gh-aw.repository=wzinl/cs467-as3-triage-agent,gh-aw.run.id=40738822993,github.run_id=40738822993,gh-aw.engine.id=claude
+2026-10-28T17:48:48.0167001Z   OTEL_EXPORTER_OTLP_HEADERS: 
+2026-10-28T17:48:48.0167293Z   GH_AW_OTLP_ENDPOINTS: [{"url":"","headers":""}]
+2026-10-28T17:48:48.0167640Z   GH_AW_OTLP_IF_MISSING: ignore
+2026-10-28T17:48:48.0167900Z   GH_AW_RUNTIME_FEATURES: 
+2026-10-28T17:48:48.0168201Z   GITHUB_AW_OTEL_TRACE_ID: bbc2ee63d536fbcbb99666b6b0d2e6dd
+2026-10-28T17:48:48.0169117Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: 8dde1144affcb597
+2026-10-28T17:48:48.0169456Z   GITHUB_AW_OTEL_JOB_START_MS: 1793209725221
+2026-10-28T17:48:48.0169733Z ##[endgroup]
+2026-10-28T17:48:48.0256953Z /tmp/gh-aw/agent/model-resolution.json
+2026-10-28T17:48:48.0257517Z /tmp/gh-aw/base/AGENTS.md
+2026-10-28T17:48:48.0258137Z /tmp/gh-aw/base/.claude/skills/issue-triage/SKILL.md
+2026-10-28T17:48:48.0259030Z /tmp/gh-aw/base/.claude/skills/issue-triage/references/comment-format.md
+2026-10-28T17:48:48.0259803Z /tmp/gh-aw/base/.claude/skills/issue-triage/scripts/prepare_context.py
+2026-10-28T17:48:48.0260541Z /tmp/gh-aw/base/.claude/skills/issue-triage/scripts/validate_plan.py
+2026-10-28T17:48:48.0261492Z /tmp/gh-aw/base/.claude/skills/issue-triage/scripts/triage_checks.py
+2026-10-28T17:48:48.0262579Z /tmp/gh-aw/base/.claude/skills/issue-triage/tests/test_scripts.py
+2026-10-28T17:48:48.0263387Z /tmp/gh-aw/base/.github/ISSUE_TEMPLATE/04_repository.yml
+2026-10-28T17:48:48.0264100Z /tmp/gh-aw/base/.github/ISSUE_TEMPLATE/02_enhancement.yml
+2026-10-28T17:48:48.0264938Z /tmp/gh-aw/base/.github/ISSUE_TEMPLATE/01_documentation.yml
+2026-10-28T17:48:48.0265652Z /tmp/gh-aw/base/.github/ISSUE_TEMPLATE/05_beta_feedback.yml
+2026-10-28T17:48:48.0266324Z /tmp/gh-aw/base/.github/ISSUE_TEMPLATE/00_bug_report.yml
+2026-10-28T17:48:48.0266934Z /tmp/gh-aw/base/.github/ISSUE_TEMPLATE/config.yml
+2026-10-28T17:48:48.0267524Z /tmp/gh-aw/base/.github/ISSUE_TEMPLATE/06_other.yml
+2026-10-28T17:48:48.0268087Z /tmp/gh-aw/base/.github/ISSUE_TEMPLATE/03_new_functionality.yml
+2026-10-28T17:48:48.0268855Z /tmp/gh-aw/base/.github/labeler-issue-triage.yml
+2026-10-28T17:48:48.0269243Z /tmp/gh-aw/base/.github/labeler-issue-trigger.yml
+2026-10-28T17:48:48.0269596Z /tmp/gh-aw/base/.github/aw/actions-lock.json
+2026-10-28T17:48:48.0269928Z /tmp/gh-aw/base/.github/CODEOWNERS
+2026-10-28T17:48:48.0270266Z /tmp/gh-aw/base/.github/workflows/issue-triage.lock.yml
+2026-10-28T17:48:48.0270646Z /tmp/gh-aw/base/.github/workflows/labels.yml
+2026-10-28T17:48:48.0270993Z /tmp/gh-aw/base/.github/workflows/issue-triage.md
+2026-10-28T17:48:48.0271523Z /tmp/gh-aw/base/.github/workflows/checks.yml
+2026-10-28T17:48:48.0271837Z /tmp/gh-aw/base/.github/SUPPORT.md
+2026-10-28T17:48:48.0272127Z /tmp/gh-aw/claude-debug.log
+2026-10-28T17:48:48.0272398Z /tmp/gh-aw/github_rate_limits.jsonl
+2026-10-28T17:48:48.0272677Z /tmp/gh-aw/mcp-logs/mcp-gateway.log
+2026-10-28T17:48:48.0272957Z /tmp/gh-aw/mcp-logs/gateway.md
+2026-10-28T17:48:48.0273237Z /tmp/gh-aw/mcp-logs/configuration.jsonl
+2026-10-28T17:48:48.0273559Z /tmp/gh-aw/mcp-logs/observed-url-domains.json
+2026-10-28T17:48:48.0273886Z /tmp/gh-aw/mcp-logs/rpc-messages.jsonl
+2026-10-28T17:48:48.0274173Z /tmp/gh-aw/mcp-logs/tools.json
+2026-10-28T17:48:48.0274448Z /tmp/gh-aw/mcp-logs/safeoutputs.log
+2026-10-28T17:48:48.0274874Z /tmp/gh-aw/otel.jsonl
+2026-10-28T17:48:48.0275123Z /tmp/gh-aw/agent-stdio.log
+2026-10-28T17:48:48.0275438Z /tmp/gh-aw/safeoutputs.jsonl
+2026-10-28T17:48:48.0275725Z /tmp/gh-aw/agent_execution.json
+2026-10-28T17:48:48.0276001Z /tmp/gh-aw/agent-session.jsonl
+2026-10-28T17:48:48.0276257Z /tmp/gh-aw/aw_info.json
+2026-10-28T17:48:48.0276495Z /tmp/gh-aw/awf-config.json
+2026-10-28T17:48:48.0276748Z /tmp/gh-aw/agent_output.json
+2026-10-28T17:48:48.0277003Z /tmp/gh-aw/skill_inventory.json
+2026-10-28T17:48:48.0277270Z /tmp/gh-aw/agent_usage.json
+2026-10-28T17:48:48.0277516Z /tmp/gh-aw/models.json
+2026-10-28T17:48:48.0277767Z /tmp/gh-aw/pre-agent-audit.txt
+2026-10-28T17:48:48.0278046Z /tmp/gh-aw/aw-prompts/prompt.txt
+2026-10-28T17:48:48.0279002Z /tmp/gh-aw/aw-prompts/user.txt
+2026-10-28T17:48:48.0279593Z /tmp/gh-aw/aw-prompts/prompt-template.txt
+2026-10-28T17:48:48.0280117Z /tmp/gh-aw/aw-prompts/system.txt
+2026-10-28T17:48:48.0280496Z /tmp/gh-aw/aw-prompts/prompt-import-tree.json
+2026-10-28T17:48:48.0280843Z /tmp/gh-aw/agent-errors.jsonl
+2026-10-28T17:48:48.0281132Z /tmp/gh-aw/agent_execution_exit_code.txt
+2026-10-28T17:48:48.0281494Z /tmp/gh-aw/sandbox/firewall/audit/image-manifest.json
+2026-10-28T17:48:48.0281883Z /tmp/gh-aw/sandbox/firewall/audit/sensitive-paths.json
+2026-10-28T17:48:48.0282291Z /tmp/gh-aw/sandbox/firewall/audit/docker-compose.redacted.yml
+2026-10-28T17:48:48.0282697Z /tmp/gh-aw/sandbox/firewall/audit/awf-resolved-config.json
+2026-10-28T17:48:48.0283084Z /tmp/gh-aw/sandbox/firewall/audit/policy-manifest.json
+2026-10-28T17:48:48.0283428Z /tmp/gh-aw/sandbox/firewall/audit/squid.conf
+2026-10-28T17:48:48.0283738Z /tmp/gh-aw/sandbox/firewall/logs/access.log
+2026-10-28T17:48:48.0284053Z /tmp/gh-aw/sandbox/firewall/logs/audit.jsonl
+2026-10-28T17:48:48.0284451Z /tmp/gh-aw/sandbox/firewall/logs/api-proxy-logs/token-usage.jsonl
+2026-10-28T17:48:48.0284890Z /tmp/gh-aw/sandbox/firewall/logs/api-proxy-logs/otel.jsonl
+2026-10-28T17:48:48.0285352Z /tmp/gh-aw/sandbox/firewall/logs/api-proxy-logs/agent-runtime/started-at-ms
+2026-10-28T17:48:48.0285872Z /tmp/gh-aw/sandbox/firewall/logs/api-proxy-logs/token-tracker-audit.jsonl
+2026-10-28T17:48:48.0286335Z /tmp/gh-aw/sandbox/firewall/logs/api-proxy-logs/models.json
+2026-10-28T17:48:48.0286692Z /tmp/gh-aw/sandbox/firewall/logs/cache.log
+2026-10-28T17:48:48.0287009Z /tmp/gh-aw/sandbox/firewall/awf-reflect.json
+2026-10-28T17:48:48.0324779Z ##[group]Run mkdir -p "/tmp/gh-aw/threat-detection"
+2026-10-28T17:48:48.0325218Z [36;1mmkdir -p "/tmp/gh-aw/threat-detection"[0m
+2026-10-28T17:48:48.0325652Z [36;1mevidence_tmp="/tmp/gh-aw/threat-detection/execution.json.tmp"[0m
+2026-10-28T17:48:48.0326417Z [36;1mprintf '{"version":1,"component":"detection","run_id":%s,"run_attempt":%s,"state":"not_started"}\n' "$GITHUB_RUN_ID" "$GITHUB_RUN_ATTEMPT" > "$evidence_tmp"[0m
+2026-10-28T17:48:48.0327187Z [36;1mmv "$evidence_tmp" "/tmp/gh-aw/threat-detection/execution.json"[0m
+2026-10-28T17:48:48.0345442Z shell: /usr/bin/bash -e {0}
+2026-10-28T17:48:48.0345713Z env:
+2026-10-28T17:48:48.0345928Z   OTEL_EXPORTER_OTLP_ENDPOINT: 
+2026-10-28T17:48:48.0346214Z   OTEL_SERVICE_NAME: gh-aw.issue-triage
+2026-10-28T17:48:48.0347009Z   OTEL_RESOURCE_ATTRIBUTES: gh-aw.workflow.name=Issue%20triage,gh-aw.repository=wzinl/cs467-as3-triage-agent,gh-aw.run.id=40738822993,github.run_id=40738822993,gh-aw.engine.id=claude
+2026-10-28T17:48:48.0347944Z   OTEL_EXPORTER_OTLP_HEADERS: 
+2026-10-28T17:48:48.0348247Z   GH_AW_OTLP_ENDPOINTS: [{"url":"","headers":""}]
+2026-10-28T17:48:48.0348745Z   GH_AW_OTLP_IF_MISSING: ignore
+2026-10-28T17:48:48.0349013Z   GH_AW_RUNTIME_FEATURES: 
+2026-10-28T17:48:48.0349316Z   GITHUB_AW_OTEL_TRACE_ID: bbc2ee63d536fbcbb99666b6b0d2e6dd
+2026-10-28T17:48:48.0349692Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: 8dde1144affcb597
+2026-10-28T17:48:48.0350011Z   GITHUB_AW_OTEL_JOB_START_MS: 1793209725221
+2026-10-28T17:48:48.0350300Z ##[endgroup]
+2026-10-28T17:48:48.0439390Z ##[group]Run rm -rf /tmp/gh-aw/sandbox/agent/logs/copilot-session-state
+2026-10-28T17:48:48.0439945Z [36;1mrm -rf /tmp/gh-aw/sandbox/agent/logs/copilot-session-state[0m
+2026-10-28T17:48:48.0458020Z shell: /usr/bin/bash -e {0}
+2026-10-28T17:48:48.0458534Z env:
+2026-10-28T17:48:48.0458837Z   OTEL_EXPORTER_OTLP_ENDPOINT: 
+2026-10-28T17:48:48.0459133Z   OTEL_SERVICE_NAME: gh-aw.issue-triage
+2026-10-28T17:48:48.0459931Z   OTEL_RESOURCE_ATTRIBUTES: gh-aw.workflow.name=Issue%20triage,gh-aw.repository=wzinl/cs467-as3-triage-agent,gh-aw.run.id=40738822993,github.run_id=40738822993,gh-aw.engine.id=claude
+2026-10-28T17:48:48.0460719Z   OTEL_EXPORTER_OTLP_HEADERS: 
+2026-10-28T17:48:48.0461014Z   GH_AW_OTLP_ENDPOINTS: [{"url":"","headers":""}]
+2026-10-28T17:48:48.0461326Z   GH_AW_OTLP_IF_MISSING: ignore
+2026-10-28T17:48:48.0461584Z   GH_AW_RUNTIME_FEATURES: 
+2026-10-28T17:48:48.0461882Z   GITHUB_AW_OTEL_TRACE_ID: bbc2ee63d536fbcbb99666b6b0d2e6dd
+2026-10-28T17:48:48.0462292Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: 8dde1144affcb597
+2026-10-28T17:48:48.0462612Z   GITHUB_AW_OTEL_JOB_START_MS: 1793209725221
+2026-10-28T17:48:48.0462914Z ##[endgroup]
+2026-10-28T17:48:48.0549211Z ##[group]Run rm -rf /tmp/gh-aw/sandbox/firewall/logs
+2026-10-28T17:48:48.0549654Z [36;1mrm -rf /tmp/gh-aw/sandbox/firewall/logs[0m
+2026-10-28T17:48:48.0550026Z [36;1mrm -rf /tmp/gh-aw/sandbox/firewall/audit[0m
+2026-10-28T17:48:48.0567799Z shell: /usr/bin/bash -e {0}
+2026-10-28T17:48:48.0568060Z env:
+2026-10-28T17:48:48.0568590Z   OTEL_EXPORTER_OTLP_ENDPOINT: 
+2026-10-28T17:48:48.0568911Z   OTEL_SERVICE_NAME: gh-aw.issue-triage
+2026-10-28T17:48:48.0569697Z   OTEL_RESOURCE_ATTRIBUTES: gh-aw.workflow.name=Issue%20triage,gh-aw.repository=wzinl/cs467-as3-triage-agent,gh-aw.run.id=40738822993,github.run_id=40738822993,gh-aw.engine.id=claude
+2026-10-28T17:48:48.0570472Z   OTEL_EXPORTER_OTLP_HEADERS: 
+2026-10-28T17:48:48.0570776Z   GH_AW_OTLP_ENDPOINTS: [{"url":"","headers":""}]
+2026-10-28T17:48:48.0571094Z   GH_AW_OTLP_IF_MISSING: ignore
+2026-10-28T17:48:48.0571354Z   GH_AW_RUNTIME_FEATURES: 
+2026-10-28T17:48:48.0571654Z   GITHUB_AW_OTEL_TRACE_ID: bbc2ee63d536fbcbb99666b6b0d2e6dd
+2026-10-28T17:48:48.0572067Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: 8dde1144affcb597
+2026-10-28T17:48:48.0572389Z   GITHUB_AW_OTEL_JOB_START_MS: 1793209725221
+2026-10-28T17:48:48.0572681Z ##[endgroup]
+2026-10-28T17:48:48.0661740Z ##[group]Run bash "${RUNNER_TEMP}/gh-aw/actions/download_docker_images.sh" ghcr.io/github/gh-aw-firewall/agent:0.28.70@sha256:b15ab48cbbab02904eb9bbd359a398db59690eebbea1e6934d47ed2bb407dd34 ghcr.io/github/gh-aw-firewall/api-proxy:0.28.70@sha256:9ac8f9c7294e892c916de3da9d2588dfd8cd4931e5c39b00143266d7ed9fd52a ghcr.io/github/gh-aw-firewall/squid:0.28.70@sha256:b5bc53f4becfd96e926e63c83831f1b3c9512f713c83161d2b8c9b7204b3e917
+2026-10-28T17:48:48.0664703Z [36;1mbash "${RUNNER_TEMP}/gh-aw/actions/download_docker_images.sh" ghcr.io/github/gh-aw-firewall/agent:0.28.70@sha256:b15ab48cbbab02904eb9bbd359a398db59690eebbea1e6934d47ed2bb407dd34 ghcr.io/github/gh-aw-firewall/api-proxy:0.28.70@sha256:9ac8f9c7294e892c916de3da9d2588dfd8cd4931e5c39b00143266d7ed9fd52a ghcr.io/github/gh-aw-firewall/squid:0.28.70@sha256:b5bc53f4becfd96e926e63c83831f1b3c9512f713c83161d2b8c9b7204b3e917[0m
+2026-10-28T17:48:48.0684159Z shell: /usr/bin/bash -e {0}
+2026-10-28T17:48:48.0684429Z env:
+2026-10-28T17:48:48.0684674Z   OTEL_EXPORTER_OTLP_ENDPOINT: 
+2026-10-28T17:48:48.0685109Z   OTEL_SERVICE_NAME: gh-aw.issue-triage
+2026-10-28T17:48:48.0685896Z   OTEL_RESOURCE_ATTRIBUTES: gh-aw.workflow.name=Issue%20triage,gh-aw.repository=wzinl/cs467-as3-triage-agent,gh-aw.run.id=40738822993,github.run_id=40738822993,gh-aw.engine.id=claude
+2026-10-28T17:48:48.0686661Z   OTEL_EXPORTER_OTLP_HEADERS: 
+2026-10-28T17:48:48.0686952Z   GH_AW_OTLP_ENDPOINTS: [{"url":"","headers":""}]
+2026-10-28T17:48:48.0687277Z   GH_AW_OTLP_IF_MISSING: ignore
+2026-10-28T17:48:48.0687542Z   GH_AW_RUNTIME_FEATURES: 
+2026-10-28T17:48:48.0687840Z   GITHUB_AW_OTEL_TRACE_ID: bbc2ee63d536fbcbb99666b6b0d2e6dd
+2026-10-28T17:48:48.0688215Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: 8dde1144affcb597
+2026-10-28T17:48:48.0688843Z   GITHUB_AW_OTEL_JOB_START_MS: 1793209725221
+2026-10-28T17:48:48.0689138Z ##[endgroup]
+2026-10-28T17:48:48.0741534Z Starting download of 3 image(s) with max 4 concurrent downloads...
+2026-10-28T17:48:48.1048567Z Attempt 1 of 3: Pulling ghcr.io/github/gh-aw-firewall/squid:0.28.70@sha256:b5bc53f4becfd96e926e63c83831f1b3c9512f713c83161d2b8c9b7204b3e917...
+2026-10-28T17:48:48.1050756Z Attempt 1 of 3: Pulling ghcr.io/github/gh-aw-firewall/agent:0.28.70@sha256:b15ab48cbbab02904eb9bbd359a398db59690eebbea1e6934d47ed2bb407dd34...
+2026-10-28T17:48:48.1052902Z Attempt 1 of 3: Pulling ghcr.io/github/gh-aw-firewall/api-proxy:0.28.70@sha256:9ac8f9c7294e892c916de3da9d2588dfd8cd4931e5c39b00143266d7ed9fd52a...
+2026-10-28T17:48:48.5526516Z ghcr.io/github/gh-aw-firewall/squid:0.28.70@sha256:b5bc53f4becfd96e926e63c83831f1b3c9512f713c83161d2b8c9b7204b3e917
+2026-10-28T17:48:48.5545851Z Successfully pulled ghcr.io/github/gh-aw-firewall/squid:0.28.70@sha256:b5bc53f4becfd96e926e63c83831f1b3c9512f713c83161d2b8c9b7204b3e917
+2026-10-28T17:48:48.5547218Z Tagging digest-pinned image as ghcr.io/github/gh-aw-firewall/squid:0.28.70
+2026-10-28T17:48:48.5703299Z Aliasing ghcr.io/github/gh-aw-firewall/squid:0.28.70 as ghcr.io/github/gh-aw-firewall/squid:latest
+2026-10-28T17:48:56.0314146Z ghcr.io/github/gh-aw-firewall/api-proxy:0.28.70@sha256:9ac8f9c7294e892c916de3da9d2588dfd8cd4931e5c39b00143266d7ed9fd52a
+2026-10-28T17:48:56.0344696Z Successfully pulled ghcr.io/github/gh-aw-firewall/api-proxy:0.28.70@sha256:9ac8f9c7294e892c916de3da9d2588dfd8cd4931e5c39b00143266d7ed9fd52a
+2026-10-28T17:48:56.0346152Z Tagging digest-pinned image as ghcr.io/github/gh-aw-firewall/api-proxy:0.28.70
+2026-10-28T17:48:56.0576342Z Aliasing ghcr.io/github/gh-aw-firewall/api-proxy:0.28.70 as ghcr.io/github/gh-aw-firewall/api-proxy:latest
+2026-10-28T17:48:58.0206034Z ghcr.io/github/gh-aw-firewall/agent:0.28.70@sha256:b15ab48cbbab02904eb9bbd359a398db59690eebbea1e6934d47ed2bb407dd34
+2026-10-28T17:48:58.0228064Z Successfully pulled ghcr.io/github/gh-aw-firewall/agent:0.28.70@sha256:b15ab48cbbab02904eb9bbd359a398db59690eebbea1e6934d47ed2bb407dd34
+2026-10-28T17:48:58.0229277Z Tagging digest-pinned image as ghcr.io/github/gh-aw-firewall/agent:0.28.70
+2026-10-28T17:48:58.0390585Z Aliasing ghcr.io/github/gh-aw-firewall/agent:0.28.70 as ghcr.io/github/gh-aw-firewall/agent:latest
+2026-10-28T17:48:58.0553449Z All images downloaded successfully
+2026-10-28T17:48:58.0592438Z ##[group]Run if [[ -n "$OUTPUT_TYPES" || "$HAS_PATCH" == "true" ]]; then
+2026-10-28T17:48:58.0592975Z [36;1mif [[ -n "$OUTPUT_TYPES" || "$HAS_PATCH" == "true" ]]; then[0m
+2026-10-28T17:48:58.0593392Z [36;1m  echo "run_detection=true" >> "$GITHUB_OUTPUT"[0m
+2026-10-28T17:48:58.0593864Z [36;1m  echo "Detection will run: output_types=$OUTPUT_TYPES, has_patch=$HAS_PATCH"[0m
+2026-10-28T17:48:58.0594283Z [36;1melse[0m
+2026-10-28T17:48:58.0594553Z [36;1m  echo "run_detection=false" >> "$GITHUB_OUTPUT"[0m
+2026-10-28T17:48:58.0594984Z [36;1m  echo "Detection skipped: no agent outputs or patches to analyze"[0m
+2026-10-28T17:48:58.0595366Z [36;1mfi[0m
+2026-10-28T17:48:58.0614589Z shell: /usr/bin/bash -e {0}
+2026-10-28T17:48:58.0614858Z env:
+2026-10-28T17:48:58.0615083Z   OTEL_EXPORTER_OTLP_ENDPOINT: 
+2026-10-28T17:48:58.0615383Z   OTEL_SERVICE_NAME: gh-aw.issue-triage
+2026-10-28T17:48:58.0616209Z   OTEL_RESOURCE_ATTRIBUTES: gh-aw.workflow.name=Issue%20triage,gh-aw.repository=wzinl/cs467-as3-triage-agent,gh-aw.run.id=40738822993,github.run_id=40738822993,gh-aw.engine.id=claude
+2026-10-28T17:48:58.0617173Z   OTEL_EXPORTER_OTLP_HEADERS: 
+2026-10-28T17:48:58.0617476Z   GH_AW_OTLP_ENDPOINTS: [{"url":"","headers":""}]
+2026-10-28T17:48:58.0617794Z   GH_AW_OTLP_IF_MISSING: ignore
+2026-10-28T17:48:58.0618054Z   GH_AW_RUNTIME_FEATURES: 
+2026-10-28T17:48:58.0618647Z   GITHUB_AW_OTEL_TRACE_ID: bbc2ee63d536fbcbb99666b6b0d2e6dd
+2026-10-28T17:48:58.0619043Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: 8dde1144affcb597
+2026-10-28T17:48:58.0619369Z   GITHUB_AW_OTEL_JOB_START_MS: 1793209725221
+2026-10-28T17:48:58.0619678Z   OUTPUT_TYPES: add_labels
+2026-10-28T17:48:58.0619920Z   HAS_PATCH: false
+2026-10-28T17:48:58.0620138Z ##[endgroup]
+2026-10-28T17:48:58.0658764Z Detection will run: output_types=add_labels, has_patch=false
+2026-10-28T17:48:58.0689815Z ##[group]Run rm -f "${RUNNER_TEMP}/gh-aw/mcp-config/mcp-servers.json"
+2026-10-28T17:48:58.0690334Z [36;1mrm -f "${RUNNER_TEMP}/gh-aw/mcp-config/mcp-servers.json"[0m
+2026-10-28T17:48:58.0690751Z [36;1mrm -f "$HOME/.copilot/mcp-config.json"[0m
+2026-10-28T17:48:58.0691125Z [36;1mrm -f "$GITHUB_WORKSPACE/.gemini/settings.json"[0m
+2026-10-28T17:48:58.0709110Z shell: /usr/bin/bash -e {0}
+2026-10-28T17:48:58.0709380Z env:
+2026-10-28T17:48:58.0709602Z   OTEL_EXPORTER_OTLP_ENDPOINT: 
+2026-10-28T17:48:58.0709890Z   OTEL_SERVICE_NAME: gh-aw.issue-triage
+2026-10-28T17:48:58.0710672Z   OTEL_RESOURCE_ATTRIBUTES: gh-aw.workflow.name=Issue%20triage,gh-aw.repository=wzinl/cs467-as3-triage-agent,gh-aw.run.id=40738822993,github.run_id=40738822993,gh-aw.engine.id=claude
+2026-10-28T17:48:58.0711436Z   OTEL_EXPORTER_OTLP_HEADERS: 
+2026-10-28T17:48:58.0711723Z   GH_AW_OTLP_ENDPOINTS: [{"url":"","headers":""}]
+2026-10-28T17:48:58.0712042Z   GH_AW_OTLP_IF_MISSING: ignore
+2026-10-28T17:48:58.0712328Z   GH_AW_RUNTIME_FEATURES: 
+2026-10-28T17:48:58.0712636Z   GITHUB_AW_OTEL_TRACE_ID: bbc2ee63d536fbcbb99666b6b0d2e6dd
+2026-10-28T17:48:58.0713016Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: 8dde1144affcb597
+2026-10-28T17:48:58.0713339Z   GITHUB_AW_OTEL_JOB_START_MS: 1793209725221
+2026-10-28T17:48:58.0713623Z ##[endgroup]
+2026-10-28T17:48:58.0810457Z ##[group]Run bash "${RUNNER_TEMP}/gh-aw/actions/prepare_threat_detection_files.sh"
+2026-10-28T17:48:58.0811043Z [36;1mbash "${RUNNER_TEMP}/gh-aw/actions/prepare_threat_detection_files.sh"[0m
+2026-10-28T17:48:58.0828035Z shell: /usr/bin/bash -e {0}
+2026-10-28T17:48:58.0828555Z env:
+2026-10-28T17:48:58.0828856Z   OTEL_EXPORTER_OTLP_ENDPOINT: 
+2026-10-28T17:48:58.0829148Z   OTEL_SERVICE_NAME: gh-aw.issue-triage
+2026-10-28T17:48:58.0829947Z   OTEL_RESOURCE_ATTRIBUTES: gh-aw.workflow.name=Issue%20triage,gh-aw.repository=wzinl/cs467-as3-triage-agent,gh-aw.run.id=40738822993,github.run_id=40738822993,gh-aw.engine.id=claude
+2026-10-28T17:48:58.0830735Z   OTEL_EXPORTER_OTLP_HEADERS: 
+2026-10-28T17:48:58.0831032Z   GH_AW_OTLP_ENDPOINTS: [{"url":"","headers":""}]
+2026-10-28T17:48:58.0831354Z   GH_AW_OTLP_IF_MISSING: ignore
+2026-10-28T17:48:58.0831622Z   GH_AW_RUNTIME_FEATURES: 
+2026-10-28T17:48:58.0831938Z   GITHUB_AW_OTEL_TRACE_ID: bbc2ee63d536fbcbb99666b6b0d2e6dd
+2026-10-28T17:48:58.0832331Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: 8dde1144affcb597
+2026-10-28T17:48:58.0832645Z   GITHUB_AW_OTEL_JOB_START_MS: 1793209725221
+2026-10-28T17:48:58.0832929Z ##[endgroup]
+2026-10-28T17:48:58.0976052Z Prepared threat detection files:
+2026-10-28T17:48:58.0988699Z total 24
+2026-10-28T17:48:58.0989148Z drwxr-xr-x 3 runner runner 4096 Oct 28 17:48 .
+2026-10-28T17:48:58.0989764Z drwxr-xr-x 8 runner runner 4096 Oct 28 17:48 ..
+2026-10-28T17:48:58.0990340Z -rw-r--r-- 1 runner runner  203 Oct 28 17:48 agent_output.json
+2026-10-28T17:48:58.0990773Z drwxr-xr-x 2 runner runner 4096 Oct 28 17:48 aw-prompts
+2026-10-28T17:48:58.0991165Z -rw-r--r-- 1 runner runner 1647 Oct 28 17:48 aw_info.json
+2026-10-28T17:48:58.0991550Z -rw-r--r-- 1 runner runner   97 Oct 28 17:48 execution.json
+2026-10-28T17:48:58.1053728Z ##[group]Run actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
+2026-10-28T17:48:58.1054303Z with:
+2026-10-28T17:48:58.1055495Z   script: const path = require('path');
+const actionsDir = path.join(process.env.RUNNER_TEMP, 'gh-aw', 'actions');
+const { setupGlobals } = require(path.join(actionsDir, 'setup_globals.cjs'));
+setupGlobals(core, github, context, exec, io, getOctokit);
+const { main } = require(path.join(actionsDir, 'setup_threat_detection.cjs'));
+await main();
+
+2026-10-28T17:48:58.1059544Z   github-token: ***
+2026-10-28T17:48:58.1059793Z   debug: false
+2026-10-28T17:48:58.1070543Z   user-agent: actions/github-script
+2026-10-28T17:48:58.1070864Z   result-encoding: json
+2026-10-28T17:48:58.1071152Z   retries: 0
+2026-10-28T17:48:58.1071406Z   retry-exempt-status-codes: 400,401,403,404,422
+2026-10-28T17:48:58.1071717Z env:
+2026-10-28T17:48:58.1071928Z   OTEL_EXPORTER_OTLP_ENDPOINT: 
+2026-10-28T17:48:58.1072215Z   OTEL_SERVICE_NAME: gh-aw.issue-triage
+2026-10-28T17:48:58.1073022Z   OTEL_RESOURCE_ATTRIBUTES: gh-aw.workflow.name=Issue%20triage,gh-aw.repository=wzinl/cs467-as3-triage-agent,gh-aw.run.id=40738822993,github.run_id=40738822993,gh-aw.engine.id=claude
+2026-10-28T17:48:58.1073793Z   OTEL_EXPORTER_OTLP_HEADERS: 
+2026-10-28T17:48:58.1074088Z   GH_AW_OTLP_ENDPOINTS: [{"url":"","headers":""}]
+2026-10-28T17:48:58.1074406Z   GH_AW_OTLP_IF_MISSING: ignore
+2026-10-28T17:48:58.1074672Z   GH_AW_RUNTIME_FEATURES: 
+2026-10-28T17:48:58.1074997Z   GITHUB_AW_OTEL_TRACE_ID: bbc2ee63d536fbcbb99666b6b0d2e6dd
+2026-10-28T17:48:58.1075370Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: 8dde1144affcb597
+2026-10-28T17:48:58.1075696Z   GITHUB_AW_OTEL_JOB_START_MS: 1793209725221
+2026-10-28T17:48:58.1075990Z   WORKFLOW_NAME: Issue triage
+2026-10-28T17:48:58.1076663Z   WORKFLOW_DESCRIPTION: First-pass triage of new issues. Adds at most three allow-listed labels and posts at most one comment; never closes, edits or removes anything.
+2026-10-28T17:48:58.1077359Z   HAS_PATCH: false
+2026-10-28T17:48:58.1077600Z   GH_AW_DETECTION_CONTINUE_ON_ERROR: false
+2026-10-28T17:48:58.1077915Z   GH_AW_DETECTION_SKIP_PROMPT_SUMMARY: true
+2026-10-28T17:48:58.1078200Z ##[endgroup]
+2026-10-28T17:48:58.2088037Z Removed framework system prompt block from /tmp/gh-aw/threat-detection/aw-prompts/prompt.txt
+2026-10-28T17:48:58.2089650Z Prompt file found: /tmp/gh-aw/threat-detection/aw-prompts/prompt.txt (687 bytes)
+2026-10-28T17:48:58.2091181Z Agent output file found: /tmp/gh-aw/threat-detection/agent_output.json (203 bytes)
+2026-10-28T17:48:58.2096674Z Skipping threat detection prompt step summary (external detector renders its own prompt)
+2026-10-28T17:48:58.2098073Z Threat detection setup completed
+2026-10-28T17:48:58.2200233Z ##[group]Run mkdir -p /tmp/gh-aw/threat-detection
+2026-10-28T17:48:58.2200653Z [36;1mmkdir -p /tmp/gh-aw/threat-detection[0m
+2026-10-28T17:48:58.2201033Z [36;1mtouch /tmp/gh-aw/threat-detection/detection.log[0m
+2026-10-28T17:48:58.2220410Z shell: /usr/bin/bash -e {0}
+2026-10-28T17:48:58.2220681Z env:
+2026-10-28T17:48:58.2220908Z   OTEL_EXPORTER_OTLP_ENDPOINT: 
+2026-10-28T17:48:58.2221215Z   OTEL_SERVICE_NAME: gh-aw.issue-triage
+2026-10-28T17:48:58.2221992Z   OTEL_RESOURCE_ATTRIBUTES: gh-aw.workflow.name=Issue%20triage,gh-aw.repository=wzinl/cs467-as3-triage-agent,gh-aw.run.id=40738822993,github.run_id=40738822993,gh-aw.engine.id=claude
+2026-10-28T17:48:58.2222754Z   OTEL_EXPORTER_OTLP_HEADERS: 
+2026-10-28T17:48:58.2223048Z   GH_AW_OTLP_ENDPOINTS: [{"url":"","headers":""}]
+2026-10-28T17:48:58.2223363Z   GH_AW_OTLP_IF_MISSING: ignore
+2026-10-28T17:48:58.2223627Z   GH_AW_RUNTIME_FEATURES: 
+2026-10-28T17:48:58.2223926Z   GITHUB_AW_OTEL_TRACE_ID: bbc2ee63d536fbcbb99666b6b0d2e6dd
+2026-10-28T17:48:58.2224320Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: 8dde1144affcb597
+2026-10-28T17:48:58.2224640Z   GITHUB_AW_OTEL_JOB_START_MS: 1793209725221
+2026-10-28T17:48:58.2224976Z   GH_AW_PROMPT: /tmp/gh-aw/aw-prompts/prompt.txt
+2026-10-28T17:48:58.2225272Z ##[endgroup]
+2026-10-28T17:48:58.2315188Z ##[group]Run bash "${RUNNER_TEMP}/gh-aw/actions/install_awf_binary.sh" v0.28.70 --rootless
+2026-10-28T17:48:58.2315994Z [36;1mbash "${RUNNER_TEMP}/gh-aw/actions/install_awf_binary.sh" v0.28.70 --rootless[0m
+2026-10-28T17:48:58.2333993Z shell: /usr/bin/bash -e {0}
+2026-10-28T17:48:58.2334261Z env:
+2026-10-28T17:48:58.2334479Z   OTEL_EXPORTER_OTLP_ENDPOINT: 
+2026-10-28T17:48:58.2334775Z   OTEL_SERVICE_NAME: gh-aw.issue-triage
+2026-10-28T17:48:58.2335580Z   OTEL_RESOURCE_ATTRIBUTES: gh-aw.workflow.name=Issue%20triage,gh-aw.repository=wzinl/cs467-as3-triage-agent,gh-aw.run.id=40738822993,github.run_id=40738822993,gh-aw.engine.id=claude
+2026-10-28T17:48:58.2336349Z   OTEL_EXPORTER_OTLP_HEADERS: 
+2026-10-28T17:48:58.2336642Z   GH_AW_OTLP_ENDPOINTS: [{"url":"","headers":""}]
+2026-10-28T17:48:58.2336950Z   GH_AW_OTLP_IF_MISSING: ignore
+2026-10-28T17:48:58.2337214Z   GH_AW_RUNTIME_FEATURES: 
+2026-10-28T17:48:58.2337524Z   GITHUB_AW_OTEL_TRACE_ID: bbc2ee63d536fbcbb99666b6b0d2e6dd
+2026-10-28T17:48:58.2337929Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: 8dde1144affcb597
+2026-10-28T17:48:58.2338266Z   GITHUB_AW_OTEL_JOB_START_MS: 1793209725221
+2026-10-28T17:48:58.2338904Z   GH_AW_PROMPT: /tmp/gh-aw/aw-prompts/prompt.txt
+2026-10-28T17:48:58.2339233Z ##[endgroup]
+2026-10-28T17:48:58.2467703Z Installing awf with checksum verification (version: v0.28.70, os: Linux, arch: x86_64)
+2026-10-28T17:48:58.2493900Z Cleaning up stale AWF chroot directories...
+2026-10-28T17:48:58.2746219Z Downloading checksums from 'https://github.com/github/gh-aw-firewall/releases/download/v0.28.70/checksums.txt'...
+2026-10-28T17:48:58.5193860Z Node.js >= 20 detected (v22.23.4), using lightweight bundle...
+2026-10-28T17:48:58.5194951Z Downloading bundle from 'https://github.com/github/gh-aw-firewall/releases/download/v0.28.70/awf-bundle.js'...
+2026-10-28T17:48:58.7783084Z Verifying SHA256 checksum for awf-bundle.js...
+2026-10-28T17:48:58.7861931Z ✓ Checksum verification passed for awf-bundle.js
+2026-10-28T17:48:58.7919389Z ✓ Installed awf bundle to /home/runner/.local/lib/awf/awf-bundle.js
+2026-10-28T17:48:59.2645472Z 0.28.70
+2026-10-28T17:48:59.2724611Z ✓ AWF installation complete
+2026-10-28T17:48:59.2815141Z ##[group]Run actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1
+2026-10-28T17:48:59.2815554Z with:
+2026-10-28T17:48:59.2815764Z   node-version: 24
+2026-10-28T17:48:59.2816001Z   package-manager-cache: false
+2026-10-28T17:48:59.2816272Z   check-latest: false
+2026-10-28T17:48:59.2819198Z   token: ***
+2026-10-28T17:48:59.2819413Z env:
+2026-10-28T17:48:59.2819652Z   OTEL_EXPORTER_OTLP_ENDPOINT: 
+2026-10-28T17:48:59.2819951Z   OTEL_SERVICE_NAME: gh-aw.issue-triage
+2026-10-28T17:48:59.2820731Z   OTEL_RESOURCE_ATTRIBUTES: gh-aw.workflow.name=Issue%20triage,gh-aw.repository=wzinl/cs467-as3-triage-agent,gh-aw.run.id=40738822993,github.run_id=40738822993,gh-aw.engine.id=claude
+2026-10-28T17:48:59.2821498Z   OTEL_EXPORTER_OTLP_HEADERS: 
+2026-10-28T17:48:59.2821793Z   GH_AW_OTLP_ENDPOINTS: [{"url":"","headers":""}]
+2026-10-28T17:48:59.2822102Z   GH_AW_OTLP_IF_MISSING: ignore
+2026-10-28T17:48:59.2822362Z   GH_AW_RUNTIME_FEATURES: 
+2026-10-28T17:48:59.2822690Z   GITHUB_AW_OTEL_TRACE_ID: bbc2ee63d536fbcbb99666b6b0d2e6dd
+2026-10-28T17:48:59.2823069Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: 8dde1144affcb597
+2026-10-28T17:48:59.2823393Z   GITHUB_AW_OTEL_JOB_START_MS: 1793209725221
+2026-10-28T17:48:59.2823722Z   GH_AW_PROMPT: /tmp/gh-aw/aw-prompts/prompt.txt
+2026-10-28T17:48:59.2824020Z ##[endgroup]
+2026-10-28T17:48:59.4118858Z Found in cache @ /opt/hostedtoolcache/node/24.22.1/x64
+2026-10-28T17:48:59.4715385Z ##[group]Environment details
+2026-10-28T17:48:59.7934065Z node: v24.22.1
+2026-10-28T17:48:59.7934486Z npm: 11.19.1
+2026-10-28T17:48:59.7934825Z yarn: 1.22.22
+2026-10-28T17:48:59.7935386Z ##[endgroup]
+2026-10-28T17:48:59.8079770Z ##[group]Run npm install -g @anthropic-ai/claude-code@2.1.310
+2026-10-28T17:48:59.8080268Z [36;1mnpm install -g @anthropic-ai/claude-code@2.1.310[0m
+2026-10-28T17:48:59.8105083Z shell: /usr/bin/bash -e {0}
+2026-10-28T17:48:59.8105357Z env:
+2026-10-28T17:48:59.8105572Z   OTEL_EXPORTER_OTLP_ENDPOINT: 
+2026-10-28T17:48:59.8105868Z   OTEL_SERVICE_NAME: gh-aw.issue-triage
+2026-10-28T17:48:59.8106838Z   OTEL_RESOURCE_ATTRIBUTES: gh-aw.workflow.name=Issue%20triage,gh-aw.repository=wzinl/cs467-as3-triage-agent,gh-aw.run.id=40738822993,github.run_id=40738822993,gh-aw.engine.id=claude
+2026-10-28T17:48:59.8107617Z   OTEL_EXPORTER_OTLP_HEADERS: 
+2026-10-28T17:48:59.8107913Z   GH_AW_OTLP_ENDPOINTS: [{"url":"","headers":""}]
+2026-10-28T17:48:59.8108230Z   GH_AW_OTLP_IF_MISSING: ignore
+2026-10-28T17:48:59.8108795Z   GH_AW_RUNTIME_FEATURES: 
+2026-10-28T17:48:59.8109110Z   GITHUB_AW_OTEL_TRACE_ID: bbc2ee63d536fbcbb99666b6b0d2e6dd
+2026-10-28T17:48:59.8109509Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: 8dde1144affcb597
+2026-10-28T17:48:59.8109830Z   GITHUB_AW_OTEL_JOB_START_MS: 1793209725221
+2026-10-28T17:48:59.8110159Z   GH_AW_PROMPT: /tmp/gh-aw/aw-prompts/prompt.txt
+2026-10-28T17:48:59.8110461Z ##[endgroup]
+2026-10-28T17:49:03.7782940Z 
+2026-10-28T17:49:03.7791962Z added 2 packages in 4s
+2026-10-28T17:49:03.7796295Z npm warn install-scripts 1 package has install scripts not yet covered by allowScripts:
+2026-10-28T17:49:03.7797694Z npm warn install-scripts   @anthropic-ai/claude-code@2.1.310 (postinstall: node install.cjs)
+2026-10-28T17:49:03.7798757Z npm warn install-scripts
+2026-10-28T17:49:03.7800818Z npm warn install-scripts Run `npm install -g --allow-scripts=@anthropic-ai/claude-code` to allow these scripts once, or `npm config set allow-scripts=@anthropic-ai/claude-code --location=user` to allow them for all global installs.
+2026-10-28T17:49:03.8362842Z ##[group]Run bash "${RUNNER_TEMP}/gh-aw/actions/install_threat_detect_binary.sh" v0.5.3 --artifact-base-url https://github.com/github/gh-aw-threat-detection/releases/download --sha256-amd64 7cfab3bd02717968a0584ddd3790cff22550059e36d6f656c4f35e9d27851009 --sha256-arm64 6f355949af98e7b5527a958ac11431bd7867db45c0191b94c3a205c662181cc6
+2026-10-28T17:49:03.8365212Z [36;1mbash "${RUNNER_TEMP}/gh-aw/actions/install_threat_detect_binary.sh" v0.5.3 --artifact-base-url https://github.com/github/gh-aw-threat-detection/releases/download --sha256-amd64 7cfab3bd02717968a0584ddd3790cff22550059e36d6f656c4f35e9d27851009 --sha256-arm64 6f355949af98e7b5527a958ac11431bd7867db45c0191b94c3a205c662181cc6[0m
+2026-10-28T17:49:03.8386646Z shell: /usr/bin/bash -e {0}
+2026-10-28T17:49:03.8386917Z env:
+2026-10-28T17:49:03.8387136Z   OTEL_EXPORTER_OTLP_ENDPOINT: 
+2026-10-28T17:49:03.8387436Z   OTEL_SERVICE_NAME: gh-aw.issue-triage
+2026-10-28T17:49:03.8388253Z   OTEL_RESOURCE_ATTRIBUTES: gh-aw.workflow.name=Issue%20triage,gh-aw.repository=wzinl/cs467-as3-triage-agent,gh-aw.run.id=40738822993,github.run_id=40738822993,gh-aw.engine.id=claude
+2026-10-28T17:49:03.8389359Z   OTEL_EXPORTER_OTLP_HEADERS: 
+2026-10-28T17:49:03.8389658Z   GH_AW_OTLP_ENDPOINTS: [{"url":"","headers":""}]
+2026-10-28T17:49:03.8389984Z   GH_AW_OTLP_IF_MISSING: ignore
+2026-10-28T17:49:03.8390254Z   GH_AW_RUNTIME_FEATURES: 
+2026-10-28T17:49:03.8390566Z   GITHUB_AW_OTEL_TRACE_ID: bbc2ee63d536fbcbb99666b6b0d2e6dd
+2026-10-28T17:49:03.8390942Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: 8dde1144affcb597
+2026-10-28T17:49:03.8391268Z   GITHUB_AW_OTEL_JOB_START_MS: 1793209725221
+2026-10-28T17:49:03.8391599Z   GH_AW_PROMPT: /tmp/gh-aw/aw-prompts/prompt.txt
+2026-10-28T17:49:03.8391903Z ##[endgroup]
+2026-10-28T17:49:03.8484330Z Installing threat-detect with compiler-pinned checksum verification (version: v0.5.3, os: Linux, arch: x86_64)
+2026-10-28T17:49:03.8603362Z Downloading binary from "https://github.com/github/gh-aw-threat-detection/releases/download/v0.5.3/threat-detect-linux-amd64"...
+2026-10-28T17:49:04.1224421Z Verifying SHA256 checksum for threat-detect-linux-amd64...
+2026-10-28T17:49:04.1275696Z ✓ Checksum verification passed for threat-detect-linux-amd64
+2026-10-28T17:49:04.1405092Z threat-detect v0.5.3
+2026-10-28T17:49:04.1411124Z ✓ threat-detect installation complete
+2026-10-28T17:49:04.1482873Z ##[group]Run mkdir -p "/tmp/gh-aw/threat-detection"
+2026-10-28T17:49:04.1483417Z [36;1mmkdir -p "/tmp/gh-aw/threat-detection"[0m
+2026-10-28T17:49:04.1483848Z [36;1mevidence_tmp="/tmp/gh-aw/threat-detection/execution.json.tmp"[0m
+2026-10-28T17:49:04.1484763Z [36;1mprintf '{"version":1,"component":"detection","run_id":%s,"run_attempt":%s,"state":"started"}\n' "$GITHUB_RUN_ID" "$GITHUB_RUN_ATTEMPT" > "$evidence_tmp"[0m
+2026-10-28T17:49:04.1485492Z [36;1mmv "$evidence_tmp" "/tmp/gh-aw/threat-detection/execution.json"[0m
+2026-10-28T17:49:04.1485938Z [36;1mexport GH_AW_AWF_EXECUTION_COMPONENT="detection"[0m
+2026-10-28T17:49:04.1486456Z [36;1mexport GH_AW_AWF_EXECUTION_EVIDENCE_FILE="/tmp/gh-aw/threat-detection/execution.json"[0m
+2026-10-28T17:49:04.1486929Z [36;1mset -o pipefail[0m
+2026-10-28T17:49:04.1487274Z [36;1mprintf '%s' "$(date +%s%3N)" > /tmp/gh-aw/agent_cli_start_ms.txt[0m
+2026-10-28T17:49:04.1487767Z [36;1m(umask 177 && touch /tmp/gh-aw/threat-detection/detection.log)[0m
+2026-10-28T17:49:04.1488144Z [36;1mGH_AW_MAX_AI_CREDITS="100"[0m
+2026-10-28T17:49:04.1488778Z [36;1mif [[ ! "$GH_AW_MAX_AI_CREDITS" =~ ^[0-9]+$ ]]; then[0m
+2026-10-28T17:49:04.1489124Z [36;1m  GH_AW_MAX_AI_CREDITS="100"[0m
+2026-10-28T17:49:04.1489397Z [36;1mfi[0m
+2026-10-28T17:49:04.1489595Z [36;1m[0m
+2026-10-28T17:49:04.1489994Z [36;1mif [[ "${GH_AW_ADMISSION_RESULT:-}" == "admitted" && -n "${GH_AW_ADMISSION_MAX_AI_CREDITS:-}" ]]; then[0m
+2026-10-28T17:49:04.1490690Z [36;1m  if [[ ! "$GH_AW_ADMISSION_MAX_AI_CREDITS" =~ ^[1-9][0-9]{0,9}$ ]] || (( GH_AW_ADMISSION_MAX_AI_CREDITS > 2147483647 )); then[0m
+2026-10-28T17:49:04.1491296Z [36;1m    echo "ERR_ADMISSION: Invalid runtime admission allowance." >&2[0m
+2026-10-28T17:49:04.1491676Z [36;1m    exit 1[0m
+2026-10-28T17:49:04.1491898Z [36;1m  fi[0m
+2026-10-28T17:49:04.1492175Z [36;1m  GH_AW_MAX_AI_CREDITS="$GH_AW_ADMISSION_MAX_AI_CREDITS"[0m
+2026-10-28T17:49:04.1492602Z [36;1m  echo "Admission allowance applied (value withheld)."[0m
+2026-10-28T17:49:04.1492934Z [36;1melse[0m
+2026-10-28T17:49:04.1493343Z [36;1m  echo "No component admission allowance; retaining existing budget policy (value withheld)."[0m
+2026-10-28T17:49:04.1493814Z [36;1mfi[0m
+2026-10-28T17:49:04.1494106Z [36;1munset GH_AW_ADMISSION_RESULT GH_AW_ADMISSION_MAX_AI_CREDITS[0m
+2026-10-28T17:49:04.1511484Z [36;1mprintf '%s\n' "{\"\$schema\":\"https://github.com/github/gh-aw-firewall/releases/download/v0.28.70/awf-config.schema.json\",\"apiProxy\":{\"enabled\":true,\"enableTokenSteering\":true,\"maxRuns\":500,\"maxCacheMisses\":5,\"maxAiCredits\":${GH_AW_MAX_AI_CREDITS},\"providers\":{\"anthropic\":{\"models\":{\"claude-sonnet-5-5\":{\"cost\":{\"cache_read\":\"1e-07\",\"cache_write\":\"2.5e-06\",\"input\":\"2e-06\",\"output\":\"1e-05\"}}}}},\"models\":{\"agent\":[\"sonnet-6x\",\"gpt-6\",\"gpt-5.4\",\"gpt-5.5\",\"gpt-5.6\",\"gpt-5.3\",\"gemini-pro\",\"any\"],\"antigravity\":[\"copilot/antigravity*\",\"google/antigravity*\",\"gemini/antigravity*\"],\"any\":[\"copilot/*\",\"anthropic/*\",\"openai/*\",\"google/*\",\"gemini/*\"],\"auto\":[\"copilot/auto\",\"large\"],\"claude\":[\"agent\"],\"codex\":[\"agent\"],\"coding\":[\"copilot/gpt-5*codex*\",\"openai/gpt-5*codex*\",\"gpt-5-codex\",\"kimi\"],\"computer-use\":[\"copilot/*computer-use*\",\"google/*computer-use*\",\"gemini/*computer-use*\",\"openai/*computer-use*\"],\"copilot\":[\"agent\"],\"deep-research\":[\"copilot/deep-research*\",\"copilot/o3-deep-research*\",\"copilot/o4-mini-deep-research*\",\"google/deep-research*\",\"gemini/deep-research*\",\"openai/o3-deep-research*\",\"openai/o4-mini-deep-research*\"],\"detection\":[\"small\"],\"evals\":[\"small\"],\"fable\":[\"copilot/*fable*\",\"anthropic/*fable*\"],\"gemini\":[\"agent\"],\"gemini-3-flash\":[\"copilot/gemini-3*flash*\",\"google/gemini-3*flash*\",\"gemini/gemini-3*flash*\"],\"gemini-3-pro\":[\"copilot/gemini-3*pro*\",\"google/gemini-3*pro*\",\"google/nano-banana*\",\"gemini/gemini-3*pro*\"],\"gemini-3.1-flash\":[\"copilot/gemini-3.1*flash*\",\"google/gemini-3.1*flash*\",\"gemini/gemini-3.1*flash*\"],\"gemini-3.1-pro\":[\"copilot/gemini-3.1*pro*\",\"google/gemini-3.1*pro*\",\"gemini/gemini-3.1*pro*\"],\"gemini-3.5-flash\":[\"copilot/gemini-3.5*flash*\",\"google/gemini-3.5*flash*\",\"gemini/gemini-3.5*flash*\"],\"gemini-3.6-flash\":[\"copilot/gemini-3.6*flash*\",\"google/gemini-3.6*flash*\",\"gemini/gemini-3.6*flash*\"],\"gemini-3.7-flash\":[\"copilot/gemini-3.7*flash*\",\"google/gemini-3.7*flash*\",\"gemini/gemini-3.7*flash*\"],\"gemini-3.8-flash\":[\"copilot/gemini-3.8*flash*\",\"google/gemini-3.8*flash*\",\"gemini/gemini-3.8*flash*\"],\"gemini-flash\":[\"copilot/gemini-*flash*\",\"google/gemini-*flash*\",\"gemini/gemini-*flash*\"],\"gemini-flash-lite\":[\"copilot/gemini-*flash*lite*\",\"google/gemini-*flash*lite*\",\"gemini/gemini-*flash*lite*\"],\"gemini-omni\":[\"copilot/gemini-omni*\",\"google/gemini-omni*\",\"gemini/gemini-omni*\"],\"gemini-pro\":[\"copilot/gemini-*pro*\",\"google/gemini-*pro*\",\"gemini/gemini-*pro*\"],\"gemma\":[\"copilot/gemma*\",\"google/gemma*\",\"gemini/gemma*\"],\"gpt-5\":[\"copilot/gpt-5*\",\"openai/gpt-5*\"],\"gpt-5-codex\":[\"copilot/gpt-5*codex*\",\"openai/gpt-5*codex*\"],\"gpt-5-mini\":[\"copilot/gpt-5*mini*\",\"openai/gpt-5*mini*\"],\"gpt-5-nano\":[\"copilot/gpt-5*nano*\",\"openai/gpt-5*nano*\"],\"gpt-5-pro\":[\"copilot/gpt-5*pro*\",\"openai/gpt-5*pro*\"],\"gpt-5.1\":[\"copilot/gpt-5.1*\",\"openai/gpt-5.1*\"],\"gpt-5.2\":[\"copilot/gpt-5.2*\",\"openai/gpt-5.2*\"],\"gpt-5.3\":[\"copilot/gpt-5.3*\",\"openai/gpt-5.3*\"],\"gpt-5.4\":[\"copilot/gpt-5.4*\",\"openai/gpt-5.4*\"],\"gpt-5.5\":[\"copilot/gpt-5.5*\",\"openai/gpt-5.5*\"],\"gpt-5.6\":[\"copilot/gpt-5.6*\",\"openai/gpt-5.6*\"],\"gpt-6\":[\"copilot/gpt-6*\",\"openai/gpt-6*\"],\"grok\":[\"copilot/*grok*\",\"openai/*grok*\"],\"haiku\":[\"copilot/*haiku*\",\"anthropic/*haiku*\"],\"image-generation\":[\"copilot/gpt-image*\",\"openai/gpt-image*\",\"openai/chatgpt-image*\",\"copilot/gemini-*image*\",\"google/gemini-*image*\",\"gemini/gemini-*image*\",\"google/imagen*\"],\"kimi\":[\"copilot/kimi*\",\"openai/kimi*\"],\"kiwi\":[\"copilot/kiwi*\",\"openai/kiwi*\"],\"large\":[\"sonnet\",\"gpt-6\",\"gpt-5-pro\",\"gpt-5\",\"gemini-pro\"],\"lyria\":[\"google/lyria*\",\"gemini/lyria*\",\"copilot/lyria*\"],\"mai-code\":[\"copilot/MAI-Code*\",\"copilot/mai-code*\",\"openai/MAI-Code*\"],\"mini\":[\"haiku\",\"gpt-5-mini\",\"gpt-5-nano\",\"gemini-flash-lite\"],\"nano-banana\":[\"copilot/nano-banana*\",\"google/nano-banana*\",\"gemini/nano-banana*\"],\"opus\":[\"copilot/*opus*\",\"anthropic/*opus*\"],\"opusplan\":[\"opus?effort=high\"],\"raptor-mini\":[\"copilot/raptor*\",\"openai/raptor*\"],\"reasoning\":[\"copilot/o1*\",\"copilot/o3*\",\"copilot/o4*\",\"openai/o1*\",\"openai/o3*\",\"openai/o4*\"],\"robotics\":[\"copilot/*robotics*\",\"google/*robotics*\",\"gemini/*robotics*\"],\"small\":[\"mini\"],\"small-agent\":[\"haiku\",\"gpt-5-mini\",\"gemini-flash\"],\"sonnet\":[\"copilot/*sonnet*\",\"anthropic/*sonnet*\"],\"sonnet-6x\":[\"copilot/*sonnet-4.5*\",\"copilot/*sonnet-4.6*\",\"copilot/*sonnet-5*\",\"copilot/*sonnet-4-5-*\",\"anthropic/*sonnet-4-5-*\",\"copilot/*sonnet-4-6*\",\"anthropic/*sonnet-4-6*\",\"anthropic/*sonnet-5*\"],\"summarization\":[\"haiku\",\"gpt-5-mini\",\"gemini-flash-lite\",\"mini\"],\"veo\":[\"google/veo*\",\"gemini/veo*\"],\"vision\":[\"copilot/gemini-*image*\",\"google/gemini-*image*\",\"gemini/gemini-*image*\",\"copilot/gemini-*flash*\",\"google/gemini-*flash*\",\"gemini/gemini-*flash*\"]}},\"container\":{\"imageTag\":\"0.28.70,squid=sha256:b5bc53f4becfd96e926e63c83831f1b3c9512f713c83161d2b8c9b7204b3e917,agent=sha256:b15ab48cbbab02904eb9bbd359a398db59690eebbea1e6934d47ed2bb407dd34,api-proxy=sha256:9ac8f9c7294e892c916de3da9d2588dfd8cd4931e5c39b00143266d7ed9fd52a,cli-proxy=sha256:372ac51a5cccffdfe484f3f7be427d2d1c566e8ae550d55bd45d9fd166a154b4\",\"agentTimeout\":10},\"logging\":{\"proxyLogsDir\":\"/tmp/gh-aw/sandbox/firewall/logs\",\"auditDir\":\"/tmp/gh-aw/sandbox/firewall/audit\"}}" > "${RUNNER_TEMP}/gh-aw/awf-config.json"[0m
+2026-10-28T17:49:04.1529068Z [36;1mcp "${RUNNER_TEMP}/gh-aw/awf-config.json" /tmp/gh-aw/awf-config.json[0m
+2026-10-28T17:49:04.1529579Z [36;1mexport GH_AW_MODELS_JSON_PATH="/tmp/gh-aw/models.json"[0m
+2026-10-28T17:49:04.1529946Z [36;1mGH_AW_DOCKER_HOST=""[0m
+2026-10-28T17:49:04.1530243Z [36;1mif [[ "${DOCKER_HOST:-}" =~ ^tcp:// ]]; then[0m
+2026-10-28T17:49:04.1530714Z [36;1m  GH_AW_DOCKER_HOST="${DOCKER_HOST}"[0m
+2026-10-28T17:49:04.1531001Z [36;1mfi[0m
+2026-10-28T17:49:04.1531244Z [36;1mif [[ "${DOCKER_HOST:-}" =~ ^tcp:// ]]; then[0m
+2026-10-28T17:49:04.1532522Z [36;1m  _GH_AW_CHROOT_JSON=$(jq -c --arg src "${RUNNER_TEMP}/gh-aw" --arg user "$(id -un)" --argjson uid "$(id -u)" --argjson gid "$(id -g)" --arg home "${RUNNER_TEMP}/gh-aw/home" '.chroot={"binariesSourcePath":$src,"identity":{"user":$user,"uid":$uid,"gid":$gid,"home":$home}}' "${RUNNER_TEMP}/gh-aw/awf-config.json") || { echo "chroot config patch failed" >&2; exit 1; }[0m
+2026-10-28T17:49:04.1533857Z [36;1m  printf '%s\n' "$_GH_AW_CHROOT_JSON" > "${RUNNER_TEMP}/gh-aw/awf-config.json"[0m
+2026-10-28T17:49:04.1534260Z [36;1mfi[0m
+2026-10-28T17:49:04.1534480Z [36;1mGH_AW_TOOL_CACHE_MOUNT=""[0m
+2026-10-28T17:49:04.1534860Z [36;1mGH_AW_TOOL_CACHE="${RUNNER_TOOL_CACHE:?RUNNER_TOOL_CACHE must be set}"[0m
+2026-10-28T17:49:04.1535279Z [36;1mif [ -d "$GH_AW_TOOL_CACHE" ]; then[0m
+2026-10-28T17:49:04.1535604Z [36;1m  if [[ "$GH_AW_TOOL_CACHE" != /opt/* ]]; then[0m
+2026-10-28T17:49:04.1536001Z [36;1m    GH_AW_TOOL_CACHE_MOUNT="$GH_AW_TOOL_CACHE:$GH_AW_TOOL_CACHE:ro"[0m
+2026-10-28T17:49:04.1536363Z [36;1m  fi[0m
+2026-10-28T17:49:04.1536559Z [36;1mfi[0m
+2026-10-28T17:49:04.1536801Z [36;1m# shellcheck disable=SC1003,SC2016,SC2086[0m
+2026-10-28T17:49:04.1539646Z [36;1mawf --config "${RUNNER_TEMP}/gh-aw/awf-config.json" --container-workdir "${GITHUB_WORKSPACE}" --mount "${RUNNER_TEMP}/gh-aw:${RUNNER_TEMP}/gh-aw:ro" --mount "${RUNNER_TEMP}/gh-aw:/host${RUNNER_TEMP}/gh-aw:ro" ${GH_AW_TOOL_CACHE_MOUNT:+--mount "$GH_AW_TOOL_CACHE_MOUNT"} ${GH_AW_DOCKER_HOST:+--docker-host "$GH_AW_DOCKER_HOST"} --env-all --exclude-env ACTIONS_ID_TOKEN_REQUEST_TOKEN --exclude-env ACTIONS_ID_TOKEN_REQUEST_URL --exclude-env ANTHROPIC_API_KEY --exclude-env GH_AW_OTLP_ALL_HEADERS --exclude-env GH_AW_OTLP_ENDPOINTS --exclude-env OTEL_EXPORTER_OTLP_ENDPOINT --exclude-env OTEL_EXPORTER_OTLP_HEADERS --mount /tmp/gh-aw:/tmp/gh-aw:rw --mount /tmp/gh-aw/threat-detection:/tmp/gh-aw/threat-detection:rw --log-level info --skip-pull \[0m
+2026-10-28T17:49:04.1544036Z [36;1m  -- /bin/bash -c 'set +o histexpand; : "${RUNNER_TOOL_CACHE:?RUNNER_TOOL_CACHE must be set}"; GH_AW_TOOL_CACHE="$RUNNER_TOOL_CACHE"; GH_AW_TOOL_BINS="$(find "$GH_AW_TOOL_CACHE" -maxdepth 5 -type d -name bin 2>/dev/null | tr "\n" ":")"; GH_AW_TOOL_BINS="${GH_AW_TOOL_BINS%:}"; export PATH="$PATH${GH_AW_TOOL_BINS:+:}$GH_AW_TOOL_BINS"; [ -n "$GOROOT" ] && export PATH="$GOROOT/bin:$PATH" || true; [ -n "$ERLANG_HOME" ] && export PATH="$ERLANG_HOME/bin:$PATH" || true && threat-detect --engine claude --output /tmp/gh-aw/threat-detection/detection_result.json /tmp/gh-aw/threat-detection' 2>&1 | tee -a /tmp/gh-aw/threat-detection/detection.log[0m
+2026-10-28T17:49:04.1565400Z shell: /usr/bin/bash -e {0}
+2026-10-28T17:49:04.1565676Z env:
+2026-10-28T17:49:04.1565902Z   OTEL_EXPORTER_OTLP_ENDPOINT: 
+2026-10-28T17:49:04.1566202Z   OTEL_SERVICE_NAME: gh-aw.issue-triage
+2026-10-28T17:49:04.1566986Z   OTEL_RESOURCE_ATTRIBUTES: gh-aw.workflow.name=Issue%20triage,gh-aw.repository=wzinl/cs467-as3-triage-agent,gh-aw.run.id=40738822993,github.run_id=40738822993,gh-aw.engine.id=claude
+2026-10-28T17:49:04.1567782Z   OTEL_EXPORTER_OTLP_HEADERS: 
+2026-10-28T17:49:04.1568081Z   GH_AW_OTLP_ENDPOINTS: [{"url":"","headers":""}]
+2026-10-28T17:49:04.1568674Z   GH_AW_OTLP_IF_MISSING: ignore
+2026-10-28T17:49:04.1568952Z   GH_AW_RUNTIME_FEATURES: 
+2026-10-28T17:49:04.1569268Z   GITHUB_AW_OTEL_TRACE_ID: bbc2ee63d536fbcbb99666b6b0d2e6dd
+2026-10-28T17:49:04.1569654Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: 8dde1144affcb597
+2026-10-28T17:49:04.1569973Z   GITHUB_AW_OTEL_JOB_START_MS: 1793209725221
+2026-10-28T17:49:04.1570454Z   GH_AW_PROMPT: /tmp/gh-aw/aw-prompts/prompt.txt
+2026-10-28T17:49:04.1571314Z   ANTHROPIC_API_KEY: ***
+2026-10-28T17:49:04.1571587Z   ANTHROPIC_MODEL: claude-sonnet-5-5
+2026-10-28T17:49:04.1571878Z   BASH_DEFAULT_TIMEOUT_MS: 60000
+2026-10-28T17:49:04.1572266Z   BASH_MAX_TIMEOUT_MS: 60000
+2026-10-28T17:49:04.1572525Z   CLAUDE_CODE_DISABLE_FAST_MODE: 1
+2026-10-28T17:49:04.1572792Z   DISABLE_BUG_COMMAND: 1
+2026-10-28T17:49:04.1573029Z   DISABLE_ERROR_REPORTING: 1
+2026-10-28T17:49:04.1573275Z   DISABLE_TELEMETRY: 1
+2026-10-28T17:49:04.1573503Z   GH_AW_HARNESS_MAX_RETRIES: 0
+2026-10-28T17:49:04.1573766Z   GH_AW_LLM_PROVIDER: anthropic
+2026-10-28T17:49:04.1574014Z   GH_AW_MAX_TURNS: 
+2026-10-28T17:49:04.1574236Z   GH_AW_PHASE: detection
+2026-10-28T17:49:04.1574471Z   GH_AW_VERSION: v0.93.4
+2026-10-28T17:49:04.1574693Z   GITHUB_AW: true
+2026-10-28T17:49:04.1574966Z   GITHUB_STEP_SUMMARY: /tmp/gh-aw/agent-step-summary.md
+2026-10-28T17:49:04.1575442Z   GITHUB_WORKSPACE: /home/runner/work/cs467-as3-triage-agent/cs467-as3-triage-agent
+2026-10-28T17:49:04.1575956Z   GIT_AUTHOR_EMAIL: github-actions[bot]@users.noreply.github.com
+2026-10-28T17:49:04.1576331Z   GIT_AUTHOR_NAME: github-actions[bot]
+2026-10-28T17:49:04.1576690Z   GIT_COMMITTER_EMAIL: github-actions[bot]@users.noreply.github.com
+2026-10-28T17:49:04.1577081Z   GIT_COMMITTER_NAME: github-actions[bot]
+2026-10-28T17:49:04.1577361Z   MCP_TIMEOUT: 120000
+2026-10-28T17:49:04.1577593Z   MCP_TOOL_TIMEOUT: 60000
+2026-10-28T17:49:04.1577849Z   RUNNER_TEMP: /home/runner/work/_temp
+2026-10-28T17:49:04.1578217Z   TRACEPARENT: 00-bbc2ee63d536fbcbb99666b6b0d2e6dd-8dde1144affcb597-01
+2026-10-28T17:49:04.1578892Z   WORKFLOW_NAME: Issue triage
+2026-10-28T17:49:04.1579569Z   WORKFLOW_DESCRIPTION: First-pass triage of new issues. Adds at most three allow-listed labels and posts at most one comment; never closes, edits or removes anything.
+2026-10-28T17:49:04.1580267Z   HAS_PATCH: false
+2026-10-28T17:49:04.1580514Z   GH_AW_DETECTION_CONTINUE_ON_ERROR: false
+2026-10-28T17:49:04.1580803Z ##[endgroup]
+2026-10-28T17:49:04.1679740Z No component admission allowance; retaining existing budget policy (value withheld).
+2026-10-28T17:49:04.6408966Z [INFO] Auto-detected DNS servers from /run/systemd/resolve/resolv.conf: 168.63.129.16
+2026-10-28T17:49:04.6445008Z [INFO] Agent timeout set to 10 minutes
+2026-10-28T17:49:04.6449284Z [WARN] ⚠️  Using --env-all: All host environment variables will be passed to container
+2026-10-28T17:49:04.6450951Z [WARN]    This may expose sensitive credentials if logs or configs are shared
+2026-10-28T17:49:04.6457593Z [INFO] API proxy enabled: OpenAI=false, Anthropic=true, Copilot=false, Gemini=false, Vertex=false
+2026-10-28T17:49:09.1521638Z [INFO] Allowed domains: 
+2026-10-28T17:49:09.2113644Z [INFO] Network-isolation mode: enforcing egress via Docker network topology (no host iptables, no sudo).
+2026-10-28T17:49:09.2114338Z [INFO] Generating configuration files...
+2026-10-28T17:49:09.2318637Z [INFO] API proxy sidecar enabled - API keys will be held securely in sidecar container
+2026-10-28T17:49:09.2319442Z [INFO] API proxy will route through Squid to respect domain whitelisting
+2026-10-28T17:49:09.6719506Z [INFO] Starting containers...
+2026-10-28T17:49:09.8381630Z  Network awf-net  Creating
+2026-10-28T17:49:09.8569068Z  Network awf-net  Created
+2026-10-28T17:49:09.8577289Z  Network awf-sndefi_awf-ext  Creating
+2026-10-28T17:49:09.8926947Z  Network awf-sndefi_awf-ext  Created
+2026-10-28T17:49:09.8935506Z  Container awf-api-proxy  Creating
+2026-10-28T17:49:09.8936867Z  Container awf-squid  Creating
+2026-10-28T17:49:09.9154461Z  Container awf-squid  Created
+2026-10-28T17:49:09.9160109Z  Container awf-api-proxy  Created
+2026-10-28T17:49:09.9160842Z  Container awf-agent  Creating
+2026-10-28T17:49:09.9304189Z  Container awf-agent  Created
+2026-10-28T17:49:09.9319844Z  Container awf-squid  Starting
+2026-10-28T17:49:09.9321032Z  Container awf-api-proxy  Starting
+2026-10-28T17:49:10.0833317Z  Container awf-api-proxy  Started
+2026-10-28T17:49:10.1199987Z  Container awf-squid  Started
+2026-10-28T17:49:10.1200627Z  Container awf-squid  Waiting
+2026-10-28T17:49:10.1201267Z  Container awf-api-proxy  Waiting
+2026-10-28T17:49:15.6213355Z  Container awf-api-proxy  Healthy
+2026-10-28T17:49:17.6219176Z  Container awf-squid  Healthy
+2026-10-28T17:49:17.6220512Z  Container awf-agent  Starting
+2026-10-28T17:49:17.7423977Z  Container awf-agent  Started
+2026-10-28T17:49:17.8477924Z [SUCCESS] Containers started successfully
+2026-10-28T17:49:17.8486177Z [INFO] Executing agent command...
+2026-10-28T17:49:17.8518571Z [INFO] Agent timeout: 10 minutes
+2026-10-28T17:49:18.9432083Z [entrypoint] Agentic Workflow Firewall - Agent Container
+2026-10-28T17:49:18.9432650Z [entrypoint] ==================================
+2026-10-28T17:49:20.7377226Z [entrypoint] Configuring DNS...
+2026-10-28T17:49:20.8371586Z [entrypoint] DNS configured with Docker embedded DNS (127.0.0.11) only
+2026-10-28T17:49:20.8373909Z [entrypoint] iptables-init skipped (proxy-based egress): skipping init container wait
+2026-10-28T17:49:20.8390658Z [health-check] API Proxy Pre-flight Check
+2026-10-28T17:49:20.8392143Z [health-check] ==========================================
+2026-10-28T17:49:20.8393305Z [health-check] Checking Anthropic API proxy configuration...
+2026-10-28T17:49:20.8394993Z [health-check] ✓ Anthropic credentials NOT in agent environment (correct)
+2026-10-28T17:49:20.8396153Z [health-check] ✓ ANTHROPIC_AUTH_TOKEN is placeholder value (correct)
+2026-10-28T17:49:20.8397347Z [health-check] Testing connectivity to Anthropic API proxy at http://172.30.0.30:10001...
+2026-10-28T17:49:20.9770725Z [health-check] ✓ Anthropic API proxy is reachable at http://172.30.0.30:10001
+2026-10-28T17:49:20.9774091Z [health-check] ==========================================
+2026-10-28T17:49:20.9776175Z [health-check] ✓ All API proxy health checks passed
+2026-10-28T17:49:20.9777280Z [health-check] ✓ Credential isolation verified
+2026-10-28T17:49:20.9778655Z [health-check] ✓ Connectivity established
+2026-10-28T17:49:20.9779782Z [health-check] ==========================================
+2026-10-28T17:49:20.9780835Z [entrypoint] Claude Code API key helper configured: /usr/local/bin/get-claude-key.sh
+2026-10-28T17:49:20.9782285Z [entrypoint] Creating /host/home/runner/.claude.json with apiKeyHelper...
+2026-10-28T17:49:21.0228040Z [entrypoint] ✓ Created /host/home/runner/.claude.json with apiKeyHelper: /usr/local/bin/get-claude-key.sh
+2026-10-28T17:49:21.1143485Z [entrypoint] Creating /host/home/runner/.claude/settings.json with apiKeyHelper...
+2026-10-28T17:49:21.1173958Z [entrypoint] ✓ Created /host/home/runner/.claude/settings.json with apiKeyHelper: /usr/local/bin/get-claude-key.sh
+2026-10-28T17:49:21.1176164Z [entrypoint] Pre-seeding JVM build tool proxy configuration (squid-proxy:3128)...
+2026-10-28T17:49:21.1704811Z [entrypoint] ✓ Created Maven proxy config (/host/home/runner/.m2/settings.xml)
+2026-10-28T17:49:21.1792204Z [entrypoint] ✓ Created Gradle proxy config (/host/home/runner/.gradle/gradle.properties)
+2026-10-28T17:49:21.2388095Z [entrypoint] ✓ Set JAVA_TOOL_OPTIONS with proxy and nonProxyHosts flags
+2026-10-28T17:49:21.2389250Z [entrypoint] Proxy configuration:
+2026-10-28T17:49:21.2390007Z [entrypoint]   HTTP_PROXY=http://172.30.0.10:3128
+2026-10-28T17:49:21.2390755Z [entrypoint]   HTTPS_PROXY=http://172.30.0.10:3128
+2026-10-28T17:49:21.2391392Z [entrypoint] Network information:
+2026-10-28T17:49:21.2645145Z [entrypoint]   IP address: 172.30.0.20 
+2026-10-28T17:49:21.2653760Z [entrypoint]   Hostname: 3d0eb41698d1
+2026-10-28T17:49:21.9205819Z [entrypoint] ==================================
+2026-10-28T17:49:21.9206814Z [entrypoint] Chroot mode enabled - dropping CAP_SYS_CHROOT and CAP_SYS_ADMIN
+2026-10-28T17:49:21.9277093Z [entrypoint] Switching to awfuser (UID: 1001, GID: 1001)
+2026-10-28T17:49:21.9281016Z [entrypoint] Executing command: /bin/bash -c /bin/bash -c 'set +o histexpand; : "${RUNNER_TOOL_CACHE:?RUNNER_TOOL_CACHE must be set}"; GH_AW_TOOL_CACHE="$RUNNER_TOOL_CACHE"; GH_AW_TOOL_BINS="$(find "$GH_AW_TOOL_CACHE" -maxdepth 5 -type d -name bin 2>/dev/null | tr "\n" ":")"; GH_AW_TOOL_BINS="${GH_AW_TOOL_BINS%:}"; export PATH="$PATH${GH_AW_TOOL_BINS:+:}$GH_AW_TOOL_BINS"; [ -n "$GOROOT" ] && export PATH="$GOROOT/bin:$PATH" || true; [ -n "$ERLANG_HOME" ] && export PATH="$ERLANG_HOME/bin:$PATH" || true && threat-detect --engine claude --output /tmp/gh-aw/threat-detection/detection_result.json /tmp/gh-aw/threat-detection'
+2026-10-28T17:49:21.9283444Z 
+2026-10-28T17:49:21.9283789Z [entrypoint] Chroot mode: running command inside host filesystem (/host)
+2026-10-28T17:49:22.1443423Z [entrypoint] Mounted procfs at /host/proc (nosuid,nodev,noexec,hidepid=2)
+2026-10-28T17:49:22.1792563Z [entrypoint] Bind-mounted container cgroup subtree at /host/sys/fs/cgroup (ro)
+2026-10-28T17:49:22.2145354Z [entrypoint] One-shot token library copied to chroot at /run/awf-lib/one-shot-token.so
+2026-10-28T17:49:23.1012191Z [entrypoint] Chromium/Playwright runtime libraries staged for chroot at /host/run/awf-lib/browser-libs
+2026-10-28T17:49:23.1811852Z [entrypoint] Claude key helper copied to chroot at /run/awf-lib/get-claude-key.sh
+2026-10-28T17:49:23.9244087Z [entrypoint] ✓ Updated apiKeyHelper path in /host/home/runner/.claude.json
+2026-10-28T17:49:23.9871035Z [entrypoint] ✓ Updated apiKeyHelper path in /host/home/runner/.claude/settings.json
+2026-10-28T17:49:29.3287365Z [entrypoint] Filtered host CA trust staged at /run/awf-lib/trust/ca-certificates.crt (host store unchanged)
+2026-10-28T17:49:29.3305358Z [entrypoint] DNS configuration created in chroot (/host/etc/resolv.conf)
+2026-10-28T17:49:29.4005390Z [entrypoint] Running as host user: runner (UID: 1001)
+2026-10-28T17:49:29.4006656Z [entrypoint] Chroot working directory: /home/runner/work/cs467-as3-triage-agent/cs467-as3-triage-agent
+2026-10-28T17:49:29.4041125Z [entrypoint] Using host PATH for chroot
+2026-10-28T17:49:29.4083235Z [entrypoint] Adding JAVA_HOME/bin to PATH: /usr/lib/jvm/temurin-17-jdk-amd64/bin
+2026-10-28T17:49:29.4128252Z [entrypoint] DNS configuration will be removed on exit
+2026-10-28T17:49:29.4168201Z [entrypoint] Transferred /host/tmp/gh-aw ownership to chroot user (1001:1001)
+2026-10-28T17:49:29.9792494Z [threat-detect] run start: version=v0.5.3 engine=claude model=claude-sonnet-5-5 retries=0 max_turns=50 engine_timeout=5m0s
+2026-10-28T17:49:29.9798033Z [threat-detect] artifacts loaded: dir=/tmp/gh-aw/threat-detection prompt_bytes=687 agent_output_bytes=203 patch_files=0 all_primary_inputs_missing=false
+2026-10-28T17:49:29.9799730Z [threat-detect] artifact inventory (7 entries):
+2026-10-28T17:49:29.9800586Z [threat-detect]   agent_output.json bytes=203 kind=file consumed=true
+2026-10-28T17:49:29.9801599Z [threat-detect]   aw-prompts/prompt-import-tree.json bytes=10069 kind=file consumed=true
+2026-10-28T17:49:29.9802324Z [threat-detect]   aw-prompts/prompt-template.txt bytes=9021 kind=file consumed=true
+2026-10-28T17:49:29.9802984Z [threat-detect]   aw-prompts/prompt.txt bytes=687 kind=file consumed=true
+2026-10-28T17:49:29.9803561Z [threat-detect]   aw_info.json bytes=1647 kind=file consumed=true
+2026-10-28T17:49:29.9804127Z [threat-detect]   detection.log bytes=5640 kind=file consumed=false
+2026-10-28T17:49:29.9804674Z [threat-detect]   execution.json bytes=93 kind=file consumed=false
+2026-10-28T17:49:29.9805911Z [threat-detect] result destinations: output=/tmp/gh-aw/threat-detection/detection_result.json full_output=/tmp/gh-aw/threat-detection/detection_result_full.json
+2026-10-28T17:49:29.9809858Z Prompt context: workflow_name="Issue triage" (defaulted=false) workflow_description="First-pass triage of new issues. Adds at most three allow-listed labels and posts at most one comment; never closes, edits or removes anything." (defaulted=false) custom_prompt_applied=false custom_prompt_source=none custom_prompt_bytes=0
+2026-10-28T17:49:29.9812250Z [threat-detect] prompt built: prompt_bytes=41128 framework_scaffolding_detected=true framework_scaffolding_host_removed=true framework_scaffolding_markers=<safe-output-tools>
+2026-10-28T17:49:29.9813808Z [threat-detect] eligibility: prompt_injection=true secret_leak=true malicious_patch=false
+2026-10-28T17:49:29.9814470Z [threat-detect] detection attempt 1 of 1
+2026-10-28T17:49:29.9815652Z [threat-detect] engine invoke: engine=claude model="claude-sonnet-5-5" command="node (/opt/hostedtoolcache/node/24.22.1/x64/bin/node)" args=16
+2026-10-28T17:49:29.9818217Z [threat-detect] engine argv: "/home/runner/work/_temp/gh-aw/actions/claude_harness.cjs" "claude" "--print" "--verbose" "--output-format" "stream-json" "--permission-mode" "acceptEdits" "--allowed-tools" "Bash,Write,Edit,Read,Read(/tmp/*),Read(/tmp/gh-aw/*)" "--model" "claude-sonnet-5-5" "--max-turns" "50" "--prompt-file" "<prompt-file>"
+2026-10-28T17:49:30.1814285Z [engine] [claude-harness] 2026-10-28T17:49:30.108Z starting: command=claude maxRetries=0 initialDelayMs=5000 backoffMultiplier=2 maxDelayMs=60000 nodeVersion=v24.22.1 platform=linux
+2026-10-28T17:49:30.1816441Z [engine] [claude-harness] 2026-10-28T17:49:30.181Z resolved --prompt-file: path=/tmp/threat-detect-prompt-667938817.txt size=41128B
+2026-10-28T17:49:30.1820920Z [engine] [claude-harness] 2026-10-28T17:49:30.181Z awf-reflect: fetching http://api-proxy:10000/reflect (timeout=60000ms)
+2026-10-28T17:49:30.4619163Z [entrypoint] Unsetting sensitive tokens from parent shell environment...
+2026-10-28T17:49:30.4619896Z [entrypoint] Unset ANTHROPIC_AUTH_TOKEN from /proc/1/environ
+2026-10-28T17:49:30.4890324Z [engine] [claude-harness] 2026-10-28T17:49:30.488Z awf-reflect: fetched 14 model(s) from http://api-proxy:10001/v1/models
+2026-10-28T17:49:30.4894612Z [engine] [claude-harness] 2026-10-28T17:49:30.488Z awf-reflect: saved 18308B to /tmp/gh-aw/agent/awf-reflect.json
+2026-10-28T17:49:30.4925854Z [engine] [claude-harness] 2026-10-28T17:49:30.492Z model resolution: engine=claude role=main configured=claude-sonnet-5-5 resolved=claude-sonnet-5-5 provider=anthropic status=exact
+2026-10-28T17:49:30.4929909Z [engine] [claude-harness] 2026-10-28T17:49:30.492Z awf-reflect: provider=anthropic mapped to endpoint provider=anthropic baseUrl=http://api-proxy:10001
+2026-10-28T17:49:30.4934341Z [engine] [claude-harness] 2026-10-28T17:49:30.492Z configured ANTHROPIC_BASE_URL from /reflect for provider=anthropic: http://api-proxy:10001
+2026-10-28T17:49:30.4946319Z [engine] [claude-harness] 2026-10-28T17:49:30.494Z attempt 1: spawning: claude --print --verbose --output-format stream-json --permission-mode acceptEdits --allowed-tools Bash,Write,Edit,Read,Read(/tmp/*),Read(/tmp/gh-aw/*) --model claude-sonnet-5-5 --max-turns 50
+2026-10-28T17:49:30.4989963Z [engine] [claude-harness] 2026-10-28T17:49:30.498Z attempt 1: process started (pid=1952)
+2026-10-28T17:49:30.8922281Z [engine] {"type":"system","subtype":"init","cwd":"/home/runner/work/cs467-as3-triage-agent/cs467-as3-triage-agent","session_id":"3a63dae2-347b-4deb-8704-fa48d97eb696","tools":["Task","Bash","CronCreate","CronDelete","CronList","DesignSync","Edit","EnterWorktree","ExitWorktree","ListAgents","Monitor","NotebookEdit","Read","ReportFindings","ScheduleWakeup","SendMessage","Skill","TaskStop","ToolSearch","WebFetch","WebSearch","Workflow","Write"],"mcp_servers":[],"model":"claude-sonnet-5-5","permissionMode":"acceptEdits","slash_commands":["deep-research","design","design-sync","dataviz","update-config","verify","debug","code-review","simplify","batch","fewer-permission-prompts","doctor","loop","claude-api","workflow-authoring","run","run-skill-generator","plugin-authoring","agents","auto-mode-setup","autocompact","clear","color","compact","config","output-style","context","effort","fast","focus","heapdump","init","mcp","model","__remote-workflow","workflow-launch-exec","reload-plugins","reload-skills","rename","security-review","usage","insights","recap","goal","design-consent","design-revoke","list-agents","team-onboarding"],"terminal_slash_commands":["doctor","color","focus","reload-plugins"],"apiKeySource":"apiKeyHelper","claude_code_version":"2.1.310","output_style":"default","agents":["claude","Explore","general-purpose","Plan","statusline-setup"],"skills":["deep-research","design","design-sync","dataviz","update-config","verify","debug","code-review","simplify","batch","fewer-permission-prompts","doctor","loop","claude-api","workflow-authoring","run","run-skill-generator","plugin-authoring"],"plugins":[{"name":"cc-plugin-agents-md","path":"builtin","source":"cc-plugin-agents-md@builtin"},{"name":"cc-plugin-plugin-authoring","path":"builtin","source":"cc-plugin-plugin-authoring@builtin"}],"capabilities":["interrupt_receipt_v1","interrupt_cancel_queued_v1","interrupt_send_now_v1","interrupt_requeue_taken_v1","msg_lifecycle_v1","request_marker_lists_v1","lifecycle_wakeup_source_v1","sdk_mcp_tools_list_changed","sdk_mcp_manifests","mcp_read_resource_v1","mcp_tool_ui_meta_v1","ui_surface_v1","mcp_call_result_not_for_model_v1"],"analytics_disabled":true,"product_feedback_disabled":false,"uuid":"09ed29bc-bffe-4c1b-99a4-ec7eaf66ba0f","memory_paths":{"auto":"/home/runner/.claude/projects/-home-runner-work-cs467-as3-triage-agent-cs467-as3-triage-agent/memory/"},"original_cwd":"/home/runner/work/cs467-as3-triage-agent/cs467-as3-triage-agent","additional_directories":[],"messaging_socket_path":"/tmp/cc-socks-1001/1952.sock","fast_mode_state":"off","fast_mode_disabled_reason":"disabled_by_env","per_turn_effort_active":true,"view_mode":"default"}
+2026-10-28T17:49:34.3422531Z [engine] {"type":"assistant","message":{"model":"claude-sonnet-5-5","id":"msg_011CgV4HDuPMHwoE6jN5aB4K","type":"message","role":"assistant","content":[{"type":"tool_use","id":"toolu_01N6VSgSZs5bF8TYsKpiDGL6","name":"Bash","input":{"command":"cat /tmp/gh-aw/threat-detection/agent_output.json | head -c 4000"},"caller":{"type":"direct"}}],"container":null,"stop_reason":null,"stop_sequence":null,"stop_details":null,"usage":{"input_tokens":2,"cache_creation_input_tokens":17868,"cache_read_input_tokens":12733,"cache_creation":{"ephemeral_5m_input_tokens":17868,"ephemeral_1h_input_tokens":0},"output_tokens":16,"service_tier":"standard","inference_geo":"global","speed":"standard"},"diagnostics":null,"context_management":null},"parent_tool_use_id":null,"session_id":"3a63dae2-347b-4deb-8704-fa48d97eb696","uuid":"2547c9e2-289a-4a98-981f-f54333fbba08","timestamp":"2026-10-28T17:49:34.334Z","request_id":"req_011CgV4HDCDvfrPmNs7cdcZB"}
+2026-10-28T17:49:34.3938131Z [engine] {"type":"user","message":{"role":"user","content":[{"tool_use_id":"toolu_01N6VSgSZs5bF8TYsKpiDGL6","type":"tool_result","content":"{\"items\":[{\"type\":\"add_labels\",\"item_number\":39,\"labels\":[{\"name\":\"crash\",\"rationale\":\"The report includes a provider panic stack trace and a 'plugin crashed' error.\",\"confidence\":\"HIGH\"}]}],\"errors\":[]}","is_error":false}]},"parent_tool_use_id":null,"session_id":"3a63dae2-347b-4deb-8704-fa48d97eb696","uuid":"2558a904-d858-4ceb-ba2b-f1bf2c61f13a","timestamp":"2026-10-28T17:49:34.390Z","tool_use_result":{"stdout":"{\"items\":[{\"type\":\"add_labels\",\"item_number\":39,\"labels\":[{\"name\":\"crash\",\"rationale\":\"The report includes a provider panic stack trace and a 'plugin crashed' error.\",\"confidence\":\"HIGH\"}]}],\"errors\":[]}","stderr":"","interrupted":false,"isImage":false,"noOutputExpected":false},"tool_result_meta":[{"id":"toolu_01N6VSgSZs5bF8TYsKpiDGL6","permission_decision":{"decision":"accept","source":"config","reason_type":"rule"}}]}
+2026-10-28T17:49:36.4995565Z [engine] {"type":"assistant","message":{"model":"claude-sonnet-5-5","id":"msg_011CgV4HS7MbBgtTxgQbhHuH","type":"message","role":"assistant","content":[{"type":"tool_use","id":"toolu_01MuQ14YjvCgXYynR4AzXARk","name":"Bash","input":{"command":"threat_detection_result --prompt-injection false --secret-leak false --malicious-patch false"},"caller":{"type":"direct"}}],"container":null,"stop_reason":null,"stop_sequence":null,"stop_details":null,"usage":{"input_tokens":2,"cache_creation_input_tokens":194,"cache_read_input_tokens":30601,"cache_creation":{"ephemeral_5m_input_tokens":194,"ephemeral_1h_input_tokens":0},"output_tokens":16,"service_tier":"standard","inference_geo":"global","speed":"standard"},"diagnostics":null,"context_management":null},"parent_tool_use_id":null,"session_id":"3a63dae2-347b-4deb-8704-fa48d97eb696","uuid":"be673db4-9c47-48b3-b143-2b1c242b3222","timestamp":"2026-10-28T17:49:36.495Z","request_id":"req_011CgV4HRmmV5rMxKez2Y9vT"}
+2026-10-28T17:49:36.5234345Z [engine] {"type":"user","message":{"role":"user","content":[{"tool_use_id":"toolu_01MuQ14YjvCgXYynR4AzXARk","type":"tool_result","content":"THREAT_DETECTION_RESULT_RECORDED: analysis complete; stop now and produce no further output.","is_error":false}]},"parent_tool_use_id":null,"session_id":"3a63dae2-347b-4deb-8704-fa48d97eb696","uuid":"9a9aae6e-0497-4b7f-a649-a935b6f0b498","timestamp":"2026-10-28T17:49:36.521Z","tool_use_result":{"stdout":"THREAT_DETECTION_RESULT_RECORDED: analysis complete; stop now and produce no further output.","stderr":"","interrupted":false,"isImage":false,"noOutputExpected":false},"tool_result_meta":[{"id":"toolu_01MuQ14YjvCgXYynR4AzXARk","permission_decision":{"decision":"accept","source":"config","reason_type":"rule"}}]}
+2026-10-28T17:49:36.7369981Z [threat-detect] attempt 1 outcome=recorded
+2026-10-28T17:49:36.7371311Z [threat-detect] full result written: path=/tmp/gh-aw/threat-detection/detection_result_full.json reasons=0 warnings=0
+2026-10-28T17:49:36.7373194Z THREAT_DETECTION_STATUS: reason=result_recorded exit=0
+2026-10-28T17:49:36.7423563Z [entrypoint] Relaxed /host/tmp/gh-aw group permissions for host-side post-processing
+2026-10-28T17:49:37.1021059Z [INFO] Stopping containers...
+2026-10-28T17:49:37.2529458Z  Container awf-agent  Stopping
+2026-10-28T17:49:37.2532624Z  Container awf-agent  Stopped
+2026-10-28T17:49:37.2533193Z  Container awf-agent  Removing
+2026-10-28T17:49:37.2885861Z  Container awf-agent  Removed
+2026-10-28T17:49:37.2886554Z  Container awf-squid  Stopping
+2026-10-28T17:49:37.2888756Z  Container awf-api-proxy  Stopping
+2026-10-28T17:49:37.3796302Z  Container awf-api-proxy  Stopped
+2026-10-28T17:49:37.3796995Z  Container awf-api-proxy  Removing
+2026-10-28T17:49:37.3854069Z  Container awf-api-proxy  Removed
+2026-10-28T17:49:38.4204077Z  Container awf-squid  Stopped
+2026-10-28T17:49:38.4205096Z  Container awf-squid  Removing
+2026-10-28T17:49:38.4272036Z  Container awf-squid  Removed
+2026-10-28T17:49:38.4279242Z  Network awf-sndefi_awf-ext  Removing
+2026-10-28T17:49:38.4280479Z  Network awf-net  Removing
+2026-10-28T17:49:38.4789495Z  Network awf-net  Removed
+2026-10-28T17:49:38.5546996Z  Network awf-sndefi_awf-ext  Removed
+2026-10-28T17:49:38.6604336Z [SUCCESS] Containers stopped successfully
+2026-10-28T17:49:38.6613433Z [INFO] API proxy logs available at: /tmp/gh-aw/sandbox/firewall/logs/api-proxy-logs
+2026-10-28T17:49:38.6614640Z [INFO] Token usage log available at: /tmp/gh-aw/sandbox/firewall/logs/api-proxy-logs/token-usage.jsonl
+2026-10-28T17:49:38.6650072Z [INFO] CLI proxy logs available at: /tmp/gh-aw/sandbox/firewall/logs/cli-proxy-logs
+2026-10-28T17:49:38.6706680Z [INFO] Squid logs available at: /tmp/gh-aw/sandbox/firewall/logs
+2026-10-28T17:49:38.6738257Z [INFO] Audit artifacts available at: /tmp/gh-aw/sandbox/firewall/audit
+2026-10-28T17:49:38.9684117Z [SUCCESS] Command completed successfully
+2026-10-28T17:49:38.9684796Z Process exiting with code: 0
+2026-10-28T17:49:38.9812620Z ##[group]Run mkdir -p /tmp/gh-aw/threat-detection/sandbox/firewall
+2026-10-28T17:49:38.9813564Z [36;1mmkdir -p /tmp/gh-aw/threat-detection/sandbox/firewall[0m
+2026-10-28T17:49:38.9815306Z [36;1mif [ -d /tmp/gh-aw/sandbox/firewall/logs ]; then mkdir -p /tmp/gh-aw/threat-detection/sandbox/firewall/logs && cp -r /tmp/gh-aw/sandbox/firewall/logs/. /tmp/gh-aw/threat-detection/sandbox/firewall/logs/; fi[0m
+2026-10-28T17:49:38.9817896Z [36;1mif [ -d /tmp/gh-aw/sandbox/firewall/audit ]; then mkdir -p /tmp/gh-aw/threat-detection/sandbox/firewall/audit && cp -r /tmp/gh-aw/sandbox/firewall/audit/. /tmp/gh-aw/threat-detection/sandbox/firewall/audit/; fi[0m
+2026-10-28T17:49:38.9840554Z shell: /usr/bin/bash -e {0}
+2026-10-28T17:49:38.9840840Z env:
+2026-10-28T17:49:38.9841059Z   OTEL_EXPORTER_OTLP_ENDPOINT: 
+2026-10-28T17:49:38.9841357Z   OTEL_SERVICE_NAME: gh-aw.issue-triage
+2026-10-28T17:49:38.9842179Z   OTEL_RESOURCE_ATTRIBUTES: gh-aw.workflow.name=Issue%20triage,gh-aw.repository=wzinl/cs467-as3-triage-agent,gh-aw.run.id=40738822993,github.run_id=40738822993,gh-aw.engine.id=claude
+2026-10-28T17:49:38.9842951Z   OTEL_EXPORTER_OTLP_HEADERS: 
+2026-10-28T17:49:38.9843423Z   GH_AW_OTLP_ENDPOINTS: [{"url":"","headers":""}]
+2026-10-28T17:49:38.9843737Z   GH_AW_OTLP_IF_MISSING: ignore
+2026-10-28T17:49:38.9843991Z   GH_AW_RUNTIME_FEATURES: 
+2026-10-28T17:49:38.9844292Z   GITHUB_AW_OTEL_TRACE_ID: bbc2ee63d536fbcbb99666b6b0d2e6dd
+2026-10-28T17:49:38.9844669Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: 8dde1144affcb597
+2026-10-28T17:49:38.9845014Z   GITHUB_AW_OTEL_JOB_START_MS: 1793209725221
+2026-10-28T17:49:38.9845360Z   GH_AW_PROMPT: /tmp/gh-aw/aw-prompts/prompt.txt
+2026-10-28T17:49:38.9845827Z   AWF_TOKEN_USAGE_LOG: /tmp/gh-aw/sandbox/firewall/logs/api-proxy-logs/token-usage.jsonl
+2026-10-28T17:49:38.9846271Z ##[endgroup]
+2026-10-28T17:49:39.0077116Z ##[group]Run actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
+2026-10-28T17:49:39.0077876Z with:
+2026-10-28T17:49:39.0081367Z   script: const path = require('path');
+const actionsDir = path.join(process.env.RUNNER_TEMP, 'gh-aw', 'actions');
+const { setupGlobals } = require(path.join(actionsDir, 'setup_globals.cjs'));
+setupGlobals(core, github, context, exec, io, getOctokit);
+const { main } = require(path.join(actionsDir, 'redact_secrets.cjs'));
+const { persistDetectionMasks } = require(path.join(actionsDir, 'detection_mask_state.cjs'));
+await main({ additionalDirectories: ["/tmp/gh-aw/threat-detection/sandbox/firewall"], persistDetectionMasks });
+
+2026-10-28T17:49:39.0090193Z   github-token: ***
+2026-10-28T17:49:39.0090643Z   debug: false
+2026-10-28T17:49:39.0091063Z   user-agent: actions/github-script
+2026-10-28T17:49:39.0091573Z   result-encoding: json
+2026-10-28T17:49:39.0091992Z   retries: 0
+2026-10-28T17:49:39.0092465Z   retry-exempt-status-codes: 400,401,403,404,422
+2026-10-28T17:49:39.0093063Z env:
+2026-10-28T17:49:39.0093473Z   OTEL_EXPORTER_OTLP_ENDPOINT: 
+2026-10-28T17:49:39.0093972Z   OTEL_SERVICE_NAME: gh-aw.issue-triage
+2026-10-28T17:49:39.0095379Z   OTEL_RESOURCE_ATTRIBUTES: gh-aw.workflow.name=Issue%20triage,gh-aw.repository=wzinl/cs467-as3-triage-agent,gh-aw.run.id=40738822993,github.run_id=40738822993,gh-aw.engine.id=claude
+2026-10-28T17:49:39.0096808Z   OTEL_EXPORTER_OTLP_HEADERS: 
+2026-10-28T17:49:39.0097411Z   GH_AW_OTLP_ENDPOINTS: [{"url":"","headers":""}]
+2026-10-28T17:49:39.0097987Z   GH_AW_OTLP_IF_MISSING: ignore
+2026-10-28T17:49:39.0098686Z   GH_AW_RUNTIME_FEATURES: 
+2026-10-28T17:49:39.0099234Z   GITHUB_AW_OTEL_TRACE_ID: bbc2ee63d536fbcbb99666b6b0d2e6dd
+2026-10-28T17:49:39.0099911Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: 8dde1144affcb597
+2026-10-28T17:49:39.0100493Z   GITHUB_AW_OTEL_JOB_START_MS: 1793209725221
+2026-10-28T17:49:39.0101078Z   GH_AW_PROMPT: /tmp/gh-aw/aw-prompts/prompt.txt
+2026-10-28T17:49:39.0101935Z   AWF_TOKEN_USAGE_LOG: /tmp/gh-aw/sandbox/firewall/logs/api-proxy-logs/token-usage.jsonl
+2026-10-28T17:49:39.0103024Z   GH_AW_SECRET_NAMES: ANTHROPIC_API_KEY,GH_AW_DEFAULT_OTLP_ENDPOINT,GH_AW_DEFAULT_OTLP_HEADERS
+2026-10-28T17:49:39.0104709Z   SECRET_ANTHROPIC_API_KEY: ***
+2026-10-28T17:49:39.0105303Z   SECRET_GH_AW_DEFAULT_OTLP_ENDPOINT: 
+2026-10-28T17:49:39.0105850Z   SECRET_GH_AW_DEFAULT_OTLP_HEADERS: 
+2026-10-28T17:49:39.0106340Z ##[endgroup]
+2026-10-28T17:49:39.3791727Z ##[group]Run actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
+2026-10-28T17:49:39.3792192Z with:
+2026-10-28T17:49:39.3793361Z   script: const path = require('path');
+const actionsDir = path.join(process.env.RUNNER_TEMP, 'gh-aw', 'actions');
+const { setupGlobals } = require(path.join(actionsDir, 'setup_globals.cjs'));
+setupGlobals(core, github, context, exec, io, getOctokit);
+const { main } = require(path.join(actionsDir, 'parse_token_usage.cjs'));
+await main();
+
+2026-10-28T17:49:39.3797324Z   github-token: ***
+2026-10-28T17:49:39.3797802Z   debug: false
+2026-10-28T17:49:39.3798214Z   user-agent: actions/github-script
+2026-10-28T17:49:39.3798849Z   result-encoding: json
+2026-10-28T17:49:39.3799082Z   retries: 0
+2026-10-28T17:49:39.3799330Z   retry-exempt-status-codes: 400,401,403,404,422
+2026-10-28T17:49:39.3799639Z env:
+2026-10-28T17:49:39.3799845Z   OTEL_EXPORTER_OTLP_ENDPOINT: 
+2026-10-28T17:49:39.3800124Z   OTEL_SERVICE_NAME: gh-aw.issue-triage
+2026-10-28T17:49:39.3801179Z   OTEL_RESOURCE_ATTRIBUTES: gh-aw.workflow.name=Issue%20triage,gh-aw.repository=wzinl/cs467-as3-triage-agent,gh-aw.run.id=40738822993,github.run_id=40738822993,gh-aw.engine.id=claude
+2026-10-28T17:49:39.3801951Z   OTEL_EXPORTER_OTLP_HEADERS: 
+2026-10-28T17:49:39.3802248Z   GH_AW_OTLP_ENDPOINTS: [{"url":"","headers":""}]
+2026-10-28T17:49:39.3802561Z   GH_AW_OTLP_IF_MISSING: ignore
+2026-10-28T17:49:39.3802814Z   GH_AW_RUNTIME_FEATURES: 
+2026-10-28T17:49:39.3803117Z   GITHUB_AW_OTEL_TRACE_ID: bbc2ee63d536fbcbb99666b6b0d2e6dd
+2026-10-28T17:49:39.3803489Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: 8dde1144affcb597
+2026-10-28T17:49:39.3803814Z   GITHUB_AW_OTEL_JOB_START_MS: 1793209725221
+2026-10-28T17:49:39.3804140Z   GH_AW_PROMPT: /tmp/gh-aw/aw-prompts/prompt.txt
+2026-10-28T17:49:39.3804595Z   AWF_TOKEN_USAGE_LOG: /tmp/gh-aw/sandbox/firewall/logs/api-proxy-logs/token-usage.jsonl
+2026-10-28T17:49:39.3805106Z   GH_AW_TOKEN_USAGE_SUMMARY_TITLE: Threat Detection Token Usage
+2026-10-28T17:49:39.3805458Z   GH_AW_PHASE: detection
+2026-10-28T17:49:39.3805809Z   GH_AW_AGENT_USAGE_PATH: /tmp/gh-aw/threat-detection/detection_usage.json
+2026-10-28T17:49:39.3806332Z   GH_AW_AGENT_USAGE_JSONL_PATH: /tmp/gh-aw/threat-detection/detection_usage.jsonl
+2026-10-28T17:49:39.3806743Z   GH_AW_WRITE_EMPTY_USAGE: true
+2026-10-28T17:49:39.3806998Z ##[endgroup]
+2026-10-28T17:49:39.5144955Z Parsing token usage from 1 file(s): /tmp/gh-aw/sandbox/firewall/logs/api-proxy-logs/token-usage.jsonl (1229 bytes)
+2026-10-28T17:49:39.7856939Z Threat Detection Token Usage
+2026-10-28T17:49:39.7857242Z 
+2026-10-28T17:49:39.7858249Z # | Alias | Input | Output | Cache Read | Cache Write | ΔAI Credits | AI Credits | Duration 
+2026-10-28T17:49:39.7859042Z 
+2026-10-28T17:49:39.7859308Z  1 | sonnet55 | 2 | 78 | 12,733 | 17,868 | 4.67273 | 4.67273 | 3.4s 
+2026-10-28T17:49:39.7860031Z  2 | sonnet55 | 2 | 76 | 30,601 | 194 | 0.43091 | 5.10364 | 2.1s 
+2026-10-28T17:49:39.7860823Z  Total |  | 4 | 154 | 43,334 | 18,062 |  | 5.10364 | 5.5s 
+2026-10-28T17:49:39.7861264Z 
+2026-10-28T17:49:39.7862351Z Legend: `Alias` shows the model shorthand used in the table. `ΔAI Credits` is the per-request cost, and `AI Credits` is the running total mirrored from AWF fields for reporting.
+2026-10-28T17:49:39.7863340Z Token usage summary appended to step summary
+2026-10-28T17:49:39.7879786Z Primary model: claude-sonnet-5-5
+2026-10-28T17:49:39.7880668Z AI Credits: 5.10364
+2026-10-28T17:49:39.7882079Z Ambient context: 3062
+2026-10-28T17:49:39.8057715Z ##[group]Run actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
+2026-10-28T17:49:39.8058162Z with:
+2026-10-28T17:49:39.8060325Z   script: const path = require('path');
+const actionsDir = path.join(process.env.RUNNER_TEMP, 'gh-aw', 'actions');
+const { setupGlobals } = require(path.join(actionsDir, 'setup_globals.cjs'));
+setupGlobals(core, github, context, exec, io, getOctokit);
+const { main } = require(path.join(actionsDir, 'redact_secrets.cjs'));
+const { persistDetectionMasks } = require(path.join(actionsDir, 'detection_mask_state.cjs'));
+await main({ additionalDirectories: ["/tmp/gh-aw/threat-detection/sandbox/firewall"], persistDetectionMasks });
+
+2026-10-28T17:49:39.8064748Z   github-token: ***
+2026-10-28T17:49:39.8064987Z   debug: false
+2026-10-28T17:49:39.8065219Z   user-agent: actions/github-script
+2026-10-28T17:49:39.8065505Z   result-encoding: json
+2026-10-28T17:49:39.8065730Z   retries: 0
+2026-10-28T17:49:39.8066005Z   retry-exempt-status-codes: 400,401,403,404,422
+2026-10-28T17:49:39.8066302Z env:
+2026-10-28T17:49:39.8066518Z   OTEL_EXPORTER_OTLP_ENDPOINT: 
+2026-10-28T17:49:39.8066796Z   OTEL_SERVICE_NAME: gh-aw.issue-triage
+2026-10-28T17:49:39.8067576Z   OTEL_RESOURCE_ATTRIBUTES: gh-aw.workflow.name=Issue%20triage,gh-aw.repository=wzinl/cs467-as3-triage-agent,gh-aw.run.id=40738822993,github.run_id=40738822993,gh-aw.engine.id=claude
+2026-10-28T17:49:39.8068592Z   OTEL_EXPORTER_OTLP_HEADERS: 
+2026-10-28T17:49:39.8068913Z   GH_AW_OTLP_ENDPOINTS: [{"url":"","headers":""}]
+2026-10-28T17:49:39.8069436Z   GH_AW_OTLP_IF_MISSING: ignore
+2026-10-28T17:49:39.8069703Z   GH_AW_RUNTIME_FEATURES: 
+2026-10-28T17:49:39.8070006Z   GITHUB_AW_OTEL_TRACE_ID: bbc2ee63d536fbcbb99666b6b0d2e6dd
+2026-10-28T17:49:39.8070387Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: 8dde1144affcb597
+2026-10-28T17:49:39.8070707Z   GITHUB_AW_OTEL_JOB_START_MS: 1793209725221
+2026-10-28T17:49:39.8071045Z   GH_AW_PROMPT: /tmp/gh-aw/aw-prompts/prompt.txt
+2026-10-28T17:49:39.8071537Z   AWF_TOKEN_USAGE_LOG: /tmp/gh-aw/sandbox/firewall/logs/api-proxy-logs/token-usage.jsonl
+2026-10-28T17:49:39.8072000Z   GH_AW_PRIMARY_MODEL: claude-sonnet-5-5
+2026-10-28T17:49:39.8072289Z   GH_AW_AIC: 5.10364
+2026-10-28T17:49:39.8072527Z   GH_AW_AMBIENT_CONTEXT: 3062
+2026-10-28T17:49:39.8072961Z   GH_AW_SECRET_NAMES: ANTHROPIC_API_KEY,GH_AW_DEFAULT_OTLP_ENDPOINT,GH_AW_DEFAULT_OTLP_HEADERS
+2026-10-28T17:49:39.8073857Z   SECRET_ANTHROPIC_API_KEY: ***
+2026-10-28T17:49:39.8074138Z   SECRET_GH_AW_DEFAULT_OTLP_ENDPOINT: 
+2026-10-28T17:49:39.8074436Z   SECRET_GH_AW_DEFAULT_OTLP_HEADERS: 
+2026-10-28T17:49:39.8074706Z ##[endgroup]
+2026-10-28T17:49:40.1589303Z ##[group]Run actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
+2026-10-28T17:49:40.1590057Z with:
+2026-10-28T17:49:40.1592152Z   script: const path = require('path');
+const actionsDir = path.join(process.env.RUNNER_TEMP, 'gh-aw', 'actions');
+const { setupGlobals } = require(path.join(actionsDir, 'setup_globals.cjs'));
+setupGlobals(core, github, context, exec, io, getOctokit);
+const { main } = require(path.join(actionsDir, 'render_detection_log.cjs'));
+await main();
+
+2026-10-28T17:49:40.1599748Z   github-token: ***
+2026-10-28T17:49:40.1600185Z   debug: false
+2026-10-28T17:49:40.1600599Z   user-agent: actions/github-script
+2026-10-28T17:49:40.1601153Z   result-encoding: json
+2026-10-28T17:49:40.1601580Z   retries: 0
+2026-10-28T17:49:40.1602035Z   retry-exempt-status-codes: 400,401,403,404,422
+2026-10-28T17:49:40.1602596Z env:
+2026-10-28T17:49:40.1602986Z   OTEL_EXPORTER_OTLP_ENDPOINT: 
+2026-10-28T17:49:40.1603531Z   OTEL_SERVICE_NAME: gh-aw.issue-triage
+2026-10-28T17:49:40.1604969Z   OTEL_RESOURCE_ATTRIBUTES: gh-aw.workflow.name=Issue%20triage,gh-aw.repository=wzinl/cs467-as3-triage-agent,gh-aw.run.id=40738822993,github.run_id=40738822993,gh-aw.engine.id=claude
+2026-10-28T17:49:40.1606406Z   OTEL_EXPORTER_OTLP_HEADERS: 
+2026-10-28T17:49:40.1606934Z   GH_AW_OTLP_ENDPOINTS: [{"url":"","headers":""}]
+2026-10-28T17:49:40.1607503Z   GH_AW_OTLP_IF_MISSING: ignore
+2026-10-28T17:49:40.1607964Z   GH_AW_RUNTIME_FEATURES: 
+2026-10-28T17:49:40.1608809Z   GITHUB_AW_OTEL_TRACE_ID: bbc2ee63d536fbcbb99666b6b0d2e6dd
+2026-10-28T17:49:40.1609229Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: 8dde1144affcb597
+2026-10-28T17:49:40.1609559Z   GITHUB_AW_OTEL_JOB_START_MS: 1793209725221
+2026-10-28T17:49:40.1609890Z   GH_AW_PROMPT: /tmp/gh-aw/aw-prompts/prompt.txt
+2026-10-28T17:49:40.1610359Z   AWF_TOKEN_USAGE_LOG: /tmp/gh-aw/sandbox/firewall/logs/api-proxy-logs/token-usage.jsonl
+2026-10-28T17:49:40.1610821Z   GH_AW_PRIMARY_MODEL: claude-sonnet-5-5
+2026-10-28T17:49:40.1611112Z   GH_AW_AIC: 5.10364
+2026-10-28T17:49:40.1611348Z   GH_AW_AMBIENT_CONTEXT: 3062
+2026-10-28T17:49:40.1611599Z ##[endgroup]
+2026-10-28T17:49:40.2666431Z ##[group]Detection Log
+2026-10-28T17:49:40.2674641Z ::stop-commands::***
+2026-10-28T17:49:40.2675732Z [INFO] Auto-detected DNS servers from /run/systemd/resolve/resolv.conf: 168.63.129.16
+2026-10-28T17:49:40.2676676Z [INFO] Agent timeout set to 10 minutes
+2026-10-28T17:49:40.2677975Z [WARN] ⚠️  Using --env-all: All host environment variables will be passed to container
+2026-10-28T17:49:40.2679454Z [WARN]    This may expose sensitive credentials if logs or configs are shared
+2026-10-28T17:49:40.2680642Z [INFO] API proxy enabled: OpenAI=false, Anthropic=true, Copilot=false, Gemini=false, Vertex=false
+2026-10-28T17:49:40.2681550Z [INFO] Allowed domains: 
+2026-10-28T17:49:40.2682688Z [INFO] Network-isolation mode: enforcing egress via Docker network topology (no host iptables, no sudo).
+2026-10-28T17:49:40.2683783Z [INFO] Generating configuration files...
+2026-10-28T17:49:40.2685202Z [INFO] API proxy sidecar enabled - API keys will be held securely in sidecar container
+2026-10-28T17:49:40.2686390Z [INFO] API proxy will route through Squid to respect domain whitelisting
+2026-10-28T17:49:40.2687238Z [INFO] Starting containers...
+2026-10-28T17:49:40.2687780Z  Network awf-net  Creating
+2026-10-28T17:49:40.2688688Z  Network awf-net  Created
+2026-10-28T17:49:40.2689282Z  Network awf-sndefi_awf-ext  Creating
+2026-10-28T17:49:40.2689858Z  Network awf-sndefi_awf-ext  Created
+2026-10-28T17:49:40.2690412Z  Container awf-api-proxy  Creating
+2026-10-28T17:49:40.2690941Z  Container awf-squid  Creating
+2026-10-28T17:49:40.2691433Z  Container awf-squid  Created
+2026-10-28T17:49:40.2691957Z  Container awf-api-proxy  Created
+2026-10-28T17:49:40.2692471Z  Container awf-agent  Creating
+2026-10-28T17:49:40.2692932Z  Container awf-agent  Created
+2026-10-28T17:49:40.2693417Z  Container awf-squid  Starting
+2026-10-28T17:49:40.2693983Z  Container awf-api-proxy  Starting
+2026-10-28T17:49:40.2695057Z  Container awf-api-proxy  Started
+2026-10-28T17:49:40.2695682Z  Container awf-squid  Started
+2026-10-28T17:49:40.2696199Z  Container awf-squid  Waiting
+2026-10-28T17:49:40.2696770Z  Container awf-api-proxy  Waiting
+2026-10-28T17:49:40.2697323Z  Container awf-api-proxy  Healthy
+2026-10-28T17:49:40.2697911Z  Container awf-squid  Healthy
+2026-10-28T17:49:40.2698763Z  Container awf-agent  Starting
+2026-10-28T17:49:40.2699349Z  Container awf-agent  Started
+2026-10-28T17:49:40.2700002Z [SUCCESS] Containers started successfully
+2026-10-28T17:49:40.2700673Z [INFO] Executing agent command...
+2026-10-28T17:49:40.2701266Z [INFO] Agent timeout: 10 minutes
+2026-10-28T17:49:40.2702012Z [entrypoint] Agentic Workflow Firewall - Agent Container
+2026-10-28T17:49:40.2702809Z [entrypoint] ==================================
+2026-10-28T17:49:40.2703503Z [entrypoint] Configuring DNS...
+2026-10-28T17:49:40.2704403Z [entrypoint] DNS configured with Docker embedded DNS (127.0.0.11) only
+2026-10-28T17:49:40.2705660Z [entrypoint] iptables-init skipped (proxy-based egress): skipping init container wait
+2026-10-28T17:49:40.2706686Z [health-check] API Proxy Pre-flight Check
+2026-10-28T17:49:40.2707475Z [health-check] ==========================================
+2026-10-28T17:49:40.2708649Z [health-check] Checking Anthropic API proxy configuration...
+2026-10-28T17:49:40.2709981Z [health-check] ✓ Anthropic credentials NOT in agent environment (correct)
+2026-10-28T17:49:40.2711269Z [health-check] ✓ ANTHROPIC_AUTH_TOKEN is placeholder value (correct)
+2026-10-28T17:49:40.2712618Z [health-check] Testing connectivity to Anthropic API proxy at http://172.30.0.30:10001...
+2026-10-28T17:49:40.2713957Z [health-check] ✓ Anthropic API proxy is reachable at http://172.30.0.30:10001
+2026-10-28T17:49:40.2714877Z [health-check] ==========================================
+2026-10-28T17:49:40.2715773Z [health-check] ✓ All API proxy health checks passed
+2026-10-28T17:49:40.2716576Z [health-check] ✓ Credential isolation verified
+2026-10-28T17:49:40.2717331Z [health-check] ✓ Connectivity established
+2026-10-28T17:49:40.2718043Z [health-check] ==========================================
+2026-10-28T17:49:40.2719335Z [entrypoint] Claude Code API key helper configured: /usr/local/bin/get-claude-key.sh
+2026-10-28T17:49:40.2720466Z [entrypoint] Creating /host/home/runner/.claude.json with apiKeyHelper...
+2026-10-28T17:49:40.2721976Z [entrypoint] ✓ Created /host/home/runner/.claude.json with apiKeyHelper: /usr/local/bin/get-claude-key.sh
+2026-10-28T17:49:40.2723579Z [entrypoint] Creating /host/home/runner/.claude/settings.json with apiKeyHelper...
+2026-10-28T17:49:40.2725250Z [entrypoint] ✓ Created /host/home/runner/.claude/settings.json with apiKeyHelper: /usr/local/bin/get-claude-key.sh
+2026-10-28T17:49:40.2726567Z [entrypoint] Pre-seeding JVM build tool proxy configuration (squid-proxy:3128)...
+2026-10-28T17:49:40.2727750Z [entrypoint] ✓ Created Maven proxy config (/host/home/runner/.m2/settings.xml)
+2026-10-28T17:49:40.2729291Z [entrypoint] ✓ Created Gradle proxy config (/host/home/runner/.gradle/gradle.properties)
+2026-10-28T17:49:40.2730726Z [entrypoint] ✓ Set JAVA_TOOL_OPTIONS with proxy and nonProxyHosts flags
+2026-10-28T17:49:40.2731445Z [entrypoint] Proxy configuration:
+2026-10-28T17:49:40.2732087Z [entrypoint]   HTTP_PROXY=http://172.30.0.10:3128
+2026-10-28T17:49:40.2732776Z [entrypoint]   HTTPS_PROXY=http://172.30.0.10:3128
+2026-10-28T17:49:40.2733423Z [entrypoint] Network information:
+2026-10-28T17:49:40.2733939Z [entrypoint]   IP address: 172.30.0.20 
+2026-10-28T17:49:40.2734503Z [entrypoint]   Hostname: 3d0eb41698d1
+2026-10-28T17:49:40.2735067Z [entrypoint] ==================================
+2026-10-28T17:49:40.2735872Z [entrypoint] Chroot mode enabled - dropping CAP_SYS_CHROOT and CAP_SYS_ADMIN
+2026-10-28T17:49:40.2736722Z [entrypoint] Switching to awfuser (UID: 1001, GID: 1001)
+2026-10-28T17:49:40.2741936Z [entrypoint] Executing command: /bin/bash -c /bin/bash -c 'set +o histexpand; : "${RUNNER_TOOL_CACHE:?RUNNER_TOOL_CACHE must be set}"; GH_AW_TOOL_CACHE="$RUNNER_TOOL_CACHE"; GH_AW_TOOL_BINS="$(find "$GH_AW_TOOL_CACHE" -maxdepth 5 -type d -name bin 2>/dev/null | tr "\n" ":")"; GH_AW_TOOL_BINS="${GH_AW_TOOL_BINS%:}"; export PATH="$PATH${GH_AW_TOOL_BINS:+:}$GH_AW_TOOL_BINS"; [ -n "$GOROOT" ] && export PATH="$GOROOT/bin:$PATH" || true; [ -n "$ERLANG_HOME" ] && export PATH="$ERLANG_HOME/bin:$PATH" || true && threat-detect --engine claude --output /tmp/gh-aw/threat-detection/detection_result.json /tmp/gh-aw/threat-detection'
+2026-10-28T17:49:40.2745347Z 
+2026-10-28T17:49:40.2745867Z [entrypoint] Chroot mode: running command inside host filesystem (/host)
+2026-10-28T17:49:40.2746912Z [entrypoint] Mounted procfs at /host/proc (nosuid,nodev,noexec,hidepid=2)
+2026-10-28T17:49:40.2747997Z [entrypoint] Bind-mounted container cgroup subtree at /host/sys/fs/cgroup (ro)
+2026-10-28T17:49:40.2749320Z [entrypoint] One-shot token library copied to chroot at /run/awf-lib/one-shot-token.so
+2026-10-28T17:49:40.2750687Z [entrypoint] Chromium/Playwright runtime libraries staged for chroot at /host/run/awf-lib/browser-libs
+2026-10-28T17:49:40.2751991Z [entrypoint] Claude key helper copied to chroot at /run/awf-lib/get-claude-key.sh
+2026-10-28T17:49:40.2753232Z [entrypoint] ✓ Updated apiKeyHelper path in /host/home/runner/.claude.json
+2026-10-28T17:49:40.2754486Z [entrypoint] ✓ Updated apiKeyHelper path in /host/home/runner/.claude/settings.json
+2026-10-28T17:49:40.2755835Z [entrypoint] Filtered host CA trust staged at /run/awf-lib/trust/ca-certificates.crt (host store unchanged)
+2026-10-28T17:49:40.2757074Z [entrypoint] DNS configuration created in chroot (/host/etc/resolv.conf)
+2026-10-28T17:49:40.2757928Z [entrypoint] Running as host user: runner (UID: 1001)
+2026-10-28T17:49:40.2759262Z [entrypoint] Chroot working directory: /home/runner/work/cs467-as3-triage-agent/cs467-as3-triage-agent
+2026-10-28T17:49:40.2760286Z [entrypoint] Using host PATH for chroot
+2026-10-28T17:49:40.2761185Z [entrypoint] Adding JAVA_HOME/bin to PATH: /usr/lib/jvm/temurin-17-jdk-amd64/bin
+2026-10-28T17:49:40.2762132Z [entrypoint] DNS configuration will be removed on exit
+2026-10-28T17:49:40.2763090Z [entrypoint] Transferred /host/tmp/gh-aw ownership to chroot user (1001:1001)
+2026-10-28T17:49:40.2764498Z [threat-detect] run start: version=v0.5.3 engine=claude model=claude-sonnet-5-5 retries=0 max_turns=50 engine_timeout=5m0s
+2026-10-28T17:49:40.2766482Z [threat-detect] artifacts loaded: dir=/tmp/gh-aw/threat-detection prompt_bytes=687 agent_output_bytes=203 patch_files=0 all_primary_inputs_missing=false
+2026-10-28T17:49:40.2767871Z [threat-detect] artifact inventory (7 entries):
+2026-10-28T17:49:40.2768925Z [threat-detect]   agent_output.json bytes=203 kind=file consumed=true
+2026-10-28T17:49:40.2770086Z [threat-detect]   aw-prompts/prompt-import-tree.json bytes=10069 kind=file consumed=true
+2026-10-28T17:49:40.2771182Z [threat-detect]   aw-prompts/prompt-template.txt bytes=9021 kind=file consumed=true
+2026-10-28T17:49:40.2771845Z [threat-detect]   aw-prompts/prompt.txt bytes=687 kind=file consumed=true
+2026-10-28T17:49:40.2772606Z [threat-detect]   aw_info.json bytes=1647 kind=file consumed=true
+2026-10-28T17:49:40.2773143Z [threat-detect]   detection.log bytes=5640 kind=file consumed=false
+2026-10-28T17:49:40.2773679Z [threat-detect]   execution.json bytes=93 kind=file consumed=false
+2026-10-28T17:49:40.2774665Z [threat-detect] result destinations: output=/tmp/gh-aw/threat-detection/detection_result.json full_output=/tmp/gh-aw/threat-detection/detection_result_full.json
+2026-10-28T17:49:40.2776653Z Prompt context: workflow_name="Issue triage" (defaulted=false) workflow_description="First-pass triage of new issues. Adds at most three allow-listed labels and posts at most one comment; never closes, edits or removes anything." (defaulted=false) custom_prompt_applied=false custom_prompt_source=none custom_prompt_bytes=0
+2026-10-28T17:49:40.2778938Z [threat-detect] prompt built: prompt_bytes=41128 framework_scaffolding_detected=true framework_scaffolding_host_removed=true framework_scaffolding_markers=<safe-output-tools>
+2026-10-28T17:49:40.2780184Z [threat-detect] eligibility: prompt_injection=true secret_leak=true malicious_patch=false
+2026-10-28T17:49:40.2780743Z [threat-detect] detection attempt 1 of 1
+2026-10-28T17:49:40.2781540Z [threat-detect] engine invoke: engine=claude model="claude-sonnet-5-5" command="node (/opt/hostedtoolcache/node/24.22.1/x64/bin/node)" args=16
+2026-10-28T17:49:40.2783454Z [threat-detect] engine argv: "/home/runner/work/_temp/gh-aw/actions/claude_harness.cjs" "claude" "--print" "--verbose" "--output-format" "stream-json" "--permission-mode" "acceptEdits" "--allowed-tools" "Bash,Write,Edit,Read,Read(/tmp/*),Read(/tmp/gh-aw/*)" "--model" "claude-sonnet-5-5" "--max-turns" "50" "--prompt-file" "<prompt-file>"
+2026-10-28T17:49:40.2785361Z [engine] [claude-harness] 2026-10-28T17:49:30.108Z starting: command=claude maxRetries=0 initialDelayMs=5000 backoffMultiplier=2 maxDelayMs=60000 nodeVersion=v24.22.1 platform=linux
+2026-10-28T17:49:40.2786606Z [engine] [claude-harness] 2026-10-28T17:49:30.181Z resolved --prompt-file: path=/tmp/threat-detect-prompt-667938817.txt size=41128B
+2026-10-28T17:49:40.2787626Z [engine] [claude-harness] 2026-10-28T17:49:30.181Z awf-reflect: fetching http://api-proxy:10000/reflect (timeout=60000ms)
+2026-10-28T17:49:40.2788597Z [entrypoint] Unsetting sensitive tokens from parent shell environment...
+2026-10-28T17:49:40.2789171Z [entrypoint] Unset ANTHROPIC_AUTH_TOKEN from /proc/1/environ
+2026-10-28T17:49:40.2789926Z [engine] [claude-harness] 2026-10-28T17:49:30.488Z awf-reflect: fetched 14 model(s) from http://api-proxy:10001/v1/models
+2026-10-28T17:49:40.2790823Z [engine] [claude-harness] 2026-10-28T17:49:30.488Z awf-reflect: saved 18308B to /tmp/gh-aw/agent/awf-reflect.json
+2026-10-28T17:49:40.2791992Z [engine] [claude-harness] 2026-10-28T17:49:30.492Z model resolution: engine=claude role=main configured=claude-sonnet-5-5 resolved=claude-sonnet-5-5 provider=anthropic status=exact
+2026-10-28T17:49:40.2793276Z [engine] [claude-harness] 2026-10-28T17:49:30.492Z awf-reflect: provider=anthropic mapped to endpoint provider=anthropic baseUrl=http://api-proxy:10001
+2026-10-28T17:49:40.2794430Z [engine] [claude-harness] 2026-10-28T17:49:30.492Z configured ANTHROPIC_BASE_URL from /reflect for provider=anthropic: http://api-proxy:10001
+2026-10-28T17:49:40.2796059Z [engine] [claude-harness] 2026-10-28T17:49:30.494Z attempt 1: spawning: claude --print --verbose --output-format stream-json --permission-mode acceptEdits --allowed-tools Bash,Write,Edit,Read,Read(/tmp/*),Read(/tmp/gh-aw/*) --model claude-sonnet-5-5 --max-turns 50
+2026-10-28T17:49:40.2797343Z [engine] [claude-harness] 2026-10-28T17:49:30.498Z attempt 1: process started (pid=1952)
+2026-10-28T17:49:40.2810495Z [engine] {"type":"system","subtype":"init","cwd":"/home/runner/work/cs467-as3-triage-agent/cs467-as3-triage-agent","session_id":"3a63dae2-347b-4deb-8704-fa48d97eb696","tools":["Task","Bash","CronCreate","CronDelete","CronList","DesignSync","Edit","EnterWorktree","ExitWorktree","ListAgents","Monitor","NotebookEdit","Read","ReportFindings","ScheduleWakeup","SendMessage","Skill","TaskStop","ToolSearch","WebFetch","WebSearch","Workflow","Write"],"mcp_servers":[],"model":"claude-sonnet-5-5","permissionMode":"acceptEdits","slash_commands":["deep-research","design","design-sync","dataviz","update-config","verify","debug","code-review","simplify","batch","fewer-permission-prompts","doctor","loop","claude-api","workflow-authoring","run","run-skill-generator","plugin-authoring","agents","auto-mode-setup","autocompact","clear","color","compact","config","output-style","context","effort","fast","focus","heapdump","init","mcp","model","__remote-workflow","workflow-launch-exec","reload-plugins","reload-skills","rename","security-review","usage","insights","recap","goal","design-consent","design-revoke","list-agents","team-onboarding"],"terminal_slash_commands":["doctor","color","focus","reload-plugins"],"apiKeySource":"apiKeyHelper","claude_code_version":"2.1.310","output_style":"default","agents":["claude","Explore","general-purpose","Plan","statusline-setup"],"skills":["deep-research","design","design-sync","dataviz","update-config","verify","debug","code-review","simplify","batch","fewer-permission-prompts","doctor","loop","claude-api","workflow-authoring","run","run-skill-generator","plugin-authoring"],"plugins":[{"name":"cc-plugin-agents-md","path":"builtin","source":"cc-plugin-agents-md@builtin"},{"name":"cc-plugin-plugin-authoring","path":"builtin","source":"cc-plugin-plugin-authoring@builtin"}],"capabilities":["interrupt_receipt_v1","interrupt_cancel_queued_v1","interrupt_send_now_v1","interrupt_requeue_taken_v1","msg_lifecycle_v1","request_marker_lists_v1","lifecycle_wakeup_source_v1","sdk_mcp_tools_list_changed","sdk_mcp_manifests","mcp_read_resource_v1","mcp_tool_ui_meta_v1","ui_surface_v1","mcp_call_result_not_for_model_v1"],"analytics_disabled":true,"product_feedback_disabled":false,"uuid":"09ed29bc-bffe-4c1b-99a4-ec7eaf66ba0f","memory_paths":{"auto":"/home/runner/.claude/projects/-home-runner-work-cs467-as3-triage-agent-cs467-as3-triage-agent/memory/"},"original_cwd":"/home/runner/work/cs467-as3-triage-agent/cs467-as3-triage-agent","additional_directories":[],"messaging_socket_path":"/tmp/cc-socks-1001/1952.sock","fast_mode_state":"off","fast_mode_disabled_reason":"disabled_by_env","per_turn_effort_active":true,"view_mode":"default"}
+2026-10-28T17:49:40.2823766Z [engine] {"type":"assistant","message":{"model":"claude-sonnet-5-5","id":"msg_011CgV4HDuPMHwoE6jN5aB4K","type":"message","role":"assistant","content":[{"type":"tool_use","id":"toolu_01N6VSgSZs5bF8TYsKpiDGL6","name":"Bash","input":{"command":"cat /tmp/gh-aw/threat-detection/agent_output.json | head -c 4000"},"caller":{"type":"direct"}}],"container":null,"stop_reason":null,"stop_sequence":null,"stop_details":null,"usage":{"input_tokens":2,"cache_creation_input_tokens":17868,"cache_read_input_tokens":12733,"cache_creation":{"ephemeral_5m_input_tokens":17868,"ephemeral_1h_input_tokens":0},"output_tokens":16,"service_tier":"standard","inference_geo":"global","speed":"standard"},"diagnostics":null,"context_management":null},"parent_tool_use_id":null,"session_id":"3a63dae2-347b-4deb-8704-fa48d97eb696","uuid":"2547c9e2-289a-4a98-981f-f54333fbba08","timestamp":"2026-10-28T17:49:34.334Z","request_id":"req_011CgV4HDCDvfrPmNs7cdcZB"}
+2026-10-28T17:49:40.2831083Z [engine] {"type":"user","message":{"role":"user","content":[{"tool_use_id":"toolu_01N6VSgSZs5bF8TYsKpiDGL6","type":"tool_result","content":"{\"items\":[{\"type\":\"add_labels\",\"item_number\":39,\"labels\":[{\"name\":\"crash\",\"rationale\":\"The report includes a provider panic stack trace and a 'plugin crashed' error.\",\"confidence\":\"HIGH\"}]}],\"errors\":[]}","is_error":false}]},"parent_tool_use_id":null,"session_id":"3a63dae2-347b-4deb-8704-fa48d97eb696","uuid":"2558a904-d858-4ceb-ba2b-f1bf2c61f13a","timestamp":"2026-10-28T17:49:34.390Z","tool_use_result":{"stdout":"{\"items\":[{\"type\":\"add_labels\",\"item_number\":39,\"labels\":[{\"name\":\"crash\",\"rationale\":\"The report includes a provider panic stack trace and a 'plugin crashed' error.\",\"confidence\":\"HIGH\"}]}],\"errors\":[]}","stderr":"","interrupted":false,"isImage":false,"noOutputExpected":false},"tool_result_meta":[{"id":"toolu_01N6VSgSZs5bF8TYsKpiDGL6","permission_decision":{"decision":"accept","source":"config","reason_type":"rule"}}]}
+2026-10-28T17:49:40.2838941Z [engine] {"type":"assistant","message":{"model":"claude-sonnet-5-5","id":"msg_011CgV4HS7MbBgtTxgQbhHuH","type":"message","role":"assistant","content":[{"type":"tool_use","id":"toolu_01MuQ14YjvCgXYynR4AzXARk","name":"Bash","input":{"command":"threat_detection_result --prompt-injection false --secret-leak false --malicious-patch false"},"caller":{"type":"direct"}}],"container":null,"stop_reason":null,"stop_sequence":null,"stop_details":null,"usage":{"input_tokens":2,"cache_creation_input_tokens":194,"cache_read_input_tokens":30601,"cache_creation":{"ephemeral_5m_input_tokens":194,"ephemeral_1h_input_tokens":0},"output_tokens":16,"service_tier":"standard","inference_geo":"global","speed":"standard"},"diagnostics":null,"context_management":null},"parent_tool_use_id":null,"session_id":"3a63dae2-347b-4deb-8704-fa48d97eb696","uuid":"be673db4-9c47-48b3-b143-2b1c242b3222","timestamp":"2026-10-28T17:49:36.495Z","request_id":"req_011CgV4HRmmV5rMxKez2Y9vT"}
+2026-10-28T17:49:40.2845186Z [engine] {"type":"user","message":{"role":"user","content":[{"tool_use_id":"toolu_01MuQ14YjvCgXYynR4AzXARk","type":"tool_result","content":"THREAT_DETECTION_RESULT_RECORDED: analysis complete; stop now and produce no further output.","is_error":false}]},"parent_tool_use_id":null,"session_id":"3a63dae2-347b-4deb-8704-fa48d97eb696","uuid":"9a9aae6e-0497-4b7f-a649-a935b6f0b498","timestamp":"2026-10-28T17:49:36.521Z","tool_use_result":{"stdout":"THREAT_DETECTION_RESULT_RECORDED: analysis complete; stop now and produce no further output.","stderr":"","interrupted":false,"isImage":false,"noOutputExpected":false},"tool_result_meta":[{"id":"toolu_01MuQ14YjvCgXYynR4AzXARk","permission_decision":{"decision":"accept","source":"config","reason_type":"rule"}}]}
+2026-10-28T17:49:40.2847814Z [threat-detect] attempt 1 outcome=recorded
+2026-10-28T17:49:40.2848747Z [threat-detect] full result written: path=/tmp/gh-aw/threat-detection/detection_result_full.json reasons=0 warnings=0
+2026-10-28T17:49:40.2849451Z THREAT_DETECTION_STATUS: reason=result_recorded exit=0
+2026-10-28T17:49:40.2850028Z [entrypoint] Relaxed /host/tmp/gh-aw group permissions for host-side post-processing
+2026-10-28T17:49:40.2850509Z [INFO] Stopping containers...
+2026-10-28T17:49:40.2850810Z  Container awf-agent  Stopping
+2026-10-28T17:49:40.2851084Z  Container awf-agent  Stopped
+2026-10-28T17:49:40.2851364Z  Container awf-agent  Removing
+2026-10-28T17:49:40.2851626Z  Container awf-agent  Removed
+2026-10-28T17:49:40.2851899Z  Container awf-squid  Stopping
+2026-10-28T17:49:40.2852200Z  Container awf-api-proxy  Stopping
+2026-10-28T17:49:40.2852517Z  Container awf-api-proxy  Stopped
+2026-10-28T17:49:40.2852823Z  Container awf-api-proxy  Removing
+2026-10-28T17:49:40.2853140Z  Container awf-api-proxy  Removed
+2026-10-28T17:49:40.2853415Z  Container awf-squid  Stopped
+2026-10-28T17:49:40.2853698Z  Container awf-squid  Removing
+2026-10-28T17:49:40.2853962Z  Container awf-squid  Removed
+2026-10-28T17:49:40.2854251Z  Network awf-sndefi_awf-ext  Removing
+2026-10-28T17:49:40.2854544Z  Network awf-net  Removing
+2026-10-28T17:49:40.2854801Z  Network awf-net  Removed
+2026-10-28T17:49:40.2855084Z  Network awf-sndefi_awf-ext  Removed
+2026-10-28T17:49:40.2855427Z [SUCCESS] Containers stopped successfully
+2026-10-28T17:49:40.2855962Z [INFO] API proxy logs available at: /tmp/gh-aw/sandbox/firewall/logs/api-proxy-logs
+2026-10-28T17:49:40.2856708Z [INFO] Token usage log available at: /tmp/gh-aw/sandbox/firewall/logs/api-proxy-logs/token-usage.jsonl
+2026-10-28T17:49:40.2857422Z [INFO] CLI proxy logs available at: /tmp/gh-aw/sandbox/firewall/logs/cli-proxy-logs
+2026-10-28T17:49:40.2857986Z [INFO] Squid logs available at: /tmp/gh-aw/sandbox/firewall/logs
+2026-10-28T17:49:40.2858786Z [INFO] Audit artifacts available at: /tmp/gh-aw/sandbox/firewall/audit
+2026-10-28T17:49:40.2859401Z [SUCCESS] Command completed successfully
+2026-10-28T17:49:40.2859727Z Process exiting with code: 0
+2026-10-28T17:49:40.2860267Z ::***::
+2026-10-28T17:49:40.2860658Z ##[endgroup]
+2026-10-28T17:49:40.2861071Z Log rendered (17116 bytes): /tmp/gh-aw/threat-detection/detection.log
+2026-10-28T17:49:40.2913745Z ##[group]Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+2026-10-28T17:49:40.2914194Z with:
+2026-10-28T17:49:40.2914408Z   name: detection
+2026-10-28T17:49:40.2915534Z   path: /tmp/gh-aw/threat-detection/detection_result.json
+/tmp/gh-aw/threat-detection/execution.json
+/tmp/gh-aw/threat-detection/detection_usage.json
+/tmp/gh-aw/threat-detection/detection_usage.jsonl
+/tmp/gh-aw/threat-detection/sandbox/firewall/logs/
+/tmp/gh-aw/threat-detection/sandbox/firewall/audit/
+
+2026-10-28T17:49:40.2916726Z   if-no-files-found: ignore
+2026-10-28T17:49:40.2916989Z   retention-days: 0
+2026-10-28T17:49:40.2917226Z   compression-level: 6
+2026-10-28T17:49:40.2917470Z   overwrite: false
+2026-10-28T17:49:40.2917709Z   include-hidden-files: false
+2026-10-28T17:49:40.2917963Z   archive: true
+2026-10-28T17:49:40.2918173Z env:
+2026-10-28T17:49:40.2918712Z   OTEL_EXPORTER_OTLP_ENDPOINT: 
+2026-10-28T17:49:40.2919088Z   OTEL_SERVICE_NAME: gh-aw.issue-triage
+2026-10-28T17:49:40.2919906Z   OTEL_RESOURCE_ATTRIBUTES: gh-aw.workflow.name=Issue%20triage,gh-aw.repository=wzinl/cs467-as3-triage-agent,gh-aw.run.id=40738822993,github.run_id=40738822993,gh-aw.engine.id=claude
+2026-10-28T17:49:40.2920677Z   OTEL_EXPORTER_OTLP_HEADERS: 
+2026-10-28T17:49:40.2920978Z   GH_AW_OTLP_ENDPOINTS: [{"url":"","headers":""}]
+2026-10-28T17:49:40.2921300Z   GH_AW_OTLP_IF_MISSING: ignore
+2026-10-28T17:49:40.2921558Z   GH_AW_RUNTIME_FEATURES: 
+2026-10-28T17:49:40.2921870Z   GITHUB_AW_OTEL_TRACE_ID: bbc2ee63d536fbcbb99666b6b0d2e6dd
+2026-10-28T17:49:40.2922245Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: 8dde1144affcb597
+2026-10-28T17:49:40.2922567Z   GITHUB_AW_OTEL_JOB_START_MS: 1793209725221
+2026-10-28T17:49:40.2922906Z   GH_AW_PROMPT: /tmp/gh-aw/aw-prompts/prompt.txt
+2026-10-28T17:49:40.2923378Z   AWF_TOKEN_USAGE_LOG: /tmp/gh-aw/sandbox/firewall/logs/api-proxy-logs/token-usage.jsonl
+2026-10-28T17:49:40.2923832Z   GH_AW_PRIMARY_MODEL: claude-sonnet-5-5
+2026-10-28T17:49:40.2924122Z   GH_AW_AIC: 5.10364
+2026-10-28T17:49:40.2924362Z   GH_AW_AMBIENT_CONTEXT: 3062
+2026-10-28T17:49:40.2924610Z ##[endgroup]
+2026-10-28T17:49:40.4480155Z Multiple search paths detected. Calculating the least common ancestor of all paths
+2026-10-28T17:49:40.4483355Z The least common ancestor is /tmp/gh-aw/threat-detection. This will be the root directory of the artifact
+2026-10-28T17:49:40.4484563Z With the provided path, there will be 17 files uploaded
+2026-10-28T17:49:40.4488256Z Artifact name is valid!
+2026-10-28T17:49:40.4489309Z Root directory input is valid!
+2026-10-28T17:49:40.8227550Z Uploading artifact: detection.zip
+2026-10-28T17:49:40.8266960Z Beginning upload of artifact content to blob storage
+2026-10-28T17:49:41.2406776Z Uploaded bytes 20533
+2026-10-28T17:49:41.3174596Z Finished uploading artifact content to blob storage!
+2026-10-28T17:49:41.3176115Z SHA256 digest of uploaded artifact is e784d92f624dd4291d1ccfb53d9cd3c54fe897ccdd8c38d413590aac5c4858a8
+2026-10-28T17:49:41.3177038Z Finalizing artifact upload
+2026-10-28T17:49:41.9718619Z Artifact detection successfully finalized. Artifact ID 12839230983
+2026-10-28T17:49:41.9719593Z Artifact detection has been successfully uploaded! Final size is 20533 bytes. Artifact ID is 12839230983
+2026-10-28T17:49:41.9723792Z Artifact download URL: https://github.com/wzinl/cs467-as3-triage-agent/actions/runs/40738822993/artifacts/12839230983
+2026-10-28T17:49:41.9867623Z ##[group]Run bash "${RUNNER_TEMP}/gh-aw/actions/conclude_threat_detection.sh" /tmp/gh-aw/threat-detection/detection_result.json
+2026-10-28T17:49:41.9868853Z [36;1mbash "${RUNNER_TEMP}/gh-aw/actions/conclude_threat_detection.sh" /tmp/gh-aw/threat-detection/detection_result.json[0m
+2026-10-28T17:49:41.9888973Z shell: /usr/bin/bash -e {0}
+2026-10-28T17:49:41.9889257Z env:
+2026-10-28T17:49:41.9889481Z   OTEL_EXPORTER_OTLP_ENDPOINT: 
+2026-10-28T17:49:41.9889783Z   OTEL_SERVICE_NAME: gh-aw.issue-triage
+2026-10-28T17:49:41.9890605Z   OTEL_RESOURCE_ATTRIBUTES: gh-aw.workflow.name=Issue%20triage,gh-aw.repository=wzinl/cs467-as3-triage-agent,gh-aw.run.id=40738822993,github.run_id=40738822993,gh-aw.engine.id=claude
+2026-10-28T17:49:41.9891432Z   OTEL_EXPORTER_OTLP_HEADERS: 
+2026-10-28T17:49:41.9891739Z   GH_AW_OTLP_ENDPOINTS: [{"url":"","headers":""}]
+2026-10-28T17:49:41.9892067Z   GH_AW_OTLP_IF_MISSING: ignore
+2026-10-28T17:49:41.9892334Z   GH_AW_RUNTIME_FEATURES: 
+2026-10-28T17:49:41.9892692Z   GITHUB_AW_OTEL_TRACE_ID: bbc2ee63d536fbcbb99666b6b0d2e6dd
+2026-10-28T17:49:41.9893101Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: 8dde1144affcb597
+2026-10-28T17:49:41.9893435Z   GITHUB_AW_OTEL_JOB_START_MS: 1793209725221
+2026-10-28T17:49:41.9893912Z   GH_AW_PROMPT: /tmp/gh-aw/aw-prompts/prompt.txt
+2026-10-28T17:49:41.9894535Z   AWF_TOKEN_USAGE_LOG: /tmp/gh-aw/sandbox/firewall/logs/api-proxy-logs/token-usage.jsonl
+2026-10-28T17:49:41.9895275Z   GH_AW_PRIMARY_MODEL: claude-sonnet-5-5
+2026-10-28T17:49:41.9911761Z   GH_AW_AIC: 5.10364
+2026-10-28T17:49:41.9912248Z   GH_AW_AMBIENT_CONTEXT: 3062
+2026-10-28T17:49:41.9912585Z   RUN_DETECTION: true
+2026-10-28T17:49:41.9912878Z   DETECTION_AGENTIC_EXECUTION_OUTCOME: success
+2026-10-28T17:49:41.9913226Z   THREAT_DETECT_INSTALL_OUTCOME: success
+2026-10-28T17:49:41.9913541Z   GH_AW_DETECTION_CONTINUE_ON_ERROR: false
+2026-10-28T17:49:41.9913846Z ##[endgroup]
+2026-10-28T17:49:42.0006862Z ════════════════════════════════════════════════════════
+2026-10-28T17:49:42.0007963Z 🛡️  Threat Detection: Parse Results & Conclude
+2026-10-28T17:49:42.0009121Z ════════════════════════════════════════════════════════
+2026-10-28T17:49:42.0009937Z 📋 RUN_DETECTION env: "true"
+2026-10-28T17:49:42.0010628Z 📋 continue-on-error: false
+2026-10-28T17:49:42.0011449Z 📋 detection execution outcome: "success"
+2026-10-28T17:49:42.0012534Z 📁 Threat detection directory: /tmp/gh-aw/threat-detection
+2026-10-28T17:49:42.0013499Z 📄 Detection log path: /tmp/gh-aw/threat-detection/detection.log
+2026-10-28T17:49:42.0014624Z 📄 Structured result path: /tmp/gh-aw/threat-detection/detection_result.json
+2026-10-28T17:49:42.0015860Z 📄 Full result path: /tmp/gh-aw/threat-detection/detection_result_full.json
+2026-10-28T17:49:42.0016538Z 🔍 Detection is required. Proceeding to parse detection result...
+2026-10-28T17:49:42.0017689Z 🔎 Checking for structured result file: /tmp/gh-aw/threat-detection/detection_result.json
+2026-10-28T17:49:42.0019168Z ✔️  Structured result file found and parsed successfully.
+2026-10-28T17:49:42.0020094Z ✔️  Full result file found; recovered 0 reason(s).
+2026-10-28T17:49:42.0021059Z 📋 Threat detection verdict (from structured result file):
+2026-10-28T17:49:42.0021724Z    prompt_injection : false
+2026-10-28T17:49:42.0022281Z    secret_leak      : false
+2026-10-28T17:49:42.0022766Z    malicious_patch  : false
+2026-10-28T17:49:42.0023265Z    reasons          : (none)
+2026-10-28T17:49:42.0023651Z    warnings         : (none)
+2026-10-28T17:49:42.0024130Z ✅ No security threats detected. Safe outputs may proceed.
+2026-10-28T17:49:42.0024664Z ════════════════════════════════════════════════════════
+2026-10-28T17:49:42.0025089Z 🛡️  Threat detection conclusion complete.
+2026-10-28T17:49:42.0025561Z ════════════════════════════════════════════════════════
+2026-10-28T17:49:42.0102878Z Post job cleanup.
+2026-10-28T17:49:42.1372104Z Post job cleanup.
+2026-10-28T17:49:42.2021618Z [info] [otlp] sending conclusion span "gh-aw.detection.conclusion" to configured endpoints
+2026-10-28T17:49:42.2145926Z [info] [otlp] conclusion span export attempted
+2026-10-28T17:49:42.2147224Z Cleaning up /tmp/gh-aw...
+2026-10-28T17:49:42.2326709Z Cleaned up /tmp/gh-aw
+2026-10-28T17:49:42.2417629Z No /tmp/awf-*-chroot-home directories found
+2026-10-28T17:49:42.2505797Z No /tmp/awf-chroot-* directories found
+2026-10-28T17:49:42.2639762Z Evaluate and set job outputs
+2026-10-28T17:49:42.2644605Z Set output 'aic'
+2026-10-28T17:49:42.2646204Z Set output 'detection_conclusion'
+2026-10-28T17:49:42.2647021Z Set output 'detection_success'
+2026-10-28T17:49:42.2647388Z Set output 'run_detection'
+2026-10-28T17:49:42.2648085Z Cleaning up orphan processes

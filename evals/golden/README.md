@@ -65,7 +65,9 @@ the duplicate search.
 
 A run needs the sandbox owner and a second account that is not a collaborator, so the issue is a
 reporter's. After a run, `collect_run.py` turns its agent and detection job logs and the issue into
-`actual/<run>/<case>.json` for `score.py`.
+`actual/<run>/<case>.json` for `score.py`. For the 2026-10-28 run those inputs, the full job logs and the issue
+as it stood after the run, are kept in `actual/2026-10-28/logs/<case>/`, and CI rebuilds every collected run
+from them.
 
 - On a clean, current main: `python3 evals/golden/case_branch.py <case>`, then `git push -u origin eval/<case>`.
 - Disable the Issue triage workflow in the Actions tab, so that opening the issue starts nothing. The

@@ -37,7 +37,7 @@ under "Found and fixed".
 | Bill of materials: model and whether it is pinned, instructions, tools and MCP servers, permissions, data sources, logs, evaluations, responsible humans | `DESIGN.md`, "Agent bill of materials" |
 | AI-use statement at the end | `DESIGN.md`, last section |
 | `DESIGN.md` at most 150 lines, normal formatting | CI step in `.github/workflows/checks.yml` |
-| `evals/golden/`: inputs, expected outcomes, actual outputs, logs, how to reproduce | `cases/*/*/input.json` and `expected.json`; `actual/2026-10-28/` (outputs and tool-call traces); each result links its run log; `evals/golden/README.md`, "Running a case" |
+| `evals/golden/`: inputs, expected outcomes, actual outputs, logs, how to reproduce | `cases/*/*/input.json` and `expected.json`; `actual/2026-10-28/` (outputs and tool-call traces) and `actual/2026-10-28/logs/` (the full agent and detection job logs); each result links its run; `evals/golden/README.md`, "Running a case" |
 
 ## Found and fixed
 
@@ -63,6 +63,11 @@ label. Reading the brief clause by clause against the final files found two gaps
    the owner reviews every miss.
 8. The audit trail did not name the trigger, which the brief lists first. Each run records its event and who
    caused it; the row and `verification/audit-governance.md` now say so.
+
+Then, at the owner's request, the full agent and detection job logs of the 37 golden runs that reached the
+agent were committed under `evals/golden/actual/2026-10-28/logs/`, so they outlast the 90 days Actions keeps
+them. They are the logs `collect_run.py` read on 2026-10-28; rebuilt from them, every collected run comes out
+unchanged, and CI now checks that. Dev 10 has none: the workflow skipped it before any agent ran.
 
 ## Not done here
 

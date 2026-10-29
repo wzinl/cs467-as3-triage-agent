@@ -40,8 +40,8 @@ Each run keeps, in its Actions log and artifacts: the event that triggered it an
 model turn and tool call with its result, the safe outputs the agent asked for, the detection verdict, what the
 safe-outputs job did with them, the firewall log, the model and the AI credits used. The repository keeps logs and
 artifacts for 90 days (read from its Actions settings on 2026-10-29); after that only the posted comments and
-labels remain, each comment ending with gh-aw's footer that links its run. The golden runs are kept for good in
-`evals/golden/actual/`.
+labels remain, each comment ending with gh-aw's footer that links its run. The golden runs, with their full
+agent and detection job logs, are kept for good in `evals/golden/actual/`.
 
 ## Drift
 

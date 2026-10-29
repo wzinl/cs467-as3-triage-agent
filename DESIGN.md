@@ -116,7 +116,7 @@ against a cap of 1), and that the kill-switch label did not exist yet.
 | MCP servers | gh-aw's `safeoutputs` only; the GitHub MCP server is off |
 | Permissions | Agent `contents: read`, `issues: read`; safe-outputs job `issues: write`; the API key stays in gh-aw's proxy |
 | Data sources | The issue (read in a setup step), a snapshot of upstream issues (`evals/data/`), the pinned upstream files |
-| Logs | Actions logs and artifacts per run, 90 days; golden runs kept in `evals/golden/actual/` |
+| Logs | Actions logs and artifacts per run, 90 days; golden runs and their full job logs kept in `evals/golden/actual/` |
 | Evaluations | `evals/golden/`: 38 cases, results, rescoring and the drift check in CI |
 | Responsible humans | Wai Zin Lin (`wzinl`), owner of this sandbox; upstream, its maintainers would own it |
 
