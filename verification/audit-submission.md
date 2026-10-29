@@ -69,6 +69,10 @@ agent were committed under `evals/golden/actual/2026-10-28/logs/`, so they outla
 them. They are the logs `collect_run.py` read on 2026-10-28; rebuilt from them, every collected run comes out
 unchanged, and CI now checks that. Dev 10 has none: the workflow skipped it before any agent ran.
 
+The AI-use statement now records, from the owner, their review of the evaluation code, the workflow and the
+golden set. The open lists in `DESIGN.md`, `evals/golden/README.md` and `verification/audit-golden-set.md` say
+the same: the owner reviewed the expected outcomes, and no upstream maintainer has.
+
 ## Not done here
 
 - The submission tag goes on `main` once this change merges.

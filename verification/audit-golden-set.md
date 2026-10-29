@@ -133,6 +133,6 @@ Dev, 4 of 20:
 
 - An `expected.json` edit that changes a score fails CI, which rescores the live run; an edit that changes no
   score, such as a rationale, shows only in the git history.
-- Claude Code wrote every `expected.json`, and no maintainer has reviewed them.
+- Claude Code wrote every `expected.json`; the owner reviewed them, but no upstream maintainer has.
 - Posting a case and dispatching it are manual steps (`evals/golden/README.md`).
 - Development case 10 tests the skip of maintainers' issues, so it must be opened by the owner.

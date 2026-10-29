@@ -101,7 +101,7 @@ every miss before the change merges when:
 
 ## Limits
 
-- Claude Code wrote every `expected.json`, and no maintainer has reviewed them.
+- Claude Code wrote every `expected.json`; the owner reviewed them, but no upstream maintainer has.
 - Titles are as fetched on 2026-10-24; a title renamed after the issue was opened cannot be recovered.
 - The duplicate search in `triage_checks.py` was measured, while the skill was written, against the window's
   duplicates whose earlier issue a maintainer named. 3 of the 4 held-out duplicate cases were among them,
