@@ -33,5 +33,5 @@ substring cannot check.
 
 ## Not enforced yet
 
-- The AI-use statement is a draft until the owner confirms which parts they wrote and how they checked them.
+- The AI-use statement the brief asks for at the end is not written yet; the owner will add it.
 - Table rows are exempt from the 120-character check, since a Markdown table row cannot wrap.
