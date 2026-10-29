@@ -336,4 +336,7 @@ def main():
 
 
 if __name__ == "__main__":
+    # Time-limit test only (test branch): stall like a hung tool so the 1-minute agent timeout must stop the run.
+    import time
+    time.sleep(150)
     sys.exit(main())
