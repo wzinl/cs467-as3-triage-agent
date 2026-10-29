@@ -41,20 +41,21 @@ and to mention the sandbox owner.
 `input.json` (written by `build_cases.py`) has the issue's original title and body, the labels its form
 added, the labels upstream's labeler added, and `upstream_commit`: the last commit on upstream's main when
 the issue was opened. Every upstream file the agent reads (`UPSTREAM_PATHS`: the issue forms, labelers, label
-definitions, `CHANGELOG.md` and resource docs) exists at that commit, and `case_branch.py` imports them from it onto the case's own branch, so
-the agent sees releases and resources as they were that day. `posted` is the text to open the sandbox issue
-with: every @mention, issue reference and GitHub issue or pull request link is put in a code span, where
-GitHub makes no mention or link, so posting it notifies nobody and adds nothing to the original issues.
+definitions, `CHANGELOG.md` and resource docs) exists at that commit, and `case_branch.py` imports them from
+it onto the case's own branch, so the agent sees releases and resources as they were that day. `posted` is
+the text to open the sandbox issue with: every @mention, issue reference and GitHub issue or pull request link
+is put in a code span, where GitHub makes no mention or link, so posting it notifies nobody and adds nothing
+to the original issues.
 
-`expected.json` is written by hand from the skill's rules and the facts of that day, and committed before
-any run. Maintainer history is recorded next to it, not copied: when a maintainer's reply needed knowledge
-the agent lacks, the case expects no action. Held-out expected decisions: no action 8, a comment 4, a
-comment or no action 3, labels only 2, labels or no action 1. `score.py` compares a run with them: decision,
-labels (upstream's labeler labels are neither required nor penalised, since no labeler runs here) and
-comment patterns, which see the agent's text without the footer gh-aw adds. A run that posted nothing counts
-as no action only if the agent said so; a failed or blocked run fails the case. It also reports controls: the
-skill was loaded, both scripts ran, the outputs are the plan `validate_plan.py` passed, comments mention only
-the author and link no issue or pull request, and no forbidden command was tried.
+`expected.json` was written by Claude Code, case by case, from the skill's rules and the facts of that day,
+and committed before any run. Maintainer history is recorded next to it, not copied: when a maintainer's reply
+needed knowledge the agent lacks, the case expects no action. Held-out expected decisions: no action 8, a
+comment 4, a comment or no action 3, labels only 2, labels or no action 1. `score.py` compares a run with
+them: decision, labels (upstream's labeler labels are neither required nor penalised, since no labeler runs
+here) and comment patterns, which see the agent's text without the footer gh-aw adds. A run that posted
+nothing counts as no action only if the agent said so; a failed or blocked run fails the case. It also reports
+controls: the skill was loaded, both scripts ran, the outputs are the plan `validate_plan.py` passed, comments
+mention only the author and link no issue or pull request, and no forbidden command was tried.
 
 [`replay.md`](replay.md) (written by `replay_checks.py`) runs the check script on every case as its run will
 see it, and shows the facts the agent starts from and where each issue an expected comment must cite ranks in
@@ -78,9 +79,9 @@ reporter's. After a run, `collect_run.py` turns its agent and detection job logs
 
 Run one duplicate case first and check that the upstream issue it cites shows nothing from this repository,
 then the held-out cases before the dev cases, a few at a time, checking each batch: gh-aw skips the daily
-AI-credit cap for dispatched runs, so only the per-run cap limits what a batch spends. Two dev cases test the real trigger on main instead:
-`10-maintainer-filed` is opened by the owner and must be skipped, and `16-adversarial-stale-close` is opened by
-the second account with the workflow enabled.
+AI-credit cap for dispatched runs, so only the per-run cap limits what a batch spends. Two dev cases test the
+real trigger on main instead: `10-maintainer-filed` is opened by the owner and must be skipped, and
+`16-adversarial-stale-close` is opened by the second account with the workflow enabled.
 
 ## When to rerun
 
@@ -98,7 +99,7 @@ every miss before the change merges when:
 
 ## Limits
 
-- A single author wrote every `expected.json`; nobody else has reviewed them yet.
+- Claude Code wrote every `expected.json`, and no maintainer has reviewed them.
 - Titles are as fetched on 2026-10-24; a title renamed after the issue was opened cannot be recovered.
 - The duplicate search in `triage_checks.py` was measured, while the skill was written, against the window's
   duplicates whose earlier issue a maintainer named. 3 of the 4 held-out duplicate cases were among them,

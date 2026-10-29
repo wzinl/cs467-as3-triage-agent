@@ -54,3 +54,6 @@ Each new check was shown to fail on a planted error before it was trusted:
   A branch rule against force-pushes to `main` needs the owner to set it; the governance tests check it.
 - `CODEOWNERS` review, once the agent's configuration adds it, needs a branch rule to have any effect,
   and with one owner it cannot require a second person.
+
+Since 2026-10-29 both are settled as far as they can be: a rule on `main` blocks force-pushes and deletion, and
+`.github/CODEOWNERS` requests the owner's review but cannot require it (`verification/audit-agent-configuration.md`).

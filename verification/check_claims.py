@@ -184,7 +184,7 @@ CLAIMS = [
     (C, "Its prompts, tool calls and outputs are kept as artifacts of each workflow run",
      [(LOCK, "name: Upload agent artifacts"), (LOCK, "/tmp/gh-aw/aw-prompts/prompt.txt"),
       (LOCK, "/tmp/gh-aw/agent-session.jsonl"), (LOCK, "/tmp/gh-aw/agent_output.json")]),
-    (C, "Its model is pinned in the workflow", [(LOCK, "ANTHROPIC_MODEL: claude-sonnet-5-5")]),
+    (C, "Its model is named in the workflow (`claude-sonnet-5-5`)", [(LOCK, "ANTHROPIC_MODEL: claude-sonnet-5-5")]),
     (WF, "Maintainers' own issues are skipped below",
      [(LOCK, """!contains(fromJSON('["OWNER","MEMBER","COLLABORATOR"]'), github.event.issue.author_association)""")]),
     (WF, "Kill switch: adding this label to any issue in the repository stops every new run.",
@@ -259,7 +259,7 @@ CLAIMS = [
     (D, "| Logs | Actions logs and artifacts per run, 90 days;", [(GOV, "artifacts for 90 days")]),
     (D, "`evals/golden/`: 38 cases,", [(CM, "held-out: 18 cases"), (CM, "dev: 20 cases"), (CM, "38/38")]),
     (D, "running all 38 golden cases live", [(CM, "38/38")]),
-    (D, "merged PRs #43 and #49", [(AD, "| PRs #43 and #49 were merged by `wzinl` |")]),
+    (D, "merged every pull request from #43 on", [(AD, "| PRs #43, #49 and #50 were merged by `wzinl` |")]),
 ]
 
 NUM = re.compile(r"(?<![\w./:§-])\d[\d,.]*(?![\w/:-])")

@@ -41,6 +41,11 @@ shell tools, edit files under `/tmp`, then add labels, post one comment or repor
 
 ## Governance
 
+The controls follow from two facts: the agent reads text anyone can write, and what it posts is public. So an
+injected instruction must be unable to do more than one comment or a few labels on one issue (read-only token,
+safe outputs, no network), a wrong output must be easy to spot and undo (bot identity, the footer, no
+decisions), and a flood of issues must not run up cost (rate limit, credit caps, time and turn limits).
+
 Settings are in `.github/workflows/issue-triage.md` unless another file is named.
 
 | Control | How it is implemented | Status |
@@ -132,11 +137,11 @@ committing under my name; keeping the AI's work schedule out of the repository; 
 kill-switch test is recorded.
 
 **What I did:** I added the API key secret, set up the second account and the rule on `main`, ran the
-kill-switch steps from my phone, and merged PRs #43 and #49 (I reviewed #43 in VS Code first).
+kill-switch steps from my phone, and merged every pull request from #43 on (I reviewed #43 in VS Code first).
 
 **What is AI-generated:** Claude Code wrote the code, the workflow, the skill, the docs (this file included)
-and every expected outcome. It ran every test, including opening the test issues from my accounts, and read
-every result.
+and every expected outcome. It ran every test but the phone steps, including opening the test issues from my
+accounts, and read every result.
 
 **How it was verified:** `verification/check_claims.py` checks every number in the docs against the data,
 the code or the compiled workflow on every push, and the `verification/audit-*.md` ledgers record the claims

@@ -44,7 +44,8 @@ The rules below add what applies here, both to people who use AI tools and to th
 - To stop it at once, add the label `triage-agent-paused` to any issue. New runs are skipped while any issue
   carries it, and the workflow stops by itself on the date in its lock file (`stop-after`). To stop a run
   already going, cancel it in the Actions tab; disabling the workflow there stops every trigger.
-- Its prompts, tool calls and outputs are kept as artifacts of each workflow run. Its model is pinned in the workflow.
+- Its prompts, tool calls and outputs are kept as artifacts of each workflow run. Its model is named in the
+  workflow (`claude-sonnet-5-5`), which has no dated version to pin.
 
 ## Reporting a security issue
 
