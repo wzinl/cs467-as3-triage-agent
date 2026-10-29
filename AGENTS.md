@@ -4,7 +4,8 @@ This repository is a sandbox for a first-pass issue-triage agent for
 [hashicorp/terraform-provider-aws](https://github.com/hashicorp/terraform-provider-aws). It holds a pinned
 copy of the upstream files a triage agent reads, the need analysis, the agent (a GitHub Agentic Workflows
 workflow that runs Claude Code with a skill), the golden cases it is evaluated on, and the checks behind every
-claim. No golden case has been run yet. Nothing here acts on the upstream repository.
+claim. Every golden case was run once, on 2026-10-28 (`evals/golden/results-2026-10-28.md`). Nothing here acts
+on the upstream repository.
 
 ## Commands
 
@@ -21,6 +22,7 @@ python3 -m unittest discover -s sandbox                   # label parser tests
 python3 -m unittest discover -s .claude/skills/issue-triage/tests   # triage script tests
 python3 -m unittest discover -s evals/golden              # golden-case and scorer tests
 python3 evals/golden/score.py 2026-10-28 > /dev/null    # rescore the live run; must change nothing
+sha256sum -c evals/golden/tested-config.sha256 --quiet   # the agent is configured as the golden set last ran it
 python3 evals/golden/select_cases.py > /dev/null          # redraw the held-out cases; must change nothing
 git init -q ../upstream && git -C ../upstream fetch -q --filter=tree:0 https://github.com/hashicorp/terraform-provider-aws main
 python3 evals/golden/build_cases.py ../upstream > /dev/null   # rebuild every case input; must change nothing
@@ -89,7 +91,8 @@ Each is taken from the imported files, which are the reference when this list an
 | Do not edit `.github/workflows/issue-triage.lock.yml` by hand; edit the `.md` and recompile | CI: recompiles with gh-aw v0.93.4 and fails on any difference |
 | The agent's comments mention only the issue author, link only allow-listed domains, and never reference an issue in another repository (which would show up in that issue's timeline) | `validate_plan.py`, then the workflow's safe outputs (`mentions`, `allowed-github-references`, `allowed-domains`) |
 | Do not add a number to a checked doc without registering what backs it | CI: `verification/check_claims.py` |
-| Do not change a case's `expected.json` after the case has been run; add a new case instead | Not enforced yet; the git history shows it |
+| Do not change a case's `expected.json` after the case has been run; add a new case instead | CI: rescoring the live run must leave its results unchanged, so an edit that changes a score fails; any other edit shows only in the history |
+| Do not change the lock file, the skill or this file without rerunning the golden set | CI: `evals/golden/tested-config.sha256` (`evals/golden/README.md`, "When to rerun") |
 | Do not run anything that writes to a hashicorp repository | `sandbox/sync_labels.py` refuses one; Actions' token can only write to this repository |
 | Do not commit credentials; the API key lives in the repository's Actions secrets | CI: a search for Anthropic and GitHub token formats |
-| Do not delete labels, issues or history | `sandbox/sync_labels.py` has no delete call; not otherwise enforced yet |
+| Do not delete labels, issues or history | `sandbox/sync_labels.py` has no delete call; a rule on `main` blocks force-pushes and deleting it; labels and issues are not otherwise protected |

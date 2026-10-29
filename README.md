@@ -3,8 +3,8 @@
 This repository configures an existing AI agent, Claude Code run by GitHub Agentic Workflows, to give
 new issues on [hashicorp/terraform-provider-aws](https://github.com/hashicorp/terraform-provider-aws) a
 first-pass triage. It is a sandbox: the agent is never deployed to the upstream repository. It holds the
-need analysis, the sandbox base, the agent and its golden cases; no golden case has been run yet. Start with
-[`AGENTS.md`](AGENTS.md) for the layout, the commands and the rules.
+need analysis, the sandbox base, the agent, its golden cases and their results, and the governance tests.
+Start with [`AGENTS.md`](AGENTS.md) for the layout, the commands and the rules.
 
 ## Why issue triage
 
@@ -26,6 +26,8 @@ median of 2.84 days for that removal, against 0.66 days otherwise. Only 17% got 
 | 2026-10-25 | Pinned copy of the upstream files a triage agent reads (`sandbox/`), upstream's labels, `AGENTS.md` |
 | 2026-10-25 | The agent (`.github/workflows/issue-triage.md`, `.claude/skills/issue-triage/`), `CONTRIBUTING.md`, `.github/CODEOWNERS` |
 | 2026-10-25 | Golden cases (`evals/golden/`): 18 held-out and 20 development cases, each with its expected outcome |
+| 2026-10-28 | One live run of every golden case (`evals/golden/results-2026-10-28.md`) |
+| 2026-10-29 | Governance tests (`verification/audit-governance.md`) and the drift check (`evals/golden/tested-config.sha256`) |
 
 Every number in this file, `AGENTS.md`, `CONTRIBUTING.md`, `evals/metrics/README.md` and
 `evals/golden/README.md` is checked against the generated outputs, the data or the code by

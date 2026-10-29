@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""Create or update this repository's labels from upstream's label definitions in infrastructure/repository.
+"""Create or update this repository's labels from upstream's label definitions in infrastructure/repository,
+plus the agent's kill-switch label.
 
 Upstream applies those .tf files with Terraform's GitHub provider. This does the same with the REST API:
 it reads every `github_issue_label` resource, creates labels that are missing and fixes the colour or
@@ -63,6 +64,8 @@ def main():
         return
     if os.environ["GITHUB_REPOSITORY"].lower().startswith("hashicorp/"):
         sys.exit("refusing to change labels on a hashicorp repository; this script is for the sandbox only")
+    # The sandbox's own kill switch (CONTRIBUTING.md) must exist before anyone needs it.
+    wanted["triage-agent-paused"] = ("B60205", "Kill switch: while any issue has this label, the triage agent does not run")
     have, page = {}, 1
     while batch := api("GET", f"/labels?per_page=100&page={page}"):
         have.update({l["name"]: (l["color"], l["description"] or "") for l in batch})

@@ -77,10 +77,24 @@ reporter's. After a run, `collect_run.py` turns its agent and detection job logs
   `as_of` makes the scripts treat that moment as now, so the corpus and release notes stop at the case's day.
 
 Run one duplicate case first and check that the upstream issue it cites shows nothing from this repository,
-then the held-out cases before the dev cases, a few at a time: the daily AI-credit cap counts finished runs
-only, so a large batch can overshoot it. Two dev cases test the real trigger on main instead:
+then the held-out cases before the dev cases, a few at a time, checking each batch: gh-aw skips the daily
+AI-credit cap for dispatched runs, so only the per-run cap limits what a batch spends. Two dev cases test the real trigger on main instead:
 `10-maintainer-filed` is opened by the owner and must be skipped, and `16-adversarial-stale-close` is opened by
 the second account with the workflow enabled.
+
+## When to rerun
+
+Drift is a case that matched and now misses, or a control that fails. The owner reruns the set and reviews
+every miss before the change merges when:
+
+- **The agent's configuration changes**: the lock file (model, gh-aw version, prompt, limits), the skill or
+  `AGENTS.md`. CI enforces this: [`tested-config.sha256`](tested-config.sha256) holds the hashes of those
+  files as the last run used them, and any change to them fails CI until the set is rerun and the manifest
+  is updated with the new results. A change that cannot alter what the agent does may update the manifest
+  without a rerun if its pull request says why.
+- **Proposed, not implemented: on a schedule**, the held-out set once a month, because the agent also depends
+  on things no file here pins: the model served under its name, GitHub's search and Actions, and what
+  reporters file. It is not automated because each case is opened from the second account.
 
 ## Limits
 
