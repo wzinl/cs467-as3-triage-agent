@@ -84,9 +84,12 @@ runtime actions are pinned to the commit of the `v0.93.4` tag, and runs the 17 s
   never added here.
 - "Latest release" means the newest entry in the pinned `CHANGELOG.md` (6.70.0); upstream may have
   released since.
-- The kill switch relies on GitHub search, which can take a moment to index a new label. Not timed.
-- `CODEOWNERS` has no effect without a branch rule, and with one owner it cannot require a second person.
+- The kill switch relies on GitHub search. On 2026-10-29 it saw a new label within 4 seconds, and its removal
+  within 9 (`verification/audit-governance.md`), but GitHub does not promise a delay.
+- Since 2026-10-29 a rule on `main` blocks force-pushes and deletion, but no rule requires a review, so
+  `CODEOWNERS` only requests one; with one owner it cannot require a second person.
 - github.com is an allowed domain, so the safe outputs pass a full upstream issue URL, which would add a
   backlink to that issue; only `owner/repo#N` references are escaped. `validate_plan.py` rejects such links,
   and the scorer's link control reports any that get through.
-- The daily AI-credit cap counts finished runs, so runs started together can go past it.
+- The daily AI-credit cap counts finished runs, so runs started together can go past it, and it does not
+  apply to dispatched runs at all (`verification/audit-governance.md`).

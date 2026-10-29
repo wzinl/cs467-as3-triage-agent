@@ -8,6 +8,7 @@ on:
 
 permissions:
   contents: read
+  issues: read
 
 jobs:
   claims:
@@ -54,6 +55,9 @@ jobs:
           python3 evals/golden/score.py 2026-10-28 > /dev/null
           git diff --exit-code -- evals/golden/results-2026-10-28.md
 
+      - name: The agent is configured as the golden set last ran it
+        run: sha256sum -c evals/golden/tested-config.sha256 --quiet
+
       - name: The held-out draw, every case input and the check replay regenerate unchanged from the data and upstream's history
         run: |
           git init -q ../upstream && git -C ../upstream fetch -q --filter=tree:0 https://github.com/hashicorp/terraform-provider-aws main
@@ -77,6 +81,11 @@ jobs:
         run: |
           gh aw compile issue-triage
           test -z "$(git status --porcelain)" || { git status --short; git diff | head -40; exit 1; }
+
+      - name: The kill-switch label exists, so the agent can be paused at once
+        run: gh api "repos/$GITHUB_REPOSITORY/labels/triage-agent-paused" --silent
+        env:
+          GH_TOKEN: ${{ github.token }}
 
       - name: No credentials are committed
         run: "! git grep -nIE 'sk-ant-[A-Za-z0-9_-]{20,}|gh[pousr]_[A-Za-z0-9]{36}|github_pat_[A-Za-z0-9_]{22,}'"
