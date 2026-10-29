@@ -56,9 +56,9 @@ Settings are in `.github/workflows/issue-triage.md` unless another file is named
 | Safe outputs | 1 comment, 3 allow-listed labels, 1 mention, allowed domains, own-repo references; threat check fails closed | Tested: 37 live runs |
 | Human approval | None before posting (below); config changes go through `.github/CODEOWNERS` and a rule on `main` | Required review proposed |
 | Budgets | 3 runs per reporter an hour, 10 minutes, 30 turns, 100 AI credits a run, 2,000 a day, 90 days | Tested, but not the last two |
-| Audit trail | Actions logs and artifacts: prompt, tool calls, outputs, verdict, model, credits; each comment links its run | Read for every result |
+| Audit trail | Actions logs and artifacts: trigger and actor, prompt, tool calls, outputs, verdict, model, credits; each comment links its run | Read for every result |
 | Kill switch | Label `triage-agent-paused` on any issue (`skip-if-match`); cancel a run or disable the workflow in Actions | Tested from a phone |
-| Drift | CI fails when the lock, skill or `AGENTS.md` change without a rerun (`evals/golden/tested-config.sha256`) | In CI; monthly rerun proposed |
+| Drift | CI fails when the lock, skill or `AGENTS.md` change without a rerun (`evals/golden/tested-config.sha256`); the owner reviews every miss | In CI; monthly rerun proposed |
 | Accountability | `wzinl`, owner and only code owner, changes, disables and answers for the agent (`.github/CODEOWNERS`) | Implemented |
 
 Approval before posting is left out on purpose: a label or comment is a suggestion a maintainer can undo,
