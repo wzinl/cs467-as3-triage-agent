@@ -259,7 +259,7 @@ CLAIMS = [
     (D, "| Logs | Actions logs and artifacts per run, 90 days;", [(GOV, "artifacts for 90 days")]),
     (D, "`evals/golden/`: 38 cases,", [(CM, "held-out: 18 cases"), (CM, "dev: 20 cases"), (CM, "38/38")]),
     (D, "running all 38 golden cases live", [(CM, "38/38")]),
-    (D, "merged every pull request from #43 on", [(AD, "| PRs #43, #49 and #50 were merged by `wzinl` |")]),
+    (D, "merged every pull request from #43 on", [(AD, "| PRs #43, #49, #50 and #51 were merged by `wzinl` |")]),
 ]
 
 NUM = re.compile(r"(?<![\w./:§-])\d[\d,.]*(?![\w/:-])")

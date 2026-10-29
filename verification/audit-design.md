@@ -16,7 +16,7 @@ substring cannot check.
 | Tools | The lock's `--allowed-tools` list: read-only shell tools (`cat`, `grep`, `head`, `ls` and the like), the skill's two scripts, `Edit(//tmp/**)`, Read, Glob, Grep, Skill, Task, TodoWrite and the safe-outputs tools; `--disallowed-tools` names WebFetch, WebSearch, Write, MultiEdit and NotebookEdit |
 | Upstream runs PR workflows under `pull_request_target` | `verification/audit-need-analysis.md` |
 | 300 issues: about 43 a day, about 130 runs a day under the cap, about $45 | Arithmetic: 300 / 7 = 42.9; 2,000 credits / 15.2 credits a case ($5.64 / 37 runs) = 131; 300 × $0.15 = $45 |
-| PRs #43, #49 and #50 were merged by `wzinl` | GitHub's pull request records, read 2026-10-29: `merged_by` is `wzinl` for each; #44 to #48 are issues, so these are every pull request from #43 on |
+| PRs #43, #49, #50 and #51 were merged by `wzinl` | GitHub's pull request records, read 2026-10-29: `merged_by` is `wzinl` for each; #44 to #48 are issues, so these are every pull request from #43 on before #52, which carries this row |
 | Claude Code opened the test issues from the owner's accounts | Every reply in `evals/golden/results-2026-10-28.md` thanks `@zzzinn`, the second account; PR #43's AI disclosure says Claude Code opened the case issues on the owner's machine |
 | What the owner decided and did | The owner's own account, given on 2026-10-29 for the AI-use statement |
 
