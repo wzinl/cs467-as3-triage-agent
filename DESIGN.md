@@ -126,10 +126,10 @@ against a cap of 1), and that the kill-switch label did not exist yet.
 
 ## AI-use statement
 
-**What I decided:** the target repository, the workflow to automate and the process the work followed;
-keeping Claude and running all 38 golden cases live; switching the agent to `claude-sonnet-5-5`; committing
-under my name; keeping the AI's work schedule out of the repository; and how the repeated kill-switch test
-is recorded.
+**What I decided:** the target repository, the workflow to automate, the agent's flow and the process the
+work followed; keeping Claude and running all 38 golden cases live; switching the agent to `claude-sonnet-5-5`;
+committing under my name; keeping the AI's work schedule out of the repository; and how the repeated
+kill-switch test is recorded.
 
 **What I did:** I added the API key secret, set up the second account and the rule on `main`, ran the
 kill-switch steps from my phone, and merged PRs #43 and #49 (I reviewed #43 in VS Code first).
