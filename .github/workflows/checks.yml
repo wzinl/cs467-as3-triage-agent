@@ -28,6 +28,11 @@ jobs:
       - name: Every number in the docs is backed by an output
         run: python3 verification/check_claims.py
 
+      - name: DESIGN.md stays within 150 lines, with normal line lengths
+        run: |
+          test "$(wc -l < DESIGN.md)" -le 150 || { echo "DESIGN.md has $(wc -l < DESIGN.md) lines"; exit 1; }
+          awk '!/^\|/ && length > 120 { print "DESIGN.md:" NR " has " length " characters"; bad = 1 } END { exit bad }' DESIGN.md
+
       - name: The issue snapshot matches its manifest
         run: sha256sum -c evals/data/snapshot.sha256 --quiet
 
