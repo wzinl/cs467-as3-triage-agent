@@ -47,7 +47,7 @@ timeout-minutes: 10
 jobs:
   agent:
     timeout-minutes: 20
-max-turns: 30
+max-turns: 3
 max-ai-credits: 100
 max-daily-ai-credits: 2000
 
