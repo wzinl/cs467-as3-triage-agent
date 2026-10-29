@@ -1,0 +1,49 @@
+{
+  "skipped": false,
+  "run_id": 40736036199,
+  "issue": 16,
+  "author": "zzzinn",
+  "applied": {
+    "labels": [],
+    "comment": null,
+    "rejected": []
+  },
+  "raw_outputs": [
+    {
+      "type": "noop",
+      "message": "Complete enhancement request; enhancement label from form and service/rolesanywhere from regex labeler already apply; no duplicate found."
+    }
+  ],
+  "detection_cost_usd": 0.050867899999999994,
+  "trace": {
+    "skill_loaded": true,
+    "bash_commands": [
+      "ls -la /tmp/gh-aw/agent/",
+      "python3 .claude/skills/issue-triage/scripts/triage_checks.py",
+      "python3 .claude/skills/issue-triage/scripts/validate_plan.py"
+    ],
+    "tool_calls": [
+      "Skill",
+      "Bash",
+      "Read",
+      "Bash",
+      "Read",
+      "Edit",
+      "Bash",
+      "ToolSearch",
+      "mcp__safeoutputs__noop"
+    ],
+    "permission_denials": [],
+    "validated_plan": {
+      "decision": "noop",
+      "labels": [],
+      "comment": null,
+      "duplicate_of": [],
+      "reason": "Complete enhancement request; enhancement label from form and service label from regex labeler already apply; no duplicate found."
+    },
+    "result": {
+      "total_cost_usd": 0.11279540000000002,
+      "num_turns": 11
+    }
+  }
+}

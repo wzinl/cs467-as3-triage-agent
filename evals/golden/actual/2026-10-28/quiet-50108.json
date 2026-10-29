@@ -1,0 +1,47 @@
+{
+  "skipped": false,
+  "run_id": 40736046449,
+  "issue": 18,
+  "author": "zzzinn",
+  "applied": {
+    "labels": [],
+    "comment": null,
+    "rejected": []
+  },
+  "raw_outputs": [
+    {
+      "type": "noop",
+      "message": "Issue 18 is a complete enhancement request. The form already added `enhancement`, and the regex labeler will add `service/datazone`. The similar earlier issues are about `global_parameters`, not `environment_role_permission_boundary`, so none is a duplicate. No labels or comment needed."
+    }
+  ],
+  "detection_cost_usd": 0.051408300000000004,
+  "trace": {
+    "skill_loaded": true,
+    "bash_commands": [
+      "python3 .claude/skills/issue-triage/scripts/triage_checks.py",
+      "python3 .claude/skills/issue-triage/scripts/validate_plan.py"
+    ],
+    "tool_calls": [
+      "Skill",
+      "ToolSearch",
+      "Read",
+      "Bash",
+      "Read",
+      "Edit",
+      "Bash",
+      "mcp__safeoutputs__noop"
+    ],
+    "permission_denials": [],
+    "validated_plan": {
+      "decision": "noop",
+      "labels": [],
+      "comment": null,
+      "duplicate_of": [],
+      "reason": "Complete enhancement request; enhancement label from form, service/datazone from regex labeler; similar issues concern global_parameters, not this argument."
+    },
+    "result": {
+      "total_cost_usd": 0.08658420000000001,
+      "num_turns": 10
+    }
+  }
+}

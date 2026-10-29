@@ -1,0 +1,47 @@
+{
+  "skipped": false,
+  "run_id": 40734875143,
+  "issue": 15,
+  "author": "zzzinn",
+  "applied": {
+    "labels": [],
+    "comment": null,
+    "rejected": []
+  },
+  "raw_outputs": [
+    {
+      "type": "noop",
+      "message": "Complete bug report on the current provider version. The form already added `bug`, the regex labeler adds `service/athena`, and no similar earlier issue is a true duplicate. Nothing to add."
+    }
+  ],
+  "detection_cost_usd": 0.08625920000000001,
+  "trace": {
+    "skill_loaded": true,
+    "bash_commands": [
+      "python3 .claude/skills/issue-triage/scripts/triage_checks.py",
+      "python3 .claude/skills/issue-triage/scripts/validate_plan.py"
+    ],
+    "tool_calls": [
+      "Skill",
+      "ToolSearch",
+      "Read",
+      "Bash",
+      "Read",
+      "Edit",
+      "Bash",
+      "mcp__safeoutputs__noop"
+    ],
+    "permission_denials": [],
+    "validated_plan": {
+      "decision": "noop",
+      "labels": [],
+      "comment": null,
+      "duplicate_of": [],
+      "reason": "Complete bug report on current version; bug label from form, service/athena from regex labeler, no true duplicate."
+    },
+    "result": {
+      "total_cost_usd": 0.11918450000000001,
+      "num_turns": 10
+    }
+  }
+}

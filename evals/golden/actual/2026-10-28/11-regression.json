@@ -1,0 +1,53 @@
+{
+  "skipped": false,
+  "run_id": 40737543867,
+  "issue": 32,
+  "author": "zzzinn",
+  "applied": {
+    "labels": [
+      "regression"
+    ],
+    "comment": null,
+    "rejected": []
+  },
+  "raw_outputs": [
+    {
+      "type": "add_labels",
+      "labels": [
+        "regression"
+      ]
+    }
+  ],
+  "detection_cost_usd": 0.050930600000000006,
+  "trace": {
+    "skill_loaded": true,
+    "bash_commands": [
+      "python3 .claude/skills/issue-triage/scripts/triage_checks.py",
+      "python3 .claude/skills/issue-triage/scripts/validate_plan.py"
+    ],
+    "tool_calls": [
+      "Skill",
+      "ToolSearch",
+      "Read",
+      "Bash",
+      "Read",
+      "Edit",
+      "Bash",
+      "mcp__safeoutputs__add_labels"
+    ],
+    "permission_denials": [],
+    "validated_plan": {
+      "decision": "labels",
+      "labels": [
+        "regression"
+      ],
+      "comment": null,
+      "duplicate_of": [],
+      "reason": "Reporter says v6.56.0 works and v6.57.0 fails; bug and service/iam already applied; complete report, no duplicate."
+    },
+    "result": {
+      "total_cost_usd": 0.0846302,
+      "num_turns": 10
+    }
+  }
+}

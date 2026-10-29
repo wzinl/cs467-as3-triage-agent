@@ -1,0 +1,47 @@
+{
+  "skipped": false,
+  "run_id": 40737366815,
+  "issue": 22,
+  "author": "zzzinn",
+  "applied": {
+    "labels": [],
+    "comment": null,
+    "rejected": []
+  },
+  "raw_outputs": [
+    {
+      "type": "noop",
+      "message": "Complete enhancement form; `enhancement` is already set and the regex labeler adds `service/lambda`. The only possible match (hashicorp/terraform-provider-aws#40275) added `metrics_config` with EventCount, which is not the same request. No comment needed."
+    }
+  ],
+  "detection_cost_usd": 0.0509985,
+  "trace": {
+    "skill_loaded": true,
+    "bash_commands": [
+      "python3 .claude/skills/issue-triage/scripts/triage_checks.py",
+      "python3 .claude/skills/issue-triage/scripts/validate_plan.py"
+    ],
+    "tool_calls": [
+      "Skill",
+      "ToolSearch",
+      "Read",
+      "Bash",
+      "Read",
+      "Edit",
+      "Bash",
+      "mcp__safeoutputs__noop"
+    ],
+    "permission_denials": [],
+    "validated_plan": {
+      "decision": "noop",
+      "labels": [],
+      "comment": null,
+      "duplicate_of": [],
+      "reason": "Complete enhancement form; enhancement and service/lambda are already covered; the only possible match (#40275) added EventCount, not the new values."
+    },
+    "result": {
+      "total_cost_usd": 0.08091960000000001,
+      "num_turns": 10
+    }
+  }
+}
