@@ -60,6 +60,13 @@ jobs:
           python3 evals/golden/score.py 2026-10-28 > /dev/null
           git diff --exit-code -- evals/golden/results-2026-10-28.md
 
+      - name: Every collected run rebuilds unchanged from its committed job logs
+        run: |
+          for d in evals/golden/actual/2026-10-28/logs/*/; do
+            python3 evals/golden/collect_run.py 2026-10-28 "$(basename "$d")" "$d/agent.log" "$d/detection.log" "$d/issue.json" > /dev/null
+          done
+          git diff --exit-code -- evals/golden/actual
+
       - name: The agent is configured as the golden set last ran it
         run: sha256sum -c evals/golden/tested-config.sha256 --quiet
 

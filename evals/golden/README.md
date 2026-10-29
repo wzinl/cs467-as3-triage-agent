@@ -65,7 +65,9 @@ the duplicate search.
 
 A run needs the sandbox owner and a second account that is not a collaborator, so the issue is a
 reporter's. After a run, `collect_run.py` turns its agent and detection job logs and the issue into
-`actual/<run>/<case>.json` for `score.py`.
+`actual/<run>/<case>.json` for `score.py`. For the 2026-10-28 run those inputs, the full job logs and the issue
+as it stood after the run, are kept in `actual/2026-10-28/logs/<case>/`, and CI rebuilds every collected run
+from them.
 
 - On a clean, current main: `python3 evals/golden/case_branch.py <case>`, then `git push -u origin eval/<case>`.
 - Disable the Issue triage workflow in the Actions tab, so that opening the issue starts nothing. The
@@ -99,7 +101,7 @@ every miss before the change merges when:
 
 ## Limits
 
-- Claude Code wrote every `expected.json`, and no maintainer has reviewed them.
+- Claude Code wrote every `expected.json`; the owner reviewed them, but no upstream maintainer has.
 - Titles are as fetched on 2026-10-24; a title renamed after the issue was opened cannot be recovered.
 - The duplicate search in `triage_checks.py` was measured, while the skill was written, against the window's
   duplicates whose earlier issue a maintainer named. 3 of the 4 held-out duplicate cases were among them,

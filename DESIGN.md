@@ -116,7 +116,7 @@ against a cap of 1), and that the kill-switch label did not exist yet.
 | MCP servers | gh-aw's `safeoutputs` only; the GitHub MCP server is off |
 | Permissions | Agent `contents: read`, `issues: read`; safe-outputs job `issues: write`; the API key stays in gh-aw's proxy |
 | Data sources | The issue (read in a setup step), a snapshot of upstream issues (`evals/data/`), the pinned upstream files |
-| Logs | Actions logs and artifacts per run, 90 days; golden runs kept in `evals/golden/actual/` |
+| Logs | Actions logs and artifacts per run, 90 days; golden runs and their full job logs kept in `evals/golden/actual/` |
 | Evaluations | `evals/golden/`: 38 cases, results, rescoring and the drift check in CI |
 | Responsible humans | Wai Zin Lin (`wzinl`), owner of this sandbox; upstream, its maintainers would own it |
 
@@ -124,7 +124,7 @@ against a cap of 1), and that the kill-switch label did not exist yet.
 
 - The skill sets no label confidence, so gh-aw may drop a correct label; fixing it means rerunning the set.
 - The duplicate search shows five candidates, and the release check compares resources, not symptoms.
-- Claude Code wrote every expected outcome, and no maintainer has reviewed them.
+- Claude Code wrote every expected outcome; the owner reviewed them, but no upstream maintainer has.
 - The monthly rerun is not automated, because each case is opened from a second account by hand.
 - The daily cap skips manual runs, and the kill-switch label relies on GitHub search, which promises no delay.
 - With one maintainer, no rule can require a second reviewer for configuration changes.
@@ -143,7 +143,8 @@ kill-switch steps from my phone, and merged every pull request from #43 on (I re
 and every expected outcome. It ran every test but the phone steps, including opening the test issues from my
 accounts, and read every result.
 
-**How it was verified:** `verification/check_claims.py` checks every number in the docs against the data,
-the code or the compiled workflow on every push, and the `verification/audit-*.md` ledgers record the claims
-a script cannot check, with their evidence. The agent itself was checked by the live runs and the governance
-tests above. The expected outcomes were fixed before the live run, and no maintainer has reviewed them.
+**How it was verified:** I reviewed the evaluation code, the workflow and the golden set.
+`verification/check_claims.py` checks every number in the docs against the data, the code or the compiled
+workflow on every push, and the `verification/audit-*.md` ledgers record the claims a script cannot check, with
+their evidence. The agent itself was checked by the live runs and the governance tests above. The expected
+outcomes were fixed before the live run, and no upstream maintainer has reviewed them.
