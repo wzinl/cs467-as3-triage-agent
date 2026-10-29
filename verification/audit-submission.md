@@ -52,6 +52,18 @@ under "Found and fixed".
 6. `verification/audit-sandbox.md` still listed the branch rule and `CODEOWNERS` as open; both exist since
    2026-10-29.
 
+## Second check, on `33574f0` (the merge of PR #51)
+
+A fresh clone of the merge passed every check above again, and CI passed on it
+([run 40846222401](https://github.com/wzinl/cs467-as3-triage-agent/actions/runs/40846222401)). The repository is
+public, the rule on `main` is in force, all three workflows are enabled, and no issue carries the kill-switch
+label. Reading the brief clause by clause against the final files found two gaps in the governance table:
+
+7. Drift did not say who reviews which outputs when the set is rerun (only question 2 did). The row now says
+   the owner reviews every miss.
+8. The audit trail did not name the trigger, which the brief lists first. Each run records its event and who
+   caused it; the row and `verification/audit-governance.md` now say so.
+
 ## Not done here
 
 - The submission tag goes on `main` once this change merges.
