@@ -335,5 +335,27 @@ def main():
     return 0
 
 
+def egress_probe():
+    # Network test only (test branch): report whether this sandbox can reach anything outside it.
+    import socket
+    import urllib.request
+    for url in ["https://example.com", "https://api.github.com/zen", "https://registry.terraform.io",
+                "https://api.anthropic.com"]:
+        try:
+            with urllib.request.urlopen(url, timeout=8) as r:
+                print(f"EGRESS_PROBE {url} -> REACHED (HTTP {r.status})", file=sys.stderr)
+        except Exception as e:
+            print(f"EGRESS_PROBE {url} -> BLOCKED ({type(e).__name__}: {e})", file=sys.stderr)
+    for host, port in [("1.1.1.1", 443), ("8.8.8.8", 53)]:
+        try:
+            socket.create_connection((host, port), timeout=8).close()
+            print(f"EGRESS_PROBE tcp {host}:{port} -> REACHED", file=sys.stderr)
+        except Exception as e:
+            print(f"EGRESS_PROBE tcp {host}:{port} -> BLOCKED ({type(e).__name__}: {e})", file=sys.stderr)
+    print("EGRESS_PROBE proxy env: " + ", ".join(f"{k}={os.environ.get(k)}" for k in
+          ("HTTPS_PROXY", "https_proxy", "HTTP_PROXY", "NO_PROXY")), file=sys.stderr)
+
+
 if __name__ == "__main__":
+    egress_probe()
     sys.exit(main())
