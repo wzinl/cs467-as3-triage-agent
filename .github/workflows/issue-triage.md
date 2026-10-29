@@ -43,7 +43,7 @@ engine:
   id: claude
   model: claude-sonnet-5-5
 
-timeout-minutes: 10
+timeout-minutes: 1
 jobs:
   agent:
     timeout-minutes: 20
