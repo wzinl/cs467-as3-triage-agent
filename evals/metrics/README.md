@@ -8,7 +8,7 @@ Yes, on weekends and for a written first reply. Weekday triage is quick, and one
   03:13 to 03:20 UTC (`fetch_meta.json`) by an earlier session. The data has the fields
   `fetch_upstream.py` requests, and that script only sends GraphQL queries, never mutations.
 - **Period:** the 761 issues opened 2026-06-01 to 2026-10-20, a 20-week window. The 609 opened by
-  reporters (author association NONE or CONTRIBUTOR) are the ones the planned agent would run on. Every
+  reporters (author association NONE or CONTRIBUTOR) are the ones the agent runs on. Every
   other issue in the window was opened by a MEMBER or COLLABORATOR.
 - **Backlog:** open issues labelled `needs-triage` on the fetch date (`backlog_needs_triage.json`).
 

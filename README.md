@@ -30,6 +30,7 @@ median of 2.84 days for that removal, against 0.66 days otherwise. Only 17% got 
 | 2026-10-28 | One live run of every golden case (`evals/golden/results-2026-10-28.md`) |
 | 2026-10-29 | Governance tests (`verification/audit-governance.md`) and the drift check (`evals/golden/tested-config.sha256`) |
 | 2026-10-29 | `DESIGN.md`: design justification, governance summary, bill of materials, the five questions |
+| 2026-10-29 | Submission check from a fresh clone, each requirement of the brief mapped to its file (`verification/audit-submission.md`) |
 
 Every number in this file, `AGENTS.md`, `CONTRIBUTING.md`, `DESIGN.md`, `evals/metrics/README.md` and
 `evals/golden/README.md` is checked against the generated outputs, the data or the code by
